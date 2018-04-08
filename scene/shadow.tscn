@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://image/Character/shadow.png" type="Texture" id=1]
+
+[node name="shadow" type="Sprite"]
+
+self_modulate = Color( 1, 1, 1, 0.835961 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+
+

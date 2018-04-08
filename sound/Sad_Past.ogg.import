@@ -1,0 +1,14 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sad_Past.ogg-14b15f2127d5208cd2cefc4471e82dd4.oggstr"
+
+[deps]
+
+source_md5="204c0e2882566bbe08a14a20f6769ebf"
+
+[params]
+
+loop=true
+loop_offset=0

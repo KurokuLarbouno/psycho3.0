@@ -1,0 +1,335 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/camera.gd" type="Script" id=1]
+[ext_resource path="res://scene/mirage.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scene/whirl.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/ui.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+
+length = 0.25
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 5, 7 ), Vector2( 5, -10 ), Vector2( -15, -5 ), Vector2( -2, 10 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Camera2D" type="Camera2D" index="0"]
+
+position = Vector2( 100.042, -16.0621 )
+scale = Vector2( 9.02508, 6.3282 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 1 )
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Material", "Smoothing", "Transform", "Visibility", "Z" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Anim_Effect" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/shake = SubResource( 1 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback", "playback" ]
+
+[node name="mirage" parent="." index="1" instance=ExtResource( 2 )]
+
+margin_left = -87.0
+margin_top = -64.0
+margin_right = 20.0
+_sections_unfolded = [ "Material", "Rect", "Visibility" ]
+
+[node name="whirl" parent="." index="2" instance=ExtResource( 3 )]
+
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+margin_left = -151.0
+margin_top = -134.0
+margin_right = 23.0
+margin_bottom = 12.0
+rect_rotation = 0.0167049
+_sections_unfolded = [ "Anchor", "Margin", "Material", "Rect" ]
+
+[node name="UI" type="ParallaxBackground" parent="." index="3"]
+
+editor/display_folded = true
+layer = 100
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+script = ExtResource( 4 )
+_sections_unfolded = [ "Scroll" ]
+
+[node name="Heart" type="Node" parent="UI" index="0"]
+
+editor/display_folded = true
+
+[node name="P1" type="Node" parent="UI/Heart" index="0"]
+
+[node name="P2" type="Node" parent="UI/Heart" index="1"]
+
+[node name="P3" type="Node" parent="UI/Heart" index="2"]
+
+[node name="P4" type="Node" parent="UI/Heart" index="3"]
+
+[node name="label" type="Node" parent="UI" index="1"]
+
+[node name="Kill_P1" type="Label" parent="UI/label" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 22.0
+margin_right = 40.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Kill_P2" type="Label" parent="UI/label" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1226.0
+margin_top = 24.0
+margin_right = 1266.0
+margin_bottom = 38.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Kill_P3" type="Label" parent="UI/label" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 689.0
+margin_right = 48.0
+margin_bottom = 703.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Kill_P4" type="Label" parent="UI/label" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1224.0
+margin_top = 690.0
+margin_right = 1264.0
+margin_bottom = 704.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Name_P1" type="Label" parent="UI/label" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 41.0
+margin_bottom = 16.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Name_P2" type="Label" parent="UI/label" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1226.0
+margin_top = 6.0
+margin_right = 1266.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Name_P3" type="Label" parent="UI/label" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 671.0
+margin_right = 49.0
+margin_bottom = 685.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Name_P4" type="Label" parent="UI/label" index="7"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1224.0
+margin_top = 669.0
+margin_right = 1264.0
+margin_bottom = 683.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="time" type="Label" parent="UI/label" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 575.0
+margin_top = 20.0
+margin_right = 700.0
+margin_bottom = 78.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Heart_Point" type="Node" parent="UI" index="2"]
+
+editor/display_folded = true
+
+[node name="Position0" type="Position2D" parent="UI/Heart_Point" index="0"]
+
+position = Vector2( 65, 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Position1" type="Position2D" parent="UI/Heart_Point" index="1"]
+
+position = Vector2( 1199.66, 10 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Position2" type="Position2D" parent="UI/Heart_Point" index="2"]
+
+position = Vector2( 60.7756, 675.54 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Position3" type="Position2D" parent="UI/Heart_Point" index="3"]
+
+position = Vector2( 1202.42, 675 )
+scale = Vector2( 1, 0.983832 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bullet" type="Node" parent="UI" index="3"]
+
+editor/display_folded = true
+
+[node name="P1" type="Node" parent="UI/Bullet" index="0"]
+
+[node name="P2" type="Node" parent="UI/Bullet" index="1"]
+
+[node name="P3" type="Node" parent="UI/Bullet" index="2"]
+
+[node name="P4" type="Node" parent="UI/Bullet" index="3"]
+
+
