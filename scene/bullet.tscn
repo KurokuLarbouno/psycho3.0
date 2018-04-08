@@ -48,8 +48,8 @@ editor_only = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
-color = Color( 0.945313, 0, 1, 1 )
-energy = 2.0
+color = Color( 0.961121, 0.289063, 1, 1 )
+energy = 1.0
 mode = 0
 range_height = 3.0
 range_z_min = -1024
@@ -81,7 +81,6 @@ collision/safe_margin = 0.08
 "sprite",
 ]]
 
-light_mask = 0
 texture = ExtResource( 3 )
 hframes = 9
 frame = 3
