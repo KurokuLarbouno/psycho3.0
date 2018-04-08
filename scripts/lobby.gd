@@ -7,10 +7,14 @@ var p_order_count = 1	# 玩家暫存編號
 #var p_order = 1			# 玩家自身編號
 var self_kind = ''		# 玩家鎖定後的種類
 var now_kind 			# 玩家目前種類
+#游標
+var arrow = load("res://image/cursor/cursor.png")
+var beam = load("res://image/cursor/beam.png")
 #-------------------------------------------------------
 func _ready():
-	# Called every time the node is added to the scene.
-	# Check if there is a saved file
+	#游標
+	Input.set_custom_mouse_cursor(arrow, 0, Vector2(16,16))
+	Input.set_custom_mouse_cursor(beam, Input.CURSOR_IBEAM, Vector2(16,16))
 	
 	var file = File.new()
 	var data = {}
