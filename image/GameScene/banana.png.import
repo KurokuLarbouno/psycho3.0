@@ -10,7 +10,7 @@ source_file="res://image/GameScene/banana.png"
 source_md5="d5d838bc22c763fa503eb662feb52a76"
 
 dest_files=[ "res://.import/banana.png-14771d79f1cba7264f201da878d19964.stex" ]
-dest_md5="25a153af446764e0e0b0655125da960c"
+dest_md5="c7b92947d0254897314b986d4a537af9"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

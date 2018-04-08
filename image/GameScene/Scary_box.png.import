@@ -10,7 +10,7 @@ source_file="res://image/GameScene/Scary_box.png"
 source_md5="a0a786a7d4eacb68702ca3c1e69e7c29"
 
 dest_files=[ "res://.import/Scary_box.png-e38a08d3f6e371831d359b096a813367.stex" ]
-dest_md5="7f1bb566354578373e6b56b5a9b7e96c"
+dest_md5="9a74741abe2b56839ba9acf48b8b882a"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

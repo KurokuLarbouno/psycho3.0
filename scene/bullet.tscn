@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Bullet.gd" type="Script" id=1]
-[ext_resource path="res://image/Character/bullet_c1.png" type="Texture" id=2]
+[ext_resource path="res://image/light.png" type="Texture" id=2]
+[ext_resource path="res://image/Character/bullet_c1.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -27,7 +28,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[node name="bullet" type="Area2D" index="0"]
+[node name="bullet" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -38,11 +39,38 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 
-[node name="shape" type="CollisionShape2D" parent="." index="0"]
+[node name="Light2D" type="Light2D" parent="." index="0"]
+
+position = Vector2( 1.21824, -0.577969 )
+scale = Vector2( 0.401587, 0.401587 )
+enabled = true
+editor_only = false
+texture = ExtResource( 2 )
+offset = Vector2( 0, 0 )
+texture_scale = 1.0
+color = Color( 0.945313, 0, 1, 1 )
+energy = 2.0
+mode = 0
+range_height = 3.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range" ]
+
+[node name="shape" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
 
-[node name="body" type="KinematicBody2D" parent="." index="1"]
+[node name="body" type="KinematicBody2D" parent="." index="2"]
 
 input_pickable = false
 collision_layer = 1
@@ -53,10 +81,11 @@ collision/safe_margin = 0.08
 "sprite",
 ]]
 
-texture = ExtResource( 2 )
+light_mask = 0
+texture = ExtResource( 3 )
 hframes = 9
 frame = 3
-_sections_unfolded = [ "Animation" ]
+_sections_unfolded = [ "Animation", "Visibility" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body" index="1"]
 

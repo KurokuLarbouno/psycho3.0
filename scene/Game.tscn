@@ -13,8 +13,6 @@ _sections_unfolded = [ "Z" ]
 
 [node name="Roof" parent="." index="0" instance=ExtResource( 2 )]
 
-[node name="Node2D" parent="Roof" index="1"]
-
 editor/display_folded = true
 
 [node name="map" type="Node2D" parent="Roof" index="2" groups=[

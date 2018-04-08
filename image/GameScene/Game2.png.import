@@ -10,7 +10,7 @@ source_file="res://image/GameScene/Game2.png"
 source_md5="14b9bc90b1548467ceb59010b007ebbb"
 
 dest_files=[ "res://.import/Game2.png-a1be1bcfb9e0db15a525609761e07604.stex" ]
-dest_md5="72821a241246880b762fa4078e167167"
+dest_md5="ad69f3dfce5cfa1486123836a315d693"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

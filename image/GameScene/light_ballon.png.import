@@ -10,7 +10,7 @@ source_file="res://image/GameScene/light_ballon.png"
 source_md5="24127340e4324a8f141a19f5122f2a54"
 
 dest_files=[ "res://.import/light_ballon.png-dbb8bbb6440110998b164578c1ff81d9.stex" ]
-dest_md5="f9150113568daffffbd620af43b08e44"
+dest_md5="4b28a25e623abcb12790f8f5ccc0463d"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
