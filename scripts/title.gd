@@ -14,3 +14,9 @@ func _process(delta):
 		once -= 1
 		get_node("Sprite/AnimationPlayer").play("camera")
 	pass
+
+
+func _on_online_pressed():
+	get_node("Sprite/AnimationPlayer").play("camera")
+	once -= 1
+	pass # replace with function body

@@ -17,8 +17,8 @@
 [ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=15]
 [ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=16]
 [ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=17]
-[ext_resource path="res://image/StartEnd/lets_party.png" type="Texture" id=18]
-[ext_resource path="res://image/StartEnd/lets_party_hover.png" type="Texture" id=19]
+[ext_resource path="res://image/StartEnd/letsPartyButtom1.png" type="Texture" id=18]
+[ext_resource path="res://image/StartEnd/letsPartyButtom2.png" type="Texture" id=19]
 [ext_resource path="res://image/StartEnd/startButtom1.png" type="Texture" id=20]
 [ext_resource path="res://image/StartEnd/startButtom2.png" type="Texture" id=21]
 [ext_resource path="res://image/StartEnd/select_focus.png" type="Texture" id=22]
@@ -378,7 +378,6 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Label" type="Label" parent="maps" index="2"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -401,15 +400,14 @@ max_lines_visible = -1
 
 [node name="start" type="TextureButton" parent="maps" index="3"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 62.0
-margin_top = 404.0
-margin_right = 165.0
-margin_bottom = 424.0
+margin_left = 67.0
+margin_top = 405.0
+margin_right = 159.0
+margin_bottom = 423.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -452,7 +450,6 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="players" type="Panel" parent="." index="7"]
 
-editor/display_folded = true
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -476,14 +473,15 @@ __meta__ = {
 
 [node name="player1" type="Panel" parent="players" index="0"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -392.0
+margin_left = -393.0
 margin_top = -112.0
-margin_right = -264.0
+margin_right = -265.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -505,12 +503,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player1" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player1" index="2"]
 
@@ -628,6 +623,7 @@ __meta__ = {
 
 [node name="player2" type="Panel" parent="players" index="1"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -657,12 +653,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player2" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player2" index="2"]
 
@@ -780,6 +773,7 @@ __meta__ = {
 
 [node name="player3" type="Panel" parent="players" index="2"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -809,12 +803,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player3" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player3" index="2"]
 
@@ -932,6 +923,7 @@ __meta__ = {
 
 [node name="player4" type="Panel" parent="players" index="3"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -961,12 +953,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player4" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player4" index="2"]
 
@@ -1154,6 +1143,8 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[connection signal="pressed" from="online" to="start_scene" method="_on_online_pressed"]
+
 [connection signal="pressed" from="connect/host" to="." method="_on_host_pressed"]
 
 [connection signal="pressed" from="connect/join" to="." method="_on_join_pressed"]
@@ -1163,6 +1154,8 @@ bus = "Master"
 [connection signal="pressed" from="maps/left_map" to="." method="_on_left_map_pressed"]
 
 [connection signal="pressed" from="maps/start" to="." method="_on_start_pressed"]
+
+[connection signal="pressed" from="maps/Ready" to="." method="_on_ready_pressed"]
 
 [connection signal="pressed" from="players/player1/right" to="." method="_on_right_pressed"]
 

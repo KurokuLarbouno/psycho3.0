@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chose_char.png-ceb42cfe343458618cf96337b74344a9.stex"
+path="res://.import/letsPartyButtom2.png-497ce0e14ad6bca3efe3643a7098c445.stex"
 
 [deps]
 
-source_file="res://image/StartEnd/chose_char.png"
-source_md5="a3ff726e343fb98cf24e06ac625da7f5"
+source_file="res://image/StartEnd/letsPartyButtom2.png"
+source_md5="d226ac6b8f1596b57016802602fc9be2"
 
-dest_files=[ "res://.import/chose_char.png-ceb42cfe343458618cf96337b74344a9.stex" ]
-dest_md5="78c9e67a5d003d399e9becc09404c6d2"
+dest_files=[ "res://.import/letsPartyButtom2.png-497ce0e14ad6bca3efe3643a7098c445.stex" ]
+dest_md5="1b1ec0523e23f25029171fecd167a27e"
 
 [params]
 
@@ -28,5 +28,5 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
