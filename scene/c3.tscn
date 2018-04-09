@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Player_NEW.gd" type="Script" id=1]
 [ext_resource path="res://scene/shadow.tscn" type="PackedScene" id=2]
@@ -6,17 +6,18 @@
 [ext_resource path="res://scene/fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://image/Character/ctest3_gun.png" type="Texture" id=5]
 [ext_resource path="res://image/Character/bullet_c3.png" type="Texture" id=6]
-[ext_resource path="res://image/Character/ctest3_sword.png" type="Texture" id=7]
-[ext_resource path="res://scripts/Weapon.gd" type="Script" id=8]
-[ext_resource path="res://scripts/Init_data_c3.gd" type="Script" id=9]
-[ext_resource path="res://scene/AP.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=12]
-[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=13]
+[ext_resource path="res://image/light.png" type="Texture" id=7]
+[ext_resource path="res://image/Character/ctest3_sword.png" type="Texture" id=8]
+[ext_resource path="res://scripts/Weapon.gd" type="Script" id=9]
+[ext_resource path="res://scripts/Init_data_c3.gd" type="Script" id=10]
+[ext_resource path="res://scene/AP.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=13]
+[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=14]
 
 [node name="c1" type="KinematicBody2D" groups=[
-"player_group",
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -67,10 +68,34 @@ position = Vector2( 20.7176, 3.92185 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Visibility" ]
 
+[node name="Light2D" type="Light2D" parent="hand" index="2"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 7 )
+offset = Vector2( 20, 0 )
+texture_scale = 1.0
+color = Color( 1, 0.657104, 0.171875, 1 )
+energy = 0.01
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+
 [node name="sword" type="Sprite" parent="." index="3"]
 
 visible = false
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="4"]
@@ -99,31 +124,31 @@ __meta__ = {
 
 [node name="Weapon" type="Node2D" parent="." index="6"]
 
-script = ExtResource( 8 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Init_data" type="Node2D" parent="." index="7"]
 
-script = ExtResource( 9 )
+script = ExtResource( 10 )
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AP" parent="." index="8" instance=ExtResource( 10 )]
+[node name="AP" parent="." index="8" instance=ExtResource( 11 )]
 
-[node name="AP2" parent="." index="9" instance=ExtResource( 11 )]
+[node name="AP2" parent="." index="9" instance=ExtResource( 12 )]
 
 [node name="sound" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="hurt" parent="." index="11" instance=ExtResource( 13 )]
+[node name="hurt" parent="." index="11" instance=ExtResource( 14 )]
 
 

@@ -66,6 +66,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("hand/Light2D:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.15, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.5, 0.01, 0.01 ]
+}
 
 [sub_resource type="Animation" id=2]
 
@@ -365,7 +377,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[node name="AP2" type="AnimationPlayer" index="0"]
+[node name="AP2" type="AnimationPlayer"]
 
 root_node = NodePath("..")
 autoplay = ""
