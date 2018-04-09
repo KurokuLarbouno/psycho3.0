@@ -10,7 +10,7 @@ source_file="res://image/Character/traps4.png"
 source_md5="39c7da251573d1663c1d3497107df5cb"
 
 dest_files=[ "res://.import/traps4.png-4c0ac1eff912ec9b0512954cf44ff1a6.stex" ]
-dest_md5="b474d63acd72a02967210319ae65b998"
+dest_md5="a5d80d0a5babcd2b3ea7c4fa9ec26414"
 
 [params]
 
@@ -23,7 +23,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 stream=false
