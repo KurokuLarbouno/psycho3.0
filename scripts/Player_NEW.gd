@@ -187,7 +187,7 @@ func _physics_process(delta):
 		new_shot_anim = slave_new_shoot_anim
 		#旋轉槍枝
 		get_node("hand").rotation = (angle+90)*PI/180
-		print(angle)
+
 		#控制陷阱持續跟著使用者
 		if not bag_trap_switch_num == slave_bag_trap_switch_num && not bag_trap_switch_num == 0:
 			if  bag_trap.size() > 0 and bag_trap.size() >= bag_trap_switch_num:

@@ -13,18 +13,18 @@
 [ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=11]
 [ext_resource path="res://image/GameScene/Game.png" type="Texture" id=12]
 [ext_resource path="res://image/StartEnd/chose_char.png" type="Texture" id=13]
-[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=14]
-[ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=15]
-[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=16]
-[ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=17]
-[ext_resource path="res://image/StartEnd/lets_party.png" type="Texture" id=18]
-[ext_resource path="res://image/StartEnd/lets_party_hover.png" type="Texture" id=19]
-[ext_resource path="res://image/StartEnd/startButtom1.png" type="Texture" id=20]
-[ext_resource path="res://image/StartEnd/startButtom2.png" type="Texture" id=21]
+[ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=14]
+[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=15]
+[ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=16]
+[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=17]
+[ext_resource path="res://image/StartEnd/startButtom2.png" type="Texture" id=18]
+[ext_resource path="res://image/StartEnd/startButtom1.png" type="Texture" id=19]
+[ext_resource path="res://image/StartEnd/lets_party.png" type="Texture" id=20]
+[ext_resource path="res://image/StartEnd/lets_party_hover.png" type="Texture" id=21]
 [ext_resource path="res://image/StartEnd/select_focus.png" type="Texture" id=22]
 [ext_resource path="res://image/StartEnd/c1.png" type="Texture" id=23]
-[ext_resource path="res://image/StartEnd/little_arrow_button.png" type="Texture" id=24]
-[ext_resource path="res://image/StartEnd/little_arrow_button_hover.png" type="Texture" id=25]
+[ext_resource path="res://image/StartEnd/little_arrow_button_hover.png" type="Texture" id=24]
+[ext_resource path="res://image/StartEnd/little_arrow_button.png" type="Texture" id=25]
 [ext_resource path="res://image/StartEnd/ready.png" type="Texture" id=26]
 [ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=27]
 [ext_resource path="res://sound/Start.ogg" type="AudioStream" id=28]
@@ -118,7 +118,6 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="connect" type="Panel" parent="." index="3"]
 
-editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -305,9 +304,88 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="left_map" type="TextureButton" parent="map_ui" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 161.0
+margin_top = 131.0
+margin_right = 202.0
+margin_bottom = 149.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 14 )
+texture_hover = ExtResource( 15 )
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="right_map" type="TextureButton" parent="map_ui" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 278.0
+margin_top = 132.0
+margin_right = 319.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 17 )
+expand = true
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Ready" type="TextureButton" parent="map_ui" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 204.0
+margin_top = 137.0
+margin_right = 276.0
+margin_bottom = 177.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
+_sections_unfolded = [ "Textures" ]
+
 [node name="maps" type="Panel" parent="." index="6"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -324,59 +402,7 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 _sections_unfolded = [ "Visibility" ]
 
-[node name="right_map" type="TextureButton" parent="maps" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 151.0
-margin_top = 288.0
-margin_right = 192.0
-margin_bottom = 306.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
-expand = true
-_sections_unfolded = [ "Rect", "Textures" ]
-
-[node name="left_map" type="TextureButton" parent="maps" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 34.0
-margin_top = 287.0
-margin_right = 75.0
-margin_bottom = 306.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 2
-size_flags_vertical = 2
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 16 )
-texture_pressed = ExtResource( 17 )
-expand = true
-_sections_unfolded = [ "Rect", "Textures" ]
-
-[node name="Label" type="Label" parent="maps" index="2"]
+[node name="Label" type="Label" parent="maps" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -399,7 +425,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="start" type="TextureButton" parent="maps" index="3"]
+[node name="start" type="TextureButton" parent="maps" index="1"]
 
 visible = false
 anchor_left = 0.0
@@ -421,34 +447,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 18 )
-texture_pressed = ExtResource( 19 )
-_sections_unfolded = [ "Rect", "Textures" ]
-
-[node name="Ready" type="TextureButton" parent="maps" index="4"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 77.0
-margin_top = 293.0
-margin_right = 149.0
-margin_bottom = 310.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
 texture_normal = ExtResource( 20 )
 texture_pressed = ExtResource( 21 )
-_sections_unfolded = [ "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="players" type="Panel" parent="." index="7"]
 
@@ -476,6 +477,7 @@ __meta__ = {
 
 [node name="player1" type="Panel" parent="players" index="0"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -628,6 +630,7 @@ __meta__ = {
 
 [node name="player2" type="Panel" parent="players" index="1"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -780,6 +783,7 @@ __meta__ = {
 
 [node name="player3" type="Panel" parent="players" index="2"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -892,8 +896,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 24 )
+texture_normal = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -932,6 +936,7 @@ __meta__ = {
 
 [node name="player4" type="Panel" parent="players" index="3"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1158,9 +1163,9 @@ bus = "Master"
 
 [connection signal="pressed" from="connect/join" to="." method="_on_join_pressed"]
 
-[connection signal="pressed" from="maps/right_map" to="." method="_on_right_map_pressed"]
+[connection signal="pressed" from="map_ui/left_map" to="." method="_on_left_map_pressed"]
 
-[connection signal="pressed" from="maps/left_map" to="." method="_on_left_map_pressed"]
+[connection signal="pressed" from="map_ui/right_map" to="." method="_on_right_map_pressed"]
 
 [connection signal="pressed" from="maps/start" to="." method="_on_start_pressed"]
 
