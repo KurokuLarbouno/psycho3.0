@@ -369,7 +369,7 @@ _sections_unfolded = [ "Material", "Pause", "Visibility" ]
 
 [node name="Light2D" type="Light2D" parent="light" index="1"]
 
-position = Vector2( 136.917, 85.9379 )
+position = Vector2( 131.141, 80.2674 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )

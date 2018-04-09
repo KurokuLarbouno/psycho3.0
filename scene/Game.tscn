@@ -13,8 +13,6 @@ _sections_unfolded = [ "Z" ]
 
 [node name="Roof" parent="." index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
-
 [node name="map" type="Node2D" parent="Roof" index="2" groups=[
 "sprite",
 ]]
@@ -128,6 +126,10 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 [node name="Player" type="Node" parent="Roof" index="5"]
 
 [node name="Trap" type="Node" parent="Roof" index="6"]
+
+[node name="light" parent="Roof" index="8"]
+
+editor/display_folded = true
 
 [node name="Audio" type="Node" parent="." index="1"]
 

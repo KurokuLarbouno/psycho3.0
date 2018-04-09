@@ -73,7 +73,7 @@ extents = Vector2( 10, 27 )
 custom_solver_bias = 0.0
 extents = Vector2( 16, 14 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 
 resource_name = "light"
 length = 2.0
@@ -92,7 +92,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.01, 1.0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=16]
 
 resource_name = "light2"
 length = 3.0
@@ -111,9 +111,8 @@ tracks/0/keys = {
 "values": [ 1.2, 1.2, 0.01, 0.01, 1.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=17]
 
-resource_name = "screenLight"
 length = 1.5
 loop = true
 step = 0.1
@@ -468,9 +467,9 @@ autoplay = "screenLight"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/light = SubResource( 16 )
-anims/light2 = SubResource( 17 )
-anims/screenLight = SubResource( 15 )
+anims/light = SubResource( 15 )
+anims/light2 = SubResource( 16 )
+anims/screenLight = SubResource( 17 )
 next/screenLight = "screenLight"
 blend_times = [  ]
 

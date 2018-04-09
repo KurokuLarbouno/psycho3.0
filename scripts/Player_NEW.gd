@@ -52,6 +52,7 @@ slave var slave_new_anim
 slave var slave_angle = 0#僕角度
 slave var slave_bag_trap_switch_num = 0#僕背包道具變數
 slave var slave_space_put_trap_flag =false#僕使用物品
+slave var slave_bag_trap_use_num = 0#僕背包道具使用變數
 slave var slave_die_flag = false#僕死亡旗號
 #--------------------------------以上變數區
 func _ready():
@@ -177,12 +178,16 @@ func _physics_process(delta):
 			if space_put_trap_flag :
 				space_put_trap_flag = false
 				if bag_trap_switch_num :
-					rset("slave_bag_trap_switch_num", bag_trap_switch_num)
+					#rset("slave_bag_trap_switch_num", bag_trap_switch_num)
+					rset("slave_bag_trap_use_num", bag_trap_switch_num)
 					rset("slave_space_put_trap_flag", true)
+					
 					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position			
 					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).modulate.a = 1
 					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).trap_use_flag = true
+					print(bag_trap)
 					bag_trap.remove(bag_trap_switch_num-1)
+					print(bag_trap)
 				bag_trap_switch_num = 0
 		if not Input.is_action_pressed("e_change_trap"):
 			e_change_trap_flag = true
@@ -212,10 +217,13 @@ func _physics_process(delta):
 		#使用陷阱
 		if slave_space_put_trap_flag:
 			slave_space_put_trap_flag = false
-			get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position			
-			get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).modulate.a = 1
-			get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).trap_use_flag = true
-			bag_trap.remove(bag_trap_switch_num-1)
+			get_node("../../Trap/"+str(bag_trap[slave_bag_trap_use_num-1])).position = self.position			
+			get_node("../../Trap/"+str(bag_trap[slave_bag_trap_use_num-1])).modulate.a = 1
+			get_node("../../Trap/"+str(bag_trap[slave_bag_trap_use_num-1])).trap_use_flag = true
+			print(bag_trap)
+			bag_trap.remove(slave_bag_trap_use_num-1)
+			print(bag_trap)
+			slave_bag_trap_use_num = 0
 			bag_trap_switch_num = 0
 		#使用陷阱 END
 		#if not slave_space_put_trap_flag: 
@@ -227,13 +235,7 @@ func _physics_process(delta):
 		slave_pos = position # To avoid jitter
 	#-------------------------------------------------------------移動
 	motion = motion.normalized()*MOTION_SPEED*delta
-
-	move_and_slide(motion)	#-----------------------------------------------牆壁碰撞 START
-
-
-#---------------------------------------------------------
-
-
+	move_and_slide(motion)	
 #-----------------------------------------------動畫
 	if (new_anim != anim):
 		anim = new_anim
