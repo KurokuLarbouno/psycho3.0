@@ -23,7 +23,7 @@ var trap_pos#用來存陷阱位置
 
 
 func _ready():
-
+	print(image)
 	point_index = connect.generate_points_num[int(self.get_name())]
 	if self.get_name() == "0":
 		self.get_child(0).set_texture(image)#加料汽水
@@ -63,10 +63,12 @@ func _on_trap_area_body_enter(body):
 	if get_tree().is_network_server():
 		#如果沒有人取得，儲存取得者
 		if get_body_save == '' :
-			rpc("trap_get",body.get_name())
+			if body.get_class() == 'KinematicBody2D':#判斷是不是ID
+				rpc("trap_get",body.get_name())
 		#------------------------------------------------陷阱被放置了，開啟狀態
 		if trap_use_flag:
-			rpc("trap_use",body.get_name())
+			if body.get_class() == 'KinematicBody2D':#判斷是不是ID
+				rpc("trap_use",body.get_name())
 	pass
 func _on_trap_body_exit(body):
 	pass
@@ -78,21 +80,22 @@ func _physics_process(delta):
 		1
 #-------------------------------控制立即使用性的道具 START
 	if trap_use_flag:
-		if self.get_name() == "0":#加料汽水效果
-			rpc("trap_use",get_body_save)
-			pass
-		if self.get_name() == "2":#派對帽子效果
-			rpc("trap_use",get_body_save)
-			pass
-		if self.get_name() == "3":#染色啤酒
-			rpc("trap_use",get_body_save)
-			pass
-		if self.get_name() == "4":#天然草藥效果
-			rpc("trap_use",get_body_save)
-			pass
-		if self.get_name() == "5":#超級雞尾酒效果
-			rpc("trap_use",get_body_save)
-			pass
+		if get_tree().is_network_server():
+			if self.get_name() == "0":#加料汽水效果
+				rpc("trap_use",get_body_save)
+				pass
+			if self.get_name() == "2":#派對帽子效果
+				rpc("trap_use",get_body_save)
+				pass
+			if self.get_name() == "3":#染色啤酒
+				rpc("trap_use",get_body_save)
+				pass
+			if self.get_name() == "4":#天然草藥效果
+				rpc("trap_use",get_body_save)
+				pass
+			if self.get_name() == "5":#超級雞尾酒效果
+				rpc("trap_use",get_body_save)
+				pass
 #-------------------------------控制立即使用性的道具 END
 	if trap_recover :
 		recover_timer += delta
@@ -123,12 +126,15 @@ func _physics_process(delta):
 		#---------------------------------------用以讓陷阱同步重新回到場上 END
 	pass
 sync func trap_recover(name,pos):#用以讓陷阱同步重新回到場上
-	get_body_save = ''
+
+	#get_body_save = ''
 	trap_body = get_node("../"+get_name())
 	trap_body.position = pos
+	trap_body.modulate.a = 1
 	pass
 sync func trap_get(name):#用以讓陷阱同步重新回到場上
 	get_body_save = name
+	print("trap_get "+str(trap_type)+"name:"+name)
 	self.position = get_node("../../Trap_Point/trash").position
 	self.modulate.a = 0.5
 	get_node("../../Player/"+name).bag_trap.append(trap_type)
@@ -139,6 +145,7 @@ sync func trap_get(name):#用以讓陷阱同步重新回到場上
 	pass
 sync func trap_use(name):#使用道具
 	trap_use_flag = false
+	print("trap_use "+str(trap_type)+"name:"+name)
 #-------------------------------------------------各種道具效果
 	if self.get_name() == "0":
 		var hp
@@ -214,6 +221,6 @@ sync func trap_use(name):#使用道具
 #-------------------------------------------------各種道具效果 END
 	self.position = get_node("../../Trap_Point/trash").position
 	#get_body_save = str(int(get_body_save)+1)
-	#get_body_save = ''
+	get_body_save = ''
 	trap_recover = true
 	pass
