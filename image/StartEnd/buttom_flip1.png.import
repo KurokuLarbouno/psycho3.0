@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chose_char.png-ceb42cfe343458618cf96337b74344a9.stex"
+path="res://.import/buttom_flip1.png-a822a187f3c3d56053d3cc36b55d2449.stex"
 
 [deps]
 
-source_file="res://image/StartEnd/chose_char.png"
-source_md5="ac48661d2ada0f53665793f97fdef367"
+source_file="res://image/StartEnd/buttom_flip1.png"
+source_md5="4b2211ac37ac32391ec5644b2532ba16"
 
-dest_files=[ "res://.import/chose_char.png-ceb42cfe343458618cf96337b74344a9.stex" ]
-dest_md5="0ac89adfc92fc663c744fbe4767c7291"
+dest_files=[ "res://.import/buttom_flip1.png-a822a187f3c3d56053d3cc36b55d2449.stex" ]
+dest_md5="168789a010db740c00141b456c3079b6"
 
 [params]
 

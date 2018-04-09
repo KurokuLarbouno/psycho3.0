@@ -243,7 +243,7 @@ tracks/0/keys = {
 "values": [ 1.5, 0.8, 1.5, 0.8, 1.5, 1.5 ]
 }
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 

@@ -53,7 +53,6 @@ __meta__ = {
 
 [node name="Node2D" type="StaticBody2D" parent="." index="1"]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -369,7 +368,7 @@ _sections_unfolded = [ "Material", "Pause", "Visibility" ]
 
 [node name="Light2D" type="Light2D" parent="light" index="1"]
 
-position = Vector2( 131.141, 80.2674 )
+position = Vector2( 137, 87 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
@@ -394,7 +393,7 @@ shadow_item_cull_mask = 1
 
 [node name="Light2D3" type="Light2D" parent="light" index="2"]
 
-position = Vector2( 346.503, 85.9327 )
+position = Vector2( 345, 87 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
@@ -419,7 +418,7 @@ shadow_item_cull_mask = 1
 
 [node name="Light2D5" type="Light2D" parent="light" index="3"]
 
-position = Vector2( 139.925, 201.044 )
+position = Vector2( 137, 199 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
@@ -444,7 +443,7 @@ shadow_item_cull_mask = 1
 
 [node name="Light2D7" type="Light2D" parent="light" index="4"]
 
-position = Vector2( 344.67, 200.507 )
+position = Vector2( 345, 199 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
