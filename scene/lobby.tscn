@@ -47,7 +47,7 @@ use_filter = false
 font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Lobby" type="Control" index="0"]
+[node name="Lobby" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -404,7 +404,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="Label" type="Label" parent="maps" index="0"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -427,15 +426,14 @@ max_lines_visible = -1
 
 [node name="start" type="TextureButton" parent="maps" index="1"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 62.0
-margin_top = 404.0
-margin_right = 165.0
-margin_bottom = 424.0
+margin_left = 67.0
+margin_top = 405.0
+margin_right = 159.0
+margin_bottom = 423.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -453,7 +451,6 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="players" type="Panel" parent="." index="7"]
 
-editor/display_folded = true
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -483,9 +480,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -392.0
+margin_left = -393.0
 margin_top = -112.0
-margin_right = -264.0
+margin_right = -265.0
 margin_bottom = 16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -507,12 +504,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player1" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player1" index="2"]
 
@@ -660,12 +654,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player2" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player2" index="2"]
 
@@ -813,12 +804,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player3" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player3" index="2"]
 
@@ -966,12 +954,9 @@ __meta__ = {
 
 [node name="player_icon" type="Sprite" parent="players/player4" index="1"]
 
-position = Vector2( 64, 64 )
+position = Vector2( 64, 58 )
 texture = ExtResource( 23 )
 _sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="players/player4" index="2"]
 
@@ -1159,6 +1144,8 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
+[connection signal="pressed" from="online" to="start_scene" method="_on_online_pressed"]
+
 [connection signal="pressed" from="connect/host" to="." method="_on_host_pressed"]
 
 [connection signal="pressed" from="connect/join" to="." method="_on_join_pressed"]
@@ -1168,6 +1155,8 @@ bus = "Master"
 [connection signal="pressed" from="map_ui/right_map" to="." method="_on_right_map_pressed"]
 
 [connection signal="pressed" from="maps/start" to="." method="_on_start_pressed"]
+
+[connection signal="pressed" from="maps/Ready" to="." method="_on_ready_pressed"]
 
 [connection signal="pressed" from="players/player1/right" to="." method="_on_right_pressed"]
 

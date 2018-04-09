@@ -246,3 +246,6 @@ sync func save_map(map):
 	connect.map	= map
 	pass
 
+
+
+
