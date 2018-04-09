@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-
 var angle = 0
 #--------------------------------多重輸入判斷
 var jflag = 0
@@ -20,6 +19,7 @@ var anim#前
 var new_anim#後
 var shot_anim#前
 var new_shot_anim#後
+
 var fire_anim = false
 #---------------------------陷阱部分
 var bag_trap = []
@@ -50,6 +50,8 @@ slave var slave_motion = Vector2()
 slave var slave_pos = Vector2()
 slave var slave_new_anim
 slave var slave_angle = 0#僕角度
+slave var slave_shot_anim#前
+slave var slave_new_shoot_anim#後
 slave var slave_bag_trap_switch_num = 0#僕背包道具變數
 slave var slave_space_put_trap_flag =false#僕使用物品
 slave var slave_bag_trap_use_num = 0#僕背包道具使用變數
@@ -63,9 +65,8 @@ func _ready():
 	if (is_network_master()):
 		get_node("/root/Game/Camera/Camera2D").set_master(self.get_name())
 	slave_new_anim = new_anim
-	slave_new_anim = new_anim
 	slave_pos = position
-	
+	slave_new_shoot_anim = new_shot_anim
 	get_node("Weapon").connect("bullet_shot", self, "fire_anim")#連接Weapon生成子彈的訊號
 	get_node("AP").connect("animation_finished", self, "anim_fin")#連接射擊動作做完的訊號
 	get_node("AP").connect("animation_changed", self, "anim_fin")#連接射擊動作做完的訊號
@@ -86,7 +87,6 @@ func _physics_process(delta):
 			||Input.get_joy_axis(input_device, 2)<-0.3||Input.get_joy_axis(input_device, 2)> 0.3):
 		jflag = 1
 		angle = -atan2(Input.get_joy_axis(input_device, JOY_AXIS_2), Input.get_joy_axis(input_device,JOY_AXIS_3))*180/PI
-
 #-----------------------------------------------移動	
 	motion = Vector2()
 	#----------------------------------------------------移動部分
@@ -120,32 +120,7 @@ func _physics_process(delta):
 			get_node("Weapon").rpc("release")
 		if (Input.is_action_pressed("reload")):
 			get_node("Weapon").rpc("charge")
-#		#--------------------------------------------動畫
-		if(fire_anim):
-			get_node("AP2").play("gun_attack")
-			get_node("sound").playing = true
-			fire_anim = false
-		if(angle>0): 
-			get_node("hand/gun").flip_v = 1
-		else: 
-			get_node("hand/gun").flip_v = 0
-		#get_node("hand").set_rotation_in_degrees(angle+90)
-		get_node("hand").rotation = (angle+90)*PI/180
-		get_node("hand/gun").z_index = z_index + 1#----------------------------------------------------18/3/5
-		if(motion.length()<=0):
-			if(abs(angle)>120):
-				new_anim = "stop_back"
-				get_node("hand/gun").z_index = z_index - 1
-			if(angle>60 and angle<121):new_anim = "stop_left"
-			if(angle<-60 and angle>-121):new_anim = "stop_right"
-			if(abs(angle)<60):new_anim = "stop_front"
-		else:
-			if(abs(angle)>120):
-				new_anim = "walk_back"
-				get_node("hand/gun").z_index = z_index - 1
-			if(angle>60 and angle<121):new_anim = "walk_left"
-			if(angle<-60 and angle>-121):new_anim = "walk_right"
-			if(abs(angle)<60):new_anim = "walk_front"
+#		
 		#-------------------------------------------------------------陷阱主人區塊start
 		#-----------------------------------------------切換與放置陷阱
 		if Input.is_action_pressed("e_change_trap"):
@@ -197,18 +172,22 @@ func _physics_process(delta):
 			space_put_trap_flag = true
 		#-----------------------------------------------切換與放置陷阱 END
 		#--------------------------------------------陷阱主人區塊 END
+		rset("slave_angle", angle)
 		rset("slave_motion", motion)
 		rset("slave_pos", self.position)#將自己位置更新給分身（slave）
 		rset("slave_new_anim", new_anim)
-		rset("slave_new_anim", new_anim)
+		rset("slave_new_shoot_anim", new_shot_anim)
 		rset("slave_bag_trap_switch_num", bag_trap_switch_num)
 	#--------------------------------------------判斷是否是主人 END
 	else:#---------------------------------------是僕人端
 		position = slave_pos
 		motion = slave_motion
 		new_anim = slave_new_anim
-		new_anim = slave_new_anim
-		
+		angle = slave_angle
+		new_shot_anim = slave_new_shoot_anim
+		#旋轉槍枝
+		get_node("hand").rotation = (angle+90)*PI/180
+		print(angle)
 		#控制陷阱持續跟著使用者
 		if not bag_trap_switch_num == slave_bag_trap_switch_num && not bag_trap_switch_num == 0:
 			if  bag_trap.size() > 0 and bag_trap.size() >= bag_trap_switch_num:
@@ -232,9 +211,10 @@ func _physics_process(delta):
 		bag_trap_switch_num = slave_bag_trap_switch_num
 		if bag_trap_switch_num : #預覽道具，跟隨
 			if  bag_trap.size() > 0 and bag_trap.size() >= bag_trap_switch_num:
-				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)	
 			else: print("trap size not fit")
-#	#--------------------------------------------是僕人端END
+
+#--------------------------------------------是僕人端END
 	if (not is_network_master()):
 		slave_pos = position # To avoid jitter
 	#-------------------------------------------------------------移動
@@ -247,6 +227,33 @@ func _physics_process(delta):
 	if (new_shot_anim != shot_anim):
 		shot_anim = new_anim
 		get_node("AP").play(shot_anim)
+	if(fire_anim):
+			get_node("AP2").play("gun_attack")
+			get_node("sound").playing = true
+			fire_anim = false
+	#--------------------------------------------動畫
+		
+	if(angle>0): 
+		get_node("hand/gun").flip_v = 1
+	else: 
+		get_node("hand/gun").flip_v = 0
+	#get_node("hand").set_rotation_in_degrees(angle+90)
+	get_node("hand").rotation = (angle+90)*PI/180
+	get_node("hand/gun").z_index = z_index + 1#----------------------------------------------------18/3/5
+	if(motion.length()<=0):
+		if(abs(angle)>120):
+			new_anim = "stop_back"
+			get_node("hand/gun").z_index = z_index - 1
+		if(angle>60 and angle<121):new_anim = "stop_left"
+		if(angle<-60 and angle>-121):new_anim = "stop_right"
+		if(abs(angle)<60):new_anim = "stop_front"
+	else:
+		if(abs(angle)>120):
+			new_anim = "walk_back"
+			get_node("hand/gun").z_index = z_index - 1
+		if(angle>60 and angle<121):new_anim = "walk_left"
+		if(angle<-60 and angle>-121):new_anim = "walk_right"
+		if(abs(angle)<60):new_anim = "walk_front"
 	#---------------------------------------------陷阱效果 start
 	if color_red_flag:color_red(delta)
 	if color_blue_flag:color_blue(delta)
@@ -330,8 +337,9 @@ func speed_trap(delta):
 	elif speed_time == 0 :
 		MOTION_SPEED = MOTION_SPEED*1.2
 		#get_node("/root/Game/Camera/Camera2D").mirage()
-		get_node("/root/Game/Camera/Camera2D").mirage_time_control=30
-		get_node("/root/Game/Camera/Camera2D").mirage_flag=true
+		if (is_network_master()):
+			get_node("/root/Game/Camera/Camera2D").mirage_time_control=30
+			get_node("/root/Game/Camera/Camera2D").mirage_flag=true
 		speed_time += delta
 	else:
 		speed_time += delta
