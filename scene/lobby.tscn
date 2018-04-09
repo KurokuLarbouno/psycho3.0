@@ -409,6 +409,7 @@ max_lines_visible = -1
 
 [node name="start" type="TextureButton" parent="maps" index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1158,32 +1159,24 @@ bus = "Master"
 
 [connection signal="pressed" from="maps/left_map" to="." method="_on_left_map_pressed"]
 
-[connection signal="pressed" from="maps/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="map_ui/Ready" to="." method="_on_ready_pressed"]
 
-[connection signal="pressed" from="maps/Ready" to="." method="_on_ready_pressed"]
+[connection signal="pressed" from="maps/start" to="." method="_on_start_pressed"]
 
 [connection signal="pressed" from="players/player1/right" to="." method="_on_right_pressed"]
 
 [connection signal="pressed" from="players/player1/left" to="." method="_on_left_pressed"]
 
-[connection signal="pressed" from="players/player1/ready" to="." method="_on_ready_pressed"]
-
 [connection signal="pressed" from="players/player2/right" to="." method="_on_right_pressed"]
 
 [connection signal="pressed" from="players/player2/left" to="." method="_on_left_pressed"]
-
-[connection signal="pressed" from="players/player2/ready" to="." method="_on_ready_pressed"]
 
 [connection signal="pressed" from="players/player3/right" to="." method="_on_right_pressed"]
 
 [connection signal="pressed" from="players/player3/left" to="." method="_on_left_pressed"]
 
-[connection signal="pressed" from="players/player3/ready" to="." method="_on_ready_pressed"]
-
 [connection signal="pressed" from="players/player4/right" to="." method="_on_right_pressed"]
 
 [connection signal="pressed" from="players/player4/left" to="." method="_on_left_pressed"]
-
-[connection signal="pressed" from="players/player4/ready" to="." method="_on_ready_pressed"]
 
 
