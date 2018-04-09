@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[node name="bullet" type="Area2D"]
+[node name="bullet" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -49,7 +49,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.01
 color = Color( 0.961121, 0.289063, 1, 1 )
-energy = 5.0
+energy = 2.0
 mode = 0
 range_height = 3.0
 range_z_min = -1024
