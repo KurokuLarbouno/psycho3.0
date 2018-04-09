@@ -55,7 +55,7 @@ tracks/3/keys = {
 "values": [ false ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Particles2D:emitting")
+tracks/4/path = NodePath("hand/Particles2D:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -365,7 +365,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[node name="AP" type="AnimationPlayer" index="0"]
+[node name="AP" type="AnimationPlayer"]
 
 root_node = NodePath("..")
 autoplay = ""
