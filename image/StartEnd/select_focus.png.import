@@ -7,10 +7,10 @@ path="res://.import/select_focus.png-306b6051ea0a1e9af7788b17d8ae4043.stex"
 [deps]
 
 source_file="res://image/StartEnd/select_focus.png"
-source_md5="83ac6854b2dc43216d66d6b5aa0874ec"
+source_md5="32f5284692d9600841bf9d1a39ec5b86"
 
 dest_files=[ "res://.import/select_focus.png-306b6051ea0a1e9af7788b17d8ae4043.stex" ]
-dest_md5="7214db859ad47a9f0845a822a4493351"
+dest_md5="cf7bc31e16681460f7204cdc7d6f313a"
 
 [params]
 
