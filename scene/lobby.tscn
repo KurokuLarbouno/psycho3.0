@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/lobby.gd" type="Script" id=1]
 [ext_resource path="res://scene/title.tscn" type="PackedScene" id=2]
@@ -10,17 +10,36 @@
 [ext_resource path="res://image/StartEnd/host_sel.png" type="Texture" id=8]
 [ext_resource path="res://image/StartEnd/join.png" type="Texture" id=9]
 [ext_resource path="res://image/StartEnd/join_sel.png" type="Texture" id=10]
-[ext_resource path="res://image/GameScene/Game.png" type="Texture" id=11]
-[ext_resource path="res://image/StartEnd/chose_char.png" type="Texture" id=12]
-[ext_resource path="res://image/StartEnd/lets_party.png" type="Texture" id=13]
-[ext_resource path="res://image/StartEnd/lets_party_hover.png" type="Texture" id=14]
-[ext_resource path="res://image/StartEnd/select_focus.png" type="Texture" id=15]
-[ext_resource path="res://image/StartEnd/c1.png" type="Texture" id=16]
-[ext_resource path="res://image/StartEnd/little_arrow_button_hover.png" type="Texture" id=17]
-[ext_resource path="res://image/StartEnd/little_arrow_button.png" type="Texture" id=18]
-[ext_resource path="res://image/StartEnd/ready.png" type="Texture" id=19]
-[ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=20]
-[ext_resource path="res://sound/Start.ogg" type="AudioStream" id=21]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=11]
+[ext_resource path="res://image/GameScene/Game.png" type="Texture" id=12]
+[ext_resource path="res://image/StartEnd/chose_char.png" type="Texture" id=13]
+[ext_resource path="res://image/StartEnd/lets_party.png" type="Texture" id=14]
+[ext_resource path="res://image/StartEnd/lets_party_hover.png" type="Texture" id=15]
+[ext_resource path="res://image/StartEnd/select_focus.png" type="Texture" id=16]
+[ext_resource path="res://image/StartEnd/c1.png" type="Texture" id=17]
+[ext_resource path="res://image/StartEnd/little_arrow_button_hover.png" type="Texture" id=18]
+[ext_resource path="res://image/StartEnd/little_arrow_button.png" type="Texture" id=19]
+[ext_resource path="res://image/StartEnd/ready.png" type="Texture" id=20]
+[ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=21]
+[ext_resource path="res://sound/Start.ogg" type="AudioStream" id=22]
+
+[sub_resource type="DynamicFont" id=2]
+
+resource_name = "font"
+size = 11
+use_mipmaps = false
+use_filter = false
+extra_spacing_top = 4
+font_data = ExtResource( 11 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 10
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 11 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Lobby" type="Control" index="0"]
 
@@ -93,7 +112,6 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="connect" type="Panel" parent="." index="3"]
 
-editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -197,9 +215,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 93.0
-margin_top = 36.0
+margin_top = 35.0
 margin_right = 233.0
-margin_bottom = 60.0
+margin_bottom = 65.0
 rect_scale = Vector2( 0.6, 0.6 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -208,6 +226,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 2
 size_flags_vertical = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/selection_color = Color( 0.195313, 0.924561, 1, 1 )
 text = "The Warrior"
 focus_mode = 2
 context_menu_enabled = true
@@ -215,7 +235,7 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Caret", "Material", "Placeholder" ]
+_sections_unfolded = [ "Material", "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="ip" type="LineEdit" parent="connect" index="4"]
 
@@ -235,6 +255,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 2
 size_flags_vertical = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/selection_color = Color( 0.195313, 0.924561, 1, 1 )
 text = "127.0.0.1"
 focus_mode = 2
 context_menu_enabled = true
@@ -242,14 +264,14 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Placeholder", "Rect" ]
+_sections_unfolded = [ "Placeholder", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="map_icon" type="Sprite" parent="." index="4"]
 
 visible = false
 position = Vector2( 240.102, 139.099 )
 z_as_relative = false
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 _sections_unfolded = [ "Transform", "Visibility", "Z", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
@@ -270,7 +292,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 12 )
+texture = ExtResource( 13 )
 stretch_mode = 0
 __meta__ = {
 "_edit_lock_": true
@@ -389,8 +411,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 14 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="players" type="Panel" parent="." index="7"]
@@ -441,7 +463,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -450,7 +472,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player1" index="1"]
 
 position = Vector2( 64, 64 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -500,8 +522,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -532,8 +554,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -563,8 +585,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 19 )
-texture_disabled = ExtResource( 20 )
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 21 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -594,7 +616,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -603,7 +625,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player2" index="1"]
 
 position = Vector2( 64, 64 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -653,8 +675,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -685,8 +707,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -716,8 +738,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 19 )
-texture_disabled = ExtResource( 20 )
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 21 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -747,7 +769,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -756,7 +778,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player3" index="1"]
 
 position = Vector2( 64, 64 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -806,8 +828,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -838,8 +860,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -869,8 +891,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 19 )
-texture_disabled = ExtResource( 20 )
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 21 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -900,7 +922,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -909,7 +931,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player4" index="1"]
 
 position = Vector2( 64, 64 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -959,8 +981,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -991,8 +1013,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_hover = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_hover = ExtResource( 19 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -1022,8 +1044,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 19 )
-texture_disabled = ExtResource( 20 )
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 21 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1048,12 +1070,13 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
+custom_fonts/font = SubResource( 1 )
 items = [  ]
 select_mode = 0
 allow_reselect = false
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
-_sections_unfolded = [ "Columns", "Icon", "Rect", "Visibility" ]
+_sections_unfolded = [ "Columns", "Icon", "Rect", "Visibility", "custom_fonts" ]
 
 [node name="error" type="AcceptDialog" parent="." index="8"]
 
@@ -1094,7 +1117,7 @@ stretch_mode = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 21 )
+stream = ExtResource( 22 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0

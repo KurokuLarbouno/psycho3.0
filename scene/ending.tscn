@@ -1,15 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/ending.gd" type="Script" id=1]
 [ext_resource path="res://image/StartEnd/theEnd.png" type="Texture" id=2]
-[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=3]
-[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=4]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=4]
+[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=5]
 
-[sub_resource type="Theme" id=1]
+[sub_resource type="DynamicFont" id=1]
+
+size = 10
+use_mipmaps = true
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Theme" id=2]
 
 _sections_unfolded = [ "Resource" ]
 
-[node name="players_old" type="Panel" index="0"]
+[node name="players_old" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -78,7 +87,6 @@ stretch_mode = 0
 
 [node name="label" type="Label" parent="." index="2"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -93,11 +101,12 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
 text = "Result"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect" ]
+_sections_unfolded = [ "Rect", "custom_fonts" ]
 
 [node name="END" type="TextureButton" parent="." index="3"]
 
@@ -120,9 +129,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="list" type="ItemList" parent="." index="4"]
@@ -143,13 +152,13 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-theme = SubResource( 1 )
+theme = SubResource( 2 )
 items = [  ]
 select_mode = 0
 allow_reselect = false
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
-_sections_unfolded = [ "Material", "Rect", "Theme", "Visibility" ]
+_sections_unfolded = [ "Material" ]
 
 [connection signal="pressed" from="END" to="." method="_on_END_pressed"]
 

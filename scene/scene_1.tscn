@@ -243,7 +243,7 @@ tracks/0/keys = {
 "values": [ 1.5, 0.8, 1.5, 0.8, 1.5, 1.5 ]
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" index="0"]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 
@@ -557,7 +557,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.4
 color = Color( 1, 1, 1, 1 )
-energy = 1.0
+energy = 0.01
 mode = 0
 range_height = 0.0
 range_z_min = -1024
@@ -595,7 +595,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
-energy = 1.0
+energy = 0.413271
 mode = 0
 range_height = 0.0
 range_z_min = -1024
