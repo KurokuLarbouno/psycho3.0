@@ -23,7 +23,6 @@ var trap_pos#用來存陷阱位置
 
 
 func _ready():
-	print(image)
 	point_index = connect.generate_points_num[int(self.get_name())]
 	if self.get_name() == "0":
 		self.get_child(0).set_texture(image)#加料汽水

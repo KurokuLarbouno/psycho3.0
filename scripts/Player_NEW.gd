@@ -211,7 +211,9 @@ func _physics_process(delta):
 		
 		#控制陷阱持續跟著使用者
 		if not bag_trap_switch_num == slave_bag_trap_switch_num && not bag_trap_switch_num == 0:
-			get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position
+			if  bag_trap.size() > 0 and bag_trap.size() >= bag_trap_switch_num:
+				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position
+			else: print("trap size not fit")
 		#控制陷阱持續跟著使用者 END
 		
 		#使用陷阱
@@ -229,7 +231,9 @@ func _physics_process(delta):
 		#if not slave_space_put_trap_flag: 
 		bag_trap_switch_num = slave_bag_trap_switch_num
 		if bag_trap_switch_num : #預覽道具，跟隨
-			get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)	
+			if  bag_trap.size() > 0 and bag_trap.size() >= bag_trap_switch_num:
+				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+			else: print("trap size not fit")
 #	#--------------------------------------------是僕人端END
 	if (not is_network_master()):
 		slave_pos = position # To avoid jitter
