@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://scripts/lobby.gd" type="Script" id=1]
 [ext_resource path="res://scene/title.tscn" type="PackedScene" id=2]
@@ -23,9 +23,6 @@
 [ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=21]
 [ext_resource path="res://sound/Start.ogg" type="AudioStream" id=22]
 
-[sub_resource type="Theme" id=3]
-
-
 [sub_resource type="DynamicFont" id=2]
 
 resource_name = "font"
@@ -44,7 +41,7 @@ use_filter = false
 font_data = ExtResource( 11 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Lobby" type="Control" index="0"]
+[node name="Lobby" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -229,7 +226,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 1
 size_flags_horizontal = 2
 size_flags_vertical = 2
-theme = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/selection_color = Color( 0.195313, 0.924561, 1, 1 )
 text = "The Warrior"
 focus_mode = 2
 context_menu_enabled = true
@@ -237,7 +235,7 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Caret", "Material", "Placeholder", "Theme", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Material", "Visibility", "custom_colors", "custom_fonts" ]
 
 [node name="ip" type="LineEdit" parent="connect" index="4"]
 
@@ -266,7 +264,7 @@ placeholder_alpha = 0.6
 caret_blink = false
 caret_blink_speed = 0.65
 caret_position = 0
-_sections_unfolded = [ "Placeholder", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Placeholder", "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="map_icon" type="Sprite" parent="." index="4"]
 
