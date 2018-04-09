@@ -39,7 +39,7 @@ extra_spacing_top = 4
 font_data = ExtResource( 11 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 size = 8
 use_mipmaps = false
@@ -48,7 +48,7 @@ extra_spacing_top = 3
 font_data = ExtResource( 11 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 10
 use_mipmaps = true
@@ -409,7 +409,6 @@ max_lines_visible = -1
 
 [node name="start" type="TextureButton" parent="maps" index="3"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -531,7 +530,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
@@ -680,7 +679,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
@@ -829,7 +828,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
@@ -978,7 +977,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
@@ -1096,7 +1095,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 items = [  ]
 select_mode = 0
 allow_reselect = false
@@ -1159,9 +1158,9 @@ bus = "Master"
 
 [connection signal="pressed" from="maps/left_map" to="." method="_on_left_map_pressed"]
 
-[connection signal="pressed" from="map_ui/Ready" to="." method="_on_ready_pressed"]
-
 [connection signal="pressed" from="maps/start" to="." method="_on_start_pressed"]
+
+[connection signal="pressed" from="maps/Ready" to="." method="_on_ready_pressed"]
 
 [connection signal="pressed" from="players/player1/right" to="." method="_on_right_pressed"]
 
