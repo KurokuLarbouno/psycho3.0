@@ -14,7 +14,7 @@ void fragment() {
 	vec2 uv = SCREEN_UV;
 	uv.x += sin(uv.y*frequency+TIME)*depth;
 	uv.x = clamp(uv.x,0,1);
-	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb;
+	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb*vec3(3,3,3);
 	
 	
 	COLOR.rgb=c;
@@ -30,7 +30,7 @@ shader_param/frequency = null
 shader_param/depth = 0.0
 _sections_unfolded = [ "shader", "shader_param" ]
 
-[node name="mirage" type="TextureRect" index="0"]
+[node name="mirage" type="TextureRect"]
 
 visible = false
 material = SubResource( 2 )

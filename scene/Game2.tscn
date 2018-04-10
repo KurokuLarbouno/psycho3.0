@@ -6,17 +6,13 @@
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=5]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Roof" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -0.21463, -0.21463 )
-
-[node name="StaticBody2D" parent="Roof" index="1"]
-
-editor/display_folded = true
 
 [node name="map" type="Node2D" parent="Roof" index="2" groups=[
 "sprite",
@@ -116,12 +112,17 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Trap" type="Node" parent="Roof" index="6"]
 
+[node name="light" parent="Roof" index="7"]
+
+editor/display_folded = true
+
 [node name="Audio" type="Node" parent="." index="1"]
 
 [node name="Camera" type="Node" parent="." index="2"]
 
 [node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 4 )]
 
+editor/display_folded = true
 position = Vector2( 240.918, 138.343 )
 zoom = Vector2( 0.375, 0.375 )
 
@@ -135,3 +136,4 @@ bus = "Master"
 
 
 [editable path="Roof"]
+[editable path="Camera/Camera2D"]
