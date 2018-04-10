@@ -68,6 +68,7 @@ _sections_unfolded = [ "Playback", "playback" ]
 
 [node name="mirage" parent="." index="1" instance=ExtResource( 2 )]
 
+visible = true
 margin_left = -87.0
 margin_top = -64.0
 margin_right = 20.0
