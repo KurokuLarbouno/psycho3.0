@@ -1221,6 +1221,7 @@ bus = "Master"
 
 [node name="glitchShader" type="Sprite" parent="." index="11"]
 
+visible = false
 material = SubResource( 5 )
 position = Vector2( 462.462, 158.53 )
 scale = Vector2( 58.8077, 20.8162 )

@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 5, 7 ), Vector2( 5, -10 ), Vector2( -15, -5 ), Vector2( -2, 10 ), Vector2( 0, 0 ) ]
 }
 
-[node name="Camera2D" type="Camera2D"]
+[node name="Camera2D" type="Camera2D" index="0"]
 
 position = Vector2( 100.042, -16.0621 )
 scale = Vector2( 9.02508, 6.3282 )

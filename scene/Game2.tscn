@@ -78,7 +78,7 @@ shader_param/AMT = null
 shader_param/SPEED = null
 _sections_unfolded = [ "shader_param" ]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -194,9 +194,12 @@ editor/display_folded = true
 
 [node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 4 )]
 
-editor/display_folded = true
 position = Vector2( 240.918, 138.343 )
 zoom = Vector2( 0.375, 0.375 )
+
+[node name="mirage" parent="Camera/Camera2D" index="1"]
+
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
 

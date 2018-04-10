@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/ending.gd" type="Script" id=1]
 [ext_resource path="res://image/StartEnd/theEnd.png" type="Texture" id=2]
 [ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=3]
 [ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=4]
 [ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=5]
+[ext_resource path="res://image/Character/smoke.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 10
+size = 20
 use_mipmaps = true
 use_filter = false
 font_data = ExtResource( 3 )
@@ -18,7 +19,77 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 _sections_unfolded = [ "Resource" ]
 
-[node name="players_old" type="Panel"]
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+//inputs
+uniform float AMT = 0.08; //0 - 1 glitch amount
+uniform float SPEED = 0.3; //0 - 1 speed
+
+//2D (returns 0 - 1)
+float random2d(vec2 n) { 
+    return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+
+float randomRange (in vec2 seed, in float min, in float max) {
+		return min + random2d(seed) * (max - min);
+}
+
+// return 1 if v inside 1d range
+float insideRange(float v, float bottom, float top) {
+   return step(bottom, v) - step(top, v);
+}
+
+
+   
+void fragment()
+{
+    
+    float time = floor(TIME * SPEED * 60.0);    
+	vec2 uv = SCREEN_UV;//fragCoord.xy / iResolution.xy;
+    
+    //copy orig
+    vec3 outCol = texture(SCREEN_TEXTURE, uv).rgb;
+    
+    //randomly offset slices horizontally
+    float maxOffset = AMT/2.0;
+    for (float i = 0.0; i < 10.0 * AMT; i += 1.0) {
+        float sliceY = random2d(vec2(time , 2345.0 + float(i)));
+        float sliceH = random2d(vec2(time , 9035.0 + float(i))) * 0.25;
+        float hOffset = randomRange(vec2(time , 9625.0 + float(i)), -maxOffset, maxOffset);
+        vec2 uvOff = uv;
+        uvOff.x += hOffset;
+        if (insideRange(uv.y, sliceY, fract(sliceY+sliceH)) == 1.0 ){
+        	outCol = texture(SCREEN_TEXTURE, uvOff).rgb*vec3(2,5,2);
+        }
+    }
+    
+    //do slight offset on one entire channel
+    float maxColOffset = AMT/6.0;
+    float rnd = random2d(vec2(time , 9545.0));
+    vec2 colOffset = vec2(randomRange(vec2(time , 9545.0),-maxColOffset,maxColOffset), 
+                       randomRange(vec2(time , 7205.0),-maxColOffset,maxColOffset));
+    if (rnd < 0.33){
+        outCol.r = texture(SCREEN_TEXTURE, uv + colOffset).r;
+        
+    }else if (rnd < 0.66){
+        outCol.g = texture(SCREEN_TEXTURE, uv + colOffset).g;
+        
+    } else{
+        outCol.b = texture(SCREEN_TEXTURE, uv + colOffset).b;  
+    }
+       
+	COLOR = vec4(outCol,1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+
+render_priority = 0
+shader = SubResource( 3 )
+shader_param/AMT = null
+shader_param/SPEED = null
+
+[node name="players_old" type="Panel" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -36,9 +107,6 @@ size_flags_horizontal = 2
 size_flags_vertical = 2
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -115,9 +183,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -110.0
-margin_top = 178.0
+margin_top = 182.0
 margin_right = -71.0
-margin_bottom = 204.0
+margin_bottom = 208.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -159,6 +227,42 @@ allow_reselect = false
 icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
 _sections_unfolded = [ "Material" ]
+
+[node name="label2" type="Label" parent="." index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -195.0
+margin_top = 87.0
+margin_right = 59.0
+margin_bottom = 125.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "Thank for Watching"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="GlitchShader" type="Sprite" parent="." index="6"]
+
+visible = false
+material = SubResource( 4 )
+position = Vector2( -68.3277, 103.453 )
+scale = Vector2( 31.8696, 19.4038 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Material" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="pressed" from="END" to="." method="_on_END_pressed"]
 
