@@ -1177,3 +1177,5 @@ bus = "Master"
 [connection signal="pressed" from="players/player4/right" to="." method="_on_right_pressed"]
 
 [connection signal="pressed" from="players/player4/left" to="." method="_on_left_pressed"]
+
+
