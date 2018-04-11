@@ -39,7 +39,7 @@ shader_param/frequency = null
 shader_param/depth = 0.0
 _sections_unfolded = [ "shader", "shader_param" ]
 
-[node name="mirage" type="TextureRect" index="0"]
+[node name="mirage" type="TextureRect"]
 
 visible = false
 material = SubResource( 2 )

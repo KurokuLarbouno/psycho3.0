@@ -62,30 +62,14 @@ void fragment() {
 	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb*vec3(3,3,3);
 	
 	COLOR.rgb=c;
-}shader_type canvas_item;
-
-uniform float frequency=10;
-uniform float depth = 0.05;
-
-void fragment() {
-	
-	vec2 uv = SCREEN_UV;
-	uv.x += sin(tan(uv.y)*frequency+TIME)*depth;
-	uv.x = clamp(uv.x,0,1);
-	
-	uv.y += cos(uv.x*frequency+TIME)*depth;
-	
-	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb*vec3(0.5,6,0.5);
-	
-	
-	COLOR.rgb=c;
-}
-"
+}"
 
 [sub_resource type="ShaderMaterial" id=3]
 
 render_priority = 0
 shader = SubResource( 2 )
+shader_param/frequency = null
+shader_param/depth = null
 
 [sub_resource type="Shader" id=4]
 
@@ -102,7 +86,10 @@ void fragment() {
 	uv.x += sin(cos(uv.x)*frequency+TIME)*depth;
 	uv.x = clamp(uv.x,0,1);
 	uv.y += sin(cos(uv.y)*frequency+TIME)*depth;
-	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb*vec3(3,3,3);
+	
+	uv2.x += cos(sin(uv.x)*frequency+TIME)*depth;
+	uv2.y += cos(sin(uv.y)*frequency+TIME)*depth;
+	vec3 c = vec3(textureLod(SCREEN_TEXTURE,uv,0.0).r,textureLod(SCREEN_TEXTURE,uv2,0.0).g,textureLod(SCREEN_TEXTURE,uv3,0.0).b)*vec3(3,3,3);
 	
 	COLOR.rgb=c;
 }"
