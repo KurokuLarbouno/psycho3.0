@@ -3,6 +3,7 @@ extends Control
 var maps = ["Game", "Game2"]#--------------------玩家選取功能
 var kind = ["c1", "c2", "c3", "c4"]
 var cur_kind = 0
+var map_cur_kind = 0
 var p_order_count = 1	# 玩家暫存編號
 #var p_order = 1			# 玩家自身編號
 var self_kind = ''		# 玩家鎖定後的種類
@@ -15,7 +16,7 @@ func _ready():
 	#游標
 	Input.set_custom_mouse_cursor(arrow, 0, Vector2(16,16))
 	Input.set_custom_mouse_cursor(beam, Input.CURSOR_IBEAM, Vector2(16,16))
-	
+	get_node("map_icon").texture = load("res://image/StartEnd/" +maps[0]+".png")
 	var file = File.new()
 	var data = {}
 	now_kind = kind[0]
@@ -131,7 +132,7 @@ remote func player_order(v_p_oder):
 	pass
 #---------------------------------------------------------------HOST遊戲開始
 func _on_start_pressed():
-	rpc("save_map",maps[cur_kind])
+	rpc("save_map",maps[map_cur_kind])
 	connect.begin_game()
 	pass
 #---------------------------------------------------------------玩家種類選取介面
@@ -149,17 +150,17 @@ func _on_left_pressed():
 	pass # replace with function body
 #---------------------------------------------------------------場地種類選取介面
 func _on_right_map_pressed():
-	cur_kind = (cur_kind+1)%(maps.size())
-	rpc("set_map_icon", maps[cur_kind])
-	rpc("save_map_select",maps[cur_kind])
+	map_cur_kind = (map_cur_kind+1)%(maps.size())
+	rpc("set_map_icon", maps[map_cur_kind])
+	rpc("save_map_select",maps[map_cur_kind])
 
 	pass # replace with function body
 #---------------------------------------------------------------場地種類選取介面
 func _on_left_map_pressed():
-	cur_kind = cur_kind-1
-	if cur_kind < 0: cur_kind = maps.size()-1
-	rpc("set_map_icon", maps[cur_kind])
-	rpc("save_map_select",maps[cur_kind])
+	map_cur_kind = map_cur_kind-1
+	if map_cur_kind < 0: map_cur_kind = maps.size()-1
+	rpc("set_map_icon", maps[map_cur_kind])
+	rpc("save_map_select",maps[map_cur_kind])
 	pass # replace with function body
 #---------------------------------------------------------------設定玩家縮圖
 sync func set_map_icon(var p_file):
