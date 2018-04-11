@@ -6,7 +6,7 @@
 [ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -135,14 +135,15 @@ bus = "Master"
 
 [node name="Camera" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 position = Vector2( 240.918, 138.343 )
 z_index = 10
 zoom = Vector2( 0.375, 0.375 )
+
+[node name="glitch" parent="Camera/Camera2D" index="6"]
+
+visible = false
 
 
 [editable path="Roof"]
