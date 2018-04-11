@@ -29,7 +29,7 @@ extents = Vector2( 200, 16 )
 custom_solver_bias = 0.0
 extents = Vector2( 32, 24 )
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
 
