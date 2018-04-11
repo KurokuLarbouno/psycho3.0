@@ -268,7 +268,6 @@ __meta__ = {
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
 
 editor/display_folded = true
-visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -428,6 +427,8 @@ position = Vector2( 208, 190 )
 shape = SubResource( 14 )
 
 [node name="light" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="light" index="0"]
 

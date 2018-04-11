@@ -6,17 +6,26 @@
 
 code = "shader_type canvas_item;
 
-uniform float frequency=30;
-uniform float depth = 0.0;
+uniform float frequency=10;
+uniform float depth = 0.05;
 
 void fragment() {
 	
 	vec2 uv = SCREEN_UV;
-	uv.x += sin(uv.y*frequency+TIME)*depth;
+	vec2 uv2 = uv;
+	vec2 uv3 = uv;
+	uv.x += sin(tan(uv.y)*frequency+TIME)*depth;
 	uv.x = clamp(uv.x,0,1);
-	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb*vec3(3,10,3);
+	uv.y += cos(uv.x*frequency+TIME)*depth;
 	
+	uv2.x += cos(tan(uv.y)*frequency+TIME)*depth;
+	//uv2.y += tan(uv.x*frequency+TIME)*depth;
 	
+	uv3.x += cos(tan(uv.y)*frequency+TIME)*depth;
+	//uv3.y += sin(uv.x*frequency+TIME)*depth;
+	
+	vec3 c = vec3(textureLod(SCREEN_TEXTURE,uv,0.0).r,textureLod(SCREEN_TEXTURE,uv2,0.0).g,textureLod(SCREEN_TEXTURE,uv3,0.0).b)*vec3(3,3,3);
+
 	COLOR.rgb=c;
 }
 "
@@ -30,7 +39,7 @@ shader_param/frequency = null
 shader_param/depth = 0.0
 _sections_unfolded = [ "shader", "shader_param" ]
 
-[node name="mirage" type="TextureRect" index="0"]
+[node name="mirage" type="TextureRect"]
 
 visible = false
 material = SubResource( 2 )

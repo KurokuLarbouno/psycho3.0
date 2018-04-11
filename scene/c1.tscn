@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/Player_NEW.gd" type="Script" id=1]
 [ext_resource path="res://scene/shadow.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scripts/Weapon.gd" type="Script" id=12]
 [ext_resource path="res://scripts/Init_data_c1.gd" type="Script" id=13]
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=14]
+[ext_resource path="res://image/arrow.png" type="Texture" id=15]
 
 [node name="c1" type="KinematicBody2D" groups=[
 "sprite",
@@ -25,10 +26,7 @@ collision_layer = 1
 collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Collision", "Visibility" ]
 
 [node name="shadow" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -46,6 +44,7 @@ __meta__ = {
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" parent="hand" index="0" instance=ExtResource( 4 )]
@@ -67,6 +66,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Light2D" type="Light2D" parent="hand" index="2"]
 
+visible = false
 enabled = true
 editor_only = false
 texture = ExtResource( 7 )
@@ -147,5 +147,9 @@ __meta__ = {
 }
 
 [node name="hurt" parent="." index="11" instance=ExtResource( 14 )]
+
+[node name="Sprite" type="Sprite" parent="." index="12"]
+
+texture = ExtResource( 15 )
 
 

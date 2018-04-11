@@ -23,6 +23,7 @@ connect="*res://scripts/connect.gd"
 
 window/size/width=1280
 window/size/height=720
+window/vsync/use_vsync=false
 mouse_cursor/custom_image_hotspot=Vector2( 16, -16 )
 window/stretch/mode="viewport"
 

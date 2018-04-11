@@ -69,7 +69,7 @@ func mirage(delta):
 
 	else:
 		#0.005 delta
-		var vz=0.009#最嚴重
+		var vz=0.05#最嚴重
 		var c=mirage_time_control*mirage_time_control/16/vz#弧度
 		mirage_shader.set_shader_param("depth",(mirage_time-mirage_time_control/2)*(mirage_time-mirage_time_control/2)/-4/c+vz)
 		#mirage_shader.set_shader_param("depth",50)
