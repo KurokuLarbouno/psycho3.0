@@ -102,7 +102,7 @@ void fragment() {
 	uv.x += sin(cos(uv.x)*frequency+TIME)*depth;
 	uv.x = clamp(uv.x,0,1);
 	uv.y += sin(cos(uv.y)*frequency+TIME)*depth;
-	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb;
+	vec3 c = textureLod(SCREEN_TEXTURE,uv,0.0).rgb*vec3(3,3,3);
 	
 	COLOR.rgb=c;
 }"
@@ -448,6 +448,7 @@ _sections_unfolded = [ "Material" ]
 
 [node name="hahamirro" type="TextureRect" parent="." index="5"]
 
+visible = false
 material = SubResource( 5 )
 anchor_left = 0.0
 anchor_top = 0.0

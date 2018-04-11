@@ -21,8 +21,8 @@ void fragment() {
 	uv2.x += cos(tan(uv.y)*frequency+TIME)*depth;
 	//uv2.y += tan(uv.x*frequency+TIME)*depth;
 	
-	uv3.x += cos(tan(uv.y)*frequency+TIME)*depth;
-	//uv3.y += sin(uv.x*frequency+TIME)*depth;
+	//uv3.x += sin(tan(uv.y)*frequency+TIME)*depth*0.05;
+	uv3.y += sin(tan(uv.x)*frequency+TIME)*depth;
 	
 	vec3 c = vec3(textureLod(SCREEN_TEXTURE,uv,0.0).r,textureLod(SCREEN_TEXTURE,uv2,0.0).g,textureLod(SCREEN_TEXTURE,uv3,0.0).b)*vec3(3,3,3);
 
@@ -39,7 +39,7 @@ shader_param/frequency = null
 shader_param/depth = 0.0
 _sections_unfolded = [ "shader", "shader_param" ]
 
-[node name="mirage" type="TextureRect"]
+[node name="mirage" type="TextureRect" index="0"]
 
 visible = false
 material = SubResource( 2 )
