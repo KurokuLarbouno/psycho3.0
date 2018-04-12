@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/lobby.gd" type="Script" id=1]
 [ext_resource path="res://scene/title.tscn" type="PackedScene" id=2]
@@ -28,7 +28,8 @@
 [ext_resource path="res://image/StartEnd/ready.png" type="Texture" id=26]
 [ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=27]
 [ext_resource path="res://sound/Start.ogg" type="AudioStream" id=28]
-[ext_resource path="res://image/Character/smoke.png" type="Texture" id=29]
+[ext_resource path="res://icon.png" type="Texture" id=29]
+[ext_resource path="res://image/Character/smoke.png" type="Texture" id=30]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -93,7 +94,77 @@ void fragment()
     float maxOffset = AMT/2.0;
     for (float i = 0.0; i < 10.0 * AMT; i += 1.0) {
         float sliceY = random2d(vec2(time , 2345.0 + float(i)));
-        float sliceH = random2d(vec2(time , 9035.0 + float(i))) * 0.25;
+        float sliceH = random2d(vec2(time , 9035.0 + float(i))) * 0.1;
+        float hOffset = randomRange(vec2(time , 9625.0 + float(i)), -maxOffset, maxOffset);
+        vec2 uvOff = uv;
+        uvOff.x += hOffset;
+        if (insideRange(uv.y, sliceY, fract(sliceY+sliceH)) == 1.0 ){
+        	outCol = texture(SCREEN_TEXTURE, uvOff).rgb*vec3(2,5,2);
+        }
+    }
+    
+    //do slight offset on one entire channel
+    float maxColOffset = AMT/6.0;
+    float rnd = random2d(vec2(time , 9545.0));
+    vec2 colOffset = vec2(randomRange(vec2(time , 9545.0),-maxColOffset,maxColOffset), 
+                       randomRange(vec2(time , 7205.0),-maxColOffset,maxColOffset));
+    if (rnd < 0.2){
+        outCol.rgb = texture(SCREEN_TEXTURE, uv + colOffset).rgb;
+        
+    }//else if (rnd < 0.66){
+        //outCol.g = texture(SCREEN_TEXTURE, uv + colOffset).g;
+        
+    //} else{
+        //outCol.b = texture(SCREEN_TEXTURE, uv + colOffset).b;  
+    //}
+       
+	COLOR = vec4(outCol,1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+
+render_priority = 0
+shader = SubResource( 4 )
+shader_param/AMT = null
+shader_param/SPEED = null
+
+[sub_resource type="Shader" id=6]
+
+code = "shader_type canvas_item;
+//inputs
+uniform float AMT = 0.2; //0 - 1 glitch amount
+uniform float SPEED = 0.3; //0 - 1 speed
+
+//2D (returns 0 - 1)
+float random2d(vec2 n) { 
+    return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
+}
+
+float randomRange (in vec2 seed, in float min, in float max) {
+		return min + random2d(seed) * (max - min);
+}
+
+// return 1 if v inside 1d range
+float insideRange(float v, float bottom, float top) {
+   return step(bottom, v) - step(top, v);
+}
+
+
+   
+void fragment()
+{
+    
+    float time = floor(TIME * SPEED * 60.0);    
+	vec2 uv = SCREEN_UV;//fragCoord.xy / iResolution.xy;
+    
+    //copy orig
+    vec3 outCol = texture(SCREEN_TEXTURE, uv).rgb;
+    
+    //randomly offset slices horizontally
+    float maxOffset = AMT/2.0;
+    for (float i = 0.0; i < 10.0 * AMT; i += 1.0) {
+        float sliceY = random2d(vec2(time , 2345.0 + float(i)));
+        float sliceH = random2d(vec2(time , 9035.0 + float(i))) * 0.1;
         float hOffset = randomRange(vec2(time , 9625.0 + float(i)), -maxOffset, maxOffset);
         vec2 uvOff = uv;
         uvOff.x += hOffset;
@@ -120,14 +191,14 @@ void fragment()
 	COLOR = vec4(outCol,1.0);
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=7]
 
 render_priority = 0
-shader = SubResource( 4 )
+shader = SubResource( 6 )
 shader_param/AMT = null
 shader_param/SPEED = null
 
-[node name="Lobby" type="Control"]
+[node name="Lobby" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -387,6 +458,7 @@ __meta__ = {
 
 [node name="maps" type="Panel" parent="." index="6"]
 
+editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -530,6 +602,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="players" type="Panel" parent="." index="7"]
 
+editor/display_folded = true
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -1226,6 +1299,15 @@ material = SubResource( 5 )
 position = Vector2( 462.462, 158.53 )
 scale = Vector2( 58.8077, 20.8162 )
 texture = ExtResource( 29 )
+_sections_unfolded = [ "Material" ]
+
+[node name="glitchShaderRGB" type="Sprite" parent="." index="12"]
+
+visible = false
+material = SubResource( 7 )
+position = Vector2( 462.462, 158.53 )
+scale = Vector2( 58.8077, 20.8162 )
+texture = ExtResource( 30 )
 _sections_unfolded = [ "Material" ]
 
 [connection signal="pressed" from="online" to="start_scene" method="_on_online_pressed"]
