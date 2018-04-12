@@ -365,7 +365,7 @@ _sections_unfolded = [ "Range" ]
 
 [node name="ambient" type="CanvasModulate" parent="light" index="0"]
 
-color = Color( 0.53685, 0.621427, 0.910156, 1 )
+color = Color( 0.202148, 0.370949, 0.375, 1 )
 _sections_unfolded = [ "Material", "Pause", "Visibility" ]
 
 [node name="Light2D" type="Light2D" parent="light" index="1"]

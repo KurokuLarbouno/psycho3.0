@@ -261,6 +261,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
+_sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -428,11 +429,9 @@ shape = SubResource( 14 )
 
 [node name="light" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="light" index="0"]
 
-color = Color( 0.371094, 0.371094, 0.371094, 1 )
+color = Color( 0.240753, 0.252961, 0.382813, 1 )
 
 [node name="screenLight" type="Light2D" parent="light" index="1"]
 

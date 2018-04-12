@@ -19,11 +19,13 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 visible = false
 
+[node name="StaticBody2D" parent="Roof" index="1"]
+
+visible = false
+
 [node name="map" type="Node2D" parent="Roof" index="2" groups=[
 "sprite",
 ]]
-
-editor/display_folded = true
 
 [node name="TextureRect" type="TextureRect" parent="Roof/map" index="0"]
 
@@ -140,10 +142,6 @@ bus = "Master"
 position = Vector2( 240.918, 138.343 )
 z_index = 10
 zoom = Vector2( 0.375, 0.375 )
-
-[node name="glitch" parent="Camera/Camera2D" index="6"]
-
-visible = false
 
 
 [editable path="Roof"]
