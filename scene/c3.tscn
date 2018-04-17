@@ -16,8 +16,8 @@
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=14]
 
 [node name="c1" type="KinematicBody2D" groups=[
-"sprite",
 "player_group",
+"sprite",
 ]]
 
 input_pickable = false
@@ -144,7 +144,7 @@ __meta__ = {
 [node name="sound" type="AudioStreamPlayer" parent="." index="10"]
 
 stream = ExtResource( 13 )
-volume_db = 0.0
+volume_db = -8.0
 autoplay = false
 mix_target = 0
 bus = "Master"

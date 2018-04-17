@@ -15,9 +15,9 @@
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=13]
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=14]
 
-[node name="c4" type="KinematicBody2D" index="0" groups=[
-"sprite",
+[node name="c4" type="KinematicBody2D" groups=[
 "player_group",
+"sprite",
 ]]
 
 input_pickable = false
@@ -138,7 +138,7 @@ __meta__ = {
 [node name="sound" type="AudioStreamPlayer" parent="." index="10"]
 
 stream = ExtResource( 13 )
-volume_db = 0.0
+volume_db = -8.0
 autoplay = false
 mix_target = 0
 bus = "Master"

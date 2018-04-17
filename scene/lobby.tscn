@@ -602,7 +602,6 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="players" type="Panel" parent="." index="7"]
 
-editor/display_folded = true
 visible = false
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -626,6 +625,7 @@ __meta__ = {
 
 [node name="player1" type="Panel" parent="players" index="0"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -775,6 +775,7 @@ __meta__ = {
 
 [node name="player2" type="Panel" parent="players" index="1"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -924,6 +925,7 @@ __meta__ = {
 
 [node name="player3" type="Panel" parent="players" index="2"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0

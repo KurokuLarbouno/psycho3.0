@@ -171,6 +171,16 @@ sync func set_map_icon(var p_file):
 sync func set_player_icon(var p_order,var p_file):
 	get_node("players/player" + str(p_order) + "/player_icon").texture = load("res://image/StartEnd/" + p_file +".png")
 	set_player_name(p_order, p_file)
+	print(p_file)
+	if(p_file):
+		if(p_file == "c1"):
+			set_player_name(p_order, "Slice")
+		if(p_file == "c2"):
+			set_player_name(p_order, "Acid")
+		if(p_file == "c3"):
+			set_player_name(p_order, "Phase")
+		if(p_file == "c4"):
+			set_player_name(p_order, "Beast")
 	pass
 sync func set_btn_state(var p_order):
 	get_node("players/player" + str(p_order) + "/ready").show()
