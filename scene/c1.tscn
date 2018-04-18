@@ -15,7 +15,7 @@
 [ext_resource path="res://scripts/Init_data_c1.gd" type="Script" id=13]
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=14]
 
-[node name="c1" type="KinematicBody2D" groups=[
+[node name="c1" type="KinematicBody2D" index="0" groups=[
 "sprite",
 "player_group",
 ]]

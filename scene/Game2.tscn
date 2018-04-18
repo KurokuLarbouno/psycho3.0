@@ -6,7 +6,7 @@
 [ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -142,6 +142,10 @@ bus = "Master"
 position = Vector2( 240.918, 138.343 )
 z_index = 10
 zoom = Vector2( 0.375, 0.375 )
+
+[node name="hahamirro" parent="Camera/Camera2D" index="5"]
+
+visible = false
 
 
 [editable path="Roof"]

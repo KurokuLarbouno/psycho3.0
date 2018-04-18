@@ -92,9 +92,13 @@ remote func register_player(id, name):
 	players[id] = name
 	if (get_tree().is_network_server()):
 		var i = 1
+		var cur_kind = get_node("/root/Lobby/").cur_kind
+		var map_cur_kind =  get_node("/root/Lobby/").maps[get_node("/root/Lobby/").map_cur_kind]
+		
 		for p_id in players:
 			i += 1
 			rpc_id(p_id,"set_p_order",p_id,i)  
+			rpc_id(p_id,"sync_map_and_kind",p_id,cur_kind,map_cur_kind)  
 			pass
 		pass
 	emit_signal("player_list_changed")
@@ -103,6 +107,12 @@ remote func unregister_player(id):
 	emit_signal("player_list_changed")
 	if (get_tree().is_network_server()):
 		emit_signal("player_reflesh")
+#角色加入時同步已經設定的
+remote func sync_map_and_kind(id,cur_kind,map_cur_kind):
+	print("QAQ")
+	get_node("/root/Lobby/map_icon").texture = load("res://image/StartEnd/" + str(map_cur_kind) + ".png")
+	get_node("/root/Lobby/").map_cur_kind = map_cur_kind
+	pass
 remote func set_p_order(id,v_p_order):
 	p_order[id] = v_p_order
 	print("set_p_order")

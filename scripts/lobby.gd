@@ -240,8 +240,8 @@ func _on_ready_pressed():
 sync func switch_map_menu():
 	if (not get_tree().is_network_server()):
 		get_node("maps/start").disabled=true
-		get_node("map_ui/right_map").disabled=true
-		get_node("map_ui/left_map").disabled=true
+		get_node("maps/right_map").disabled=true
+		get_node("maps/left_map").disabled=true
 	pass
 sync func save_map(map):
 	connect.map	= map

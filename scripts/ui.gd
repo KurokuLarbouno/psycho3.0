@@ -112,7 +112,7 @@ sync func player_kill():
 sync func time(delta):
 	timer += delta
 	get_node("./label/time").text = str(floor(timer))
-	if(floor(timer)==120):
+	if(floor(timer)==60):
 		print("Game Over")
 		rpc("grade")
 	pass
