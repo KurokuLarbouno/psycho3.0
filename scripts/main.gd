@@ -6,6 +6,7 @@ extends Node2D
 var waiting_room = "res://scene/waiting_room.tscn"
 var game = "res://scene/Game2.tscn"
 
+
 func _ready():
 	_load_scene("res://scene/lobby.tscn")
 	pass
