@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/waiting_room.gd" type="Script" id=1]
-[ext_resource path="res://image/light.png" type="Texture" id=2]
-[ext_resource path="res://image/cursor.png" type="Texture" id=3]
+[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=2]
+[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=3]
 
-[node name="waiting_room" type="Node2D"]
+[node name="waiting_room" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -14,10 +14,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 644.0
-margin_top = 279.0
-margin_right = 684.0
-margin_bottom = 319.0
+margin_left = 169.0
+margin_top = 90.0
+margin_right = 297.0
+margin_bottom = 218.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -31,7 +31,59 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
 _sections_unfolded = [ "Textures" ]
+
+[node name="player" type="Node2D" parent="." index="1"]
+
+position = Vector2( -208.478, -102.885 )
+
+[node name="player1" type="Node2D" parent="player" index="0"]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="player2" type="Node2D" parent="player" index="1"]
+
+position = Vector2( 100, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="player3" type="Node2D" parent="player" index="2"]
+
+position = Vector2( 200, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="player4" type="Node2D" parent="player" index="3"]
+
+position = Vector2( 300, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.375, 0.375 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 

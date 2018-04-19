@@ -12,3 +12,5 @@ func _sort_z():
 		var pos = sprite[i].get_global_position()
 		sprite[i].z_index = pos.y
 	pass
+func is_level():
+	pass
