@@ -256,11 +256,9 @@ sync func switch_map_menu():
 sync func save_map(map):
 	connect.map	= map
 	pass
-
-
-
-
-
-
-func _on_Ready_pressed():
+func is_menu():
+	pass
+signal join_local
+func _on_local_pressed():
+	emit_signal("join_local")
 	pass # replace with function body

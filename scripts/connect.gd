@@ -227,8 +227,6 @@ func get_player_name():
 #step3 遊戲開始
 func begin_game():
 	assert(get_tree().is_network_server())
-
-	
 	var random_num_flag = false
 	for i in Trap_type:
 		randomize()
