@@ -10,16 +10,27 @@ var character_order = 0 # 0 = Slice; 1 = Acid; 2 = Beast; 4 = Phase
 var pname 
 var button = 0
 var button_max = 2
+var player_state = 0
+var t = 0
 func _ready():
 	$player.text = pname
 	pass
 
 func _process(delta):
-	button_selet()
-	_button_pressed()
+	print(player_state)
+	if(player_state == 0):
+		t = 0
+		button_selet()
+		_button_pressed()
+	elif(player_state == 1):#ready
+		_button_cancel()
+	elif(player_state == 2):
+		t += 1
+		if(t > 100):
+			player_state = 0;
 	pass
+#搖桿蘑菇頭選擇
 func button_selet():
-	
 	#left
 	if(Input.get_joy_axis(device_num,0) < -0.3): 
 		if(button == 1):
@@ -41,9 +52,8 @@ func button_selet():
 			button = 2
 			button_focus()
 	pass
+#按鈕選取
 func button_focus():
-	$Timer.set_wait_time(0.5)
-	$Timer.start()
 	var buttons = $buttons.get_children()
 	for i in range($buttons.get_children().size()):
 		buttons[i].deselect_button()
@@ -54,13 +64,25 @@ func button_focus():
 	elif(button == 2):
 		$buttons/ready.select_button()
 	pass
+#按下按鈕
 func _button_pressed():
 	if(Input.is_joy_button_pressed(device_num, 0)):
 		var buttons = $buttons.get_children()
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
 				buttons[i].button_pressed()
+				if(buttons[i] == $buttons/ready):
+					player_state = 1
 	pass
+#取消選取
+func _button_cancel():
+	if(Input.is_joy_button_pressed(device_num, 1)):
+		var buttons = $buttons.get_children()
+		for i in range(buttons.size()):
+			if(buttons[i].button_mode == 2):
+				buttons[i].deselect_button()
+				buttons[i].select_button()
+				player_state = 2
 func change_character():
 	if(character_order < 3):
 		character_order += 1

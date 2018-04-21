@@ -29,8 +29,6 @@ func check_player_join_leave():
 			register_player(num)
 	for num in playerList:
 		if(Input.is_joy_button_pressed(num, 1)):
-			inputList[num] = num
-			playerList[num] = -1
 			delete_player(num)
 	#鍵盤
 	if(Input.is_action_just_pressed("ui_select") and inputList[4] == 4):
@@ -69,7 +67,9 @@ func register_player(num):
 	else:
 		print("maxed player!")
 	pass
+#Ｂ鍵取消玩家
 func delete_player(num):
+	print("dd")
 	player_num -= 1
 	var children
 	if(num == player1_device):
@@ -81,7 +81,10 @@ func delete_player(num):
 	elif(num == player4_device):
 		children = get_node("player/player4").get_children()
 	if children.size() > 0:
-		children[0].queue_free()
+		if(children[0].player_state == 0):
+			children[0].queue_free()
+			playerList[num] = -1
+			inputList[num] = num
 	pass
 func ui_control():
 	pass
