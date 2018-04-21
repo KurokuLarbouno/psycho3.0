@@ -7,7 +7,7 @@ var pname
 var button = 1
 func _ready():
 	$player.text = pname
-	$buttons/ready.grab_focus()
+	$buttons/ready.set_focus()
 	pass
 
 func _process(delta):
