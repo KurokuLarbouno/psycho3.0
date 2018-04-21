@@ -15,9 +15,9 @@
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=14]
 
-[node name="c1" type="KinematicBody2D" groups=[
-"player_group",
+[node name="c1" type="KinematicBody2D" index="0" groups=[
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -43,7 +43,6 @@ __meta__ = {
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" parent="hand" index="0" instance=ExtResource( 4 )]
@@ -53,7 +52,7 @@ _sections_unfolded = [ "Process Material", "Textures" ]
 [node name="gun" type="Sprite" parent="hand" index="1"]
 
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="shotform" type="Sprite" parent="hand/gun" index="0"]
 
@@ -65,7 +64,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Light2D" type="Light2D" parent="hand" index="2"]
 
-visible = false
 enabled = true
 editor_only = false
 texture = ExtResource( 7 )
@@ -87,6 +85,7 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Visibility" ]
 
 [node name="sword" type="Sprite" parent="." index="3"]
 

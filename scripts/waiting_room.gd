@@ -20,7 +20,7 @@ func _process(delta):
 var inputList = [0,1,2,3,4] #0-3是搖桿 4是鍵盤
 var playerList = [-1,-1,-1,-1,-1]
 func check_player_join_leave():
-	print(inputList)
+	#print(playerList)
 	#搖桿
 	for num in inputList:
 		if(Input.is_joy_button_pressed(num, 0)):
@@ -49,18 +49,22 @@ func register_player(num):
 		if($player/player1.get_children().size() == 0):
 			player1_device = num
 			player.pname = "Player 1"
+			player.device_num = num
 			$player/player1.add_child(player)
 		elif($player/player2.get_children().size() == 0):
 			player2_device = num
 			player.pname = "Player 2"
+			player.device_num = num
 			$player/player2.add_child(player)
 		elif ($player/player3.get_children().size() == 0):
 			player3_device = num
 			player.pname = "Player 3"
+			player.device_num = num
 			$player/player3.add_child(player)
 		elif ($player/player4.get_children().size() == 0):
 			player.pname = "Player 4"
 			player4_device = num
+			player.device_num = num
 			$player/player4.add_child(player)
 	else:
 		print("maxed player!")

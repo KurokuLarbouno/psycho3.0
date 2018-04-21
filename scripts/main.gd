@@ -58,9 +58,11 @@ func _game_over():
 #scene connect
 func _connect_level(obj):
 	obj.connect("game_over", self, "_game_over")
+	obj.connect("int_game", self, "_int_game")
 	pass
 func _disconnect_level(obj):
 	obj.connect("game_over", self, "_game_over")
+	obj.connect("int_game", self, "_int_game")
 	pass
 func _connect_menu(obj):
 	obj.connect("join_local", self, "_join_local")
@@ -79,6 +81,13 @@ func _join_local():
 func _start_game():
 	_load_scene(game)
 	pass
+func _int_game():
+	if($scene.get_children().size() > 0):
+		spawn_player()
+	pass
+func spawn_player():
+	pass
 func _on_loadTimer_timeout():
 	_load_scene(cur_scn)
 	pass 
+

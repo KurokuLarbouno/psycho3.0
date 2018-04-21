@@ -1,6 +1,8 @@
 extends Node2D
+signal int_game
 
 func _ready():
+	game_started()
 	pass
 func _physics_process(delta):
 	_sort_z()
@@ -13,4 +15,7 @@ func _sort_z():
 		sprite[i].z_index = pos.y
 	pass
 func is_level():
+	pass
+func game_started():
+	emit_signal("int_game")
 	pass

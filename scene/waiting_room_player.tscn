@@ -1,82 +1,36 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/waiting_room_player.gd" type="Script" id=1]
-[ext_resource path="res://image/StartEnd/c1.png" type="Texture" id=2]
-[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=3]
-[ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=4]
-[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=5]
-[ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=6]
-[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://image/cursor.png" type="Texture" id=2]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=3]
+[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=4]
+[ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=5]
+[ext_resource path="res://image/StartEnd/host_sel.png" type="Texture" id=6]
+[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=7]
+[ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=8]
+[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=9]
+[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=10]
+[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 20
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 7 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="waiting_room_player" type="Node2D"]
+[node name="waiting_room_player" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="player_icon" type="Sprite" parent="." index="0"]
 
 position = Vector2( 43.9615, 77.9807 )
 texture = ExtResource( 2 )
 
-[node name="right" type="TextureButton" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 50.0
-margin_top = 138.0
-margin_right = 91.0
-margin_bottom = 178.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 4 )
-_sections_unfolded = [ "Textures" ]
-
-[node name="left" type="TextureButton" parent="." index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -8.0
-margin_top = 139.0
-margin_right = 33.0
-margin_bottom = 179.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 6 )
-_sections_unfolded = [ "Textures" ]
-
-[node name="player" type="Label" parent="." index="3"]
+[node name="player" type="Label" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -98,5 +52,126 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "custom_fonts" ]
+
+[node name="buttons" type="Control" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Focus" ]
+
+[node name="right" type="TextureButton" parent="buttons" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 56.0
+margin_top = 126.0
+margin_right = 97.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_focused = ExtResource( 6 )
+_sections_unfolded = [ "Focus", "Textures" ]
+
+[node name="left" type="TextureButton" parent="buttons" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -5.0
+margin_top = 126.0
+margin_right = 36.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_focused = ExtResource( 9 )
+stretch_mode = 2
+_sections_unfolded = [ "Textures" ]
+
+[node name="ready" type="TextureButton" parent="buttons" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 27.0
+margin_top = 160.0
+margin_right = 65.0
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_focused = ExtResource( 9 )
+_sections_unfolded = [ "Textures" ]
+
+[node name="change_character" type="TextureButton" parent="buttons" index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 54.0
+margin_top = 131.0
+margin_right = 94.0
+margin_bottom = 171.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_focused = ExtResource( 9 )
+_sections_unfolded = [ "Textures" ]
 
 
