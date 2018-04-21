@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/button.gd" type="Script" id=1]
+[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=2]
+
+[node name="button" type="Node2D"]
+
+script = ExtResource( 1 )
+normal = null
+pressed = null
+focus = null
+
+[node name="image" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+

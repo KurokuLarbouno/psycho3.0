@@ -1,20 +1,26 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/waiting_room_player.gd" type="Script" id=1]
 [ext_resource path="res://image/cursor.png" type="Texture" id=2]
 [ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=3]
-[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=4]
-[ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=5]
-[ext_resource path="res://image/StartEnd/host_sel.png" type="Texture" id=6]
-[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=7]
-[ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=8]
-[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=9]
-[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=10]
-[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=11]
+[ext_resource path="res://scene/button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=5]
+[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=6]
+[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=7]
+[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=8]
+[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 15
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
@@ -27,7 +33,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="player_icon" type="Sprite" parent="." index="0"]
 
-position = Vector2( 43.9615, 77.9807 )
+position = Vector2( 42, 74 )
 texture = ExtResource( 2 )
 
 [node name="player" type="Label" parent="." index="1"]
@@ -36,9 +42,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 1.0
+margin_left = 6.0
 margin_top = 2.0
-margin_right = 82.0
+margin_right = 87.0
 margin_bottom = 30.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -48,12 +54,36 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "player"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "custom_fonts" ]
 
-[node name="buttons" type="Control" parent="." index="2"]
+[node name="cName" type="Label" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 121.0
+margin_right = 81.0
+margin_bottom = 149.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "Slice"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "custom_fonts" ]
+
+[node name="buttons" type="Control" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -68,111 +98,36 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Focus" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="right" type="TextureButton" parent="buttons" index="0"]
+[node name="left" parent="buttons" index="0" instance=ExtResource( 4 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 56.0
-margin_top = 126.0
-margin_right = 97.0
-margin_bottom = 144.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_focused = ExtResource( 6 )
-_sections_unfolded = [ "Focus", "Textures" ]
+position = Vector2( 11, 170 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+focus = ExtResource( 7 )
 
-[node name="left" type="TextureButton" parent="buttons" index="1"]
+[node name="right" parent="buttons" index="1" instance=ExtResource( 4 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -5.0
-margin_top = 126.0
-margin_right = 36.0
-margin_bottom = 144.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 8 )
-texture_focused = ExtResource( 9 )
-stretch_mode = 2
-_sections_unfolded = [ "Textures" ]
+position = Vector2( 67, 170 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 6 )
+focus = ExtResource( 7 )
 
-[node name="ready" type="TextureButton" parent="buttons" index="2"]
+[node name="ready" parent="buttons" index="2" instance=ExtResource( 4 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 27.0
-margin_top = 160.0
-margin_right = 65.0
-margin_bottom = 187.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-texture_focused = ExtResource( 9 )
-_sections_unfolded = [ "Textures" ]
+position = Vector2( 43, 208 )
+normal = ExtResource( 6 )
+pressed = ExtResource( 9 )
+focus = ExtResource( 7 )
 
-[node name="change_character" type="TextureButton" parent="buttons" index="3"]
+[node name="Timer" type="Timer" parent="." index="4"]
 
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 54.0
-margin_top = 131.0
-margin_right = 94.0
-margin_bottom = 171.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-texture_focused = ExtResource( 9 )
-_sections_unfolded = [ "Textures" ]
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 
