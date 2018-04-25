@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="game_controller" type="Node2D" index="0"]
+
+[node name="game_scene" type="Node2D" parent="." index="0"]
+
+
