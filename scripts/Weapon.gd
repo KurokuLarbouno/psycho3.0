@@ -1,8 +1,8 @@
 extends Node2D
 #---------------------------------初始值
 var CHARGE_TIME = 1		#填充時間
-var PRESS_SHOT_TIME = 1	#長按發射時間間隔
-var SHOT_TIME = 0.5		#短按發射時間間隔
+var PRESS_SHOT_TIME = 0.2	#長按發射時間間隔
+var SHOT_TIME = 0.2		#短按發射時間間隔
 var BULLET_AMOUNT = 6	#彈匣數
 var BULLET_DMG = 1		#子彈傷害
 var BULLET_SPEED = 200	#子彈速度

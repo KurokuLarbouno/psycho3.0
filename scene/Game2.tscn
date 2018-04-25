@@ -27,6 +27,8 @@ visible = false
 "sprite",
 ]]
 
+editor/display_folded = true
+
 [node name="TextureRect" type="TextureRect" parent="Roof/map" index="0"]
 
 anchor_left = 0.0
@@ -125,6 +127,10 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 _sections_unfolded = [ "Z Index" ]
 
+[node name="light" parent="Roof" index="7"]
+
+editor/display_folded = true
+
 [node name="Audio" type="Node" parent="." index="1"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
@@ -137,10 +143,14 @@ bus = "Master"
 
 [node name="Camera" type="Node" parent="." index="3"]
 
+editor/display_folded = true
+
 [node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 position = Vector2( 240.918, 138.343 )
-z_index = 10
+z_index = 3654
+z_as_relative = true
 zoom = Vector2( 0.375, 0.375 )
 
 [node name="hahamirro" parent="Camera/Camera2D" index="5"]

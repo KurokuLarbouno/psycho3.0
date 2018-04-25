@@ -198,7 +198,7 @@ shader = SubResource( 6 )
 shader_param/AMT = null
 shader_param/SPEED = null
 
-[node name="Lobby" type="Control" index="0"]
+[node name="Lobby" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -240,6 +240,7 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
 _sections_unfolded = [ "Textures" ]
 
 [node name="online" type="TextureButton" parent="." index="2"]
@@ -626,6 +627,7 @@ __meta__ = {
 
 [node name="player1" type="Panel" parent="players" index="0"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -775,6 +777,7 @@ __meta__ = {
 
 [node name="player2" type="Panel" parent="players" index="1"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -924,6 +927,7 @@ __meta__ = {
 
 [node name="player3" type="Panel" parent="players" index="2"]
 
+editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1309,6 +1313,8 @@ position = Vector2( 462.462, 158.53 )
 scale = Vector2( 58.8077, 20.8162 )
 texture = ExtResource( 30 )
 _sections_unfolded = [ "Material" ]
+
+[connection signal="pressed" from="local" to="." method="_on_local_pressed"]
 
 [connection signal="pressed" from="online" to="start_scene" method="_on_online_pressed"]
 

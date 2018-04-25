@@ -9,11 +9,11 @@
 [ext_resource path="res://image/light.png" type="Texture" id=7]
 [ext_resource path="res://image/Character/ctest1_sword.png" type="Texture" id=8]
 [ext_resource path="res://scene/AP.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=10]
-[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scripts/Weapon.gd" type="Script" id=12]
-[ext_resource path="res://scripts/Init_data_c1.gd" type="Script" id=13]
-[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/Weapon.gd" type="Script" id=11]
+[ext_resource path="res://scripts/Init_data_c1.gd" type="Script" id=12]
+[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=13]
+[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=14]
 
 [node name="c1" type="KinematicBody2D" index="0" groups=[
 "sprite",
@@ -43,7 +43,6 @@ __meta__ = {
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" parent="hand" index="0" instance=ExtResource( 4 )]
@@ -53,7 +52,7 @@ _sections_unfolded = [ "Process Material", "Textures" ]
 [node name="gun" type="Sprite" parent="hand" index="1"]
 
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+_sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="shotform" type="Sprite" parent="hand/gun" index="0"]
 
@@ -65,7 +64,6 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Light2D" type="Light2D" parent="hand" index="2"]
 
-visible = false
 enabled = true
 editor_only = false
 texture = ExtResource( 7 )
@@ -87,6 +85,7 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
+_sections_unfolded = [ "Range", "Visibility" ]
 
 [node name="sword" type="Sprite" parent="." index="3"]
 
@@ -96,17 +95,9 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="AP" parent="." index="4" instance=ExtResource( 9 )]
 
-[node name="sound" type="AudioStreamPlayer" parent="." index="5"]
+[node name="AP2" parent="." index="5" instance=ExtResource( 10 )]
 
-stream = ExtResource( 10 )
-volume_db = 1.0
-autoplay = false
-mix_target = 0
-bus = "Master"
-
-[node name="AP2" parent="." index="6" instance=ExtResource( 11 )]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="7"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="6"]
 
 visible = false
 position = Vector2( 1.36451, 11.4015 )
@@ -116,7 +107,32 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player_area" type="Area2D" parent="." index="8"]
+[node name="Weapon" type="Node2D" parent="." index="7"]
+
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Init_data" type="Node2D" parent="." index="8"]
+
+script = ExtResource( 12 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="hurt" parent="." index="9" instance=ExtResource( 13 )]
+
+[node name="sound" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 14 )
+volume_db = -8.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="player_area" type="Area2D" parent="." index="11"]
 
 visible = false
 input_pickable = true
@@ -129,22 +145,5 @@ audio_bus_name = "Master"
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Weapon" type="Node2D" parent="." index="9"]
-
-script = ExtResource( 12 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Init_data" type="Node2D" parent="." index="10"]
-
-script = ExtResource( 13 )
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="hurt" parent="." index="11" instance=ExtResource( 14 )]
 
 
