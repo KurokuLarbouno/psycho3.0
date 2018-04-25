@@ -6,12 +6,19 @@
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=5]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 _sections_unfolded = [ "Z" ]
 
 [node name="Roof" parent="." index="0" instance=ExtResource( 2 )]
+
+editor/display_folded = true
+
+[node name="Node2D" parent="Roof" index="1"]
+
+editor/display_folded = true
 
 [node name="map" type="Node2D" parent="Roof" index="2" groups=[
 "sprite",
@@ -147,6 +154,10 @@ editor/display_folded = true
 [node name="Heart_Point" parent="Camera/Camera2D/UI" index="2"]
 
 editor/display_folded = false
+
+[node name="hahamirro" parent="Camera/Camera2D" index="5"]
+
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
 
