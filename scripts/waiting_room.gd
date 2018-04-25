@@ -69,7 +69,7 @@ func register_player(num):
 	pass
 #Ｂ鍵取消玩家
 func delete_player(num):
-	print("dd")
+	#print("dd")
 	player_num -= 1
 	var children
 	if(num == player1_device):

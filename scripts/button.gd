@@ -1,8 +1,8 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+signal lmouse_click()
+signal rmouse_click()
+signal rdmouse_click()
 
 export(Texture) var normal = load("res://image/StartEnd/buttom1.png")
 export(Texture)  var pressed = load("res://image/StartEnd/buttom2.png")
@@ -36,4 +36,19 @@ func deselect_button():
 func button_pressed():
 	$image.set_texture(pressed)
 	button_mode = 2
+	pass
+
+func _on_Button_pressed():
+	if(name == "left"): emit_signal("lmouse_click")
+	if(name == "right"): emit_signal("rmouse_click")
+	if(name == "ready"): emit_signal("rdmouse_click")
+	button_pressed()
+	pass
+
+func _on_Button_mouse_entered():
+	select_button()
+	pass
+
+func _on_Button_mouse_exited():
+	deselect_button()
 	pass

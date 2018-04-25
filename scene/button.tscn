@@ -11,8 +11,40 @@ pressed = null
 focus = null
 is_ready = false
 
-[node name="image" type="Sprite" parent="." index="0"]
+[node name="Button" type="Button" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -21.0
+margin_top = -10.0
+margin_right = 22.0
+margin_bottom = 10.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+flat = false
+align = 1
+_sections_unfolded = [ "Visibility" ]
+
+[node name="image" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
+
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
 
 

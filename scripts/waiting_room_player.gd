@@ -13,6 +13,9 @@ var button_max = 2
 var player_state = 0
 var t = 0
 func _ready():
+	$buttons/left.connect("lmouse_click", self, "_lmouse_click")
+	$buttons/right.connect("rmouse_click", self, "_rmouse_click")
+	$buttons/ready.connect("rdmouse_click", self, "_rdmouse_click")
 	$player.text = pname
 	pass
 
@@ -108,4 +111,22 @@ func change_character():
 	elif(character_order == 3):
 		$cName.text = character_name[4]
 		$player_icon.texture = Phase
+	pass
+func _lmouse_click():
+	if(character_order > 0):
+		character_order -= 1
+	else:
+		character_order = 3
+	change_character()
+	pass
+func _rmouse_click():
+	if(character_order < 3):
+		character_order += 1
+	else:
+		character_order = 0
+	change_character()
+	pass
+
+func _rdmouse_click():
+	player_state = 1
 	pass

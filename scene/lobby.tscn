@@ -22,7 +22,7 @@
 [ext_resource path="res://image/StartEnd/startButtom1.png" type="Texture" id=20]
 [ext_resource path="res://image/StartEnd/startButtom2.png" type="Texture" id=21]
 [ext_resource path="res://image/StartEnd/select_focus.png" type="Texture" id=22]
-[ext_resource path="res://image/StartEnd/未命名.png" type="Texture" id=23]
+[ext_resource path="res://image/StartEnd/c1.png" type="Texture" id=23]
 [ext_resource path="res://image/StartEnd/little_arrow_button.png" type="Texture" id=24]
 [ext_resource path="res://image/StartEnd/little_arrow_button_hover.png" type="Texture" id=25]
 [ext_resource path="res://image/StartEnd/ready.png" type="Texture" id=26]
@@ -677,7 +677,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "?"
+text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -827,7 +827,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "?"
+text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -977,7 +977,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "?"
+text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -1126,7 +1126,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 2 )
-text = "?"
+text = "P1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
