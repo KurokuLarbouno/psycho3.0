@@ -2,9 +2,9 @@ extends Node2D
 var device_num
 var character_name = {1 : "Slice", 2 : "Acid", 3 : "Beast", 4 : "Phase"}
 var Slice = load("res://image/StartEnd/c1.png")
-var Acid = load("res://image/StartEnd/c1.png")
-var Beast = load("res://image/StartEnd/c1.png")
-var Phase = load("res://image/StartEnd/c1.png")
+var Acid = load("res://image/StartEnd/c2.png")
+var Beast = load("res://image/StartEnd/c3.png")
+var Phase = load("res://image/StartEnd/c4.png")
 var character_order = 0 # 0 = Slice; 1 = Acid; 2 = Beast; 4 = Phase
 
 var pname 
@@ -73,6 +73,18 @@ func _button_pressed():
 				buttons[i].button_pressed()
 				if(buttons[i] == $buttons/ready):
 					player_state = 1
+				elif(buttons[i] == $buttons/right):
+					if(character_order < 3):
+						character_order += 1
+					else:
+						character_order = 0
+					change_character()
+				elif(buttons[i] == $buttons/left):
+					if(character_order > 0):
+						character_order -= 1
+					else:
+						character_order = 3
+					change_character()
 	pass
 #取消選取
 func _button_cancel():
@@ -84,10 +96,6 @@ func _button_cancel():
 				buttons[i].select_button()
 				player_state = 2
 func change_character():
-	if(character_order < 3):
-		character_order += 1
-	else:
-		character_order = 0
 	if(character_order == 0):
 		$cName.text = character_name[1]
 		$player_icon.texture = Slice

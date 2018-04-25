@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 normal = null
 pressed = null
 focus = null
+is_ready = false
 
 [node name="image" type="Sprite" parent="." index="0"]
 

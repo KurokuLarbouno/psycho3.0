@@ -7,19 +7,24 @@ extends Node2D
 export(Texture) var normal = load("res://image/StartEnd/buttom1.png")
 export(Texture)  var pressed = load("res://image/StartEnd/buttom2.png")
 export(Texture)  var focus = load("res://image/StartEnd/host.png")
-
+export var is_ready = false
 var button_mode = 0 # 0 = normal; 2 = pressed; 1 = focus
-
+var t = 0
+var delay = 50
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	$image.set_texture(normal)
 	pass
 
-#func _process(delta):
-	# Called every frame. Delta is time since last frame.
-	# Update game logic here.
-	#pass
+func _process(delta):
+	if(!is_ready):
+		if(button_mode == 2):
+			t += 1
+		if(t > delay):
+			select_button()
+			t = 0
+	pass
 func select_button():
 	$image.set_texture(focus)
 	button_mode = 1
