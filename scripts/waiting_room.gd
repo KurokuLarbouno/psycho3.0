@@ -94,9 +94,8 @@ func _on_start_pressed():
 	check_all_player_ready()
 	pass # replace with function body
 func check_all_player_ready():
-		
-		
-	emit_signal("start_game")
+	if(is_ready == 4):
+		emit_signal("start_game")
 	pass
 func check_character_repeat():
 	pass
