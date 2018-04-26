@@ -21,7 +21,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(player_state)
+	#print(player_state)
 	if(player_state == 0):
 		t = 0
 		button_selet()
@@ -30,8 +30,8 @@ func _process(delta):
 		_button_cancel()
 	elif(player_state == 2):
 		t += 1
-		if(t > 100):
-			player_state = 0;
+		if(t > 50):
+			player_state = 0
 	pass
 #搖桿蘑菇頭選擇
 func button_selet():

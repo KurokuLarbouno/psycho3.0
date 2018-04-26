@@ -23,7 +23,6 @@ connect="*res://scripts/connect.gd"
 
 window/size/width=1280
 window/size/height=720
-window/vsync/use_vsync=false
 mouse_cursor/custom_image_hotspot=Vector2( 16, -16 )
 window/stretch/mode="viewport"
 
@@ -69,5 +68,6 @@ cancel=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":""
 
 [rendering]
 
+quality/2d/use_pixel_snap=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

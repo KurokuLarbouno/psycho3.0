@@ -4,6 +4,8 @@
 
 [node name="main" type="Node2D"]
 
+position = Vector2( 0, 0.302887 )
+scale = Vector2( 1, 1.00947 )
 script = ExtResource( 1 )
 
 [node name="scene" type="Node2D" parent="." index="0"]
