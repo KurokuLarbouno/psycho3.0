@@ -36,6 +36,7 @@ _sections_unfolded = [ "Textures" ]
 
 [node name="player" type="Node2D" parent="." index="1"]
 
+editor/display_folded = true
 position = Vector2( -208.478, -102.885 )
 
 [node name="player1" type="Node2D" parent="player" index="0"]

@@ -1,4 +1,7 @@
 extends Node2D
+
+signal player_ready
+
 var device_num
 var character_name = {1 : "Slice", 2 : "Acid", 3 : "Beast", 4 : "Phase"}
 var Slice = load("res://image/StartEnd/c1.png")
@@ -10,12 +13,10 @@ var character_order = 0 # 0 = Slice; 1 = Acid; 2 = Beast; 4 = Phase
 var pname 
 var button = 0
 var button_max = 2
-var player_state = 0
+var player_state = 0 # 0 = normal; 1 = ready; 2 = loading
 var t = 0
 func _ready():
-	$buttons/left.connect("lmouse_click", self, "_lmouse_click")
-	$buttons/right.connect("rmouse_click", self, "_rmouse_click")
-	$buttons/ready.connect("rdmouse_click", self, "_rdmouse_click")
+	button_connect()
 	$player.text = pname
 	pass
 
@@ -76,6 +77,7 @@ func _button_pressed():
 				buttons[i].button_pressed()
 				if(buttons[i] == $buttons/ready):
 					player_state = 1
+					emit_signal("player_ready", 1)
 				elif(buttons[i] == $buttons/right):
 					if(character_order < 3):
 						character_order += 1
@@ -98,6 +100,7 @@ func _button_cancel():
 				buttons[i].deselect_button()
 				buttons[i].select_button()
 				player_state = 2
+				emit_signal("player_ready", -1)
 func change_character():
 	if(character_order == 0):
 		$cName.text = character_name[1]
@@ -129,4 +132,12 @@ func _rmouse_click():
 
 func _rdmouse_click():
 	player_state = 1
+	pass
+func character_repeat():
+	
+	pass
+func button_connect():
+	$buttons/left.connect("lmouse_click", self, "_lmouse_click")
+	$buttons/right.connect("rmouse_click", self, "_rmouse_click")
+	$buttons/ready.connect("rdmouse_click", self, "_rdmouse_click")
 	pass

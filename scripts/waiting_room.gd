@@ -91,5 +91,21 @@ func ui_control():
 func is_menu():
 	pass
 func _on_start_pressed():
-	emit_signal("start_game")
+	check_all_player_ready()
 	pass # replace with function body
+func check_all_player_ready():
+		
+		
+	emit_signal("start_game")
+	pass
+func check_character_repeat():
+	pass
+func player_connect(obj):
+	obj.connect("player_ready", self,"_player_ready")
+	pass
+var is_ready = 0
+func _player_ready(i):
+	is_ready += i
+	print(i)
+	pass
+	

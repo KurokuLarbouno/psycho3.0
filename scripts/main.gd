@@ -4,7 +4,7 @@ extends Node2D
 # var a = 2
 # var b = "textvar"
 var waiting_room = "res://scene/waiting_room.tscn"
-var game = "res://scene/Game2.tscn"
+var game_control = "res://scene/game_controller.tscn"
 
 
 func _ready():
@@ -79,7 +79,7 @@ func _join_local():
 	_load_scene(waiting_room)
 	pass
 func _start_game():
-	_load_scene(game)
+	_load_scene(game_control)
 	pass
 func _int_game():
 	if($scene.get_children().size() > 0):
