@@ -14,8 +14,6 @@ func _sort_z():
 		var pos = sprite[i].get_global_position()
 		sprite[i].z_index = pos.y
 	pass
-func is_level():
-	pass
 func game_started():
-	emit_signal("int_game")
+	$Camera/Camera2D.current = true
 	pass

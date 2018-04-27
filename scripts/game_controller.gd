@@ -18,6 +18,9 @@ func _process(delta):
 	if(gameState == 0):
 		emit_signal("int_game")
 		_load_game(game1)
+		gameState = 1
+	elif(gameState == 1):
+		spawn_player()
 	pass
 var cur_game = ""
 
@@ -31,4 +34,6 @@ func _load_game(scn):
 	$game_scene.add_child(act)
 	pass
 func is_level():
+	pass
+func spawn_player():
 	pass

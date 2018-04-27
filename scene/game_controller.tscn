@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/game_controller.gd" type="Script" id=1]
 
-[node name="game_controller" type="Node2D"]
+[node name="game_controller" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -29,5 +29,7 @@ text = "game controller
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="UI" type="Node2D" parent="." index="2"]
 
 

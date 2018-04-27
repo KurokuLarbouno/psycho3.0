@@ -143,11 +143,8 @@ bus = "Master"
 
 [node name="Camera" type="Node" parent="." index="3"]
 
-editor/display_folded = true
-
 [node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 5 )]
 
-editor/display_folded = true
 position = Vector2( 240.918, 138.343 )
 z_index = 3654
 z_as_relative = true
