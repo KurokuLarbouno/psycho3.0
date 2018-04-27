@@ -1,6 +1,8 @@
 extends Node2D
 
 signal start_game
+signal player_register
+
 var player_num = 0 #玩家數
 var player1_device
 var player2_device
@@ -49,21 +51,25 @@ func register_player(num):
 			player.pname = "Player 1"
 			player.device_num = num
 			$player/player1.add_child(player)
+			emit_signal("player_register", 1, num)
 		elif($player/player2.get_children().size() == 0):
 			player2_device = num
 			player.pname = "Player 2"
 			player.device_num = num
 			$player/player2.add_child(player)
+			emit_signal("player_register", 2, num)
 		elif ($player/player3.get_children().size() == 0):
 			player3_device = num
 			player.pname = "Player 3"
 			player.device_num = num
 			$player/player3.add_child(player)
+			emit_signal("player_register", 3, num)
 		elif ($player/player4.get_children().size() == 0):
 			player.pname = "Player 4"
 			player4_device = num
 			player.device_num = num
 			$player/player4.add_child(player)
+			emit_signal("player_register", 4, num)
 		player_connect(player)
 	else:
 		print("maxed player!")

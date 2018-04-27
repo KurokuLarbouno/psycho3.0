@@ -1,8 +1,7 @@
 extends Node2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var player1_data
+
 var waiting_room = "res://scene/waiting_room.tscn"
 var game_control = "res://scene/game_controller.tscn"
 
@@ -49,12 +48,10 @@ func _load_scene(scn):
 	elif loadState == 3:
 		loadState = 0
 	pass
+func _on_loadTimer_timeout():
+	_load_scene(cur_scn)
+	pass 
 #game control
-func _game_start():
-	_load_scene("res://scene/Game2.tscn")
-	pass
-func _game_over():
-	pass
 #scene connect
 func _connect_level(obj):
 	obj.connect("game_over", self, "_game_over")
@@ -67,27 +64,32 @@ func _disconnect_level(obj):
 func _connect_menu(obj):
 	obj.connect("join_local", self, "_join_local")
 	obj.connect("start_game", self, "_start_game")
+	obj.connect("player_register", self, "_player_register")
 	print("menu connected!")
 	pass
 func _disconnect_menu(obj):
 	obj.disconnect("join_local", self, "_join_local")
+	obj.disconnect("start_game", self, "_start_game")
+	obj.disconnect("player_register", self, "_player_register")
 	print("menu disconnected!")
 	pass
 #ui pressed
 func _join_local():
-	print("pressed join")
+	print("join local")
 	_load_scene(waiting_room)
 	pass
+#玩家確認
+func _player_register(player_num, device_num):
+	
+	pass
+#所有玩家ready觸發
 func _start_game():
 	_load_scene(game_control)
 	pass
+#load 完game_controller執行
 func _int_game():
-	if($scene.get_children().size() > 0):
-		spawn_player()
+	set_player_data()
 	pass
-func spawn_player():
-	pass
-func _on_loadTimer_timeout():
-	_load_scene(cur_scn)
-	pass 
+	
+	
 
