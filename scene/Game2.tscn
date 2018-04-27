@@ -153,10 +153,6 @@ z_index = 3654
 z_as_relative = true
 zoom = Vector2( 0.375, 0.375 )
 
-[node name="hahamirro" parent="Camera/Camera2D" index="5"]
-
-visible = false
-
 
 [editable path="Roof"]
 [editable path="Camera/Camera2D"]

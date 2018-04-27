@@ -30,7 +30,7 @@ func _process(delta):
 		_button_cancel()
 	elif(player_state == 2):
 		t += 1
-		if(t > 50):
+		if(t > 20):
 			player_state = 0
 	pass
 #搖桿蘑菇頭選擇

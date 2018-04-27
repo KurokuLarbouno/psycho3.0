@@ -64,6 +64,7 @@ func register_player(num):
 			player4_device = num
 			player.device_num = num
 			$player/player4.add_child(player)
+		player_connect(player)
 	else:
 		print("maxed player!")
 	pass
@@ -82,6 +83,7 @@ func delete_player(num):
 		children = get_node("player/player4").get_children()
 	if children.size() > 0:
 		if(children[0].player_state == 0):
+			player_disconnect(children[0])
 			children[0].queue_free()
 			playerList[num] = -1
 			inputList[num] = num
@@ -94,17 +96,24 @@ func _on_start_pressed():
 	check_all_player_ready()
 	pass # replace with function body
 func check_all_player_ready():
-	if(is_ready == 4):
+	if(is_ready == player_num ):
+		print("game started")
 		emit_signal("start_game")
 	pass
 func check_character_repeat():
 	pass
 func player_connect(obj):
 	obj.connect("player_ready", self,"_player_ready")
+	print("player connected")
+	pass
+func player_disconnect(obj):
+	obj.disconnect("player_ready", self,"_player_ready")
+	print("player disconnected")
 	pass
 var is_ready = 0
 func _player_ready(i):
 	is_ready += i
 	print(i)
+	check_all_player_ready()
 	pass
 	

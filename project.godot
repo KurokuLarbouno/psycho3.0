@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="test_3.0"
-run/main_scene="res://scene/lobby.tscn"
+run/main_scene="res://scene/main.tscn"
 config/icon="res://image/Character/traps3.png"
 boot_splash/icon="res://icon.png"
 
