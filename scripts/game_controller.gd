@@ -20,9 +20,8 @@ func _process(delta):
 		_load_game(game1)
 		gameState = 1
 	elif(gameState == 1):
-		int_player()
-		#spawn player
-		print("spawn player")
+		spawn_player()
+		print("spawn players")
 		gameState = 2
 	pass
 var cur_game = ""
@@ -38,5 +37,6 @@ func _load_game(scn):
 	pass
 func is_level():
 	pass
-func int_player():
+func spawn_player():
+
 	pass

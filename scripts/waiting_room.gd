@@ -119,7 +119,6 @@ func player_disconnect(obj):
 var is_ready = 0
 func _player_ready(i):
 	is_ready += i
-	print(i)
 	check_all_player_ready()
 	pass
 	
