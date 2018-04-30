@@ -40,6 +40,7 @@ _sections_unfolded = [ "Visibility" ]
 [node name="image" type="Sprite" parent="." index="1"]
 
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation" ]
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
 
