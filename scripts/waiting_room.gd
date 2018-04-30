@@ -81,12 +81,16 @@ func delete_player(num):
 	var children
 	if(num == player1_device):
 		children = get_node("player/player1").get_children()
+		emit_signal("player_register", 1, -1)
 	elif(num == player2_device):
 		children = get_node("player/player2").get_children()
+		emit_signal("player_register", 2, -1)
 	elif(num == player3_device):
 		children = get_node("player/player3").get_children()
+		emit_signal("player_register", 3, -1)
 	elif(num == player4_device):
 		children = get_node("player/player4").get_children()
+		emit_signal("player_register", 4, -1)
 	if children.size() > 0:
 		if(children[0].player_state == 0):
 			player_disconnect(children[0])
