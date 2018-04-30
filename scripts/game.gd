@@ -15,5 +15,5 @@ func _sort_z():
 		sprite[i].z_index = pos.y
 	pass
 func game_started():
-	$Camera/Camera2D.current = true
+	
 	pass

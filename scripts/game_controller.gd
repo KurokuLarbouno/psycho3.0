@@ -18,6 +18,7 @@ func _process(delta):
 	if(gameState == 0):
 		emit_signal("int_game")
 		_load_game(game1)
+		$Camera2D.current = true
 		gameState = 1
 	elif(gameState == 1):
 		spawn_player()
