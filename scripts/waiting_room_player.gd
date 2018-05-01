@@ -14,7 +14,7 @@ var character_order = 0 # 0 = Slice; 1 = Acid; 2 = Beast; 4 = Phase
 var pname 
 var button = 0
 var button_max = 2
-var player_state = 0 # 0 = normal; 1 = ready; 2 = loading
+var player_state = 0 # 0 = normal; 1 = ready; 2 = loading ; 3 = exit
 var t = 0
 func _ready():
 	button_connect()
@@ -148,7 +148,9 @@ func open():
 	pass
 func exit():
 	$items.hide()
-	$AnimationPlayer.play("exit")
+	if(player_state != 3):
+		$AnimationPlayer.play("exit")
+	player_state = 3
 	pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):

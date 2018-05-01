@@ -11,12 +11,12 @@ var player4_device
 
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+
 	pass
 
 func _process(delta):
 	check_player_join_leave()
+	print(inputList)
 	pass
 	
 var inputList = [0,1,2,3,4] #0-3是搖桿 4是鍵盤
@@ -94,8 +94,8 @@ func delete_player(num):
 	if children.size() > 0:
 		if(children[0].player_state == 0):
 			children[0].exit()
-			playerList[num] = -1
-			inputList[num] = num
+			#playerList[num] = -1
+			#inputList[num] = num
 	pass
 func ui_control():
 	pass
@@ -128,6 +128,8 @@ func _player_ready(i):
 	pass
 func _player_delete(child):
 	player_disconnect(child)
+	inputList[child.device_num] = child.device_num
+	playerList[child.device_num] = -1
 	child.queue_free()
 	print("player delete")
 	pass
