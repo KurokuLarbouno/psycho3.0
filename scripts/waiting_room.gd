@@ -93,8 +93,7 @@ func delete_player(num):
 		emit_signal("player_register", 4, -1)
 	if children.size() > 0:
 		if(children[0].player_state == 0):
-			player_disconnect(children[0])
-			children[0].queue_free()
+			children[0].exit()
 			playerList[num] = -1
 			inputList[num] = num
 	pass
@@ -114,15 +113,22 @@ func check_character_repeat():
 	pass
 func player_connect(obj):
 	obj.connect("player_ready", self,"_player_ready")
+	obj.connect("player_delete", self,"_player_delete")
 	print("player connected")
 	pass
 func player_disconnect(obj):
 	obj.disconnect("player_ready", self,"_player_ready")
+	obj.disconnect("player_delete", self,"_player_delete")
 	print("player disconnected")
 	pass
 var is_ready = 0
 func _player_ready(i):
 	is_ready += i
 	check_all_player_ready()
+	pass
+func _player_delete(child):
+	player_disconnect(child)
+	child.queue_free()
+	print("player delete")
 	pass
 	

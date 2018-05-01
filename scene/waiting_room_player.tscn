@@ -1,27 +1,66 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/waiting_room_player.gd" type="Script" id=1]
-[ext_resource path="res://image/cursor.png" type="Texture" id=2]
-[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=3]
-[ext_resource path="res://scene/button.tscn" type="PackedScene" id=4]
-[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=5]
-[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=6]
-[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=7]
+[ext_resource path="res://image/StartEnd/player_join_hologram.png" type="Texture" id=2]
+[ext_resource path="res://scene/button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=4]
+[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=5]
+[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=6]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://image/cursor.png" type="Texture" id=8]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="Animation" id=4]
 
-size = 20
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 3 )
-_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+resource_name = "exit"
+length = 0.4
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 12 ]
+}
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="Animation" id=1]
+
+resource_name = "hologram"
+length = 0.8
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("background:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+
+[sub_resource type="DynamicFont" id=3]
 
 size = 15
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 3 )
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="waiting_room_player" type="Node2D"]
@@ -29,60 +68,34 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="player_icon" type="Sprite" parent="." index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
 
-position = Vector2( 42, 74 )
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/exit = SubResource( 4 )
+anims/hologram = SubResource( 1 )
+blend_times = [  ]
+
+[node name="background" type="Sprite" parent="." index="1"]
+
+position = Vector2( 60, 136 )
 texture = ExtResource( 2 )
+hframes = 13
+_sections_unfolded = [ "Animation", "Offset" ]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="player" type="Label" parent="." index="1"]
+[node name="items" type="Node2D" parent="." index="2"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 6.0
-margin_top = 2.0
-margin_right = 87.0
-margin_bottom = 30.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
-text = "player"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Material", "custom_fonts" ]
+visible = false
 
-[node name="cName" type="Label" parent="." index="2"]
+[node name="buttons" type="Control" parent="items" index="0"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 121.0
-margin_right = 81.0
-margin_bottom = 149.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
-text = "Slice"
-align = 1
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Material", "custom_fonts" ]
-
-[node name="buttons" type="Control" parent="." index="3"]
-
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -100,26 +113,81 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="left" parent="buttons" index="0" instance=ExtResource( 4 )]
+[node name="left" parent="items/buttons" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( 11, 170 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
-focus = ExtResource( 7 )
+position = Vector2( 37, 156 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+focus = ExtResource( 6 )
 
-[node name="right" parent="buttons" index="1" instance=ExtResource( 4 )]
+[node name="right" parent="items/buttons" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 67, 170 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
-focus = ExtResource( 7 )
+position = Vector2( 84, 157 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+focus = ExtResource( 6 )
 
-[node name="ready" parent="buttons" index="2" instance=ExtResource( 4 )]
+[node name="ready" parent="items/buttons" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( 43, 208 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
-focus = ExtResource( 7 )
+position = Vector2( 62, 191 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 5 )
+focus = ExtResource( 6 )
 is_ready = true
+
+[node name="cName" type="Label" parent="items" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 22.0
+margin_top = 105.0
+margin_right = 103.0
+margin_bottom = 133.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Slice"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "custom_fonts" ]
+
+[node name="player" type="Label" parent="items" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 13.0
+margin_top = 24.0
+margin_right = 94.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+text = "player"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Material", "custom_fonts" ]
+
+[node name="player_icon" type="Sprite" parent="items" index="3"]
+
+position = Vector2( 59, 74 )
+texture = ExtResource( 8 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 

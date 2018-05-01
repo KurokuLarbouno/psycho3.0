@@ -1,6 +1,7 @@
 extends Node2D
 
 signal player_ready
+signal player_delete
 
 var device_num
 var character_name = {1 : "Slice", 2 : "Acid", 3 : "Beast", 4 : "Phase"}
@@ -17,7 +18,8 @@ var player_state = 0 # 0 = normal; 1 = ready; 2 = loading
 var t = 0
 func _ready():
 	button_connect()
-	$player.text = pname
+	$items/player.text = pname
+	open()
 	pass
 
 func _process(delta):
@@ -58,33 +60,33 @@ func button_selet():
 	pass
 #按鈕選取
 func button_focus():
-	var buttons = $buttons.get_children()
-	for i in range($buttons.get_children().size()):
+	var buttons = $items/buttons.get_children()
+	for i in range($items/buttons.get_children().size()):
 		buttons[i].deselect_button()
 	if(button == 0):
-		$buttons/left.select_button()
+		$items/buttons/left.select_button()
 	elif(button == 1):
-		$buttons/right.select_button()
+		$items/buttons/right.select_button()
 	elif(button == 2):
-		$buttons/ready.select_button()
+		$items/buttons/ready.select_button()
 	pass
 #按下按鈕
 func _button_pressed():
 	if(Input.is_joy_button_pressed(device_num, 0)):
-		var buttons = $buttons.get_children()
+		var buttons = $items/buttons.get_children()
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
 				buttons[i].button_pressed()
-				if(buttons[i] == $buttons/ready):
+				if(buttons[i] == $items/buttons/ready):
 					player_state = 1
 					emit_signal("player_ready", 1)
-				elif(buttons[i] == $buttons/right):
+				elif(buttons[i] == $items/buttons/right):
 					if(character_order < 3):
 						character_order += 1
 					else:
 						character_order = 0
 					change_character()
-				elif(buttons[i] == $buttons/left):
+				elif(buttons[i] == $items/buttons/left):
 					if(character_order > 0):
 						character_order -= 1
 					else:
@@ -94,7 +96,7 @@ func _button_pressed():
 #取消選取
 func _button_cancel():
 	if(Input.is_joy_button_pressed(device_num, 1)):
-		var buttons = $buttons.get_children()
+		var buttons = $items/buttons.get_children()
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 2):
 				buttons[i].deselect_button()
@@ -103,17 +105,17 @@ func _button_cancel():
 				emit_signal("player_ready", -1)
 func change_character():
 	if(character_order == 0):
-		$cName.text = character_name[1]
-		$player_icon.texture = Slice
+		$items/cName.text = character_name[1]
+		$items/player_icon.texture = Slice
 	elif(character_order == 1):
-		$cName.text = character_name[2]
-		$player_icon.texture = Acid
+		$items/cName.text = character_name[2]
+		$items/player_icon.texture = Acid
 	elif(character_order == 2):
-		$cName.text = character_name[3]
-		$player_icon.texture = Beast
+		$items/cName.text = character_name[3]
+		$items/player_icon.texture = Beast
 	elif(character_order == 3):
-		$cName.text = character_name[4]
-		$player_icon.texture = Phase
+		$items/cName.text = character_name[4]
+		$items/player_icon.texture = Phase
 	pass
 func _lmouse_click():
 	if(character_order > 0):
@@ -137,7 +139,21 @@ func character_repeat():
 	
 	pass
 func button_connect():
-	$buttons/left.connect("lmouse_click", self, "_lmouse_click")
-	$buttons/right.connect("rmouse_click", self, "_rmouse_click")
-	$buttons/ready.connect("rdmouse_click", self, "_rdmouse_click")
+	$items/buttons/left.connect("lmouse_click", self, "_lmouse_click")
+	$items/buttons/right.connect("rmouse_click", self, "_rmouse_click")
+	$items/buttons/ready.connect("rdmouse_click", self, "_rdmouse_click")
 	pass
+func open():
+	$AnimationPlayer.play("hologram")
+	pass
+func exit():
+	$items.hide()
+	$AnimationPlayer.play("exit")
+	pass
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "hologram"):
+		$items.show()
+	elif(anim_name == "exit"):
+		emit_signal("player_delete", self)
+	pass # replace with function body
