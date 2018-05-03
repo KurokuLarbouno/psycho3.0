@@ -15,9 +15,9 @@
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=14]
 
-[node name="c1" type="KinematicBody2D" groups=[
-"sprite",
+[node name="c1" type="KinematicBody2D" index="0" groups=[
 "player_group",
+"sprite",
 ]]
 
 input_pickable = false
@@ -51,6 +51,7 @@ _sections_unfolded = [ "Process Material", "Textures" ]
 
 [node name="gun" type="Sprite" parent="hand" index="1"]
 
+editor/display_folded = true
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 

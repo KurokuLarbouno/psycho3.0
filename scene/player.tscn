@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/player.gd" type="Script" id=1]
+[ext_resource path="res://image/Character/shadow.png" type="Texture" id=2]
+[ext_resource path="res://image/Character/ctest1_walk.png" type="Texture" id=3]
+[ext_resource path="res://image/Character/ctest1_gun.png" type="Texture" id=4]
+[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=6]
+
+[node name="player" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="shadow" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="main" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 3 )
+hframes = 24
+_sections_unfolded = [ "Animation", "Z Index" ]
+
+[node name="hand" type="Node2D" parent="." index="2"]
+
+[node name="gun" type="Sprite" parent="hand" index="0"]
+
+texture = ExtResource( 4 )
+
+[node name="Weapon" parent="." index="3" instance=ExtResource( 5 )]
+
+[node name="collision" type="CollisionPolygon2D" parent="." index="4"]
+
+visible = false
+build_mode = 0
+polygon = PoolVector2Array( 0.0865936, -5.228, -7.14623, 0.00425434, -6.91539, 7.46791, -0.139608, 9.72163, 7.4733, 7.92958, 7.4733, 0.158144 )
+
+[node name="animation" parent="." index="5" instance=ExtResource( 6 )]
+
+

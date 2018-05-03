@@ -6,7 +6,6 @@
 [ext_resource path="res://scripts/ui.gd" type="Script" id=4]
 [ext_resource path="res://image/Effect/white.png" type="Texture" id=5]
 
-
 [sub_resource type="Animation" id=1]
 
 length = 0.5
@@ -155,10 +154,10 @@ void fragment()
                        randomRange(vec2(time , 7205.0),-maxColOffset,maxColOffset));
     if (rnd < 0.33){
         outCol.r = texture(SCREEN_TEXTURE, uv + colOffset).r;
-        
+
     }else if (rnd < 0.66){
         outCol.g = texture(SCREEN_TEXTURE, uv + colOffset).g;
-        
+
     } else{
         outCol.b = texture(SCREEN_TEXTURE, uv + colOffset).b;  
     }
@@ -173,7 +172,7 @@ shader = SubResource( 6 )
 shader_param/AMT = null
 shader_param/SPEED = null
 
-[node name="Camera2D" type="Camera2D"]
+[node name="Camera2D" type="Camera2D" index="0"]
 
 position = Vector2( 100.042, -16.0621 )
 scale = Vector2( 9.02508, 6.3282 )
