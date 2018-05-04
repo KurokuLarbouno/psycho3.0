@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://image/Character/shadow.png" type="Texture" id=2]
 [ext_resource path="res://image/Character/ctest1_walk.png" type="Texture" id=3]
 [ext_resource path="res://image/Character/ctest1_gun.png" type="Texture" id=4]
-[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://image/light.png" type="Texture" id=5]
+[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=7]
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -31,7 +32,32 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 texture = ExtResource( 4 )
 
-[node name="Weapon" parent="." index="3" instance=ExtResource( 5 )]
+[node name="Light2D" type="Light2D" parent="hand" index="1"]
+
+visible = false
+enabled = true
+editor_only = false
+texture = ExtResource( 5 )
+offset = Vector2( 20, 0 )
+texture_scale = 0.5
+color = Color( 1, 0.654902, 0.168627, 1 )
+energy = 1.0
+mode = 0
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = false
+shadow_color = Color( 0, 0, 0, 0 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 0
+shadow_filter_smooth = 0.0
+shadow_item_cull_mask = 1
+
+[node name="Weapon" parent="." index="3" instance=ExtResource( 6 )]
 
 [node name="collision" type="CollisionPolygon2D" parent="." index="4"]
 
@@ -39,6 +65,6 @@ visible = false
 build_mode = 0
 polygon = PoolVector2Array( 0.0865936, -5.228, -7.14623, 0.00425434, -6.91539, 7.46791, -0.139608, 9.72163, 7.4733, 7.92958, 7.4733, 0.158144 )
 
-[node name="animation" parent="." index="5" instance=ExtResource( 6 )]
+[node name="animation" parent="." index="5" instance=ExtResource( 7 )]
 
 

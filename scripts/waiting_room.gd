@@ -51,25 +51,25 @@ func register_player(num):
 			player.pname = "Player 1"
 			player.device_num = num
 			$player/player1.add_child(player)
-			emit_signal("player_register", 1, num)
+			emit_signal("player_register", 0, num)
 		elif($player/player2.get_children().size() == 0):
 			player2_device = num
 			player.pname = "Player 2"
 			player.device_num = num
 			$player/player2.add_child(player)
-			emit_signal("player_register", 2, num)
+			emit_signal("player_register", 1, num)
 		elif ($player/player3.get_children().size() == 0):
 			player3_device = num
 			player.pname = "Player 3"
 			player.device_num = num
 			$player/player3.add_child(player)
-			emit_signal("player_register", 3, num)
+			emit_signal("player_register", 2, num)
 		elif ($player/player4.get_children().size() == 0):
 			player.pname = "Player 4"
 			player4_device = num
 			player.device_num = num
 			$player/player4.add_child(player)
-			emit_signal("player_register", 4, num)
+			emit_signal("player_register", 3, num)
 		player_connect(player)
 	else:
 		print("maxed player!")
@@ -81,16 +81,16 @@ func delete_player(num):
 	var children
 	if(num == player1_device):
 		children = get_node("player/player1").get_children()
-		emit_signal("player_register", 1, -1)
+		emit_signal("player_register", 0, -1)
 	elif(num == player2_device):
 		children = get_node("player/player2").get_children()
-		emit_signal("player_register", 2, -1)
+		emit_signal("player_register", 1, -1)
 	elif(num == player3_device):
 		children = get_node("player/player3").get_children()
-		emit_signal("player_register", 3, -1)
+		emit_signal("player_register", 2, -1)
 	elif(num == player4_device):
 		children = get_node("player/player4").get_children()
-		emit_signal("player_register", 4, -1)
+		emit_signal("player_register", 3, -1)
 	if children.size() > 0:
 		if(children[0].player_state == 0):
 			children[0].exit()
@@ -101,9 +101,6 @@ func ui_control():
 	pass
 func is_menu():
 	pass
-func _on_start_pressed():
-	check_all_player_ready()
-	pass # replace with function body
 func check_all_player_ready():
 	if(is_ready == player_num ):
 		print("game started")

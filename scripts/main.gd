@@ -1,7 +1,7 @@
 extends Node2D
 
-var player1_data = [0,0]
-
+ #[0] = 存在; #[1] = 裝置號; #[2] = 角色
+var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 var waiting_room = "res://scene/waiting_room.tscn"
 var game_control = "res://scene/game_controller.tscn"
 
@@ -80,18 +80,18 @@ func _join_local():
 	pass
 #玩家確認
 func _player_register(player_num, device_num):
-	if(player_num == 1):
-		player1_data[0] = 1
-		player1_data[1] = device_num
+	player_data[player_num][0] = 1
+	player_data[player_num][1] = device_num
+	pass
+func _player_delete(player_num, device_num):
 	pass
 #所有玩家ready觸發
 func _start_game():
-	
 	_load_scene(game_control)
 	pass
 #load 完game_controller執行
 func _int_game():
-
+	$scene/game_controller.player_data = player_data
 	pass
 	
 	
