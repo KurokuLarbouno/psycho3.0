@@ -22,11 +22,12 @@ var angle
 signal bullet_shot()
 
 func _ready():
-	if(get_node("../Init_data").kind=="c1"): bullet_tex = "bullet_c1.png"
-	elif(get_node("../Init_data").kind=="c2"): bullet_tex = "bullet_c2.png"
-	elif(get_node("../Init_data").kind=="c3"): bullet_tex = "bullet_c3.png"
-	elif(get_node("../Init_data").kind=="c4"): bullet_tex = "bullet_c4.png"
-	else: bullet_tex = "bullet.png"
+#	if(get_node("../Init_data").kind=="c1"): bullet_tex = "bullet_c1.png"
+#	elif(get_node("../Init_data").kind=="c2"): bullet_tex = "bullet_c2.png"
+#	elif(get_node("../Init_data").kind=="c3"): bullet_tex = "bullet_c3.png"
+#	elif(get_node("../Init_data").kind=="c4"): bullet_tex = "bullet_c4.png"
+#	else: bullet_tex = "bullet.png"
+	bullet_tex = "bullet.png"
 	shot_count = PRESS_SHOT_TIME
 	OWNER_NAME = get_owner().get_name()
 	

@@ -34,6 +34,7 @@ func _load_game(scn):
 		print("free game_scene")
 	var act = load(cur_game).instance()
 	$game_scene.add_child(act)
+	print("game loaded")
 	pass
 func is_level():
 	pass
@@ -41,8 +42,10 @@ func spawn_player():
 	for i in range(4):
 		if(player_data[i][0] == 1):#確認是否有玩家
 			var player =  load("res://scene/player.tscn").instance()
+			#設定玩家資訊(從main給)
 			player.player_num = i
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
-			get_node("game_scene/Game2/Position" + i).addchild()
+			player.position = get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1)).get_position()
+			get_node("game_scene/Game/Roof/Player").add_child(player)
 	pass

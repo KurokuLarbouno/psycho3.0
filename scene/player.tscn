@@ -8,7 +8,7 @@
 [ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=7]
 
-[node name="player" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -27,6 +27,8 @@ hframes = 24
 _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="hand" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="gun" type="Sprite" parent="hand" index="0"]
 

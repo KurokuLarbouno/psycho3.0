@@ -43,6 +43,7 @@ __meta__ = {
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" parent="hand" index="0" instance=ExtResource( 4 )]
@@ -51,7 +52,6 @@ _sections_unfolded = [ "Process Material", "Textures" ]
 
 [node name="gun" type="Sprite" parent="hand" index="1"]
 
-editor/display_folded = true
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
