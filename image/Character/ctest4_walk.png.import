@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ctest4_walk..png-15445dc3e02383e11540da6b02bfb25e.stex"
+path="res://.import/ctest4_walk.png-a238f2fd13d5a2693baa33a5714e36bd.stex"
 
 [deps]
 
-source_file="res://image/Character/ctest4_walk..png"
+source_file="res://image/Character/ctest4_walk.png"
 source_md5="7663027488c1fc851dfc9f4eb8bc8e27"
 
-dest_files=[ "res://.import/ctest4_walk..png-15445dc3e02383e11540da6b02bfb25e.stex" ]
+dest_files=[ "res://.import/ctest4_walk.png-a238f2fd13d5a2693baa33a5714e36bd.stex" ]
 dest_md5="caf432bf0a17cd1a7dfb3f32230665e0"
 
 [params]

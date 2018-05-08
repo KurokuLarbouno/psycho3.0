@@ -2,6 +2,7 @@ extends Node2D
 
 signal start_game
 signal player_register
+signal set_player_character
 
 var player_num = 0 #玩家數
 var player1_device
@@ -50,6 +51,7 @@ func register_player(num):
 			player1_device = num
 			player.pname = "Player 1"
 			player.device_num = num
+			player.player_num = 1
 			$player/player1.add_child(player)
 			emit_signal("player_register", 0, num)
 		elif($player/player2.get_children().size() == 0):
@@ -119,9 +121,10 @@ func player_disconnect(obj):
 	print("player disconnected")
 	pass
 var is_ready = 0
-func _player_ready(i):
+func _player_ready(i, player_num, player_character):
 	is_ready += i
 	check_all_player_ready()
+	emit_signal("set_player_character", player_num - 1, player_character)
 	pass
 func _player_delete(child):
 	player_disconnect(child)

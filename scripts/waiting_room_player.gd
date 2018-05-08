@@ -10,6 +10,7 @@ var Acid = load("res://image/StartEnd/c2.png")
 var Beast = load("res://image/StartEnd/c3.png")
 var Phase = load("res://image/StartEnd/c4.png")
 var character_order = 0 # 0 = Slice; 1 = Acid; 2 = Beast; 4 = Phase
+var player_num = 0
 
 var pname 
 var button = 0
@@ -79,7 +80,7 @@ func _button_pressed():
 				buttons[i].button_pressed()
 				if(buttons[i] == $items/buttons/ready):
 					player_state = 1
-					emit_signal("player_ready", 1)
+					emit_signal("player_ready", 1, player_num, character_order)
 				elif(buttons[i] == $items/buttons/right):
 					if(character_order < 3):
 						character_order += 1
@@ -102,7 +103,7 @@ func _button_cancel():
 				buttons[i].deselect_button()
 				buttons[i].select_button()
 				player_state = 2
-				emit_signal("player_ready", -1)
+				emit_signal("player_ready", -1, -1, -1)
 func change_character():
 	if(character_order == 0):
 		$items/cName.text = character_name[1]

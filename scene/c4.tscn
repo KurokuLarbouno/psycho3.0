@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Player_NEW.gd" type="Script" id=1]
 [ext_resource path="res://scene/shadow.tscn" type="PackedScene" id=2]
-[ext_resource path="res://image/Character/ctest4_walk..png" type="Texture" id=3]
+[ext_resource path="res://image/Character/ctest4_walk.png" type="Texture" id=3]
 [ext_resource path="res://scene/fire.tscn" type="PackedScene" id=4]
 [ext_resource path="res://image/Character/ctest4_gun.png" type="Texture" id=5]
 [ext_resource path="res://image/Character/bullet_c4.png" type="Texture" id=6]
@@ -14,6 +14,7 @@
 [ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=13]
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=14]
+
 
 [node name="c4" type="KinematicBody2D" groups=[
 "player_group",

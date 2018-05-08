@@ -3,17 +3,30 @@ extends KinematicBody2D
 var player_num = 0 			# 玩家編號
 var input_device = 0	# 輸入裝置編號
 var health = 20			# 生命值
-var MOTION_SPEED = 5000	# 移動速度
+var MOTION_SPEED = 8000	# 移動速度
 var player_type = 0
 var motion
+var die = false
 
 var player_state = 0 # 0 出生(無敵); 1 一般; 2 死亡; 3 待機(不能控制)
 
 var anim
 var new_anim
 
-func _ready():
+var c1_img = load("res://image/Character/ctest1_walk.png")
+var c2_img = load("res://image/Character/ctest2_walk.png")
+var c3_img = load("res://image/Character/ctest3_walk.png")
+var c4_img = load("res://image/Character/ctest4_walk.png")
 
+func _ready():
+	if(player_type == 0):
+		$main.texture = c1_img
+	elif(player_type == 1):
+		$main.texture = c2_img
+	elif(player_type == 2):
+		$main.texture = c3_img
+	elif(player_type == 3):
+		$main.texture = c4_img
 	pass
 
 func _process(delta):
@@ -24,7 +37,8 @@ func _process(delta):
 		#do something
 		player_move(delta)
 		play_anim()
-		player_state = 2
+		if(die == true):
+			player_state = 2
 	elif(player_state == 2):
 		player_state = 0
 	pass

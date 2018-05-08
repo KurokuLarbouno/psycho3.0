@@ -65,12 +65,14 @@ func _connect_menu(obj):
 	obj.connect("join_local", self, "_join_local")
 	obj.connect("start_game", self, "_start_game")
 	obj.connect("player_register", self, "_player_register")
+	obj.connect("set_player_character", self, "_set_player_character")
 	print("menu connected!")
 	pass
 func _disconnect_menu(obj):
 	obj.disconnect("join_local", self, "_join_local")
 	obj.disconnect("start_game", self, "_start_game")
 	obj.disconnect("player_register", self, "_player_register")
+	obj.disconnect("set_player_character", self, "_set_player_character")
 	print("menu disconnected!")
 	pass
 #ui pressed
@@ -92,6 +94,9 @@ func _start_game():
 #load 完game_controller執行
 func _int_game():
 	$scene/game_controller.player_data = player_data
+	pass
+func _set_player_character(player_num, player_character):
+	player_data[player_num][2] = player_character
 	pass
 	
 	
