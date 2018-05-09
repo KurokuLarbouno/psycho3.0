@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var angle = 0
+
 var player_num = 0 			# 玩家編號
 var input_device = 0	# 輸入裝置編號
 var health = 20			# 生命值
@@ -10,8 +12,11 @@ var die = false
 
 var player_state = 0 # 0 出生(無敵); 1 一般; 2 死亡; 3 待機(不能控制)
 
-var anim
-var new_anim
+var anim#前
+var new_anim#後
+var shot_anim#前
+var new_shot_anim#後
+var fire_anim = false
 
 var c1_img = load("res://image/Character/ctest1_walk.png")
 var c2_img = load("res://image/Character/ctest2_walk.png")
@@ -69,8 +74,39 @@ func play_anim():
 	if (new_anim != anim):
 		anim = new_anim
 		$animation.play(anim)
+	if (new_shot_anim != shot_anim):
+		shot_anim = new_anim
+		$animation.play(shot_anim)
+	if(fire_anim):
+			$animation.play("gun_attack")
+			$sound.playing = true
+			fire_anim = false
+	if(angle>0): 
+		get_node("hand/gun").flip_v = 1
+	else: 
+		get_node("hand/gun").flip_v = 0
+	#get_node("hand").set_rotation_in_degrees(angle+90)
+	get_node("hand").rotation = (angle+90)*PI/180
+	get_node("hand/gun").z_index = z_index + 1#----------------------------------------------------18/3/5
+	if(motion.length()<=0):
+		if(abs(angle)>120):
+			new_anim = "stop_back"
+			get_node("hand/gun").z_index = z_index - 1
+		if(angle>60 and angle<121):new_anim = "stop_left"
+		if(angle<-60 and angle>-121):new_anim = "stop_right"
+		if(abs(angle)<60):new_anim = "stop_front"
+	else:
+		if(abs(angle)>120):
+			new_anim = "walk_back"
+			get_node("hand/gun").z_index = z_index - 1
+		if(angle>60 and angle<121):new_anim = "walk_left"
+		if(angle<-60 and angle>-121):new_anim = "walk_right"
+		if(abs(angle)<60):new_anim = "walk_front"
 	pass
 func respawn():
 	pass
 func player_die():
+	pass
+func player_animation():
+
 	pass

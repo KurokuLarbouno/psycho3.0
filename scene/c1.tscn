@@ -16,8 +16,8 @@
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=14]
 
 [node name="c1" type="KinematicBody2D" groups=[
-"sprite",
 "player_group",
+"sprite",
 ]]
 
 input_pickable = false

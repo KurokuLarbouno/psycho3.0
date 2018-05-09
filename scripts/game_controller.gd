@@ -42,10 +42,14 @@ func spawn_player():
 	for i in range(4):
 		if(player_data[i][0] == 1):#確認是否有玩家
 			var player =  load("res://scene/player.tscn").instance()
+			var player_ui = load("res://scene/player_UI.tscn").instance()
 			#設定玩家資訊(從main給)
 			player.player_num = i
+			player_ui.player_num = 1
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
+			player_ui.player_type = player_data[i][2]
 			player.position = get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1)).get_position()
 			get_node("game_scene/Game/Roof/Player").add_child(player)
+			get_node("UI/playerUI/player" + str(i)).add_child(player_ui)
 	pass
