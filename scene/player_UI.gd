@@ -17,8 +17,8 @@ var bullet_texture = load("res://image/Character/bullet_ui.png")
 func _ready():
 	#設定玩家編號圖
 	set_player_id()
-	set_heart()
-	set_bullet()
+	#set_heart()
+	#set_bullet()
 	pass
 
 func _process(delta):

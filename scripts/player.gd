@@ -38,9 +38,9 @@ func _process(delta):
 	if(player_state == 0):
 		#do something
 		player_state = 1
-	elif(player_state == 1):
+	elif(player_state == 1): #活著的時候
 		#do something
-		player_move(delta)
+		player_move(delta)	
 		play_anim()
 		if(die == true):
 			player_state = 2

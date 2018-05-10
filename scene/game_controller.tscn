@@ -4,6 +4,7 @@
 
 [node name="game_controller" type="Node2D" index="0"]
 
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="UI" type="Node2D" parent="." index="0"]
