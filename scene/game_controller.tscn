@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/game_controller.gd" type="Script" id=1]
 [ext_resource path="res://image/cursor.png" type="Texture" id=2]
 
-[node name="game_controller" type="Node2D" index="0"]
+[node name="game_controller" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -44,6 +44,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="UI/playerUI" index="4"]
 
+visible = false
 texture = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="." index="1"]

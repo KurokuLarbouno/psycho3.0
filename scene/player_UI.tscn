@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scene/player_UI.gd" type="Script" id=1]
 
-[node name="player_UI" type="Node2D"]
+[node name="player_UI" type="Node2D" index="0"]
 
 show_behind_parent = true
 light_mask = 0

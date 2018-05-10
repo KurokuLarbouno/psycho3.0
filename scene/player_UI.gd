@@ -22,7 +22,7 @@ func _ready():
 func _process(delta):
 
 	pass
-
+#玩家傳入最大生命值
 func _set_health(health):
 	for i in range(health):
 		var heart_sprite = Sprite.new()
@@ -31,15 +31,26 @@ func _set_health(health):
 			heart_sprite.position = Vector2(i*18, 0)
 		elif(i < 20):
 			heart_sprite.position = Vector2((i-10)*18, 18)
-		$bullet.add_child(heart_sprite)
+		$heart.add_child(heart_sprite)
 	print(str(player_num) + " health setted")
 	pass
+#玩家傳入最大子彈數
 func _set_bullet(bullet_amount):
 	for i in range(bullet_amount):
 		var bullet_sprite = Sprite.new()
 		bullet_sprite.texture = bullet_texture
 		bullet_sprite.position = Vector2(i*18, 36)
 		$bullet.add_child(bullet_sprite)
+	pass
+#玩家傳入當前血量
+func _update_health(cur_health):
+	var health = $heart.get_children()
+	for i in range(health.size()):
+		health[i].hide()
+	for x in range(cur_health):
+		health[x].show()
+	pass
+func _update_bullet():
 	pass
 func set_player_id():
 	if(player_num == 0):
