@@ -251,8 +251,6 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 480.0
-margin_bottom = 272.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -262,9 +260,6 @@ size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
 _sections_unfolded = [ "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
 
@@ -431,7 +426,9 @@ shape = SubResource( 14 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="light" index="0"]
 
+z_as_relative = false
 color = Color( 0.240753, 0.252961, 0.382813, 1 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="screenLight" type="Light2D" parent="light" index="1"]
 

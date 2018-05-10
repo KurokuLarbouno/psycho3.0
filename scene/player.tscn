@@ -9,7 +9,7 @@
 [ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=8]
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1

@@ -4,6 +4,10 @@
 
 [node name="player_UI" type="Node2D"]
 
+show_behind_parent = true
+light_mask = 0
+z_index = -1
+z_as_relative = false
 script = ExtResource( 1 )
 
 [node name="character_icon" type="Sprite" parent="." index="0"]

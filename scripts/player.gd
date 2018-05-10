@@ -1,4 +1,9 @@
 extends KinematicBody2D
+#傳直給UI
+signal set_health
+signal set_bullet
+signal update_health
+signal update_bullet
 
 var angle = 0
 
@@ -24,6 +29,7 @@ var c3_img = load("res://image/Character/ctest3_walk.png")
 var c4_img = load("res://image/Character/ctest4_walk.png")
 
 func _ready():
+	#設定角色圖
 	if(player_type == 0):
 		$main.texture = c1_img
 	elif(player_type == 1):
@@ -32,6 +38,7 @@ func _ready():
 		$main.texture = c3_img
 	elif(player_type == 3):
 		$main.texture = c4_img
+
 	pass
 
 func _process(delta):
@@ -109,4 +116,9 @@ func player_die():
 	pass
 func player_animation():
 
+	pass
+func int_ui():
+		#初始化UI
+	emit_signal("set_health", health)
+	emit_signal("set_bullet", $Weapon.BULLET_AMOUNT)
 	pass

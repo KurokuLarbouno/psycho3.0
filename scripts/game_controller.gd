@@ -50,6 +50,9 @@ func spawn_player():
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]
 			player.position = get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1)).get_position()
+			
 			get_node("game_scene/Game/Roof/Player").add_child(player)
 			get_node("UI/playerUI/player" + str(i+1)).add_child(player_ui)
+			player_ui.connect_player(player)
+			player.int_ui()
 	pass
