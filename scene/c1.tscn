@@ -16,8 +16,8 @@
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=14]
 
 [node name="c1" type="KinematicBody2D" groups=[
-"player_group",
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -43,7 +43,6 @@ __meta__ = {
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Particles2D" parent="hand" index="0" instance=ExtResource( 4 )]

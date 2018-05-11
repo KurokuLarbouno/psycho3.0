@@ -123,7 +123,9 @@ func play_anim():
 	pass
 func player_fire():
 	if (Input.is_action_pressed("fire")):
-		$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotform.get_global_transform().get_origin()-self.position)
+		print($hand/gun/shotform)
+		pass
+		#$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotform.get_global_transform().get_origin()-self.position)
 	if (Input.is_action_just_released("fire")):
 		$Weapon.release()
 	if (Input.is_action_pressed("reload")):
