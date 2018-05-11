@@ -56,7 +56,6 @@ _sections_unfolded = [ "Offset", "Transform", "Visibility", "Z Index" ]
 
 [node name="shotform" type="Sprite" parent="hand/gun" index="0"]
 
-visible = false
 position = Vector2( 35.6336, 3.92185 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )

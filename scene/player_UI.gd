@@ -50,7 +50,12 @@ func _update_health(cur_health):
 	for x in range(cur_health):
 		health[x].show()
 	pass
-func _update_bullet():
+func _update_bullet(cur_bullet):
+	var bullet = $bullet.get_children()
+	for i in range(bullet.size()):
+		bullet[i].hide()
+	for x in range(cur_bullet):
+		bullet[x].show()
 	pass
 func set_player_id():
 	if(player_num == 0):

@@ -1,4 +1,7 @@
 extends Node2D
+
+signal update_bullet
+
 #---------------------------------初始值
 var CHARGE_TIME = 1		#填充時間
 var PRESS_SHOT_TIME = 0.2	#長按發射時間間隔
@@ -20,14 +23,14 @@ var bullet_tex = ""		#子彈貼圖
 var angle
 #---------------------------------signal
 signal bullet_shot()
-
+signal bullet_reload()
 func _ready():
 #	if(get_node("../Init_data").kind=="c1"): bullet_tex = "bullet_c1.png"
 #	elif(get_node("../Init_data").kind=="c2"): bullet_tex = "bullet_c2.png"
 #	elif(get_node("../Init_data").kind=="c3"): bullet_tex = "bullet_c3.png"
 #	elif(get_node("../Init_data").kind=="c4"): bullet_tex = "bullet_c4.png"
 #	else: bullet_tex = "bullet.png"
-	bullet_tex = "bullet.png"
+	bullet_tex = "bullet_c1.png"
 	shot_count = PRESS_SHOT_TIME
 	OWNER_NAME = get_owner().get_name()
 	
@@ -67,6 +70,7 @@ func _process(delta):
 			bullet_count = 0
 			charge_count = 0
 			state = 0
+			emit_signal("bullet_reload")
 		else:
 			charge_count += delta
 	if(state != 0 && state != 1 && state != 2):
