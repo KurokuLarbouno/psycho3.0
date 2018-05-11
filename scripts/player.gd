@@ -5,6 +5,9 @@ signal set_bullet
 signal update_health
 signal update_bullet
 
+#--------------------------------多重輸入判斷
+var jflag = 0
+
 var angle = 0
 
 var player_num = 0 			# 玩家編號
@@ -38,7 +41,7 @@ func _ready():
 		$main.texture = c3_img
 	elif(player_type == 3):
 		$main.texture = c4_img
-
+	$Weapon.connect("bullet_shot", self, "fire_anim")#連接Weapon生成子彈的訊號
 	pass
 
 func _process(delta):
@@ -49,6 +52,7 @@ func _process(delta):
 		#do something
 		player_move(delta)	
 		play_anim()
+		player_fire()
 		if(die == true):
 			player_state = 2
 	elif(player_state == 2):
@@ -79,6 +83,12 @@ func player_move(delta):
 	move_and_slide(motion)
 	pass
 func play_anim():
+	if ( not jflag ): 
+		angle=-atan2((get_global_mouse_position().x -  get_position().x),(get_global_mouse_position().y -  get_position().y))*180/PI
+	if (Input.get_joy_axis(input_device, 3)<-0.3||Input.get_joy_axis(input_device, 3)> 0.3
+			||Input.get_joy_axis(input_device, 2)<-0.3||Input.get_joy_axis(input_device, 2)> 0.3):
+		jflag = 1
+		angle = -atan2(Input.get_joy_axis(input_device, JOY_AXIS_2), Input.get_joy_axis(input_device,JOY_AXIS_3))*180/PI
 	if (new_anim != anim):
 		anim = new_anim
 		$animation.play(anim)
@@ -86,9 +96,9 @@ func play_anim():
 		shot_anim = new_anim
 		$animation.play(shot_anim)
 	if(fire_anim):
-			$animation.play("gun_attack")
-			$sound.playing = true
-			fire_anim = false
+		$animation.play("gun_attack")
+		$sound.playing = true
+		fire_anim = false
 	if(angle>0): 
 		get_node("hand/gun").flip_v = 1
 	else: 
@@ -111,6 +121,17 @@ func play_anim():
 		if(angle<-60 and angle>-121):new_anim = "walk_right"
 		if(abs(angle)<60):new_anim = "walk_front"
 	pass
+func player_fire():
+	if (Input.is_action_pressed("fire")):
+		$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotform.get_global_transform().get_origin()-self.position)
+	if (Input.is_action_just_released("fire")):
+		$Weapon.release()
+	if (Input.is_action_pressed("reload")):
+		$Weapon.charge()
+	pass
+func fire_anim():
+	fire_anim = true
+
 func respawn():
 	pass
 func player_die():

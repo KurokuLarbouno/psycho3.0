@@ -135,6 +135,7 @@ func _rmouse_click():
 
 func _rdmouse_click():
 	player_state = 1
+	emit_signal("player_ready", 1, player_num, character_order)
 	pass
 func character_repeat():
 	
