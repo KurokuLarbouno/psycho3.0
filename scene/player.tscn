@@ -10,7 +10,7 @@
 [ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=9]
 
-[node name="player" type="KinematicBody2D" groups=[
+[node name="player" type="KinematicBody2D" index="0" groups=[
 "sprite",
 ]]
 
@@ -36,21 +36,21 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 texture = ExtResource( 4 )
 
-[node name="shotform" type="Sprite" parent="hand/gun" index="0"]
+[node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]
 
 visible = false
+position = Vector2( 21.3451, 2.89872 )
 texture = ExtResource( 5 )
 
 [node name="Light2D" type="Light2D" parent="hand" index="1"]
 
-visible = false
 enabled = true
 editor_only = false
 texture = ExtResource( 6 )
 offset = Vector2( 20, 0 )
 texture_scale = 0.5
 color = Color( 1, 0.654902, 0.168627, 1 )
-energy = 1.0
+energy = 0.01
 mode = 0
 range_height = 0.0
 range_z_min = -1024

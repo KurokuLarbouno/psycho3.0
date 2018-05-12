@@ -7,7 +7,7 @@ var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game.tscn"
 
 var gameState = 0
-var player_data = [[0, 0],[0, 0],[0, 0],[0, 0]]
+var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 
 func _ready():
 	# Called every time the node i added to the scene.

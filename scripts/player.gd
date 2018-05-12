@@ -31,17 +31,25 @@ var c1_img = load("res://image/Character/ctest1_walk.png")
 var c2_img = load("res://image/Character/ctest2_walk.png")
 var c3_img = load("res://image/Character/ctest3_walk.png")
 var c4_img = load("res://image/Character/ctest4_walk.png")
+var c1_gun = load("res://image/Character/ctest1_gun.png")
+var c2_gun = load("res://image/Character/ctest2_gun.png")
+var c3_gun = load("res://image/Character/ctest3_gun.png")
+var c4_gun = load("res://image/Character/ctest4_gun.png")
 
 func _ready():
 	#設定角色圖
 	if(player_type == 0):
 		$main.texture = c1_img
+		$hand/gun.texture = c1_gun
 	elif(player_type == 1):
 		$main.texture = c2_img
+		$hand/gun.texture = c2_gun
 	elif(player_type == 2):
 		$main.texture = c3_img
+		$hand/gun.texture = c3_gun
 	elif(player_type == 3):
 		$main.texture = c4_img
+		$hand/gun.texture = c4_gun
 	$Weapon.connect("bullet_shot", self, "fire_anim")#連接Weapon生成子彈的訊號
 	$Weapon.connect("bullet_reload", self, "_bullet_reload")#連接Weapon生成子彈的訊號
 	pass
@@ -125,7 +133,7 @@ func play_anim():
 func player_fire():
 	
 	if (Input.is_action_pressed("fire")):
-		$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotform.get_global_transform().get_origin()-self.position)
+		$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotfrom.get_global_transform().get_origin()-self.position)
 	if (Input.is_action_just_released("fire")):
 		$Weapon.release()
 	if (Input.is_action_pressed("reload")):
@@ -148,7 +156,7 @@ func get_hurt(dmg,ower = ''):
 		#color_red_flag = true#因為兩邊都要看到受擊變色，所以不放入is_network_master中				
 	pass
 func fire_anim():
-	get_hurt(1)#-------------------------for test!!
+	#get_hurt(1)#-------------------------for test!!
 	clip -= 1
 	emit_signal("update_bullet", clip)
 	fire_anim = true

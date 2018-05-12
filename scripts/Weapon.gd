@@ -30,7 +30,11 @@ func _ready():
 #	elif(get_node("../Init_data").kind=="c3"): bullet_tex = "bullet_c3.png"
 #	elif(get_node("../Init_data").kind=="c4"): bullet_tex = "bullet_c4.png"
 #	else: bullet_tex = "bullet.png"
-	bullet_tex = "bullet_c1.png"
+	var player_type = get_node("../../player").player_type 
+	if(player_type == 0): bullet_tex = "bullet_c1.png" 
+	elif(player_type == 1): bullet_tex = "bullet_c2.png"
+	elif(player_type == 2): bullet_tex = "bullet_c3.png"
+	elif(player_type == 3): bullet_tex = "bullet_c4.png"
 	shot_count = PRESS_SHOT_TIME
 	OWNER_NAME = get_owner().get_name()
 	
@@ -52,7 +56,7 @@ func _process(delta):
 				emit_signal("bullet_shot")#啟動Player的動畫
 				#get_owner().get_node("sound").play("射擊聲")
 				var bullet = preload("res://scene/bullet.tscn").instance()
-				bullet.set_position(self.get_global_position())
+				bullet.set_position(get_node("../hand/gun/shotfrom").get_global_position())
 				bullet.dmg = BULLET_DMG
 				bullet.sp = BULLET_SPEED
 				bullet.a = angle

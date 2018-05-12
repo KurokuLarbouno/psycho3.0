@@ -4,7 +4,7 @@
 [ext_resource path="res://image/b.png" type="Texture" id=2]
 [ext_resource path="res://image/cursor.png" type="Texture" id=3]
 
-[node name="game_controller" type="Node2D" index="0"]
+[node name="game_controller" type="Node2D"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )

@@ -50,10 +50,7 @@ func _update_health(cur_health):
 	for x in range(cur_health):
 		health[x].show()
 	pass
-<<<<<<< HEAD
 #玩家傳入當前子彈數
-=======
->>>>>>> 1fed4d70ef996669d69982e1cf8af6f376610e28
 func _update_bullet(cur_bullet):
 	var bullet = $bullet.get_children()
 	for i in range(bullet.size()):
