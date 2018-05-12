@@ -59,7 +59,6 @@ func player_move(delta):
 	if(input_device < 4): #搖桿
 		if (Input.get_joy_axis(input_device, 1)<-0.3): # up
 			motion += Vector2(0, Input.get_joy_axis(input_device, 1))
-			emit_signal("update_health", 15)
 		if (Input.get_joy_axis(input_device, 1)> 0.3): #down
 			motion += Vector2(0, Input.get_joy_axis(input_device, 1))
 		if (Input.get_joy_axis(input_device, 0)<-0.3): #left
