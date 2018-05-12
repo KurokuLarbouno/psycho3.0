@@ -6,7 +6,7 @@ var a  = 0
 var motion = Vector2()
 var t = 0
 var owner_name#-----------------------------------儲存發射者名
-var bullet_tex = "bullet.png"
+var bullet_tex = "bullet_c1.png"
 
 func _ready():
 	get_node("body/AnimationPlayer").play("cycle")

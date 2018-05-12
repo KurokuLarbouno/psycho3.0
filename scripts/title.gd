@@ -10,9 +10,9 @@ func _ready():
 	get_node("Sprite/AnimationPlayer").play("cycle")
 	pass
 func _process(delta):
-	if(Input.is_action_pressed("ui_accept") and once):
-		once -= 1
-		get_node("Sprite/AnimationPlayer").play("camera")
+#	if(Input.is_action_pressed("ui_accept") and once):
+#		once -= 1
+#		get_node("Sprite/AnimationPlayer").play("camera")
 	pass
 
 

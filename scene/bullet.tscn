@@ -81,10 +81,11 @@ collision/safe_margin = 0.08
 "sprite",
 ]]
 
+z_index = 3000
 texture = ExtResource( 3 )
 hframes = 9
 frame = 3
-_sections_unfolded = [ "Animation", "Visibility" ]
+_sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body" index="1"]
 
