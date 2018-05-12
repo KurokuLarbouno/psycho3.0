@@ -18,6 +18,7 @@ var MOTION_SPEED = 8000	# 移動速度
 var player_type = 0
 var motion
 var die = false
+var freeze = true
 
 var player_state = 0 # 0 出生(無敵); 1 一般; 2 死亡; 3 待機(不能控制)
 
@@ -55,11 +56,13 @@ func _ready():
 	pass
 
 func _process(delta):
-	if(player_state == 0):
+	if(player_state == 0): #freeze
 		#do something
-		player_state = 1
+		if(!freeze):
+			player_state = 1
 	elif(player_state == 1): #活著的時候
-		#do something
+		if(freeze):
+			player_state = 0
 		player_move(delta)	
 		play_anim()
 		player_fire()
@@ -165,9 +168,6 @@ func respawn():
 	pass
 func player_die():
 	pass
-func player_animation():
-
-	pass
 func _bullet_reload():
 	clip = $Weapon.BULLET_AMOUNT
 	emit_signal("update_bullet", clip)
@@ -178,3 +178,5 @@ func int_ui():
 	emit_signal("set_bullet", $Weapon.BULLET_AMOUNT)
 	clip = $Weapon.BULLET_AMOUNT
 	pass
+func setFreeze(i):
+	freeze = i

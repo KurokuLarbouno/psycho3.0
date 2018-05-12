@@ -62,7 +62,7 @@ func _process(delta):
 				bullet.a = angle
 				bullet.owner_name = OWNER_NAME
 				bullet.bullet_tex = bullet_tex
-				get_owner().get_parent().add_child(bullet)#加到player同層的地方
+				get_owner().get_parent().get_parent().add_child(bullet)#加到player同層的地方
 				state = 0
 			if(bullet_count >= BULLET_AMOUNT):
 				charge()#重新填裝

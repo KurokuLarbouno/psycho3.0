@@ -48,6 +48,7 @@ _sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="playerUI" type="Node2D" parent="UI" index="0"]
 
+editor/display_folded = true
 position = Vector2( 33, 84 )
 _sections_unfolded = [ "Z Index" ]
 
@@ -79,16 +80,16 @@ __meta__ = {
 visible = false
 texture = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="." index="2"]
+[node name="Label" type="Label" parent="UI" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 515.0
-margin_top = 341.0
-margin_right = 626.0
-margin_bottom = 375.0
+margin_left = 178.0
+margin_top = 171.0
+margin_right = 289.0
+margin_bottom = 205.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -101,11 +102,11 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="game_scene" type="Node2D" parent="." index="3"]
+[node name="game_scene" type="Node2D" parent="." index="2"]
 
 position = Vector2( 4, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="." index="3"]
 
 position = Vector2( 243, 181 )
 anchor_mode = 1

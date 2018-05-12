@@ -5,6 +5,9 @@ signal game_over
 
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game.tscn"
+var cTime = 0 #開始遊戲前倒數
+var rTime = 0 #回合時間
+var rTime_total = 180
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
@@ -23,6 +26,27 @@ func _process(delta):
 		spawn_player()
 		print("spawn players")
 		gameState = 2
+	elif(gameState == 2):
+		cTime += 1
+		countDown(cTime)
+		if(cTime >= 180):
+			var players = $game_scene/Game/Roof/Player.get_children()
+			for i in range(players.size()):
+				players[i].setFreeze(false)
+			gameState = 3
+			cTime = 0
+	elif(gameState == 3):
+		rTime += 1
+		if(rTime >=  rTime_total):
+			$UI/Label.text = "party over"
+			var players = $game_scene/Game/Roof/Player.get_children()
+			for i in range(players.size()):
+				players[i].setFreeze(true)
+		elif(rTime >= (rTime_total+30)):
+			gameState = 4
+			rTime = 0
+	elif(gameState == 4):
+		print("回合結束")
 	pass
 	
 var cur_game = ""
@@ -55,4 +79,14 @@ func spawn_player():
 			get_node("UI/playerUI/player" + str(i+1)).add_child(player_ui)
 			player_ui.connect_player(player)
 			player.int_ui()
+	pass
+func countDown(t):
+	if(t <= 60):
+		$UI/Label.text = "3"
+	elif(t <= 120):
+		$UI/Label.text = "2"
+	elif(t < 180):
+		$UI/Label.text = "1"
+	elif(t == 180):
+		$UI/Label.text = "Party Time"
 	pass
