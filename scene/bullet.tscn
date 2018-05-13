@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[node name="bullet" type="Area2D"]
+[node name="bullet" type="Area2D" index="0"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -76,6 +76,7 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+_sections_unfolded = [ "Z Index" ]
 
 [node name="Sprite" type="Sprite" parent="body" index="0" groups=[
 "sprite",

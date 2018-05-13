@@ -1,15 +1,32 @@
-extends Node2D
-
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+extends Button
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
+	self.rect_size = $Label.rect_size
+	$rect.rect_size.x = $Label.rect_size.x * 1.2
+	$rect.rect_position.x = ($Label.rect_size.x-$rect.rect_size.x)/2
+	$rect.rect_position.y = ($Label.rect_size.y-$rect.rect_size.y)/2
+	$rect.modulate = $Label.modulate
+	$Label.rect_pivot_offset.x = $Label.rect_size.x / 2
+	$Label.rect_pivot_offset.y = $Label.rect_size.y / 2
+	$Timer.set_wait_time(1)
+	$Timer.start()
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _process(delta):
+	pass
+
+func _appear():
+	$AnimationPlayer.play("appear")
+	pass
+
+func _disappear():
+	$AnimationPlayer.play("disappear")
+	pass
+
+func _chose():
+	$AnimationPlayer.play("chose")
+	pass
+
+func _on_Timer_timeout():
+	_appear()
+	pass # replace with function body
