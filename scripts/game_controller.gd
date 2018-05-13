@@ -47,6 +47,9 @@ func _process(delta):
 			rTime = 0
 	elif(gameState == 4):
 		print("回合結束")
+		_load_game(upgrade)
+		#do something
+		game_state == 0
 	pass
 	
 var cur_game = ""
