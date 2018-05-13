@@ -5,6 +5,7 @@ signal game_over
 
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game.tscn"
+var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
 var rTime_total = 180
@@ -17,6 +18,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	print(gameState)
 	if(gameState == 0):
 		emit_signal("int_game")
 		_load_game(game1)
@@ -42,14 +44,14 @@ func _process(delta):
 			var players = $game_scene/Game/Roof/Player.get_children()
 			for i in range(players.size()):
 				players[i].setFreeze(true)
-		elif(rTime >= (rTime_total+30)):
+		if(rTime >= (rTime_total+30)):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
 		print("回合結束")
-		_load_game(upgrade)
+		_load_game(game2)
 		#do something
-		game_state == 0
+		gameState == 0
 	pass
 	
 var cur_game = ""

@@ -220,6 +220,7 @@ __meta__ = {
 
 [node name="local2" parent="." index="1" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_left = 564.0
 margin_top = 198.0
 margin_right = 576.0
@@ -233,6 +234,7 @@ text = "loacal"
 
 [node name="online2" parent="." index="2" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 margin_left = 565.0
 margin_top = 223.0
 margin_right = 577.0
@@ -246,7 +248,6 @@ text = "Online"
 
 [node name="local" type="TextureButton" parent="." index="3"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
