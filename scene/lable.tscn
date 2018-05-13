@@ -209,7 +209,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="myButton" type="Button" index="0"]
+[node name="myButton" type="Button"]
 
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -307,6 +307,8 @@ autostart = false
 [connection signal="mouse_exited" from="." to="." method="_on_myButton_mouse_exited"]
 
 [connection signal="pressed" from="." to="." method="_on_myButton_pressed"]
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

@@ -43,6 +43,8 @@ func _ready():
 	connect.connect("game_error", self, "_on_game_error")
 	get_tree().connect("network_peer_disconnected", self,"refresh_player")
 
+	$local2.connect("finish", self, "_on_local")
+	$online2.connect("finish", self, "_on_online")
 func _on_host_pressed():
 	if (get_node("connect/name").text == ""):
 		get_node("connect/error_label").text="Invalid name!"
@@ -259,7 +261,9 @@ sync func save_map(map):
 func is_menu():
 	pass
 signal join_local
-func _on_local_pressed():
+func _on_local():
 	emit_signal("join_local")
-	
-	pass # replace with function body
+	pass
+func _on_online():
+	$online2/AnimationPlayer.play("normal")
+	pass 

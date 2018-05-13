@@ -1,5 +1,9 @@
 extends Button
 
+signal click()
+signal finish()
+var button_mode = 0 # 0 = prepaer; 1 = normal; 2 = focus; 3 = free; 
+
 func _ready():
 	self.rect_size = $Label.rect_size
 	$rect.rect_size.x = $Label.rect_size.x * 1.2
@@ -10,7 +14,7 @@ func _ready():
 	$rect.modulate = $Label.modulate
 	$Label.rect_pivot_offset.x = $Label.rect_size.x / 2
 	$Label.rect_pivot_offset.y = $Label.rect_size.y / 2
-	$Timer.set_wait_time(1)
+	$Timer.set_wait_time(0.1)
 	$Timer.start()
 	pass
 
@@ -45,5 +49,13 @@ func _on_myButton_mouse_exited():
 	pass 
 
 func _on_myButton_pressed():
-	$AnimationPlayer.play("disappear")
+	_disappear()
+	pass 
+
+func _free():
+	$AnimationPlayer.play("normal")
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if(anim_name == "disappear"):
+		emit_signal("finish")
 	pass # replace with function body
