@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scene/player_UI.gd" type="Script" id=1]
+[ext_resource path="res://scripts/player_UI.gd" type="Script" id=1]
 
 [node name="player_UI" type="Node2D"]
 
