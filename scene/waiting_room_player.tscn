@@ -1,14 +1,20 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/waiting_room_player.gd" type="Script" id=1]
 [ext_resource path="res://image/StartEnd/player_join_hologram.png" type="Texture" id=2]
 [ext_resource path="res://image/StartEnd/wp_ui.png" type="Texture" id=3]
 [ext_resource path="res://scene/button.tscn" type="PackedScene" id=4]
-[ext_resource path="res://image/StartEnd/hello1.png" type="Texture" id=5]
-[ext_resource path="res://image/StartEnd/hello.png" type="Texture" id=6]
-[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=7]
-[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=8]
-[ext_resource path="res://image/cursor.png" type="Texture" id=9]
+[ext_resource path="res://image/StartEnd/arrow1.png" type="Texture" id=5]
+[ext_resource path="res://image/StartEnd/arrow3.png" type="Texture" id=6]
+[ext_resource path="res://image/StartEnd/arrow2.png" type="Texture" id=7]
+[ext_resource path="res://image/StartEnd/arrow4.png" type="Texture" id=8]
+[ext_resource path="res://image/StartEnd/arrow6.png" type="Texture" id=9]
+[ext_resource path="res://image/StartEnd/arrow5.png" type="Texture" id=10]
+[ext_resource path="res://image/StartEnd/ready_new1.png" type="Texture" id=11]
+[ext_resource path="res://image/StartEnd/ready_new3.png" type="Texture" id=12]
+[ext_resource path="res://image/StartEnd/ready_new2.png" type="Texture" id=13]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=14]
+[ext_resource path="res://image/cursor.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 
@@ -52,7 +58,7 @@ tracks/0/keys = {
 size = 12
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 8 )
+font_data = ExtResource( 14 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=4]
@@ -60,7 +66,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 16
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 8 )
+font_data = ExtResource( 14 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="waiting_room_player" type="Node2D"]
@@ -91,9 +97,6 @@ __meta__ = {
 }
 
 [node name="items" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
-visible = false
 
 [node name="ui" type="Sprite" parent="items" index="0"]
 
@@ -132,16 +135,16 @@ focus = ExtResource( 7 )
 [node name="right" parent="items/buttons" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 85, 185 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
-focus = ExtResource( 7 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 9 )
+focus = ExtResource( 10 )
 
 [node name="ready" parent="items/buttons" index="2" instance=ExtResource( 4 )]
 
-position = Vector2( 60, 216 )
-normal = ExtResource( 5 )
-pressed = ExtResource( 6 )
-focus = ExtResource( 7 )
+position = Vector2( 61, 213 )
+normal = ExtResource( 11 )
+pressed = ExtResource( 12 )
+focus = ExtResource( 13 )
 is_ready = true
 
 [node name="cName" type="Label" parent="items" index="2"]
@@ -161,7 +164,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 3 )
-text = "Slice"
+text = "???"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -193,7 +196,7 @@ _sections_unfolded = [ "Material", "custom_fonts" ]
 [node name="player_icon" type="Sprite" parent="items" index="4"]
 
 position = Vector2( 60, 106 )
-texture = ExtResource( 9 )
+texture = ExtResource( 15 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

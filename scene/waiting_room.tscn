@@ -22,7 +22,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="player2" type="Node2D" parent="player" index="1"]
 
-position = Vector2( 86, -30 )
+position = Vector2( 85, -30 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="player3" type="Node2D" parent="player" index="2"]
@@ -32,7 +32,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="player4" type="Node2D" parent="player" index="3"]
 
-position = Vector2( 328, -30 )
+position = Vector2( 324, -30 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/back.png-779b81c5a0e816cf293f009e6cb9ad35.stex"
+path="res://.import/countdown2.png-7e581d7f91998329b7d63e88ea3ebf64.stex"
 
 [deps]
 
-source_file="res://image/StartEnd/back.png"
-source_md5="8d96d9fde29823d535e1a709dcd98523"
+source_file="res://image/GameScene/countdown2.png"
+source_md5="d7f9d26eda60b60d1cc9766d7d3a9352"
 
-dest_files=[ "res://.import/back.png-779b81c5a0e816cf293f009e6cb9ad35.stex" ]
-dest_md5="4dd81aebfaedc86eb0561dde54f98707"
+dest_files=[ "res://.import/countdown2.png-7e581d7f91998329b7d63e88ea3ebf64.stex" ]
+dest_md5="c0bd3292ba906a6df00d802b6cfd4099"
 
 [params]
 

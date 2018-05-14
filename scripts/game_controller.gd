@@ -3,6 +3,10 @@ extends Node2D
 signal int_game
 signal game_over
 
+var count3 = load("res://image/GameScene/countdown1.png")
+var count2 = load("res://image/GameScene/countdown2.png")
+var count1 = load("res://image/GameScene/countdown3.png")
+
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game.tscn"
 var upgrade = "res://scene/upgrade.tscn"
@@ -87,10 +91,15 @@ func spawn_player():
 func countDown(t):
 	if(t <= 1):
 		$UI/Label.text = "3"
+		$UI/countdown.texture = count3
 	elif(t <= 2):
 		$UI/Label.text = "2"
+		$UI/countdown.texture = count2
 	elif(t < 3):
 		$UI/Label.text = "1"
+		$UI/countdown.texture = count1
 	elif(t <= 4):
 		$UI/Label.text = "Party Time"
+		$UI/filter.hide()
+		$UI/countdown.hide()
 	pass
