@@ -3,9 +3,15 @@
 [ext_resource path="res://scripts/game_controller.gd" type="Script" id=1]
 [ext_resource path="res://image/b.png" type="Texture" id=2]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource path="res://image/cursor.png" type="Texture" id=3]
 [ext_resource path="res://image/GameScene/filter.png" type="Texture" id=4]
 [ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=5]
+=======
+[ext_resource path="res://image/GameScene/filter.png" type="Texture" id=3]
+[ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=4]
+[ext_resource path="res://scene/slice.tscn" type="PackedScene" id=5]
+>>>>>>> 1a12d43a8438affa5231a07e9684ba75cad69668
 =======
 [ext_resource path="res://image/GameScene/filter.png" type="Texture" id=3]
 [ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=4]
@@ -107,6 +113,7 @@ max_lines_visible = -1
 
 [node name="filter" type="Sprite" parent="UI" index="2"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 modulate = Color( 1, 1, 1, 0.657451 )
 position = Vector2( 412, 257.167 )
@@ -123,6 +130,9 @@ texture = ExtResource( 5 )
 
 =======
 
+=======
+
+>>>>>>> 1a12d43a8438affa5231a07e9684ba75cad69668
 modulate = Color( 1, 1, 1, 0.480667 )
 position = Vector2( 411.833, 261.5 )
 scale = Vector2( 2.57847, 2.31481 )
@@ -130,6 +140,25 @@ texture = ExtResource( 3 )
 _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="countdown" type="Sprite" parent="UI" index="3"]
+<<<<<<< HEAD
+
+position = Vector2( 640, 360 )
+texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="slice" parent="UI" index="4" instance=ExtResource( 5 )]
+
+z_index = 10
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="AnimationPlayer" parent="UI/slice" index="2"]
+
+_sections_unfolded = [ "Playback Options" ]
+
+[node name="game_scene" type="Node2D" parent="." index="2"]
+
+>>>>>>> 1a12d43a8438affa5231a07e9684ba75cad69668
+=======
 
 position = Vector2( 640, 360 )
 texture = ExtResource( 4 )
@@ -177,6 +206,10 @@ editor_draw_drag_margin = false
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+[editable path="UI/slice"]
+>>>>>>> 1a12d43a8438affa5231a07e9684ba75cad69668
 =======
 [editable path="UI/slice"]
 >>>>>>> 1a12d43a8438affa5231a07e9684ba75cad69668
