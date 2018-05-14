@@ -1,6 +1,5 @@
 extends Button
 
-signal click()
 signal finish()
 var button_mode = 0 # 0 = prepaer; 1 = normal; 2 = focus; 3 = free; 
 

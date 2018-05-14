@@ -38,7 +38,7 @@ func _process(delta):
 			gameState = 3
 			cTime = 0
 	elif(gameState == 3):
-		rTime += 1
+		rTime += delta
 		if(rTime >=  rTime_total):
 			$UI/Label.text = "party over"
 			var players = $game_scene/Game/Roof/Player.get_children()

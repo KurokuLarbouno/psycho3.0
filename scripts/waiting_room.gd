@@ -12,7 +12,7 @@ var player4_device
 
 
 func _ready():
-
+	
 	pass
 
 func _process(delta):
