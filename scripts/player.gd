@@ -134,13 +134,20 @@ func play_anim():
 		if(abs(angle)<60):new_anim = "walk_front"
 	pass
 func player_fire():
-	
-	if (Input.is_action_pressed("fire")):
-		$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotfrom.get_global_transform().get_origin()-self.position)
-	if (Input.is_action_just_released("fire")):
-		$Weapon.release()
-	if (Input.is_action_pressed("reload")):
-		$Weapon.charge()
+	if(input_device < 4): #搖桿
+		if (Input.is_joy_button_pressed(input_device, 7)):#RT
+			$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotfrom.get_global_transform().get_origin()-self.position)
+		elif($Weapon.state == 1):
+			$Weapon.release()
+		if (Input.is_joy_button_pressed(input_device, 5)):#RB
+			$Weapon.charge()
+	elif(input_device == 4): #鍵盤
+		if (Input.is_action_pressed("fire")):
+			$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotfrom.get_global_transform().get_origin()-self.position)
+		if (Input.is_action_just_released("fire")):
+			$Weapon.release()
+		if (Input.is_action_pressed("reload")):
+			$Weapon.charge()
 	pass
 func get_hurt(dmg,ower = ''):
 	if not die:
