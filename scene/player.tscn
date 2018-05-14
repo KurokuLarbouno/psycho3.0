@@ -35,6 +35,8 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
 editor/display_folded = true
