@@ -3,6 +3,7 @@ extends Node2D
 signal int_game
 signal game_over
 
+var playing_game
 var count3 = load("res://image/GameScene/countdown1.png")
 var count2 = load("res://image/GameScene/countdown2.png")
 var count1 = load("res://image/GameScene/countdown3.png")
@@ -13,19 +14,20 @@ var game2 = "res://scene/Game.tscn"
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 180
+var rTime_total = 10
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 
 func _ready():
-	# Called every time the node i added to the scene.
+	$UI/slice.connect("start", self, "load_next_scene")
+	playing_game = game1
 	pass
 
 func _process(delta):
 	if(gameState == 0):
 		emit_signal("int_game")
-		_load_game(game1)
+		_load_game(playing_game)
 		$Camera2D.current = true
 		gameState = 1
 	elif(gameState == 1):
@@ -48,14 +50,13 @@ func _process(delta):
 			var players = $game_scene/Game/Roof/Player.get_children()
 			for i in range(players.size()):
 				players[i].setFreeze(true)
-		if(rTime >= (rTime_total+30)):
+		if(rTime >= (rTime_total+2)):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
 		print("回合結束")
-		_load_game(game2)
-		#do something
-		gameState == 0
+		$UI/slice/AnimationPlayer.play("opening")
+		gameState = 5
 	pass
 	
 var cur_game = ""
@@ -107,4 +108,8 @@ func countDown(t):
 	elif(t <= 4.2):
 		$UI/countdown.hide()
 		$UI/filter.hide()
+	pass
+func load_next_scene():
+	playing_game = game2
+	gameState = 0
 	pass

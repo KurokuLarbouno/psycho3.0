@@ -13,6 +13,7 @@ var angle = 0
 var player_num = 0 			# 玩家編號
 var input_device = 0	# 輸入裝置編號
 var health = 20			# 生命值
+var RHP					#用來還原的生命值
 var clip = 0			#彈夾
 var MOTION_SPEED = 8000	# 移動速度
 var player_type = 0
@@ -51,6 +52,7 @@ func _ready():
 	elif(player_type == 3):
 		$main.texture = c4_img
 		$hand/gun.texture = c4_gun
+	RHP = health
 	$Weapon.connect("bullet_shot", self, "fire_anim")#連接Weapon生成子彈的訊號
 	$Weapon.connect("bullet_reload", self, "_bullet_reload")#連接Weapon生成子彈的訊號
 	pass
@@ -154,10 +156,9 @@ func hurt(dmg,ower = ''):
 		health -= dmg
 		emit_signal("update_health", health)
 		get_node("hurt").emitting = true
-		#get_node("/root/Game/Camera/Camera2D").shake()
+	#	get_node("/root/Game/Camera/Camera2D").shake()
 		if health <=0:
-			die = true
-			player_die()
+			player_die(ower)
 			pass
 		pass
 	#----------------------------------------道具效果受擊中斷 Start
@@ -166,14 +167,22 @@ func hurt(dmg,ower = ''):
 		#color_red_flag = true#因為兩邊都要看到受擊變色，所以不放入is_network_master中				
 	pass
 func fire_anim():
-	#hurt(1)#-------------------------for test!!
+	hurt(1)#-------------------------for test!!
 	clip -= 1
 	emit_signal("update_bullet", clip)
 	fire_anim = true
 
 func respawn():
+	get_node("./").position = get_node("../../Player_Point/Position" + str(player_num+1)).get_position()
+	clip = $Weapon.BULLET_AMOUNT
+	health = RHP
+	emit_signal("update_bullet", clip)
+	emit_signal("update_health", health)
+	die = false
 	pass
-func player_die():
+func player_die(killer):
+	die = true
+	respawn()
 	pass
 func _bullet_reload():
 	clip = $Weapon.BULLET_AMOUNT
