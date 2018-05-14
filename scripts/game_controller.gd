@@ -29,9 +29,9 @@ func _process(delta):
 		print("spawn players")
 		gameState = 2
 	elif(gameState == 2):
-		cTime += 1
+		cTime += delta
 		countDown(cTime)
-		if(cTime >= 180):
+		if(cTime >= 4):
 			var players = $game_scene/Game/Roof/Player.get_children()
 			for i in range(players.size()):
 				players[i].setFreeze(false)
@@ -86,12 +86,12 @@ func spawn_player():
 			player.int_ui()
 	pass
 func countDown(t):
-	if(t <= 60):
+	if(t <= 1):
 		$UI/Label.text = "3"
-	elif(t <= 120):
+	elif(t <= 2):
 		$UI/Label.text = "2"
-	elif(t < 180):
+	elif(t < 3):
 		$UI/Label.text = "1"
-	elif(t == 180):
+	elif(t <= 4):
 		$UI/Label.text = "Party Time"
 	pass
