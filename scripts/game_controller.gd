@@ -7,6 +7,7 @@ var playing_game
 var count3 = load("res://image/GameScene/countdown1.png")
 var count2 = load("res://image/GameScene/countdown2.png")
 var count1 = load("res://image/GameScene/countdown3.png")
+var count4 = load("res://image/GameScene/countdown4.png")
 
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game.tscn"
@@ -36,7 +37,7 @@ func _process(delta):
 	elif(gameState == 2):
 		cTime += delta
 		countDown(cTime)
-		if(cTime >= 4):
+		if(cTime >= 4.2):
 			var players = $game_scene/Game/Roof/Player.get_children()
 			for i in range(players.size()):
 				players[i].setFreeze(false)
@@ -61,10 +62,12 @@ func _process(delta):
 var cur_game = ""
 func _load_game(scn):
 	cur_game = scn
+	
 	var children = $game_scene.get_children()
 	if(children.size() > 0):
 		children[0].queue_free()
 		print("free game_scene")
+
 	var act = load(cur_game).instance()
 	$game_scene.add_child(act)
 	print("game loaded")
@@ -96,13 +99,15 @@ func countDown(t):
 	elif(t <= 2):
 		$UI/Label.text = "2"
 		$UI/countdown.texture = count2
-	elif(t < 3):
+	elif(t <= 3):
 		$UI/Label.text = "1"
 		$UI/countdown.texture = count1
 	elif(t <= 4):
 		$UI/Label.text = "Party Time"
-		$UI/filter.hide()
+		$UI/countdown.texture = count4
+	elif(t <= 4.2):
 		$UI/countdown.hide()
+		$UI/filter.hide()
 	pass
 func load_next_scene():
 	playing_game = game2

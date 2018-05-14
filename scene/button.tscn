@@ -58,7 +58,6 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="image" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 1.04017, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Transform" ]
 

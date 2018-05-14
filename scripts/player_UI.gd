@@ -60,14 +60,18 @@ func _update_bullet(cur_bullet):
 	pass
 #設定玩家代號圖
 func set_player_id():
-	if(player_num == 0):
-		$player_id.texture = player1_icon
-	elif(player_num == 1):
-		$player_id.texture = player2_icon
+	if(player_num == 1):
+		#$player_id.texture = player1_icon
+		$ID.text = "Player1"
 	elif(player_num == 2):
-		$player_id.texture = player3_icon
+		#$player_id.texture = player2_icon
+		$ID.text = "Player2"
 	elif(player_num == 3):
-		$player_id.texture = player4_icon
+		#$player_id.texture = player3_icon
+		$ID.text = "Player3"
+	elif(player_num == 4):
+		#$player_id.texture = player4_icon
+		$ID.text = "Player4"
 	pass
 func connect_player(obj):
 	obj.connect("update_health", self,"_update_health")

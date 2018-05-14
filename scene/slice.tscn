@@ -144,10 +144,11 @@ _sections_unfolded = [ "Animation", "Visibility" ]
 
 position = Vector2( 637.123, 360.816 )
 scale = Vector2( 2.65503, 2.65503 )
+z_index = 4096
 texture = ExtResource( 3 )
 hframes = 26
 frame = 25
-_sections_unfolded = [ "Animation", "Visibility" ]
+_sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
