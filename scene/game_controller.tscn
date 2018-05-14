@@ -2,8 +2,8 @@
 
 [ext_resource path="res://scripts/game_controller.gd" type="Script" id=1]
 [ext_resource path="res://image/b.png" type="Texture" id=2]
-[ext_resource path="res://image/GameScene/filter.png" type="Texture" id=3]
-[ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=4]
+[ext_resource path="res://image/cursor.png" type="Texture" id=3]
+[ext_resource path="res://scene/slice.tscn" type="PackedScene" id=4]
 
 [node name="game_controller" type="Node2D"]
 
@@ -49,6 +49,7 @@ _sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="playerUI" type="Node2D" parent="UI" index="0"]
 
+editor/display_folded = true
 position = Vector2( 33, 84 )
 _sections_unfolded = [ "Z Index" ]
 
@@ -75,9 +76,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Label" type="Label" parent="UI" index="1"]
+[node name="Sprite" type="Sprite" parent="UI/playerUI" index="4"]
 
 visible = false
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="UI" index="1"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -98,24 +103,22 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="filter" type="Sprite" parent="UI" index="2"]
-
-modulate = Color( 1, 1, 1, 0.480667 )
-position = Vector2( 411.833, 261.5 )
-scale = Vector2( 2.57847, 2.31481 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Visibility" ]
-
-[node name="countdown" type="Sprite" parent="UI" index="3"]
-
-position = Vector2( 417, 159 )
-texture = ExtResource( 4 )
-
 [node name="game_scene" type="Node2D" parent="." index="2"]
 
 position = Vector2( 4, 0 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="slice" parent="." index="3" instance=ExtResource( 4 )]
+
+[node name="Slice" parent="slice" index="0"]
+
+visible = true
+frame = 4
+
+[node name="Laser" parent="slice" index="1"]
+
+frame = 17
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 
 position = Vector2( 243, 181 )
 anchor_mode = 1
@@ -142,3 +145,4 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 
 
+[editable path="slice"]
