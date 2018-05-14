@@ -5,7 +5,7 @@
 [ext_resource path="res://image/GameScene/filter.png" type="Texture" id=3]
 [ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=4]
 
-[node name="game_controller" type="Node2D"]
+[node name="game_controller" type="Node2D" index="0"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )
