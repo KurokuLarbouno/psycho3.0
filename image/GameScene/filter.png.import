@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/back.png-779b81c5a0e816cf293f009e6cb9ad35.stex"
+path="res://.import/filter.png-4482fad00d6bf85204ffe9ac7f894d6d.stex"
 
 [deps]
 
-source_file="res://image/StartEnd/back.png"
-source_md5="8d96d9fde29823d535e1a709dcd98523"
+source_file="res://image/GameScene/filter.png"
+source_md5="04e899372bf330cc609ee4512be464cb"
 
-dest_files=[ "res://.import/back.png-779b81c5a0e816cf293f009e6cb9ad35.stex" ]
-dest_md5="4dd81aebfaedc86eb0561dde54f98707"
+dest_files=[ "res://.import/filter.png-4482fad00d6bf85204ffe9ac7f894d6d.stex" ]
+dest_md5="bf35229365db8be9e938165f34dc08a6"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

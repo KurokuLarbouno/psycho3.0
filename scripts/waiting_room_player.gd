@@ -5,10 +5,10 @@ signal player_delete
 
 var device_num
 var character_name = {1 : "Slice", 2 : "Acid", 3 : "Beast", 4 : "Phase"}
-var Slice = load("res://image/StartEnd/c1.png")
-var Acid = load("res://image/StartEnd/c2.png")
-var Beast = load("res://image/StartEnd/c3.png")
-var Phase = load("res://image/StartEnd/c4.png")
+var Slice = load("res://image/StartEnd/c1s.png")
+var Acid = load("res://image/StartEnd/c2s.png")
+var Beast = load("res://image/StartEnd/c3s.png")
+var Phase = load("res://image/StartEnd/c4s.png")
 var character_order = 0 # 0 = Slice; 1 = Acid; 2 = Beast; 4 = Phase
 var player_num = 0
 
