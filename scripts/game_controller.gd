@@ -20,7 +20,7 @@ var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 
 func _ready():
-	$UI/slice.connect("start", self, "load_next_scene")
+	#$UI/slice.connect("start", self, "load_next_scene")
 	playing_game = game1
 	pass
 
@@ -55,7 +55,7 @@ func _process(delta):
 			rTime = 0
 	elif(gameState == 4):
 		print("回合結束")
-		$UI/slice/AnimationPlayer.play("opening")
+		#$UI/slice/AnimationPlayer.play("opening")
 		gameState = 5
 	pass
 	
