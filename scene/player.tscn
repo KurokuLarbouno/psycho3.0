@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://image/Character/shadow.png" type="Texture" id=2]
@@ -6,15 +6,17 @@
 [ext_resource path="res://image/Character/ctest1_gun.png" type="Texture" id=4]
 [ext_resource path="res://image/arrow.png" type="Texture" id=5]
 [ext_resource path="res://image/light.png" type="Texture" id=6]
-[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=9]
+[ext_resource path="res://scene/fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=11]
 
 [node name="player" type="KinematicBody2D" index="0" groups=[
 "sprite",
+"player_group",
 ]]
 
-editor/display_folded = true
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -68,19 +70,23 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 
-[node name="Weapon" parent="." index="3" instance=ExtResource( 7 )]
+[node name="Particles2D" parent="hand" index="2" instance=ExtResource( 7 )]
 
-[node name="collision" type="CollisionPolygon2D" parent="." index="4"]
+[node name="Weapon" parent="." index="3" instance=ExtResource( 8 )]
+
+[node name="hurt" parent="." index="4" instance=ExtResource( 9 )]
+
+[node name="collision" type="CollisionPolygon2D" parent="." index="5"]
 
 visible = false
 build_mode = 0
 polygon = PoolVector2Array( 0.0865936, -5.228, -7.14623, 0.00425434, -6.91539, 7.46791, -0.139608, 9.72163, 7.4733, 7.92958, 7.4733, 0.158144 )
 
-[node name="animation" parent="." index="5" instance=ExtResource( 8 )]
+[node name="animation" parent="." index="6" instance=ExtResource( 10 )]
 
-[node name="sound" type="AudioStreamPlayer" parent="." index="6"]
+[node name="sound" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 11 )
 volume_db = -8.0
 autoplay = false
 mix_target = 0

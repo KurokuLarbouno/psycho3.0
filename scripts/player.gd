@@ -149,11 +149,11 @@ func player_fire():
 		if (Input.is_action_pressed("reload")):
 			$Weapon.charge()
 	pass
-func get_hurt(dmg,ower = ''):
+func hurt(dmg,ower = ''):
 	if not die:
 		health -= dmg
 		emit_signal("update_health", health)
-		#get_node("hurt").emitting = true
+		get_node("hurt").emitting = true
 		#get_node("/root/Game/Camera/Camera2D").shake()
 		if health <=0:
 			die = true
@@ -166,7 +166,7 @@ func get_hurt(dmg,ower = ''):
 		#color_red_flag = true#因為兩邊都要看到受擊變色，所以不放入is_network_master中				
 	pass
 func fire_anim():
-	#get_hurt(1)#-------------------------for test!!
+	#hurt(1)#-------------------------for test!!
 	clip -= 1
 	emit_signal("update_bullet", clip)
 	fire_anim = true
