@@ -1,14 +1,28 @@
+<<<<<<< HEAD
+[gd_scene load_steps=12 format=2]
+=======
 [gd_scene load_steps=20 format=2]
+>>>>>>> 23b4a3cd017c9162193b4b26da6267e43bf4d681
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://image/Character/shadow.png" type="Texture" id=2]
 [ext_resource path="res://image/Character/ctest1_walk.png" type="Texture" id=3]
 [ext_resource path="res://image/Character/ctest1_gun.png" type="Texture" id=4]
+<<<<<<< HEAD
+[ext_resource path="res://image/arrow.png" type="Texture" id=5]
+[ext_resource path="res://image/light.png" type="Texture" id=6]
+[ext_resource path="res://scene/fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=11]
+=======
 [ext_resource path="res://image/GameScene/spark.png" type="Texture" id=5]
 [ext_resource path="res://image/arrow.png" type="Texture" id=6]
 [ext_resource path="res://image/light.png" type="Texture" id=7]
 [ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=9]
+>>>>>>> 23b4a3cd017c9162193b4b26da6267e43bf4d681
 
 [sub_resource type="Animation" id=1]
 
@@ -401,6 +415,7 @@ tracks/1/keys = {
 
 [node name="player" type="KinematicBody2D" groups=[
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -465,14 +480,25 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+<<<<<<< HEAD
+[node name="Particles2D" parent="hand" index="2" instance=ExtResource( 7 )]
+
 [node name="Weapon" parent="." index="3" instance=ExtResource( 8 )]
 
-[node name="collision" type="CollisionPolygon2D" parent="." index="4"]
+[node name="hurt" parent="." index="4" instance=ExtResource( 9 )]
+=======
+[node name="Weapon" parent="." index="3" instance=ExtResource( 8 )]
+>>>>>>> 23b4a3cd017c9162193b4b26da6267e43bf4d681
+
+[node name="collision" type="CollisionPolygon2D" parent="." index="5"]
 
 visible = false
 build_mode = 0
 polygon = PoolVector2Array( 0.0865936, -5.228, -7.14623, 0.00425434, -6.91539, 7.46791, -0.139608, 9.72163, 7.4733, 7.92958, 7.4733, 0.158144 )
 
+<<<<<<< HEAD
+[node name="animation" parent="." index="6" instance=ExtResource( 10 )]
+=======
 [node name="animation" type="AnimationPlayer" parent="." index="5"]
 
 root_node = NodePath("..")
@@ -492,10 +518,11 @@ anims/walk_left = SubResource( 9 )
 anims/walk_right = SubResource( 10 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback", "playback" ]
+>>>>>>> 23b4a3cd017c9162193b4b26da6267e43bf4d681
 
-[node name="sound" type="AudioStreamPlayer" parent="." index="6"]
+[node name="sound" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 9 )
+stream = ExtResource( 11 )
 volume_db = -8.0
 autoplay = false
 mix_target = 0

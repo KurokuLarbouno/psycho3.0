@@ -15,9 +15,9 @@
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=14]
 
-[node name="c1" type="KinematicBody2D" groups=[
-"player_group",
+[node name="c1" type="KinematicBody2D" index="0" groups=[
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -122,6 +122,8 @@ __meta__ = {
 }
 
 [node name="hurt" parent="." index="9" instance=ExtResource( 13 )]
+
+visible = false
 
 [node name="sound" type="AudioStreamPlayer" parent="." index="10"]
 
