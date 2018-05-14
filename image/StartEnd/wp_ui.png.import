@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/back.png-779b81c5a0e816cf293f009e6cb9ad35.stex"
+path="res://.import/wp_ui.png-1a20e44542459846ccf7176c4b27f6f3.stex"
 
 [deps]
 
-source_file="res://image/StartEnd/back.png"
-source_md5="266751f0b7bd61102e5dc49e787a9042"
+source_file="res://image/StartEnd/wp_ui.png"
+source_md5="7d61a13d83602015adf79be95bb2b08e"
 
-dest_files=[ "res://.import/back.png-779b81c5a0e816cf293f009e6cb9ad35.stex" ]
-dest_md5="5a8aa04c794849231af0b20c58c3e8d7"
+dest_files=[ "res://.import/wp_ui.png-1a20e44542459846ccf7176c4b27f6f3.stex" ]
+dest_md5="437aec1c61f461671b7133964943f1ed"
 
 [params]
 

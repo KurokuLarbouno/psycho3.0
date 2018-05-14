@@ -18,7 +18,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(gameState)
 	if(gameState == 0):
 		emit_signal("int_game")
 		_load_game(game1)

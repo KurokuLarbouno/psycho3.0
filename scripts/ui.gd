@@ -17,7 +17,7 @@ func _ready():
 	heart = load("res://image/Character/heart1.png")
 	bullet = load("res://image/Character/bullet_ui.png")
 	players_all = connect.players
-	players_all[get_tree().get_network_unique_id()] = connect.player_name
+	#players_all[get_tree().get_network_unique_id()] = connect.player_name
 	pass
 func _physics_process(delta):
 	if start_flag:

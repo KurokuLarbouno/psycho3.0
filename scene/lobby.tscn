@@ -248,6 +248,7 @@ text = "Online"
 
 [node name="local" type="TextureButton" parent="." index="3"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -1343,6 +1344,10 @@ position = Vector2( 462.462, 158.53 )
 scale = Vector2( 58.8077, 20.8162 )
 texture = ExtResource( 31 )
 _sections_unfolded = [ "Material" ]
+
+[connection signal="pressed" from="local" to="." method="_on_local_pressed"]
+
+[connection signal="pressed" from="online" to="start_scene" method="_on_online_pressed"]
 
 [connection signal="pressed" from="connect/host" to="." method="_on_host_pressed"]
 
