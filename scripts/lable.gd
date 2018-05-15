@@ -1,7 +1,7 @@
 extends Button
 
 signal finish()
-var button_mode = 0 # 0 = prepaer; 1 = normal; 2 = focus; 3 = free; 
+var button_mode = 0 # 0 = prepaer; 1 = free; 
 
 func _ready():
 	self.rect_size = $Label.rect_size
@@ -21,15 +21,18 @@ func _process(delta):
 	pass
 
 func _appear():
+	button_mode = 0
 	$AnimationPlayer.play("appear")
 	pass
 
 func _disappear():
+	button_mode = 1
 	$AnimationPlayer.play("disappear")
 	pass
 
 func _chose():
-	$AnimationPlayer.play("chose")
+	if(button_mode == 0):
+		$AnimationPlayer.play("chose")
 	pass
 
 func _on_Timer_timeout():
@@ -43,7 +46,7 @@ func _on_myButton_mouse_entered():
 	pass 
 
 func _on_myButton_mouse_exited():
-	if($AnimationPlayer.is_playing()):
+	if($AnimationPlayer.is_playing() && button_mode == 0):
 		$AnimationPlayer.play("normal")
 	pass 
 
