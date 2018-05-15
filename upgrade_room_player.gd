@@ -5,7 +5,8 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
-	$AnimationPlayer.player("hologram")
+	# Called every time the node is added to the scene.
+	# Initialization here
 	pass
 
 #func _process(delta):

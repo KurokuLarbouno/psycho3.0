@@ -14,8 +14,11 @@ var game2 = "res://scene/Game1.tscn"
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
+<<<<<<< HEAD
 var rTime_total = 7
-
+=======
+var rTime_total = 5
+>>>>>>> fbd4f485ecc2fa406c42120a06d3ebbc9a91a0b7
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
