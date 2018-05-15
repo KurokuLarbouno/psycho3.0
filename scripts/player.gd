@@ -28,7 +28,6 @@ var new_anim#後
 var shot_anim#前
 var new_shot_anim#後
 var fire_anim = false
-var dTime = 0
 
 var c1_img = load("res://image/Character/ctest1_walk.png")
 var c2_img = load("res://image/Character/ctest2_walk.png")
@@ -71,14 +70,8 @@ func _process(delta):
 		player_fire()
 		if(die == true):
 			player_state = 2
-	elif(player_state == 2): #死掉
-		self.hide()
-		dTime += delta
-		if(dTime >= 3):
-			respawn()
-			self.show()
-			player_state = 1
-			dTime = 0
+	elif(player_state == 2):
+		player_state = 0
 	pass
 func player_move(delta):
 	motion = Vector2()
@@ -164,7 +157,7 @@ func hurt(dmg,ower = ''):
 		emit_signal("update_health", health)
 		get_node("hurt").emitting = true
 	#	get_node("/root/Game/Camera/Camera2D").shake()
-		if health <= 0:
+		if health <=0:
 			player_die(ower)
 			pass
 		pass
@@ -189,7 +182,7 @@ func respawn():
 	pass
 func player_die(killer):
 	die = true
-	#respawn()
+	respawn()
 	pass
 func _bullet_reload():
 	clip = $Weapon.BULLET_AMOUNT

@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/game_controller.gd" type="Script" id=1]
 [ext_resource path="res://image/b.png" type="Texture" id=2]
 [ext_resource path="res://image/GameScene/filter.png" type="Texture" id=3]
 [ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=4]
+[ext_resource path="res://scene/slice.tscn" type="PackedScene" id=5]
 
-[node name="game_controller" type="Node2D" index="0"]
+[node name="game_controller" type="Node2D"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )
@@ -40,16 +41,16 @@ stretch_mode = 0
 
 [node name="UI" type="CanvasLayer" parent="." index="1"]
 
-editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
-scale = Vector2( 1.5, 1.5 )
-transform = Transform2D( 1.5, 0, 0, 1.5, 0, 0 )
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Visibility", "Z Index" ]
 
 [node name="playerUI" type="Node2D" parent="UI" index="0"]
 
+editor/display_folded = true
 position = Vector2( 33, 84 )
 _sections_unfolded = [ "Z Index" ]
 
@@ -78,6 +79,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="UI" index="1"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -108,8 +110,19 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="countdown" type="Sprite" parent="UI" index="3"]
 
-position = Vector2( 417, 159 )
+position = Vector2( 640, 300 )
 texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="slice" parent="UI" index="4" instance=ExtResource( 5 )]
+
+editor/display_folded = true
+position = Vector2( 0, -1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Laser" parent="UI/slice" index="1"]
+
+visible = false
 
 [node name="game_scene" type="Node2D" parent="." index="2"]
 
@@ -142,3 +155,4 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 
 
+[editable path="UI/slice"]
