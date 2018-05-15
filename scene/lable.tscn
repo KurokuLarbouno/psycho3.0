@@ -69,7 +69,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0.9, 1.3 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 
 resource_name = "chose"
 length = 1.0
@@ -178,7 +178,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0.9, 1.3 ), Vector2( 0.9, 1.3 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 resource_name = "normal"
 length = 0.01
@@ -209,7 +209,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="myButton" type="Button"]
+[node name="myButton" type="Button" index="0"]
 
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
@@ -287,9 +287,9 @@ playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 2.0
 anims/appear = SubResource( 2 )
-anims/chose = SubResource( 5 )
+anims/chose = SubResource( 3 )
 anims/disappear = SubResource( 4 )
-anims/normal = SubResource( 6 )
+anims/normal = SubResource( 5 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
 
