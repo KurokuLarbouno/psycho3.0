@@ -1,6 +1,6 @@
 extends Area2D
 
-var dmg = 0
+var dmg = 1
 var sp = 0
 var a  = 0
 var motion = Vector2()

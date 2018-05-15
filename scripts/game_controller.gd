@@ -10,17 +10,21 @@ var count1 = load("res://image/GameScene/countdown3.png")
 var count4 = load("res://image/GameScene/countdown4.png")
 
 var game1 = "res://scene/Game2.tscn"
-var game2 = "res://scene/Game.tscn"
+var game2 = "res://scene/Game1.tscn"
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
+<<<<<<< HEAD
+var rTime_total = 7
+=======
 var rTime_total = 5
+>>>>>>> fbd4f485ecc2fa406c42120a06d3ebbc9a91a0b7
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 
 func _ready():
-	#$UI/slice.connect("start", self, "load_next_scene")
+	$UI/slice.connect("start", self, "load_next_scene")
 	playing_game = game1
 	pass
 
@@ -55,7 +59,7 @@ func _process(delta):
 			rTime = 0
 	elif(gameState == 4):
 		print("回合結束")
-		#$UI/slice/AnimationPlayer.play("opening")
+		$UI/slice.start()
 		gameState = 0
 	pass
 	
@@ -81,14 +85,16 @@ func spawn_player():
 			var player =  load("res://scene/player.tscn").instance()
 			var player_ui = load("res://scene/player_UI.tscn").instance()
 			#設定玩家資訊(從main給)
+			var cur_scene = $game_scene.get_children()
+			cur_scene = cur_scene[0]#陣列轉單一
 			player.player_num = i
 			player_ui.player_num = 1
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]
-			player.position = get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1)).get_position()
+			player.position = (cur_scene.get_node("Roof/Player_Point/Position" + str(i+1))).position
 			
-			get_node("game_scene/Game/Roof/Player").add_child(player)
+			cur_scene.get_node("Roof/Player").add_child(player)
 			get_node("UI/playerUI/player" + str(i+1)).add_child(player_ui)
 			player_ui.connect_player(player)
 			player.int_ui()

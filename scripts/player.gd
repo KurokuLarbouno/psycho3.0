@@ -174,7 +174,7 @@ func hurt(dmg,ower = ''):
 		#color_red_flag = true#因為兩邊都要看到受擊變色，所以不放入is_network_master中				
 	pass
 func fire_anim():
-	hurt(1)#-------------------------for test!!
+	#hurt(1)#-------------------------for test!!
 	clip -= 1
 	emit_signal("update_bullet", clip)
 	fire_anim = true

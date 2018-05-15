@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/game.gd" type="Script" id=1]
+[ext_resource path="res://scene/scene_2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=3]
+[ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=4]
+
+[node name="Game" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="Roof" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="light" parent="Roof" index="3"]
+
+editor/display_folded = true
+
+[node name="Trap_Point" type="Node" parent="Roof" index="4"]
+
+editor/display_folded = true
+
+[node name="Position1" type="Position2D" parent="Roof/Trap_Point" index="0"]
+
+position = Vector2( 143.086, 77.5286 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Position0" type="Position2D" parent="Roof/Trap_Point" index="1"]
+
+position = Vector2( 355.43, 81.0181 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Position2" type="Position2D" parent="Roof/Trap_Point" index="2"]
+
+position = Vector2( 80.3643, 175.403 )
+
+[node name="Position3" type="Position2D" parent="Roof/Trap_Point" index="3"]
+
+position = Vector2( 374.704, 208.204 )
+
+[node name="Position4" type="Position2D" parent="Roof/Trap_Point" index="4"]
+
+position = Vector2( 270.366, 80.0487 )
+
+[node name="Position5" type="Position2D" parent="Roof/Trap_Point" index="5"]
+
+position = Vector2( 240.692, 141.392 )
+
+[node name="Position6" type="Position2D" parent="Roof/Trap_Point" index="6"]
+
+position = Vector2( 159.698, 211.116 )
+
+[node name="Position7" type="Position2D" parent="Roof/Trap_Point" index="7"]
+
+position = Vector2( 272.621, 189.588 )
+
+[node name="trash" type="Position2D" parent="Roof/Trap_Point" index="8"]
+
+position = Vector2( -975.205, -71.9591 )
+
+[node name="Player_Point" type="Node" parent="Roof" index="5"]
+
+editor/display_folded = true
+
+[node name="Position1" type="Position2D" parent="Roof/Player_Point" index="0"]
+
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 416.002, 77.14 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Position3" type="Position2D" parent="Roof/Player_Point" index="1"]
+
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 431.799, 233.868 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Position2" type="Position2D" parent="Roof/Player_Point" index="2"]
+
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 44.0737, 230.014 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Position0" type="Position2D" parent="Roof/Player_Point" index="3"]
+
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 31.0776, 64.3434 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Player" type="Node2D" parent="Roof" index="6"]
+
+position = Vector2( -0.21463, -0.21463 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Trap" type="Node2D" parent="Roof" index="7"]
+
+position = Vector2( -0.21463, -0.21463 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Audio" type="Node" parent="." index="1"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Camera" type="Node" parent="." index="3"]
+
+[node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( 240.918, 138.343 )
+z_index = 3654
+z_as_relative = true
+zoom = Vector2( 0.375, 0.375 )
+
+[node name="UI" parent="Camera/Camera2D" index="3"]
+
+editor/display_folded = false
+
+[node name="label" parent="Camera/Camera2D/UI" index="1"]
+
+editor/display_folded = true
+
+[node name="glitch" parent="Camera/Camera2D" index="6"]
+
+margin_left = -50.0
+
+
+[editable path="Roof"]
+[editable path="Camera/Camera2D"]
