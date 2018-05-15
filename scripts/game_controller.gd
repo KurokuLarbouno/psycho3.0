@@ -14,7 +14,11 @@ var game2 = "res://scene/Game1.tscn"
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
+<<<<<<< HEAD
 var rTime_total = 7
+=======
+var rTime_total = 5
+>>>>>>> fbd4f485ecc2fa406c42120a06d3ebbc9a91a0b7
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
@@ -50,7 +54,7 @@ func _process(delta):
 			var players = $game_scene/Game/Roof/Player.get_children()
 			for i in range(players.size()):
 				players[i].setFreeze(true)
-		if(rTime >= (rTime_total+2)):
+		if(rTime >= (rTime_total+1)):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
@@ -65,8 +69,9 @@ func _load_game(scn):
 	
 	var children = $game_scene.get_children()
 	if(children.size() > 0):
-		children[0].queue_free()
-		print("free game_scene")
+		for i in range(children.size()):
+			children[i].queue_free()
+			print("free game_scene")
 
 	var act = load(cur_game).instance()
 	$game_scene.add_child(act)

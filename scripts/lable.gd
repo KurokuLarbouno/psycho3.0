@@ -61,3 +61,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "disappear"):
 		emit_signal("finish")
 	pass # replace with function body
+
