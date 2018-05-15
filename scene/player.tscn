@@ -423,6 +423,8 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
 texture = ExtResource( 4 )
@@ -473,13 +475,18 @@ __meta__ = {
 
 [node name="hurt" parent="." index="4" instance=ExtResource( 10 )]
 
-[node name="collision" type="CollisionPolygon2D" parent="." index="5"]
+[node name="die" parent="." index="5" instance=ExtResource( 10 )]
+
+amount = 64
+lifetime = 0.7
+
+[node name="collision" type="CollisionPolygon2D" parent="." index="6"]
 
 visible = false
 build_mode = 0
 polygon = PoolVector2Array( 0.0865936, -5.228, -7.14623, 0.00425434, -6.91539, 7.46791, -0.139608, 9.72163, 7.4733, 7.92958, 7.4733, 0.158144 )
 
-[node name="animation" type="AnimationPlayer" parent="." index="6"]
+[node name="animation" type="AnimationPlayer" parent="." index="7"]
 
 root_node = NodePath("..")
 autoplay = ""
@@ -499,7 +506,7 @@ anims/walk_right = SubResource( 10 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback", "playback" ]
 
-[node name="sound" type="AudioStreamPlayer" parent="." index="7"]
+[node name="sound" type="AudioStreamPlayer" parent="." index="8"]
 
 stream = ExtResource( 11 )
 volume_db = -8.0

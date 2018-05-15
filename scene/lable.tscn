@@ -209,7 +209,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[node name="myButton" type="Button" index="0"]
+[node name="myButton" type="Button"]
 
 self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.0
