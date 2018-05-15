@@ -54,9 +54,9 @@ func _process(delta):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
-		print("回合結束")
-		$UI/slice.start()
-		gameState = 0
+		#$UI/slice.start()
+		gameState = 5
+		_load_game(upgrade)
 	pass
 	
 var cur_game = ""
