@@ -6,7 +6,7 @@
 [ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=4]
 [ext_resource path="res://scene/slice.tscn" type="PackedScene" id=5]
 
-[node name="game_controller" type="Node2D" index="0"]
+[node name="game_controller" type="Node2D"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )
@@ -41,6 +41,7 @@ stretch_mode = 0
 
 [node name="UI" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0

@@ -60,7 +60,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="upgrade_player" type="Node2D" index="0"]
+[node name="upgrade_player" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -88,7 +88,6 @@ blend_times = [  ]
 
 [node name="menu" type="Control" parent="." index="2"]
 
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -128,6 +127,7 @@ _sections_unfolded = [ "Material", "custom_fonts" ]
 [node name="main" type="Node2D" parent="menu" index="1"]
 
 editor/display_folded = true
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -155,15 +155,33 @@ focus = ExtResource( 13 )
 
 [node name="body" type="Node2D" parent="menu" index="2"]
 
-editor/display_folded = true
-visible = false
-
 [node name="health" parent="menu/body" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 59, 91 )
 normal = ExtResource( 8 )
 pressed = ExtResource( 9 )
 focus = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="menu/body/health" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_top = -23.0
+margin_right = 20.0
+margin_bottom = -9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "health"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="speed" parent="menu/body" index="1" instance=ExtResource( 4 )]
 
@@ -172,11 +190,40 @@ normal = ExtResource( 8 )
 pressed = ExtResource( 9 )
 focus = ExtResource( 10 )
 
+[node name="Label" type="Label" parent="menu/body/speed" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -21.0
+margin_top = -23.0
+margin_right = 19.0
+margin_bottom = -9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "speed"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
 [node name="guns" type="Node2D" parent="menu" index="3"]
 
-visible = false
+[node name="reloadSpeed" parent="menu/guns" index="0" instance=ExtResource( 4 )]
 
-[node name="button" parent="menu/guns" index="0" instance=ExtResource( 4 )]
+position = Vector2( 59, 90 )
+
+[node name="fireSpeed" parent="menu/guns" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 60, 141 )
+
+[node name="bulletSped" parent="menu/guns" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 60, 185 )
 
 [node name="ready" type="Node2D" parent="menu" index="4"]
 

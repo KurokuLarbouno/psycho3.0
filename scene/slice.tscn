@@ -157,7 +157,7 @@ tracks/1/keys = {
 "values": [ 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -178,7 +178,7 @@ scale = Vector2( 2.65503, 2.65503 )
 z_index = 4096
 texture = ExtResource( 3 )
 hframes = 26
-frame = 25
+frame = 24
 _sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]

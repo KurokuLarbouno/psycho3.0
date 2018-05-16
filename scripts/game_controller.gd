@@ -18,8 +18,8 @@ var rTime_total = 3
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
-var player_stats = [] 
-var player_score = [[0,0],[0,0],[0,0],[0,0]] # 殺敵數＆被殺數
+var player_stats = [[20, 6],[20, 6],[20, 6],[20, 6]] #血量、彈夾
+var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
 func _ready():
 	$UI/slice.connect("start", self, "load_next_scene")
@@ -60,6 +60,9 @@ func _process(delta):
 		gameState = 5
 		$UI/playerUI.hide()
 		_load_game(upgrade)
+		if($game_scene.get_children().size() > 0):
+			$game_scene/upgrade.player_stats = player_stats
+			$game_scene/upgrade.player_score = player_score
 	pass
 	
 var cur_game = ""

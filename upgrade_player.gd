@@ -1,15 +1,20 @@
 extends Node2D
 
-var main_button = 0# 0 = body; 1 = gun; 2 = ready
-var body_button = 0
+var main_button = 0 # 0 = body; 1 = gun; 2 = ready
+var body_button = 0 # 0 = health; 1 = speed
+var gun_button = 0 # 0 = reload speed; 1 =  fire speed; 2 = bullet speed
 var state = 0
 var device_num
 var t = 0
 var button_delay = 0.2
+var stats = [] #0 = health; 1 = speed
+var score = [] #killpoints; deadpoints
 
 func _ready():
 	$AnimationPlayer.play("hologram")
 	main_button_focus()
+	body_button_focus()
+	body_stats_update()
 	pass
 
 func _process(delta):
@@ -99,13 +104,53 @@ func body_button_focus():
 		$menu/body/speed.select_button()
 	pass
 func body_button_pressed():
-	
+	if(Input.is_joy_button_pressed(device_num, 0)):
+		var buttons = $menu/body.get_children()
+		for i in range(buttons.size()):
+			if(buttons[i].button_mode == 1):
+				buttons[i].button_pressed()
+				if(buttons[i] == $menu/body/health):
+					print("upgrade health")
+					score[0] -= 1
+					stats[0] += 1
+					body_stats_update()
+				elif(buttons[i] == $menu/body/speed):
+					print("upgrade speed")
+					score[0] -= 1
+					stats[1] += 1
+					body_stats_update()
+	pass
+func body_stats_update():
+	$menu/body/health/Label.text = str(stats[0])
+	$menu/body/health/Label.text = str(stats[1])
 	pass
 func body_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):
 		$menu/body.hide()
 		$menu/main.show()
 		state = 0
+	#gun button
+func gun_button_select(delta):
+	t +=1
+	if(t > button_delay): 
+		#up
+		if(Input.get_joy_axis(device_num,1) < -0.3):
+			if(gun_button == 1):
+				gun_button -= 1
+			elif(gun_button == 2):
+				gun_button -= 1
+			gun_button_focus()
+		#down
+		elif(Input.get_joy_axis(device_num,1) > 0.3):
+			if(gun_button == 0):
+				gun_button += 1
+			if(gun_button == 1):
+				gun_button += 1
+			gun_button_focus()
+		t = 0
+	pass
+func gun_button_focus():
+	pass
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "hologram"):
 		$menu.show()
