@@ -1,36 +1,32 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/lobby.gd" type="Script" id=1]
 [ext_resource path="res://scene/title.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scene/lable.tscn" type="PackedScene" id=3]
-[ext_resource path="res://image/StartEnd/Local.png" type="Texture" id=4]
-[ext_resource path="res://image/StartEnd/Local2.png" type="Texture" id=5]
-[ext_resource path="res://image/StartEnd/Online.png" type="Texture" id=6]
-[ext_resource path="res://image/StartEnd/Online2.png" type="Texture" id=7]
-[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=8]
-[ext_resource path="res://image/StartEnd/host_sel.png" type="Texture" id=9]
-[ext_resource path="res://image/StartEnd/join.png" type="Texture" id=10]
-[ext_resource path="res://image/StartEnd/join_sel.png" type="Texture" id=11]
-[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=12]
-[ext_resource path="res://image/GameScene/Game.png" type="Texture" id=13]
-[ext_resource path="res://image/StartEnd/chose_char.png" type="Texture" id=14]
-[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=15]
-[ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=16]
-[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=17]
-[ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=18]
-[ext_resource path="res://image/StartEnd/letsPartyButtom1.png" type="Texture" id=19]
-[ext_resource path="res://image/StartEnd/letsPartyButtom2.png" type="Texture" id=20]
-[ext_resource path="res://image/StartEnd/startButtom1.png" type="Texture" id=21]
-[ext_resource path="res://image/StartEnd/startButtom2.png" type="Texture" id=22]
-[ext_resource path="res://image/StartEnd/select_focus.png" type="Texture" id=23]
-[ext_resource path="res://image/StartEnd/c1.png" type="Texture" id=24]
-[ext_resource path="res://image/StartEnd/little_arrow_button.png" type="Texture" id=25]
-[ext_resource path="res://image/StartEnd/little_arrow_button_hover.png" type="Texture" id=26]
-[ext_resource path="res://image/StartEnd/ready.png" type="Texture" id=27]
-[ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=28]
-[ext_resource path="res://sound/Start.ogg" type="AudioStream" id=29]
-[ext_resource path="res://icon.png" type="Texture" id=30]
-[ext_resource path="res://image/Character/smoke.png" type="Texture" id=31]
+[ext_resource path="res://image/StartEnd/host.png" type="Texture" id=4]
+[ext_resource path="res://image/StartEnd/host_sel.png" type="Texture" id=5]
+[ext_resource path="res://image/StartEnd/join.png" type="Texture" id=6]
+[ext_resource path="res://image/StartEnd/join_sel.png" type="Texture" id=7]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=8]
+[ext_resource path="res://image/GameScene/Game.png" type="Texture" id=9]
+[ext_resource path="res://image/StartEnd/chose_char.png" type="Texture" id=10]
+[ext_resource path="res://image/StartEnd/buttom_flip1.png" type="Texture" id=11]
+[ext_resource path="res://image/StartEnd/buttom_flip2.png" type="Texture" id=12]
+[ext_resource path="res://image/StartEnd/buttom1.png" type="Texture" id=13]
+[ext_resource path="res://image/StartEnd/buttom2.png" type="Texture" id=14]
+[ext_resource path="res://image/StartEnd/letsPartyButtom1.png" type="Texture" id=15]
+[ext_resource path="res://image/StartEnd/letsPartyButtom2.png" type="Texture" id=16]
+[ext_resource path="res://image/StartEnd/startButtom1.png" type="Texture" id=17]
+[ext_resource path="res://image/StartEnd/startButtom2.png" type="Texture" id=18]
+[ext_resource path="res://image/StartEnd/select_focus.png" type="Texture" id=19]
+[ext_resource path="res://image/StartEnd/c1.png" type="Texture" id=20]
+[ext_resource path="res://image/StartEnd/little_arrow_button.png" type="Texture" id=21]
+[ext_resource path="res://image/StartEnd/little_arrow_button_hover.png" type="Texture" id=22]
+[ext_resource path="res://image/StartEnd/ready.png" type="Texture" id=23]
+[ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=24]
+[ext_resource path="res://sound/Start.ogg" type="AudioStream" id=25]
+[ext_resource path="res://icon.png" type="Texture" id=26]
+[ext_resource path="res://image/Character/smoke.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -39,7 +35,7 @@ size = 11
 use_mipmaps = false
 use_filter = false
 extra_spacing_top = 4
-font_data = ExtResource( 12 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Resource", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -48,7 +44,7 @@ size = 8
 use_mipmaps = false
 use_filter = false
 extra_spacing_top = 3
-font_data = ExtResource( 12 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
@@ -56,7 +52,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 10
 use_mipmaps = true
 use_filter = false
-font_data = ExtResource( 12 )
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="Shader" id=4]
@@ -233,7 +229,6 @@ text = "loacal"
 
 [node name="online2" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
 margin_left = 565.0
 margin_top = 223.0
 margin_right = 577.0
@@ -245,60 +240,7 @@ visible = false
 modulate = Color( 0.177917, 0.33231, 0.859375, 1 )
 text = "Online"
 
-[node name="local" type="TextureButton" parent="." index="3"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 572.0
-margin_top = 187.0
-margin_right = 618.0
-margin_bottom = 204.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 4 )
-texture_hover = ExtResource( 5 )
-texture_focused = ExtResource( 5 )
-_sections_unfolded = [ "Textures" ]
-
-[node name="online" type="TextureButton" parent="." index="4"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 572.0
-margin_top = 205.0
-margin_right = 618.0
-margin_bottom = 224.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 6 )
-texture_hover = ExtResource( 7 )
-_sections_unfolded = [ "Textures" ]
-
-[node name="connect" type="Panel" parent="." index="5"]
+[node name="connect" type="Panel" parent="." index="3"]
 
 editor/display_folded = true
 self_modulate = Color( 1, 1, 1, 0 )
@@ -343,9 +285,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 9 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="join" type="TextureButton" parent="connect" index="1"]
@@ -369,9 +311,9 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 11 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
 expand = true
 _sections_unfolded = [ "Rect", "Textures" ]
 
@@ -455,18 +397,18 @@ caret_blink_speed = 0.65
 caret_position = 0
 _sections_unfolded = [ "Placeholder", "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="map_icon" type="Sprite" parent="." index="6"]
+[node name="map_icon" type="Sprite" parent="." index="4"]
 
 visible = false
 position = Vector2( 240.102, 139.099 )
 z_as_relative = false
-texture = ExtResource( 13 )
+texture = ExtResource( 9 )
 _sections_unfolded = [ "Transform", "Visibility", "Z", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="map_ui" type="TextureRect" parent="." index="7"]
+[node name="map_ui" type="TextureRect" parent="." index="5"]
 
 visible = false
 anchor_left = 0.0
@@ -481,13 +423,13 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 14 )
+texture = ExtResource( 10 )
 stretch_mode = 0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="maps" type="Panel" parent="." index="8"]
+[node name="maps" type="Panel" parent="." index="6"]
 
 editor/display_folded = true
 visible = false
@@ -528,8 +470,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 15 )
-texture_pressed = ExtResource( 16 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
 expand = true
 _sections_unfolded = [ "Rect", "Textures" ]
 
@@ -554,8 +496,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 18 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
 expand = true
 _sections_unfolded = [ "Rect", "Textures" ]
 
@@ -602,8 +544,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 19 )
-texture_pressed = ExtResource( 20 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Ready" type="TextureButton" parent="maps" index="4"]
@@ -627,11 +569,11 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 21 )
-texture_pressed = ExtResource( 22 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 18 )
 _sections_unfolded = [ "Textures" ]
 
-[node name="players" type="Panel" parent="." index="9"]
+[node name="players" type="Panel" parent="." index="7"]
 
 editor/display_folded = true
 visible = false
@@ -679,7 +621,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 23 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -688,7 +630,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player1" index="1"]
 
 position = Vector2( 64, 58 )
-texture = ExtResource( 24 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Label" type="Label" parent="players/player1" index="2"]
@@ -735,8 +677,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -767,8 +709,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -798,8 +740,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 27 )
-texture_disabled = ExtResource( 28 )
+texture_normal = ExtResource( 23 )
+texture_disabled = ExtResource( 24 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -829,7 +771,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 23 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -838,7 +780,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player2" index="1"]
 
 position = Vector2( 64, 58 )
-texture = ExtResource( 24 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Label" type="Label" parent="players/player2" index="2"]
@@ -885,8 +827,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -917,8 +859,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -948,8 +890,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 27 )
-texture_disabled = ExtResource( 28 )
+texture_normal = ExtResource( 23 )
+texture_disabled = ExtResource( 24 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -979,7 +921,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 23 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -988,7 +930,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player3" index="1"]
 
 position = Vector2( 64, 58 )
-texture = ExtResource( 24 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Label" type="Label" parent="players/player3" index="2"]
@@ -1035,8 +977,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -1067,8 +1009,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 26 )
-texture_hover = ExtResource( 25 )
+texture_normal = ExtResource( 22 )
+texture_hover = ExtResource( 21 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -1098,8 +1040,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 27 )
-texture_disabled = ExtResource( 28 )
+texture_normal = ExtResource( 23 )
+texture_disabled = ExtResource( 24 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1128,7 +1070,7 @@ _sections_unfolded = [ "Rect", "Theme", "Visibility" ]
 
 visible = false
 position = Vector2( 64, 63 )
-texture = ExtResource( 23 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1137,7 +1079,7 @@ __meta__ = {
 [node name="player_icon" type="Sprite" parent="players/player4" index="1"]
 
 position = Vector2( 64, 58 )
-texture = ExtResource( 24 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Label" type="Label" parent="players/player4" index="2"]
@@ -1184,8 +1126,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Textures" ]
@@ -1216,8 +1158,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 25 )
-texture_hover = ExtResource( 26 )
+texture_normal = ExtResource( 21 )
+texture_hover = ExtResource( 22 )
 expand = true
 stretch_mode = 3
 _sections_unfolded = [ "Rect", "Textures" ]
@@ -1247,8 +1189,8 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 27 )
-texture_disabled = ExtResource( 28 )
+texture_normal = ExtResource( 23 )
+texture_disabled = ExtResource( 24 )
 _sections_unfolded = [ "Rect", "Textures" ]
 __meta__ = {
 "_edit_lock_": true
@@ -1281,7 +1223,7 @@ icon_mode = 1
 fixed_icon_size = Vector2( 0, 0 )
 _sections_unfolded = [ "Columns", "Icon", "Rect", "Visibility", "custom_fonts" ]
 
-[node name="error" type="AcceptDialog" parent="." index="10"]
+[node name="error" type="AcceptDialog" parent="." index="8"]
 
 visible = false
 anchor_left = 0.0
@@ -1301,7 +1243,7 @@ window_title = "Alert!"
 resizable = false
 dialog_hide_on_ok = true
 
-[node name="TextureRect" type="TextureRect" parent="." index="11"]
+[node name="TextureRect" type="TextureRect" parent="." index="9"]
 
 visible = false
 anchor_left = 0.0
@@ -1318,35 +1260,31 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 stretch_mode = 0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="12"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="10"]
 
-stream = ExtResource( 29 )
+stream = ExtResource( 25 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="glitchShader" type="Sprite" parent="." index="13"]
+[node name="glitchShader" type="Sprite" parent="." index="11"]
 
 visible = false
 material = SubResource( 5 )
 position = Vector2( 462.462, 158.53 )
 scale = Vector2( 58.8077, 20.8162 )
-texture = ExtResource( 30 )
+texture = ExtResource( 26 )
 _sections_unfolded = [ "Material" ]
 
-[node name="glitchShaderRGB" type="Sprite" parent="." index="14"]
+[node name="glitchShaderRGB" type="Sprite" parent="." index="12"]
 
 visible = false
 material = SubResource( 7 )
 position = Vector2( 462.462, 158.53 )
 scale = Vector2( 58.8077, 20.8162 )
-texture = ExtResource( 31 )
+texture = ExtResource( 27 )
 _sections_unfolded = [ "Material" ]
-
-[connection signal="pressed" from="local" to="." method="_on_local_pressed"]
-
-[connection signal="pressed" from="online" to="start_scene" method="_on_online_pressed"]
 
 [connection signal="pressed" from="connect/host" to="." method="_on_host_pressed"]
 

@@ -26,8 +26,9 @@ func _appear():
 	pass
 
 func _disappear():
-	button_mode = 1
-	$AnimationPlayer.play("disappear")
+	if(button_mode == 0):
+		button_mode = 1
+		$AnimationPlayer.play("disappear")
 	pass
 
 func _chose():
