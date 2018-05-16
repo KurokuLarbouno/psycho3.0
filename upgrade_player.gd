@@ -9,6 +9,8 @@ var t = 0
 var button_delay = 0.2
 var stats = [] #0 = health; 1 = speed
 var score = [] #killpoints; deadpoints
+var player_num
+var pressdelay
 
 func _ready():
 	$AnimationPlayer.play("hologram")
@@ -21,9 +23,12 @@ func _process(delta):
 	if(state == 0): #main menu
 		main_button_select(delta)
 		main_button_pressed()
+		pressdelay = 0
 	elif(state == 1): #body menu
+		pressdelay += 1
 		body_button_select(delta)
-		body_button_pressed()
+		if(pressdelay > 20):
+			body_button_pressed()
 		body_exit()
 	elif(state == 2): #gun menu
 		gun_button_select()
@@ -80,7 +85,7 @@ func main_button_pressed():
 	pass
 	#body button
 func body_button_select(delta):
-	t +=1
+	t += 1
 	if(t > button_delay): 
 		#up
 		if(Input.get_joy_axis(device_num,1) < -0.3):
@@ -111,18 +116,18 @@ func body_button_pressed():
 				buttons[i].button_pressed()
 				if(buttons[i] == $menu/body/health):
 					print("upgrade health")
-					score[0] -= 1
-					stats[0] += 1
+					score[player_num][0] -= 1
+					stats[player_num][0] += 1
 					body_stats_update()
 				elif(buttons[i] == $menu/body/speed):
 					print("upgrade speed")
-					score[0] -= 1
-					stats[1] += 1
+					score[player_num][0] -= 1
+					stats[player_num][1] += 1
 					body_stats_update()
 	pass
 func body_stats_update():
-	$menu/body/health/Label.text = str(stats[0])
-	$menu/body/health/Label.text = str(stats[1])
+	$menu/body/health/Label.text = str(stats[player_num][0])
+	$menu/body/speed/Label.text = str(stats[player_num][1])
 	pass
 func body_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):
