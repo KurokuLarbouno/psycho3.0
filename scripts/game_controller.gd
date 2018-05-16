@@ -82,7 +82,7 @@ func spawn_player():
 			var player_ui = load("res://scene/player_UI.tscn").instance()
 			#設定玩家資訊(從main給)
 			var cur_scene = $game_scene.get_children()
-			cur_scene = cur_scene[0]#陣列轉單一
+			cur_scene = cur_scene[0]
 			player.player_num = i
 			player_ui.player_num = 1
 			player.input_device = player_data[i][1]

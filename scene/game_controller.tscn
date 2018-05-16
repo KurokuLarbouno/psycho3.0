@@ -6,7 +6,7 @@
 [ext_resource path="res://image/GameScene/countdown1.png" type="Texture" id=4]
 [ext_resource path="res://scene/slice.tscn" type="PackedScene" id=5]
 
-[node name="game_controller" type="Node2D" index="0"]
+[node name="game_controller" type="Node2D"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )
@@ -124,10 +124,6 @@ __meta__ = {
 
 position = Vector2( 0, -1 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Laser" parent="UI/slice" index="1"]
-
-frame = 25
 
 [node name="game_scene" type="Node2D" parent="." index="2"]
 

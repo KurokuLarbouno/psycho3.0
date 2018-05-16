@@ -21,6 +21,7 @@ func _ready():
 	button_connect()
 	$items/player.text = pname
 	open()
+	button_focus()
 	pass
 
 func _process(delta):
