@@ -14,7 +14,7 @@ var game2 = "res://scene/Game1.tscn"
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 7
+var rTime_total = 3
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
@@ -56,6 +56,7 @@ func _process(delta):
 	elif(gameState == 4):
 		#$UI/slice.start()
 		gameState = 5
+		$UI/playerUI.hide()
 		_load_game(upgrade)
 	pass
 	
