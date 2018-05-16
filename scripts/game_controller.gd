@@ -18,6 +18,8 @@ var rTime_total = 3
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
+var player_stats = [] 
+var player_score = [[0,0],[0,0],[0,0],[0,0]] # 殺敵數＆被殺數
 
 func _ready():
 	$UI/slice.connect("start", self, "load_next_scene")

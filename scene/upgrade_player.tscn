@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://upgrade_player.gd" type="Script" id=1]
@@ -14,6 +15,12 @@
 [ext_resource path="res://image/StartEnd/ready_new3.png" type="Texture" id=12]
 [ext_resource path="res://image/StartEnd/ready_new2.png" type="Texture" id=13]
 [ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=14]
+=======
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://upgrade_player.gd" type="Script" id=1]
+[ext_resource path="res://image/StartEnd/player_join_hologram.png" type="Texture" id=2]
+>>>>>>> c9de0974a7774e6371b6920a6b0ee05b4402fde2
 
 [sub_resource type="Animation" id=1]
 
@@ -52,6 +59,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
+<<<<<<< HEAD
 [sub_resource type="DynamicFont" id=3]
 
 size = 16
@@ -60,6 +68,8 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
+=======
+>>>>>>> c9de0974a7774e6371b6920a6b0ee05b4402fde2
 [node name="upgrade_player" type="Node2D"]
 
 script = ExtResource( 1 )
@@ -86,6 +96,7 @@ anims/exit = SubResource( 1 )
 anims/hologram = SubResource( 2 )
 blend_times = [  ]
 
+<<<<<<< HEAD
 [node name="menu" type="Control" parent="." index="2"]
 
 visible = false
@@ -187,4 +198,6 @@ texture = ExtResource( 14 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
+=======
+>>>>>>> c9de0974a7774e6371b6920a6b0ee05b4402fde2
 
