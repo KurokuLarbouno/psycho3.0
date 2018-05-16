@@ -230,7 +230,7 @@ margin_bottom = 218.0
 
 visible = false
 modulate = Color( 1, 1, 1, 1 )
-text = "local"
+text = "loacal"
 
 [node name="online2" parent="." index="2" instance=ExtResource( 3 )]
 
