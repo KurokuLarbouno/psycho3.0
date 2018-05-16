@@ -11,6 +11,10 @@ var now_kind 			# 玩家目前種類
 #游標
 var arrow = load("res://image/cursor/cursor.png")
 var beam = load("res://image/cursor/beam.png")
+
+#搖桿選取功能
+var button = -1 
+var old_button = -1 #紀錄目前作用的按鍵
 #-------------------------------------------------------
 func _ready():
 	#游標
@@ -45,6 +49,10 @@ func _ready():
 
 	$local2.connect("finish", self, "_on_local")
 	$online2.connect("finish", self, "_on_online")
+func _process(delta):
+	button_selet()
+	_button_pressed()		
+	pass
 func _on_host_pressed():
 	if (get_node("connect/name").text == ""):
 		get_node("connect/error_label").text="Invalid name!"
@@ -261,6 +269,38 @@ sync func save_map(map):
 func is_menu():
 	pass
 signal join_local
+#搖桿蘑菇頭選擇
+func button_selet():
+	#up
+	if(Input.get_joy_axis(0,1) < -0.4):			
+		button = 0
+	#down
+	elif(Input.get_joy_axis(0,1) > 0.4):
+		button = 1
+	button_focus()
+	print(button)
+	pass
+#按鈕選取
+func button_focus():
+	if(old_button != button):
+		if(button == 0):
+			$online2/AnimationPlayer.play("normal")
+			$local2._on_myButton_mouse_entered()
+		elif(button == 1):
+			$local2/AnimationPlayer.play("normal")
+			$online2._on_myButton_mouse_entered()
+			
+		old_button = button
+	pass
+
+#按下按鈕
+func _button_pressed():
+	if(Input.is_joy_button_pressed(0,0)):
+		if(button == 0):
+			$local2._disappear()
+		elif(button == 1):
+			$online2._disappear()
+	pass
 func _on_local():
 	emit_signal("join_local")
 	pass
