@@ -58,11 +58,8 @@ func _process(delta):
 	elif(gameState == 4):
 		#$UI/slice.start()
 		gameState = 5
-		$UI/playerUI.hide()
-		_load_game(upgrade)
-		if($game_scene.get_children().size() > 0):
-			$game_scene/upgrade.player_stats = player_stats
-			$game_scene/upgrade.player_score = player_score
+		upgrade()
+
 	pass
 	
 var cur_game = ""
@@ -120,4 +117,12 @@ func countDown(t):
 func load_next_scene():
 	playing_game = game2
 	gameState = 0
+	pass
+func upgrade():
+	$UI/playerUI.hide()
+	_load_game(upgrade)
+	if($game_scene.get_children().size() > 0):
+		$game_scene/upgrade.player_stats = player_stats
+		$game_scene/upgrade.player_score = player_score
+	$game_scene/upgrade.connect("next_round", self, "_next_round")
 	pass
