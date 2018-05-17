@@ -18,7 +18,7 @@ var rTime_total = 3
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
-var player_stats = [[20, 6],[20, 6],[20, 6],[20, 6]] #血量、彈夾
+var player_stats = [[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
 var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
 func _ready():

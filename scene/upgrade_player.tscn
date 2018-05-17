@@ -88,7 +88,6 @@ blend_times = [  ]
 
 [node name="menu" type="Control" parent="." index="2"]
 
-editor/display_folded = true
 visible = false
 anchor_left = 0.0
 anchor_top = 0.0
@@ -156,6 +155,7 @@ focus = ExtResource( 13 )
 
 [node name="body" type="Node2D" parent="menu" index="2"]
 
+editor/display_folded = true
 visible = false
 
 [node name="health" parent="menu/body" index="0" instance=ExtResource( 4 )]
@@ -216,17 +216,88 @@ max_lines_visible = -1
 
 [node name="guns" type="Node2D" parent="menu" index="3"]
 
+visible = false
+
 [node name="reloadSpeed" parent="menu/guns" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 59, 90 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+focus = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="menu/guns/reloadSpeed" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -20.0
+margin_top = -27.0
+margin_right = 20.0
+margin_bottom = -13.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="fireSpeed" parent="menu/guns" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 60, 141 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+focus = ExtResource( 7 )
 
-[node name="bulletSped" parent="menu/guns" index="2" instance=ExtResource( 4 )]
+[node name="Label" type="Label" parent="menu/guns/fireSpeed" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -21.0
+margin_top = -25.0
+margin_right = 19.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="bulletSpeed" parent="menu/guns" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 60, 185 )
+normal = ExtResource( 5 )
+pressed = ExtResource( 6 )
+focus = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="menu/guns/bulletSpeed" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -21.0
+margin_top = -25.0
+margin_right = 19.0
+margin_bottom = -11.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [node name="ready" type="Node2D" parent="menu" index="4"]
 
