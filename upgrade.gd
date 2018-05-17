@@ -7,7 +7,7 @@ var player_score
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	$Camera2D.make_current()
+	#$Camera2D.make_current()
 	pass
 
 func _process(delta):

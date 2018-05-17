@@ -3,9 +3,15 @@
 [ext_resource path="res://upgrade.gd" type="Script" id=1]
 [ext_resource path="res://image/StartEnd/back.png" type="Texture" id=2]
 
-[node name="upgrade" type="Node2D"]
+[node name="upgrade" type="Node2D" index="0"]
 
+position = Vector2( 238, 180 )
+scale = Vector2( 1.35, 1.35 )
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="background" type="Sprite" parent="." index="0"]
 
@@ -16,7 +22,7 @@ texture = ExtResource( 2 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 0.375, 0.375 )
+zoom = Vector2( 0.5, 0.5 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
