@@ -45,6 +45,8 @@ func _process(delta):
 		if(pressdelay > 20):
 			gun_button_pressed()
 		gun_exit()
+	elif(state == 3):#ready
+		menu_exit()
 	pass
 	
 	#main button
@@ -213,6 +215,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func player_ready():
 	emit_signal("upgrade_ready", player_num)
-	stats[player_num] = get_node("../..").player_stats
-	score[player_num] = get_node("../..").player_score
+	get_node("../..").player_stats[player_num] = stats[player_num]
+	get_node("../..").player_score[player_num] = score[player_num] 
+	pass
+func menu_exit():
 	pass
