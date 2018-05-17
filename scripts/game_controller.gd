@@ -59,7 +59,7 @@ func _process(delta):
 		#$UI/slice.start()
 		gameState = 5
 		$UI/playerUI.hide()
-		#_load_game(upgrade)
+		_load_game(upgrade)
 		if($game_scene.get_children().size() > 0):
 			$game_scene/upgrade.player_stats = player_stats
 			$game_scene/upgrade.player_score = player_score

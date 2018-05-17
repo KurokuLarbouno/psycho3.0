@@ -278,7 +278,6 @@ func button_selet():
 	elif(Input.get_joy_axis(0,1) > 0.4):
 		button = 1
 	button_focus()
-	print(button)
 	pass
 #按鈕選取
 func button_focus():
