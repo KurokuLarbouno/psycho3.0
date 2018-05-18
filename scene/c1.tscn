@@ -15,7 +15,7 @@
 [ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=13]
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=14]
 
-[node name="c1" type="KinematicBody2D" index="0" groups=[
+[node name="c1" type="KinematicBody2D" groups=[
 "sprite",
 "player_group",
 ]]

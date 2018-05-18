@@ -1330,7 +1330,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="slice" parent="CanvasLayer" index="0" instance=ExtResource( 28 )]
 
-position = Vector2( 5, 0 )
+position = Vector2( 1, 0 )
 
 [node name="Slice" parent="CanvasLayer/slice" index="0"]
 
@@ -1339,7 +1339,7 @@ frame = 1
 [node name="Laser" parent="CanvasLayer/slice" index="1"]
 
 visible = false
-frame = 7
+frame = 5
 
 [node name="AnimationPlayer" parent="CanvasLayer/slice" index="2"]
 

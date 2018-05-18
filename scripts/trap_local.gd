@@ -27,12 +27,15 @@ func _ready():
 		trap_type = 0#加料汽水
 	if self.get_name() == "1":
 		trap_type = 1#嘔吐物
+	if self.get_name() == "2":	
+		trap_type = 2#天然草藥
 		
-	
 	if trap_type == 0:
 		self.get_child(0).set_texture(image1)#加料汽水
 	if trap_type == 1:#----------------嘔吐物
 		self.get_child(0).set_texture(image6)
+	if trap_type == 2:#天然草藥
+		self.get_child(0).set_texture(image4)
 		
 	connect("body_entered", self, "_on_trap_area_body_enter")#start signal
 	connect("body_exited", self, "_on_trap_body_exit")#start signal
@@ -75,8 +78,12 @@ func trap_use(body):
 	if trap_type == 0:#加料汽水
 		body.addHP(soda_add_hp)
 		pass
-	if trap_type == 1:#嘔吐物
+	elif trap_type == 1:#嘔吐物
 		body.hurt(1)
+		body.slow()
+		pass
+	elif trap_type == 2:#天然草藥
+		body.attackUP()
 		pass
 	self.position = get_node("../../Trap_Point/trash").position
 	get_body_save = null

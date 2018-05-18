@@ -14,7 +14,7 @@ var game2 = "res://scene/Game1.tscn"
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 10
+var rTime_total = 30
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
@@ -23,7 +23,7 @@ var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
 #陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量
-const Trap_type = 2# 擺上去的陷阱種類數
+const Trap_type = 3# 擺上去的陷阱種類數
 var generate_points_num = []# 陷阱生成點編號
 
 func _ready():

@@ -21,6 +21,9 @@ var motion
 var die = false
 var freeze = true
 
+var player_stats
+var player_score
+
 var player_state = 0 # 0 出生(無敵); 1 一般; 2 死亡; 3 待機(不能控制)
 
 var anim#前
@@ -72,12 +75,12 @@ func _process(delta):
 	elif(player_state == 1): #活著的時候
 		if(freeze):
 			player_state = 0
+		if(die == true):
+			player_state = 2
 		player_move(delta)	
 		play_anim()
 		player_fire()
 		player_trap_switch()
-		if(die == true):
-			player_state = 2
 	elif(player_state == 2):
 		player_state = 0
 	pass
@@ -176,7 +179,7 @@ func hurt(dmg,ower = ''):
 	pass
 func player_trap_switch():
 	#-----------------------------------------------切換與放置陷阱
-	if Input.is_action_pressed("e_change_trap"):
+	if Input.is_joy_button_pressed(input_device, 5):
 			if e_change_trap_flag :
 				e_change_trap_flag = false
 				if bag_trap.size():
@@ -185,7 +188,7 @@ func player_trap_switch():
 					bag_trap_switch_num = (bag_trap_switch_num+1)%(bag_trap.size()+1)
 					if bag_trap_switch_num :
 						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
-	if Input.is_action_pressed("q_change_trap"):
+	if Input.is_joy_button_pressed(input_device, 4):
 			if q_change_trap_flag :
 				q_change_trap_flag = !q_change_trap_flag
 				if bag_trap.size():
@@ -198,7 +201,7 @@ func player_trap_switch():
 	#控制陷阱持續跟著使用者
 	if bag_trap_switch_num :
 		get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)			
-	if Input.is_action_pressed("space_put_trap"):
+	if Input.is_joy_button_pressed(input_device, 0):
 		if space_put_trap_flag :
 			space_put_trap_flag = false
 			if bag_trap_switch_num :
@@ -208,11 +211,11 @@ func player_trap_switch():
 				bag_trap.remove(bag_trap_switch_num-1)
 			bag_trap_switch_num = 0
 	
-	if not Input.is_action_pressed("e_change_trap"):
+	if not Input.is_joy_button_pressed(input_device, 5):
 			e_change_trap_flag = true
-	if not Input.is_action_pressed("q_change_trap"):
+	if not Input.is_joy_button_pressed(input_device, 4):
 		q_change_trap_flag = true
-	if not Input.is_action_pressed("space_put_trap"):
+	if not Input.is_joy_button_pressed(input_device, 0):
 		space_put_trap_flag = true
 	pass
 func fire_anim():
@@ -246,10 +249,38 @@ func int_ui():
 func setFreeze(i):
 	freeze = i
 	
+func trap_counter(delta):
+	if(attack_up_flag):
+		attack_up_counter += delta 
+		if(attack_up_counter >= 3):
+			$Weapon.BULLET_DMG = 1
+			attack_up_counter = 0
+			attack_up_flag = false
+	if(slow_flag):
+		slow_counter += delta
+		if(slow_counter >= 3):
+			MOTION_SPEED += 5000
+			slow_counter = 0
+			slow_flag = false
+	pass
 #陷阱效果
 func addHP(add_hp):
 	health += add_hp
 	if health>RHP:
 		health = RHP
 	emit_signal("update_health", health)
+	pass
+	
+var slow_counter = 0
+var slow_flag
+func slow():
+	slow_flag = true
+	MOTION_SPEED -= 5000
+	pass
+	
+var attack_up_flag
+var attack_up_counter = 0
+func attackUP():
+	attack_up_flag = true
+	$Weapon.BULLET_DMG = 2
 	pass
