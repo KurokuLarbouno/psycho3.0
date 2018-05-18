@@ -303,7 +303,7 @@ func _button_pressed():
 	pass
 func _on_local():
 	$CanvasLayer/slice/AnimationPlayer.play( "ready" )
-	$loadTimer.set_wait_time($CanvasLayer/slice/AnimationPlayer.current_animation_length)
+	$loadTimer.set_wait_time($CanvasLayer/slice/AnimationPlayer.current_animation_length + 1)
 	$loadTimer.start()
 	pass
 func _on_online():
