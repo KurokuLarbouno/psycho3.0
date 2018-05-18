@@ -40,7 +40,7 @@ _sections_unfolded = [ "Transform" ]
 
 anchor_mode = 1
 rotating = false
-current = true
+current = false
 zoom = Vector2( 0.375, 0.375 )
 limit_left = -10000000
 limit_top = -10000000

@@ -13,6 +13,7 @@ var player4_device
 
 func _ready():
 	$CanvasLayer/slice/AnimationPlayer.play( "opening2" )
+	$Camera2D.make_current()
 	pass
 
 func _process(delta):
