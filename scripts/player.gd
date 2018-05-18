@@ -50,6 +50,7 @@ var c3_gun = load("res://image/Character/ctest3_gun.png")
 var c4_gun = load("res://image/Character/ctest4_gun.png")
 
 func _ready():
+	int_stats()
 	#設定角色圖
 	if(player_type == 0):
 		$main.texture = c1_img
@@ -269,7 +270,7 @@ func trap_counter(delta):
 #陷阱效果
 func addHP(add_hp):
 	health += add_hp
-	if health>RHP:
+	if health > RHP:
 		health = RHP
 	emit_signal("update_health", health)
 	pass
@@ -286,4 +287,11 @@ var attack_up_counter = 0
 func attackUP():
 	attack_up_flag = true
 	$Weapon.BULLET_DMG = 2
+	pass
+func int_stats():
+	health = player_stats[player_num][0]
+	MOTION_SPEED = player_stats[player_num][1]
+	$Weapon.CHARGE_TIME = player_stats[player_num][2]
+	$Weapon.SHOT_TIME = player_stats[player_num][3]
+	$Weapon.BULLET_SPEED = player_stats[player_num][4]
 	pass

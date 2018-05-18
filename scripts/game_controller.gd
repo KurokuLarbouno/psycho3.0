@@ -18,7 +18,7 @@ var rTime_total = 30
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
-var player_stats = [[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
+var player_stats = [[25, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
 var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
 #陷阱隨機參數設定
@@ -97,7 +97,8 @@ func spawn_player():
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]
 			player.position = (cur_scene.get_node("Roof/Player_Point/Position" + str(i+1))).position
-			
+			player.player_stats = player_stats
+			player.player_score = player_score
 			cur_scene.get_node("Roof/Player").add_child(player)
 			get_node("UI/playerUI/player" + str(i+1)).add_child(player_ui)
 			player_ui.connect_player(player)

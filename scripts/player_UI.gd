@@ -31,6 +31,8 @@ func _set_health(health):
 			heart_sprite.position = Vector2(i*18, 15)
 		elif(i < 20):
 			heart_sprite.position = Vector2((i-10)*18, 33)
+		elif(i < 30):
+			heart_sprite.position = Vector2((i-20)*18, 51)
 		$heart.add_child(heart_sprite)
 	print(str(player_num) + " health setted")
 	pass
@@ -39,7 +41,7 @@ func _set_bullet(bullet_amount):
 	for i in range(bullet_amount):
 		var bullet_sprite = Sprite.new()
 		bullet_sprite.texture = bullet_texture
-		bullet_sprite.position = Vector2(i*18, 51)
+		bullet_sprite.position = Vector2(i*18, 69)
 		$bullet.add_child(bullet_sprite)
 	pass
 #玩家傳入當前血量
