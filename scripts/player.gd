@@ -37,8 +37,6 @@ var q_change_trap_flag = true
 var space_put_trap_flag = true
 var bag_trap_switch_num = 0
 
-
-
 var c1_img = load("res://image/Character/ctest1_walk.png")
 var c2_img = load("res://image/Character/ctest2_walk.png")
 var c3_img = load("res://image/Character/ctest3_walk.png")

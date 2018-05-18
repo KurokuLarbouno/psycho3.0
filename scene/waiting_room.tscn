@@ -40,7 +40,7 @@ _sections_unfolded = [ "Transform" ]
 
 anchor_mode = 1
 rotating = false
-current = true
+current = false
 zoom = Vector2( 0.375, 0.375 )
 limit_left = -10000000
 limit_top = -10000000
@@ -73,6 +73,10 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="slice" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
+
+[node name="Laser" parent="CanvasLayer/slice" index="1"]
+
+frame = 8
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
