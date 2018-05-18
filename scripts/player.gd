@@ -16,6 +16,7 @@ var health = 20			# 生命值
 var RHP					#用來還原的生命值
 var clip = 0			#彈夾
 var MOTION_SPEED = 8000	# 移動速度
+var reg_speed			#存原始速度
 var player_type = 0
 var motion
 var die = false
@@ -63,6 +64,8 @@ func _ready():
 		$main.texture = c4_img
 		$hand/gun.texture = c4_gun
 	RHP = health
+	reg_speed = MOTION_SPEED
+	get_node("../../Trap").init(self,player_num)#連結陷阱
 	$Weapon.connect("bullet_shot", self, "fire_anim")#連接Weapon生成子彈的訊號
 	$Weapon.connect("bullet_reload", self, "_bullet_reload")#連接Weapon生成子彈的訊號
 	pass

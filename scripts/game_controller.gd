@@ -83,6 +83,7 @@ func _load_game(scn):
 func is_level():
 	pass
 func spawn_player():
+	var trap_scene
 	for i in range(4):
 		if(player_data[i][0] == 1):#確認是否有玩家
 			var player =  load("res://scene/player.tscn").instance()
@@ -101,8 +102,10 @@ func spawn_player():
 			get_node("UI/playerUI/player" + str(i+1)).add_child(player_ui)
 			player_ui.connect_player(player)
 			player.int_ui()
-			spawn_trap(cur_scene)
-			print("spawn trap")
+			trap_scene = cur_scene
+	if(player_data[0][0] == 1):#確認至少有一位玩家
+		spawn_trap(trap_scene)
+		print("spawn trap")
 	pass
 func spawn_trap(cur_scene):
 	var random_num_flag = false
