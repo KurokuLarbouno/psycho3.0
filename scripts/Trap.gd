@@ -22,6 +22,7 @@ var trap_pos#用來存陷阱位置
 #slave var slave_get_body_save
 
 
+
 func _ready():
 	point_index = connect.generate_points_num[int(self.get_name())]
 	if self.get_name() == "0":

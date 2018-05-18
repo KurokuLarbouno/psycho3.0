@@ -294,6 +294,7 @@ func button_focus():
 
 #按下按鈕
 func _button_pressed():
+	
 	if(Input.is_joy_button_pressed(0,0)):
 		if(button == 0):
 			$local2._disappear()
@@ -301,8 +302,14 @@ func _button_pressed():
 			$online2._disappear()
 	pass
 func _on_local():
-	emit_signal("join_local")
+	$CanvasLayer/slice/AnimationPlayer.play( "ready" )
+	$loadTimer.set_wait_time($CanvasLayer/slice/AnimationPlayer.current_animation_length)
+	$loadTimer.start()
 	pass
 func _on_online():
 	$online2/AnimationPlayer.play("normal")
 	pass 
+
+func _on_loadTimer_timeout():
+	emit_signal("join_local")
+	pass
