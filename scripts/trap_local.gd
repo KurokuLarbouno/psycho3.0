@@ -81,21 +81,12 @@ func trap_use(body):
 		get_node("../").color_time[body.player_num]=0
 
 		pass
-<<<<<<< HEAD
-	elif trap_type == 1:#嘔吐物
-		body.hurt(1)
-		body.slow()
-		pass
-	elif trap_type == 2:#天然草藥
-		body.attackUP()
-=======
 	if trap_type == 1:#嘔吐物
 		body.hurt(1,body.player_num)
 		get_node("../").color_red_flag[body.player_num]=1
 		get_node("../").color_time[body.player_num]=0
 		get_node("../").slow_flag[body.player_num]=1
 		get_node("../").slow_time[body.player_num]=0
->>>>>>> 5c7e570c69250abfdf447bef09dfa2d1fb7c0b5f
 		pass
 	self.position = get_node("../../Trap_Point/trash").position
 	get_body_save = null
