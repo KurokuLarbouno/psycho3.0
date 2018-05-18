@@ -1,13 +1,15 @@
 extends Node2D
 
 var state = 0
-var player_stats
-var player_score
+var player_stats = []
+var player_score = []
+var player_count = 0
+var ready_player = 0
 
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
-	$Camera2D.make_current()
+	#$Camera2D.make_current()
 	pass
 
 func _process(delta):
@@ -25,6 +27,12 @@ func spawn_players():
 			player.device_num = i 
 			player.stats = player_stats
 			player.score = player_score 
+			player.connect("upgrade_ready", self, "_upgrade_ready")
 			get_node("player/player" + str(i+1)).add_child(player)
-			
+			player_count += 1
+	pass
+func _upgrade_ready():
+	ready_player += 1
+	if(ready_player == player_count):
+		emit_signal("next_round")
 	pass

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scene/scene_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://image/GameScene/Game2.png" type="Texture" id=3]
-[ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=4]
-[ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/control_Trap.gd" type="Script" id=4]
+[ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=6]
 
 [node name="Game" type="Node2D" index="0"]
 
@@ -125,6 +126,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Trap" type="Node2D" parent="Roof" index="6"]
 
+script = ExtResource( 4 )
 _sections_unfolded = [ "Z Index" ]
 
 [node name="light" parent="Roof" index="7"]
@@ -135,7 +137,7 @@ editor/display_folded = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -143,7 +145,7 @@ bus = "Master"
 
 [node name="Camera" type="Node" parent="." index="3"]
 
-[node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 5 )]
+[node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 6 )]
 
 editor/display_folded = true
 position = Vector2( 240.918, 138.343 )
