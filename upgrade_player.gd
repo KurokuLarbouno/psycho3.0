@@ -1,5 +1,7 @@
 extends Node2D
 
+signal upgrade_ready
+
 var main_button = 0 # 0 = body; 1 = gun; 2 = ready
 var body_button = 0 # 0 = health; 1 = speed
 var gun_button = 0 # 0 = reload speed; 1 =  fire speed; 2 = bullet speed
@@ -43,6 +45,8 @@ func _process(delta):
 		if(pressdelay > 20):
 			gun_button_pressed()
 		gun_exit()
+	elif(state == 3):#ready
+		menu_exit()
 	pass
 	
 	#main button
@@ -208,3 +212,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "hologram"):
 		$menu.show()
 	pass # replace with function body
+
+func player_ready():
+	emit_signal("upgrade_ready", player_num)
+	get_node("../..").player_stats[player_num] = stats[player_num]
+	get_node("../..").player_score[player_num] = score[player_num] 
+	pass
+func menu_exit():
+	pass

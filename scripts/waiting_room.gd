@@ -12,7 +12,7 @@ var player4_device
 
 
 func _ready():
-	
+	$CanvasLayer/slice/AnimationPlayer.play( "opening2" )
 	pass
 
 func _process(delta):

@@ -16,6 +16,7 @@ var health = 20			# 生命值
 var RHP					#用來還原的生命值
 var clip = 0			#彈夾
 var MOTION_SPEED = 8000	# 移動速度
+var reg_speed			#存原始速度
 var player_type = 0
 var motion
 var die = false
@@ -28,6 +29,15 @@ var new_anim#後
 var shot_anim#前
 var new_shot_anim#後
 var fire_anim = false
+
+#---------------------------陷阱部分
+var bag_trap = []
+var e_change_trap_flag = true
+var q_change_trap_flag = true
+var space_put_trap_flag = true
+var bag_trap_switch_num = 0
+
+
 
 var c1_img = load("res://image/Character/ctest1_walk.png")
 var c2_img = load("res://image/Character/ctest2_walk.png")
@@ -53,6 +63,8 @@ func _ready():
 		$main.texture = c4_img
 		$hand/gun.texture = c4_gun
 	RHP = health
+	reg_speed = MOTION_SPEED
+	get_node("../../Trap").init(self,player_num)#連結陷阱
 	$Weapon.connect("bullet_shot", self, "fire_anim")#連接Weapon生成子彈的訊號
 	$Weapon.connect("bullet_reload", self, "_bullet_reload")#連接Weapon生成子彈的訊號
 	pass
@@ -68,6 +80,7 @@ func _process(delta):
 		player_move(delta)	
 		play_anim()
 		player_fire()
+		player_trap_switch()
 		if(die == true):
 			player_state = 2
 	elif(player_state == 2):
@@ -166,6 +179,47 @@ func hurt(dmg,ower = ''):
 		#----------------------------------------道具效果受擊中斷 End
 		#color_red_flag = true#因為兩邊都要看到受擊變色，所以不放入is_network_master中				
 	pass
+func player_trap_switch():
+	#-----------------------------------------------切換與放置陷阱
+	if Input.is_action_pressed("e_change_trap"):
+			if e_change_trap_flag :
+				e_change_trap_flag = false
+				if bag_trap.size():
+					if bag_trap_switch_num :
+						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position
+					bag_trap_switch_num = (bag_trap_switch_num+1)%(bag_trap.size()+1)
+					if bag_trap_switch_num :
+						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+	if Input.is_action_pressed("q_change_trap"):
+			if q_change_trap_flag :
+				q_change_trap_flag = !q_change_trap_flag
+				if bag_trap.size():
+					if bag_trap_switch_num :
+						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position		
+					bag_trap_switch_num = bag_trap_switch_num-1
+					if bag_trap_switch_num < 0 :bag_trap_switch_num = bag_trap.size()
+					if bag_trap_switch_num :
+						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+	#控制陷阱持續跟著使用者
+	if bag_trap_switch_num :
+		get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)			
+	if Input.is_action_pressed("space_put_trap"):
+		if space_put_trap_flag :
+			space_put_trap_flag = false
+			if bag_trap_switch_num :
+				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position+ Vector2(0, 10)			
+				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).modulate.a = 1
+				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).trap_use_flag = true
+				bag_trap.remove(bag_trap_switch_num-1)
+			bag_trap_switch_num = 0
+	
+	if not Input.is_action_pressed("e_change_trap"):
+			e_change_trap_flag = true
+	if not Input.is_action_pressed("q_change_trap"):
+		q_change_trap_flag = true
+	if not Input.is_action_pressed("space_put_trap"):
+		space_put_trap_flag = true
+	pass
 func fire_anim():
 	#hurt(1)#-------------------------for test!!
 	clip -= 1
@@ -196,3 +250,11 @@ func int_ui():
 	pass
 func setFreeze(i):
 	freeze = i
+	
+#陷阱效果
+func addHP(add_hp):
+	health += add_hp
+	if health>RHP:
+		health = RHP
+	emit_signal("update_health", health)
+	pass
