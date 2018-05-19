@@ -253,20 +253,6 @@ func int_ui():
 func setFreeze(i):
 	freeze = i
 	
-func trap_counter(delta):
-	if(attack_up_flag):
-		attack_up_counter += delta 
-		if(attack_up_counter >= 3):
-			$Weapon.BULLET_DMG = 1
-			attack_up_counter = 0
-			attack_up_flag = false
-	if(slow_flag):
-		slow_counter += delta
-		if(slow_counter >= 3):
-			MOTION_SPEED += 5000
-			slow_counter = 0
-			slow_flag = false
-	pass
 #陷阱效果
 func addHP(add_hp):
 	health += add_hp
@@ -275,19 +261,6 @@ func addHP(add_hp):
 	emit_signal("update_health", health)
 	pass
 	
-var slow_counter = 0
-var slow_flag
-func slow():
-	slow_flag = true
-	MOTION_SPEED -= 5000
-	pass
-	
-var attack_up_flag
-var attack_up_counter = 0
-func attackUP():
-	attack_up_flag = true
-	$Weapon.BULLET_DMG = 2
-	pass
 func int_stats():
 	health = player_stats[player_num][0]
 	MOTION_SPEED = player_stats[player_num][1]
