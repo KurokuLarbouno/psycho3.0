@@ -11,6 +11,7 @@ var count4 = load("res://image/GameScene/countdown4.png")
 
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game1.tscn"
+var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
@@ -28,15 +29,16 @@ var generate_points_num = []# 陷阱生成點編號
 
 func _ready():
 	#$UI/slice.connect("start", self, "load_next_scene")
+	game = game1
 	pass
 
 func _process(delta):
 	if(gameState == 0):
 		emit_signal("int_game")
-		_load_game(game1)
+		$UI/playerUI.show()
+		_load_game(game)
 		$Camera2D.current = true
-		if($game_scene.get_children().size() > 0):
-			gameState = 1
+		gameState = 1
 	elif(gameState == 1):
 		spawn_player()
 		print("spawn players")
@@ -66,6 +68,7 @@ func _process(delta):
 		gameState = 5
 	elif(gameState == 5):
 		if(next_round):
+			change_scene()
 			next_round = false
 			gameState = 0
 
@@ -178,4 +181,10 @@ func upgrade():
 var next_round = false
 func _next_round():
 	next_round = true
+	pass
+func change_scene():
+	if(game == game1):
+		game = game2
+	else :
+		game = game1
 	pass
