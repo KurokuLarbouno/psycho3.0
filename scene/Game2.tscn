@@ -129,11 +129,11 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 script = ExtResource( 4 )
 _sections_unfolded = [ "Z Index" ]
 
-[node name="light" parent="Roof" index="7"]
+[node name="screenLight" parent="Roof/light" index="1"]
 
 editor/display_folded = true
 
-[node name="screenLight" parent="Roof/light" index="1"]
+[node name="Light2D5" parent="Roof/light" index="6"]
 
 editor/display_folded = true
 

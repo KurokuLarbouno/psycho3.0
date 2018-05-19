@@ -36,7 +36,8 @@ func _process(delta):
 		emit_signal("int_game")
 		_load_game(game1)
 		$Camera2D.current = true
-		gameState = 1
+		if($game_scene.get_children().size() > 0):
+			gameState = 1
 	elif(gameState == 1):
 		spawn_player()
 		print("spawn players")
@@ -77,7 +78,8 @@ func _load_game(scn):
 	
 	var children = $game_scene.get_children()
 	if(children.size() > 0):
-		children[0].queue_free()
+		for i in range(children.size()):
+			children[i].queue_free()
 		print("free game_scene")
 
 	var act = load(cur_game).instance()
@@ -93,12 +95,14 @@ func spawn_player():
 			var player =  load("res://scene/player.tscn").instance()
 			var player_ui = load("res://scene/player_UI.tscn").instance()
 			#設定玩家資訊(從main給)
+			var cur_scene = $game_scene.get_children()
+			cur_scene = cur_scene[0]
 			player.player_num = i
 			player_ui.player_num = 1
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]
-			player.position = (get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1))).position
+			player.position = cur_scene.get_node("Roof/Player_Point/Position" + str(i+1)).position
 			player.player_stats = player_stats
 			player.player_score = player_score
 			cur_scene.get_node("Roof/Player").add_child(player)
