@@ -133,6 +133,10 @@ _sections_unfolded = [ "Z Index" ]
 
 editor/display_folded = true
 
+[node name="screenLight" parent="Roof/light" index="1"]
+
+editor/display_folded = true
+
 [node name="Audio" type="Node" parent="." index="1"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
@@ -144,6 +148,8 @@ mix_target = 0
 bus = "Master"
 
 [node name="Camera" type="Node" parent="." index="3"]
+
+editor/display_folded = true
 
 [node name="Camera2D" parent="Camera" index="0" instance=ExtResource( 6 )]
 

@@ -1,5 +1,7 @@
 extends Node2D
 
+signal next_round
+
 var state = 0
 var player_stats = []
 var player_score = []

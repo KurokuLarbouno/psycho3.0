@@ -97,6 +97,7 @@ func main_button_pressed():
 				elif(buttons[i] == $menu/main/ready):
 					$menu/main.hide()
 					$menu/ready.show()
+					player_ready()
 	pass
 	#body button
 func body_button_select(delta):
@@ -214,9 +215,9 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	pass # replace with function body
 
 func player_ready():
-	emit_signal("upgrade_ready", player_num)
-	get_node("../..").player_stats[player_num] = stats[player_num]
-	get_node("../..").player_score[player_num] = score[player_num] 
+	emit_signal("upgrade_ready")
+	get_node("../../..").player_stats[player_num] = stats[player_num]
+	get_node("../../..").player_score[player_num] = score[player_num] 
 	pass
 func menu_exit():
 	pass

@@ -14,7 +14,7 @@ var game2 = "res://scene/Game1.tscn"
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 30
+var rTime_total = 3
 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
@@ -27,14 +27,14 @@ const Trap_type = 3# 擺上去的陷阱種類數
 var generate_points_num = []# 陷阱生成點編號
 
 func _ready():
-	$UI/slice.connect("start", self, "load_next_scene")
+	#$UI/slice.connect("start", self, "load_next_scene")
 	playing_game = game1
 	pass
 
 func _process(delta):
 	if(gameState == 0):
 		emit_signal("int_game")
-		_load_game(playing_game)
+		_load_game(game1)
 		$Camera2D.current = true
 		gameState = 1
 	elif(gameState == 1):
@@ -62,8 +62,12 @@ func _process(delta):
 			rTime = 0
 	elif(gameState == 4):
 		#$UI/slice.start()
-		gameState = 5
 		upgrade()
+		gameState = 5
+	elif(gameState == 5):
+		if(next_round):
+			next_round = false
+			gameState = 1
 
 	pass
 	
@@ -89,14 +93,12 @@ func spawn_player():
 			var player =  load("res://scene/player.tscn").instance()
 			var player_ui = load("res://scene/player_UI.tscn").instance()
 			#設定玩家資訊(從main給)
-			var cur_scene = $game_scene.get_children()
-			cur_scene = cur_scene[0]
 			player.player_num = i
 			player_ui.player_num = 1
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]
-			player.position = (cur_scene.get_node("Roof/Player_Point/Position" + str(i+1))).position
+			player.position = (get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1))).position
 			player.player_stats = player_stats
 			player.player_score = player_score
 			cur_scene.get_node("Roof/Player").add_child(player)
@@ -166,4 +168,8 @@ func upgrade():
 		$game_scene/upgrade.player_stats = player_stats
 		$game_scene/upgrade.player_score = player_score
 	$game_scene/upgrade.connect("next_round", self, "_next_round")
+	pass
+var next_round = false
+func _next_round():
+	next_round = true
 	pass

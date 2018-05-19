@@ -155,7 +155,6 @@ focus = ExtResource( 13 )
 
 [node name="body" type="Node2D" parent="menu" index="2"]
 
-editor/display_folded = true
 visible = false
 
 [node name="health" parent="menu/body" index="0" instance=ExtResource( 4 )]
