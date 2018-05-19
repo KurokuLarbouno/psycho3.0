@@ -28,7 +28,6 @@ var generate_points_num = []# 陷阱生成點編號
 
 func _ready():
 	#$UI/slice.connect("start", self, "load_next_scene")
-	playing_game = game1
 	pass
 
 func _process(delta):
@@ -68,7 +67,7 @@ func _process(delta):
 	elif(gameState == 5):
 		if(next_round):
 			next_round = false
-			gameState = 1
+			gameState = 0
 
 	pass
 	
@@ -102,7 +101,7 @@ func spawn_player():
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]
-			player.position = cur_scene.get_node("Roof/Player_Point/Position" + str(i+1)).position
+			player.position = get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1)).position
 			player.player_stats = player_stats
 			player.player_score = player_score
 			cur_scene.get_node("Roof/Player").add_child(player)
@@ -145,7 +144,10 @@ func spawn_trap(cur_scene):
 		#print("離開connect陷阱設置階段")
 	pass
 func countDown(t):
+	
 	if(t <= 1):
+		$UI/countdown.show()
+		$UI/filter.show()
 		$UI/Label.text = "3"
 		$UI/countdown.texture = count3
 	elif(t <= 2):
