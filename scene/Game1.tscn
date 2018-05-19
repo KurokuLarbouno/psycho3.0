@@ -18,8 +18,6 @@ editor/display_folded = true
 
 [node name="Trap_Point" type="Node" parent="Roof" index="4"]
 
-editor/display_folded = true
-
 [node name="Position1" type="Position2D" parent="Roof/Trap_Point" index="0"]
 
 position = Vector2( 143.086, 77.5286 )

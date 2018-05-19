@@ -25,7 +25,7 @@ var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 #陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量
 const Trap_type = 6# 擺上去的陷阱種類數
-var generate_points_num = []# 陷阱生成點編號
+#var generate_points_num = []# 陷阱生成點編號
 
 func _ready():
 	#$UI/slice.connect("start", self, "load_next_scene")
@@ -33,7 +33,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(gameState)
 	if(gameState == 0):
 		emit_signal("int_game")
 		$UI/playerUI.show()
@@ -94,6 +93,7 @@ func is_level():
 	pass
 
 func spawn_player():
+	print("in spawn player")
 	var trap_scene
 	for i in range(4):
 		if(player_data[i][0] == 1):#確認是否有玩家
@@ -120,6 +120,7 @@ func spawn_player():
 		print("spawn trap")
 	pass
 func spawn_trap(cur_scene):
+	var generate_points_num = []
 	var random_num_flag = false
 	var random_num = 0
 
@@ -136,6 +137,7 @@ func spawn_trap(cur_scene):
 					break
 			if random_num_flag == false : break
 		generate_points_num.append( random_num )
+	print(generate_points_num)
 	cur_scene.get_node("Roof/Trap").generate_points_num = generate_points_num
 	cur_scene.get_node("Roof/Trap").Trap_spwan_num = Trap_spwan_num
 		#陷阱隨機參數設定 END
