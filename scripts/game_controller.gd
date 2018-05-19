@@ -22,6 +22,7 @@ var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 var player_stats = [[25, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
 var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
+#陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量
 const Trap_type = 6# 擺上去的陷阱種類數
 var generate_points_num = []# 陷阱生成點編號
@@ -32,6 +33,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	print(gameState)
 	if(gameState == 0):
 		emit_signal("int_game")
 		$UI/playerUI.show()
@@ -87,8 +89,10 @@ func _load_game(scn):
 	$game_scene.add_child(act)
 	print("game loaded")
 	pass
+
 func is_level():
 	pass
+
 func spawn_player():
 	var trap_scene
 	for i in range(4):
@@ -144,7 +148,7 @@ func spawn_trap(cur_scene):
 		trap.set_name(str(i))
 		cur_scene.get_node("Roof/Trap").add_child(trap)
 		#print("離開connect陷阱設置階段")
-pass
+	pass
 func countDown(t):
 	
 	if(t <= 1):
