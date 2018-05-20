@@ -129,19 +129,24 @@ func spawn_player():
 func spawn_trap(cur_scene):
 	var random_num_flag = false
 	var random_num = 0
-
+	generate_points_num = []
 	for i in range(Trap_type):
 		randomize()
 		random_num = str(randi()%Trap_spwan_num)
-#		while 1:
-#			random_num_flag = false
-#			for index in range(generate_points_num.size()):
-#				if(generate_points_num[index] == random_num):
-#					randomize()
-#					random_num = str( randi()%Trap_spwan_num )
-#					random_num_flag = true
-#					break
-#			if random_num_flag == false : break
+		var unlimit_loop = 0
+		while 1:
+			unlimit_loop += 1
+			random_num_flag = false
+			for index in range(generate_points_num.size()):
+				if(generate_points_num[index] == random_num):
+					randomize()
+					random_num = str( randi()%Trap_spwan_num )
+					random_num_flag = true
+					break
+			if random_num_flag == false : break
+			if unlimit_loop > 10000000 : 
+				print("random生成trap ERROR")
+				break
 		generate_points_num.append( random_num )
 	cur_scene.get_node("Roof/Trap").generate_points_num = generate_points_num
 	cur_scene.get_node("Roof/Trap").Trap_spwan_num = Trap_spwan_num
