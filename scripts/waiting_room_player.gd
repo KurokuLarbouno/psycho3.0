@@ -157,7 +157,7 @@ func exit():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "hologram"):
 		$items.show()
-		$AnimationPlayer.play("normal")
+		#$AnimationPlayer.play("normal")
 	elif(anim_name == "exit"):
 		emit_signal("player_delete", self)
 	pass # replace with function body

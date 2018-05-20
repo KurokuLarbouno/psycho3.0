@@ -6,7 +6,7 @@
 [ext_resource path="res://scene/slice.tscn" type="PackedScene" id=4]
 [ext_resource path="res://image/b.png" type="Texture" id=5]
 
-[node name="game_controller" type="Node2D" index="0"]
+[node name="game_controller" type="Node2D"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )

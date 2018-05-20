@@ -7,10 +7,10 @@ path="res://.import/change_scene.png-b92eaf4af61835e56db7474237cdd29d.stex"
 [deps]
 
 source_file="res://image/change_scene.png"
-source_md5="f2ef8b9066ed287ec48ece1acb0123e3"
+source_md5="605785261f92b03b58608ba03181f785"
 
 dest_files=[ "res://.import/change_scene.png-b92eaf4af61835e56db7474237cdd29d.stex" ]
-dest_md5="6be76f6933eb29ee31a125693058fbb8"
+dest_md5="36d78a74fa4c926b8b0a4ada4a764ce8"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

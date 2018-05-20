@@ -25,7 +25,7 @@ func _process(delta):
 	pass
 func select_button():
 	$image.set_texture(focus)
-	$AnimationPlayer.play("focus")
+	#$AnimationPlayer.play("focus")
 	button_mode = 1
 	pass
 func deselect_button():

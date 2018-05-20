@@ -7,10 +7,10 @@ path="res://.import/player_join_hologram.png-e55ba843512a1af09a7070e551503eb2.st
 [deps]
 
 source_file="res://image/StartEnd/player_join_hologram.png"
-source_md5="f577d5b79ab8e0318782bb708771467c"
+source_md5="f44507d50868fb3ebef9fdec7d42d76f"
 
 dest_files=[ "res://.import/player_join_hologram.png-e55ba843512a1af09a7070e551503eb2.stex" ]
-dest_md5="ec9d020cff678b06e9007ec7dfde6ca2"
+dest_md5="4bc504a5ba03629e345d2f583216979a"
 
 [params]
 
