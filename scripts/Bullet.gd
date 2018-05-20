@@ -15,7 +15,6 @@ func _physics_process(delta):
 	motion = Vector2(cos(a)*sp*delta, sin(a)*sp*delta)
 	translate(motion)
 	t +=1
-	
 	if(t>100):
 		self.free()
 func _on_bullet_body_entered( body ):
@@ -25,7 +24,7 @@ func _on_bullet_body_entered( body ):
 		if(body.get_groups()[i]=="player_group"):
 			if(body.get_name() != owner_name):
 				t=1000#結束子彈
-				body.hurt(dmg,owner_name)
+				body.hurt(dmg,get_node("../Player/"+str(owner_name)).player_num)
 	pass
 	
 func set_owner(var owname):

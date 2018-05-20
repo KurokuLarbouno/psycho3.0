@@ -20,6 +20,7 @@ var reload_upgrade = -0.05
 var fire_upgrade = -0.01
 var bullet_upgrade = 10
 func _ready():
+	button_connect()
 	$AnimationPlayer.play("hologram")
 	main_button_focus()
 	body_button_focus()
@@ -148,6 +149,11 @@ func body_exit():
 		$menu/body.hide()
 		$menu/main.show()
 		state = 0
+	elif(device_num == 4): #鍵盤
+		if (Input.is_action_pressed("ui_accept")):
+			$menu/body.hide()
+			$menu/main.show()
+			state = 0
 	#gun button
 func gun_button_select(delta):
 	t += delta
@@ -208,6 +214,11 @@ func gun_exit():
 		$menu/guns.hide()
 		$menu/main.show()
 		state = 0
+	elif(device_num == 4): #鍵盤
+		if (Input.is_action_pressed("ui_accept")):
+			$menu/guns.hide()
+			$menu/main.show()
+			state = 0
 	pass
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "hologram"):
@@ -219,5 +230,52 @@ func player_ready():
 	get_node("../../..").player_stats[player_num] = stats[player_num]
 	get_node("../../..").player_score[player_num] = score[player_num] 
 	pass
+	
 func menu_exit():
+	pass
+	
+func _mouse_click(name):
+	print(name)
+	if(name == "bodyUpgrade"):
+		$menu/main.hide()
+		$menu/body.show()
+		state = 1
+	elif(name == "gunUpgrade"):
+		$menu/main.hide()
+		$menu/guns.show()
+		state = 2
+	elif(name == "ready"):
+		$menu/main.hide()
+		$menu/ready.show()
+		player_ready()
+	elif(name == "speed"):
+		score[player_num][0] -= 1
+		stats[player_num][1] += speed_upgrade
+		body_stats_update()
+	elif(name == "health"):
+		score[player_num][0] -= 1
+		stats[player_num][0] += health_upgrade
+		body_stats_update()
+	elif(name == "reloadSpeed"):
+		score[player_num][1] -= 1
+		stats[player_num][2] += reload_upgrade
+		gun_stats_update()
+	elif(name == "fireSpeed"):
+		score[player_num][1] -= 1
+		stats[player_num][3] += fire_upgrade
+		gun_stats_update()
+	elif(name == "bulletSpeed"):
+		score[player_num][1] -= 1
+		stats[player_num][4] += bullet_upgrade
+		gun_stats_update()
+	
+func button_connect():
+	$menu/main/bodyUpgrade.connect("mouse_click", self, "_mouse_click")
+	$menu/main/gunUpgrade.connect("mouse_click", self, "_mouse_click")
+	$menu/main/ready.connect("mouse_click", self, "_mouse_click")
+	$menu/body/speed.connect("mouse_click", self, "_mouse_click")
+	$menu/body/health.connect("mouse_click", self, "_mouse_click")
+	$menu/guns/reloadSpeed.connect("mouse_click", self, "_mouse_click")
+	$menu/guns/fireSpeed.connect("mouse_click", self, "_mouse_click")
+	$menu/guns/bulletSpeed.connect("mouse_click", self, "_mouse_click")
 	pass

@@ -119,32 +119,30 @@ func change_character():
 		$items/cName.text = character_name[4]
 		$items/player_icon.texture = Phase
 	pass
-func _lmouse_click():
-	if(character_order > 0):
-		character_order -= 1
-	else:
-		character_order = 3
-	change_character()
-	pass
-func _rmouse_click():
-	if(character_order < 3):
-		character_order += 1
-	else:
-		character_order = 0
-	change_character()
-	pass
-
-func _rdmouse_click():
-	player_state = 1
-	emit_signal("player_ready", 1, player_num, character_order)
+func _mouse_click(name):
+	if(name == "left"):
+		if(character_order > 0):
+			character_order -= 1
+		else:
+			character_order = 3
+		change_character()
+	if(name == "right"):
+		if(character_order < 3):
+			character_order += 1
+		else:
+			character_order = 0
+		change_character()
+	if(name == "ready"):
+		player_state = 1
+		emit_signal("player_ready", 1, player_num, character_order)
 	pass
 func character_repeat():
 	
 	pass
 func button_connect():
-	$items/buttons/left.connect("lmouse_click", self, "_lmouse_click")
-	$items/buttons/right.connect("rmouse_click", self, "_rmouse_click")
-	$items/buttons/ready.connect("rdmouse_click", self, "_rdmouse_click")
+	$items/buttons/left.connect("mouse_click", self, "_mouse_click")
+	$items/buttons/right.connect("mouse_click", self, "_mouse_click")
+	$items/buttons/ready.connect("mouse_click", self, "_mouse_click")
 	pass
 func open():
 	$AnimationPlayer.play("hologram")

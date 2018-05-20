@@ -154,9 +154,11 @@ func recover(delta):
 			trap_recover = false
 			#用來計算不重複位址的random_num
 			var random_num_flag = false
+			var unlimit_loop = 0
 			randomize()
 			var random_num = str(randi()%connect.Trap_spwan_num)
 			while 1:
+				unlimit_loop += 1
 				random_num_flag = false
 				for index in range(get_node("../").generate_points_num.size()):
 					if(get_node("../").generate_points_num[index] == random_num):
@@ -165,6 +167,9 @@ func recover(delta):
 						random_num_flag = true
 						break
 				if random_num_flag == false : break
+				if unlimit_loop > 10000000 : 
+					print("random重生trap ERROR")
+					break
 			get_node("../").generate_points_num.append( random_num )
 			#用來計算不重複位址的random_num END
 			point_index = str(random_num)#紀錄自己位址用

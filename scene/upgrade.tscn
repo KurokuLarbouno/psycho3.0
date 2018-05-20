@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://upgrade.gd" type="Script" id=1]
 [ext_resource path="res://image/StartEnd/back.png" type="Texture" id=2]
+[ext_resource path="res://scene/slice.tscn" type="PackedScene" id=3]
 
 [node name="upgrade" type="Node2D"]
 
@@ -69,4 +70,20 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 324, -30 )
 _sections_unfolded = [ "Transform" ]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
 
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="slice" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
+
+visible = false
+position = Vector2( -1.9507, -4.38909 )
+scale = Vector2( 1.35, 1.35 )
+_sections_unfolded = [ "Transform" ]
+
+
+[editable path="CanvasLayer/slice"]

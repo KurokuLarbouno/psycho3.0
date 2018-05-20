@@ -60,7 +60,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="upgrade_player" type="Node2D"]
+[node name="upgrade_player" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -127,7 +127,6 @@ _sections_unfolded = [ "Material", "custom_fonts" ]
 
 [node name="main" type="Node2D" parent="menu" index="1"]
 
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }

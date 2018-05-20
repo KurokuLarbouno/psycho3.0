@@ -6,7 +6,7 @@
 [ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -38,11 +38,11 @@ position = Vector2( 374.704, 208.204 )
 
 [node name="Position4" type="Position2D" parent="Roof/Trap_Point" index="4"]
 
-position = Vector2( 270.366, 80.0487 )
+position = Vector2( 286.947, 80.5364 )
 
 [node name="Position5" type="Position2D" parent="Roof/Trap_Point" index="5"]
 
-position = Vector2( 240.692, 141.392 )
+position = Vector2( 242.162, 175.941 )
 
 [node name="Position6" type="Position2D" parent="Roof/Trap_Point" index="6"]
 
@@ -63,25 +63,25 @@ editor/display_folded = true
 [node name="Position1" type="Position2D" parent="Roof/Player_Point" index="0"]
 
 self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 416.002, 77.14 )
+position = Vector2( 404.952, 68.5458 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Position3" type="Position2D" parent="Roof/Player_Point" index="1"]
 
 self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 431.799, 233.868 )
+position = Vector2( 404.106, 226.537 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Position2" type="Position2D" parent="Roof/Player_Point" index="2"]
 
 self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 44.0737, 230.014 )
+position = Vector2( 79.912, 225.941 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Position0" type="Position2D" parent="Roof/Player_Point" index="3"]
 
 self_modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 31.0776, 64.3434 )
+position = Vector2( 86.3258, 60.6602 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Player" type="Node2D" parent="Roof" index="6"]
