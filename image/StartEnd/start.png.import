@@ -7,10 +7,10 @@ path="res://.import/start.png-4134309c4b4d223c6c5636e768f869cb.stex"
 [deps]
 
 source_file="res://image/StartEnd/start.png"
-source_md5="14041efec82791dc90235008a8fd5325"
+source_md5="83be29209ffd99e413da3716682fabc0"
 
 dest_files=[ "res://.import/start.png-4134309c4b4d223c6c5636e768f869cb.stex" ]
-dest_md5="b1e912c99993dab56f5f3552d64a58bb"
+dest_md5="01b0f472891ee3b98cbd2eb3509bec8a"
 
 [params]
 

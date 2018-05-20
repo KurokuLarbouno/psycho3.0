@@ -7,10 +7,10 @@ path="res://.import/wp_ui.png-1a20e44542459846ccf7176c4b27f6f3.stex"
 [deps]
 
 source_file="res://image/StartEnd/wp_ui.png"
-source_md5="64eedadb9aead31cf659f1bcf1eeda04"
+source_md5="5d76e2e345a7a54d20d49379a6a1fa95"
 
 dest_files=[ "res://.import/wp_ui.png-1a20e44542459846ccf7176c4b27f6f3.stex" ]
-dest_md5="1035daeaa969217b2df71be554fca45b"
+dest_md5="28310668414dff45ea03fdc09fa1db46"
 
 [params]
 
