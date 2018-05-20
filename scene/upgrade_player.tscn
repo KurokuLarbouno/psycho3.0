@@ -60,7 +60,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="upgrade_player" type="Node2D"]
+[node name="upgrade_player" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -154,7 +154,6 @@ focus = ExtResource( 13 )
 
 [node name="body" type="Node2D" parent="menu" index="2"]
 
-editor/display_folded = true
 visible = false
 
 [node name="health" parent="menu/body" index="0" instance=ExtResource( 4 )]
@@ -215,7 +214,6 @@ max_lines_visible = -1
 
 [node name="guns" type="Node2D" parent="menu" index="3"]
 
-editor/display_folded = true
 visible = false
 
 [node name="reloadSpeed" parent="menu/guns" index="0" instance=ExtResource( 4 )]

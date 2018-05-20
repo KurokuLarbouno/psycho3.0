@@ -1,8 +1,6 @@
 extends Node2D
 
-signal lmouse_click()
-signal rmouse_click()
-signal rdmouse_click()
+signal mouse_click()
 
 export(Texture) var normal = load("res://image/StartEnd/buttom1.png")
 export(Texture)  var pressed = load("res://image/StartEnd/buttom2.png")
@@ -42,9 +40,7 @@ func button_pressed():
 	pass
 
 func _on_Button_pressed():
-	if(name == "left"): emit_signal("lmouse_click")
-	if(name == "right"): emit_signal("rmouse_click")
-	if(name == "ready"): emit_signal("rdmouse_click")
+	emit_signal("mouse_click", name)
 	button_pressed()
 	pass
 

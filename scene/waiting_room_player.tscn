@@ -120,7 +120,6 @@ __meta__ = {
 
 [node name="items" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 visible = false
 
 [node name="ui" type="Sprite" parent="items" index="0"]
@@ -133,7 +132,6 @@ __meta__ = {
 
 [node name="buttons" type="Control" parent="items" index="1"]
 
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

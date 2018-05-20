@@ -23,7 +23,7 @@ func spawn_players():
 		if(player_data == 1):
 			var player = load("res://scene/upgrade_player.tscn").instance()
 			player.player_num = i
-			player.device_num = i 
+			player.device_num = get_node("../..").player_data[i][1] 
 			player.stats = player_stats
 			player.score = player_score 
 			player.connect("upgrade_ready", self, "_upgrade_ready")
