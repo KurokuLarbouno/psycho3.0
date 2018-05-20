@@ -17,6 +17,7 @@ var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
 var rTime_total = 3
 
+var loadingState = 0 #check state for timer 0:Init 1:loaded 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 var player_stats = [[25, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
@@ -28,12 +29,10 @@ const Trap_type = 6# 擺上去的陷阱種類數
 var generate_points_num = []# 陷阱生成點編號
 
 func _ready():
-	#$UI/slice.connect("start", self, "load_next_scene")
 	game = game1
 	pass
 
 func _process(delta):
-	print(gameState)
 	if(gameState == 0):
 		emit_signal("int_game")
 		$UI/playerUI.show()
@@ -43,7 +42,12 @@ func _process(delta):
 	elif(gameState == 1):
 		spawn_player()
 		print("spawn players")
-		gameState = 2
+		#等待轉場結束才會進入 state2-遊戲
+		$UI/countdown.visible = false
+		$Transition/slice/AnimationPlayer.play( "opening3" )
+		$Timer.set_wait_time($Transition/slice/AnimationPlayer.current_animation_length)
+		$Timer.start()
+		gameState = 1.5
 	elif(gameState == 2):
 		cTime += delta
 		countDown(cTime)
@@ -69,10 +73,13 @@ func _process(delta):
 		gameState = 5
 	elif(gameState == 5):
 		if(next_round):
+			#等待轉場結束才會進入 state6-切換遊戲
+			$Transition/slice/AnimationPlayer.play( "ready" )
+			$Timer.set_wait_time($Transition/slice/AnimationPlayer.current_animation_length)
+			$Timer.start()
 			change_scene()
 			next_round = false
-			gameState = 0
-
+			gameState = 5.5
 	pass
 	
 var cur_game = ""
@@ -126,15 +133,15 @@ func spawn_trap(cur_scene):
 	for i in range(Trap_type):
 		randomize()
 		random_num = str(randi()%Trap_spwan_num)
-		while 1:
-			random_num_flag = false
-			for index in range(generate_points_num.size()):
-				if(generate_points_num[index] == random_num):
-					randomize()
-					random_num = str( randi()%Trap_spwan_num )
-					random_num_flag = true
-					break
-			if random_num_flag == false : break
+#		while 1:
+#			random_num_flag = false
+#			for index in range(generate_points_num.size()):
+#				if(generate_points_num[index] == random_num):
+#					randomize()
+#					random_num = str( randi()%Trap_spwan_num )
+#					random_num_flag = true
+#					break
+#			if random_num_flag == false : break
 		generate_points_num.append( random_num )
 	cur_scene.get_node("Roof/Trap").generate_points_num = generate_points_num
 	cur_scene.get_node("Roof/Trap").Trap_spwan_num = Trap_spwan_num
@@ -191,3 +198,13 @@ func change_scene():
 	else :
 		game = game1
 	pass
+
+func _on_Timer_timeout():
+	if(loadingState == 0):
+		$UI/countdown.visible = true
+		loadingState = 1
+		gameState = 2
+	elif(loadingState == 1):
+		loadingState = 0
+		gameState = 0
+	pass # replace with function body

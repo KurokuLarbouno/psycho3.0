@@ -18,7 +18,6 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="UI" type="CanvasLayer" parent="." index="1"]
 
-editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -93,7 +92,7 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 position = Vector2( 640, 300 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Animation", "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -158,5 +157,33 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
+[node name="Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Transition" type="CanvasLayer" parent="." index="5"]
+
+layer = 5
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="slice" parent="Transition" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 0, 8 )
+
+[node name="Laser" parent="Transition/slice" index="1"]
+
+position = Vector2( 639.121, 357.713 )
+scale = Vector2( 2.7061, 2.7061 )
+frame = 9
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
 
 [editable path="UI/slice"]
+[editable path="Transition/slice"]
