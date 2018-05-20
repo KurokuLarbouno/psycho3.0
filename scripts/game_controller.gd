@@ -68,9 +68,11 @@ func _process(delta):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
-		#$UI/slice.start()
-		upgrade()
-		gameState = 5
+		#等待轉場結束才會進入 state5-升級
+		$Transition/slice/AnimationPlayer.play( "ready" )
+		$Timer.set_wait_time($Transition/slice/AnimationPlayer.current_animation_length)
+		$Timer.start()
+		gameState = 4.5
 	elif(gameState == 5):
 		if(next_round):
 			#等待轉場結束才會進入 state6-切換遊戲
@@ -210,6 +212,11 @@ func _on_Timer_timeout():
 		loadingState = 1
 		gameState = 2
 	elif(loadingState == 1):
+		$Transition/slice/AnimationPlayer.play( "opening2" )
+		loadingState = 2
+		upgrade()
+		gameState = 5
+	elif(loadingState == 2):
 		loadingState = 0
 		gameState = 0
-	pass # replace with function body
+	pass

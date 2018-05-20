@@ -206,7 +206,7 @@ scale = Vector2( 2.65503, 2.65503 )
 z_index = 4096
 texture = ExtResource( 2 )
 hframes = 26
-frame = 23
+frame = 25
 _sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -223,9 +223,5 @@ anims/opening2 = SubResource( 4 )
 anims/opening3 = SubResource( 5 )
 anims/ready = SubResource( 6 )
 blend_times = [  ]
-
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-
-[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]
 
 
