@@ -126,7 +126,7 @@ func body_button_focus():
 		$menu/body/speed.select_button()
 	pass
 func body_button_pressed():
-	if(Input.is_joy_button_pressed(device_num, 0)):
+	if(Input.is_joy_button_pressed(device_num, 0) and (score[player_num][0] > 0)):
 		var buttons = $menu/body.get_children()
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
@@ -186,7 +186,7 @@ func gun_button_focus():
 		$menu/guns/bulletSpeed.select_button()
 	pass
 func gun_button_pressed():
-	if(Input.is_joy_button_pressed(device_num, 0)):
+	if(Input.is_joy_button_pressed(device_num, 0) and (score[player_num][1] > 0)):
 		var buttons = $menu/guns.get_children()
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
@@ -208,6 +208,7 @@ func gun_stats_update():
 	$menu/guns/reloadSpeed/Label.text = str(stats[player_num][2])
 	$menu/guns/fireSpeed/Label.text = str(stats[player_num][3])
 	$menu/guns/bulletSpeed/Label.text = str(stats[player_num][4])
+	$menu/guns/bulletSpeed/Label2.text = str(score[player_num][1])
 	pass
 func gun_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):

@@ -14,8 +14,8 @@
 [ext_resource path="res://scripts/TrapEffect.gd" type="Script" id=12]
 
 [node name="player" type="KinematicBody2D" groups=[
-"sprite",
 "player_group",
+"sprite",
 ]]
 
 input_pickable = false
