@@ -11,11 +11,14 @@ var count4 = load("res://image/GameScene/countdown4.png")
 
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game1.tscn"
+var end_scene ="res://scene/end_scene.tscn"
 var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
 var rTime_total = 3
+var total_round = 3
+var round_count = 0
 
 var loadingState = 0 #check state for timer 0:Init 1:loaded 
 var gameState = 0
@@ -74,7 +77,10 @@ func _process(delta):
 		$Timer.start()
 		gameState = 4.5
 	elif(gameState == 5):
-		if(next_round):
+		if(round_count > total_round):
+			gameState = 6
+		elif(next_round):
+			round_count += 1
 			#等待轉場結束才會進入 state6-切換遊戲
 			$Transition/slice/AnimationPlayer.play( "ready" )
 			$Timer.set_wait_time($Transition/slice/AnimationPlayer.current_animation_length)
@@ -82,6 +88,8 @@ func _process(delta):
 			change_scene()
 			next_round = false
 			gameState = 5.5
+	elif(gameState == 6):
+		_load_game(end_scene)
 	pass
 	
 var cur_game = ""
