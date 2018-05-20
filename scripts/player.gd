@@ -4,7 +4,7 @@ signal set_health
 signal set_bullet
 signal update_health
 signal update_bullet
-
+signal update_score
 #--------------------------------多重輸入判斷
 var jflag = 0
 
@@ -158,7 +158,7 @@ func player_fire():
 			$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotfrom.get_global_transform().get_origin()-self.position)
 		elif($Weapon.state == 1):
 			$Weapon.release()
-		if (Input.is_joy_button_pressed(input_device, 5)):#RB
+		if (Input.is_joy_button_pressed(input_device, 6)):#LT
 			$Weapon.charge()
 	elif(input_device == 4): #鍵盤
 		if (Input.is_action_pressed("fire")):
@@ -185,37 +185,69 @@ func hurt(dmg,ower = ''):
 	pass
 func player_trap_switch():
 	#-----------------------------------------------切換與放置陷阱
-	if Input.is_joy_button_pressed(input_device, 5) or Input.is_action_pressed("e_change_trap"):
-			if e_change_trap_flag :
-				e_change_trap_flag = false
-				if bag_trap.size():
-					if bag_trap_switch_num :
-						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position
-					bag_trap_switch_num = (bag_trap_switch_num+1)%(bag_trap.size()+1)
-					if bag_trap_switch_num :
-						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
-	if Input.is_joy_button_pressed(input_device, 4) or Input.is_action_pressed("q_change_trap"):
-			if q_change_trap_flag :
-				q_change_trap_flag = !q_change_trap_flag
-				if bag_trap.size():
-					if bag_trap_switch_num :
-						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position		
-					bag_trap_switch_num = bag_trap_switch_num-1
-					if bag_trap_switch_num < 0 :bag_trap_switch_num = bag_trap.size()
-					if bag_trap_switch_num :
-						get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+	if(input_device < 4): #搖桿
+		if Input.is_joy_button_pressed(input_device, 5):#RB
+				if e_change_trap_flag :
+					e_change_trap_flag = false
+					if bag_trap.size():
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position
+						bag_trap_switch_num = (bag_trap_switch_num+1)%(bag_trap.size()+1)
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+		if Input.is_joy_button_pressed(input_device, 4):#LB
+				if q_change_trap_flag :
+					q_change_trap_flag = !q_change_trap_flag
+					if bag_trap.size():
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position		
+						bag_trap_switch_num = bag_trap_switch_num-1
+						if bag_trap_switch_num < 0 :bag_trap_switch_num = bag_trap.size()
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+	if(input_device == 4): #鍵盤
+		if Input.is_action_pressed("e_change_trap"):
+				if e_change_trap_flag :
+					e_change_trap_flag = false
+					if bag_trap.size():
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position
+						bag_trap_switch_num = (bag_trap_switch_num+1)%(bag_trap.size()+1)
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
+		if Input.is_action_pressed("q_change_trap"):
+				if q_change_trap_flag :
+					q_change_trap_flag = !q_change_trap_flag
+					if bag_trap.size():
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = get_node("../../Trap_Point/trash").position		
+						bag_trap_switch_num = bag_trap_switch_num-1
+						if bag_trap_switch_num < 0 :bag_trap_switch_num = bag_trap.size()
+						if bag_trap_switch_num :
+							get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)
 	#控制陷阱持續跟著使用者
 	if bag_trap_switch_num :
 		get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position + Vector2(0, 10)			
-	if Input.is_joy_button_pressed(input_device, 0) or Input.is_action_pressed("space_put_trap"):
-		if space_put_trap_flag :
-			space_put_trap_flag = false
-			if bag_trap_switch_num :
-				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position+ Vector2(0, 10)			
-				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).modulate.a = 1
-				get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).trap_use_flag = true
-				bag_trap.remove(bag_trap_switch_num-1)
-			bag_trap_switch_num = 0
+	if(input_device < 4): #搖桿
+		if Input.is_joy_button_pressed(input_device, 0) :#A
+			if space_put_trap_flag :
+				space_put_trap_flag = false
+				if bag_trap_switch_num :
+					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position+ Vector2(0, 10)			
+					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).modulate.a = 1
+					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).trap_use_flag = true
+					bag_trap.remove(bag_trap_switch_num-1)
+				bag_trap_switch_num = 0
+	elif(input_device == 4): #鍵盤
+		if Input.is_action_pressed("space_put_trap"):
+			if space_put_trap_flag :
+				space_put_trap_flag = false
+				if bag_trap_switch_num :
+					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).position = self.position+ Vector2(0, 10)			
+					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).modulate.a = 1
+					get_node("../../Trap/"+str(bag_trap[bag_trap_switch_num-1])).trap_use_flag = true
+					bag_trap.remove(bag_trap_switch_num-1)
+				bag_trap_switch_num = 0
 	
 	if not (Input.is_joy_button_pressed(input_device, 5) or Input.is_action_pressed("e_change_trap")):
 			e_change_trap_flag = true
@@ -239,6 +271,7 @@ func respawn():
 	die = false
 	pass
 func player_die(killer):
+	emit_signal("update_score",killer,player_num)
 	die = true
 	respawn()
 	pass

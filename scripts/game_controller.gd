@@ -15,7 +15,7 @@ var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 3
+var rTime_total = 30
 
 var loadingState = 0 #check state for timer 0:Init 1:loaded 
 var gameState = 0
@@ -219,4 +219,11 @@ func _on_Timer_timeout():
 	elif(loadingState == 2):
 		loadingState = 0
 		gameState = 0
+	pass
+func _update_score(killer,die):
+	player_score[killer][0] += 1
+	player_score[die][1] += 1
+	pass
+func ctrl_connect_player(obj):
+	obj.connect("update_score", self,"_update_score")
 	pass
