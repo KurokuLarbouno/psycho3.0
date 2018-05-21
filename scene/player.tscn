@@ -13,7 +13,7 @@
 [ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=11]
 [ext_resource path="res://scripts/TrapEffect.gd" type="Script" id=12]
 
-[node name="player" type="KinematicBody2D" groups=[
+[node name="player" type="KinematicBody2D" index="0" groups=[
 "player_group",
 "sprite",
 ]]
@@ -41,6 +41,7 @@ editor/display_folded = true
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
 editor/display_folded = true
+visible = false
 texture = ExtResource( 4 )
 
 [node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]
