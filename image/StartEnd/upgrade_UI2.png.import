@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/upgrade_UI.png-3ee34959e79fcc03f88774a2d89f4d8d.stex"
+path="res://.import/upgrade_UI2.png-ee3d3f10b4c4d47db9d86898c5ec519b.stex"
 
 [deps]
 
-source_file="res://image/StartEnd/upgrade_UI.png"
-source_md5="9a3dc4f57e78fccfdd667f6375143ee2"
+source_file="res://image/StartEnd/upgrade_UI2.png"
+source_md5="dd0f417eee4929a9f8fd8424c7dbaa40"
 
-dest_files=[ "res://.import/upgrade_UI.png-3ee34959e79fcc03f88774a2d89f4d8d.stex" ]
-dest_md5="c6c8867c232ffcc99930f498d48013df"
+dest_files=[ "res://.import/upgrade_UI2.png-ee3d3f10b4c4d47db9d86898c5ec519b.stex" ]
+dest_md5="6e1bd950fc107ee896c3e5a894762e24"
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

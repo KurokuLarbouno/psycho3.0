@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/waiting_room_player.gd" type="Script" id=1]
 [ext_resource path="res://image/StartEnd/player_join_hologram.png" type="Texture" id=2]
@@ -13,8 +13,9 @@
 [ext_resource path="res://image/StartEnd/ready_new1.png" type="Texture" id=11]
 [ext_resource path="res://image/StartEnd/ready_new3.png" type="Texture" id=12]
 [ext_resource path="res://image/StartEnd/ready_new2.png" type="Texture" id=13]
-[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=14]
-[ext_resource path="res://image/cursor.png" type="Texture" id=15]
+[ext_resource path="res://font/orange kid.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=15]
+[ext_resource path="res://image/cursor.png" type="Texture" id=16]
 
 [sub_resource type="Animation" id=1]
 
@@ -74,7 +75,7 @@ tracks/0/keys = {
 
 [sub_resource type="DynamicFont" id=4]
 
-size = 12
+size = 22
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 14 )
@@ -85,10 +86,10 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 16
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 14 )
+font_data = ExtResource( 15 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="waiting_room_player" type="Node2D" index="0"]
+[node name="waiting_room_player" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -119,8 +120,6 @@ __meta__ = {
 }
 
 [node name="items" type="Node2D" parent="." index="2"]
-
-visible = false
 
 [node name="ui" type="Sprite" parent="items" index="0"]
 
@@ -177,10 +176,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 52.0
-margin_top = 145.0
-margin_right = 133.0
-margin_bottom = 173.0
+margin_left = 49.0
+margin_top = 137.0
+margin_right = 130.0
+margin_bottom = 165.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -222,7 +221,7 @@ _sections_unfolded = [ "Material", "custom_colors", "custom_fonts" ]
 [node name="player_icon" type="Sprite" parent="items" index="4"]
 
 position = Vector2( 60, 106 )
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
