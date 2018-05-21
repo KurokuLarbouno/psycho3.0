@@ -90,14 +90,17 @@ func main_button_pressed():
 				buttons[i].button_pressed()
 				if(buttons[i] == $menu/main/bodyUpgrade):
 					$menu/main.hide()
+					$menu/UI.hide()
 					$menu/body.show()
 					state = 1
 				elif(buttons[i] == $menu/main/gunUpgrade):
 					$menu/main.hide()
+					$menu/UI.hide()
 					$menu/guns.show()
 					state = 2
 				elif(buttons[i] == $menu/main/ready):
 					$menu/main.hide()
+					$menu/UI.hide()
 					$menu/ready.show()
 					player_ready()
 	pass
@@ -149,11 +152,13 @@ func body_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):
 		$menu/body.hide()
 		$menu/main.show()
+		$menu/UI.show()
 		state = 0
 	elif(device_num == 4): #鍵盤
 		if (Input.is_action_pressed("ui_accept")):
 			$menu/body.hide()
 			$menu/main.show()
+			$menu/UI.show()
 			state = 0
 	#gun button
 func gun_button_select(delta):
@@ -215,11 +220,13 @@ func gun_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):
 		$menu/guns.hide()
 		$menu/main.show()
+		$menu/UI.show()
 		state = 0
 	elif(device_num == 4): #鍵盤
 		if (Input.is_action_pressed("ui_accept")):
 			$menu/guns.hide()
 			$menu/main.show()
+			$menu/UI.show()
 			state = 0
 	pass
 func _on_AnimationPlayer_animation_finished(anim_name):
@@ -240,14 +247,17 @@ func _mouse_click(name):
 	print(name)
 	if(name == "bodyUpgrade"):
 		$menu/main.hide()
+		$menu/UI.hide()
 		$menu/body.show()
 		state = 1
 	elif(name == "gunUpgrade"):
 		$menu/main.hide()
+		$menu/UI.hide()
 		$menu/guns.show()
 		state = 2
 	elif(name == "ready"):
 		$menu/main.hide()
+		$menu/UI.hide()
 		$menu/ready.show()
 		player_ready()
 	elif(name == "speed"):

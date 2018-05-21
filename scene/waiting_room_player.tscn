@@ -88,7 +88,7 @@ use_filter = false
 font_data = ExtResource( 14 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="waiting_room_player" type="Node2D"]
+[node name="waiting_room_player" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -188,11 +188,12 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.796078, 1, 1, 1 )
 text = "???"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Material", "custom_fonts" ]
+_sections_unfolded = [ "Material", "custom_colors", "custom_fonts" ]
 
 [node name="player" type="Label" parent="items" index="3"]
 
@@ -201,9 +202,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 19.0
-margin_top = 30.0
-margin_right = 100.0
-margin_bottom = 58.0
+margin_top = 29.0
+margin_right = 133.0
+margin_bottom = 57.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -211,11 +212,12 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.796078, 1, 1, 1 )
 text = "player"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Material", "custom_fonts" ]
+_sections_unfolded = [ "Material", "custom_colors", "custom_fonts" ]
 
 [node name="player_icon" type="Sprite" parent="items" index="4"]
 
