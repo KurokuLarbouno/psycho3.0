@@ -7,7 +7,7 @@
 [ext_resource path="res://image/b.png" type="Texture" id=5]
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=6]
 
-[node name="game_controller" type="Node2D"]
+[node name="game_controller" type="Node2D" index="0"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )

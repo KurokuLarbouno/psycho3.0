@@ -40,6 +40,7 @@ func _process(delta):
 		$Camera2D.current = true
 		gameState = 1
 	elif(gameState == 1):
+		round_count += 1
 		spawn_player()
 		print("spawn players")
 		#等待轉場結束才會進入 state2-遊戲
@@ -68,11 +69,14 @@ func _process(delta):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
+		
 		#等待轉場結束才會進入 state5-升級
 		$Transition/slice/AnimationPlayer.play( "ready" )
 		$Timer.set_wait_time($Transition/slice/AnimationPlayer.current_animation_length)
 		$Timer.start()
 		gameState = 4.5
+		if(round_count >= total_round):
+			gameState = 6
 	elif(gameState == 5):
 		if(next_round):
 			#等待轉場結束才會進入 state6-切換遊戲
