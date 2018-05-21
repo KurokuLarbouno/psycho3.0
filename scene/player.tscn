@@ -49,6 +49,11 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
+<<<<<<< HEAD
+=======
+editor/display_folded = true
+visible = false
+>>>>>>> bd1917c727a9dc202aed6b2b8ca1b1897b60431e
 texture = ExtResource( 4 )
 
 [node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]

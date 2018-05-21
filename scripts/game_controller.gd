@@ -75,8 +75,6 @@ func _process(delta):
 		$Timer.set_wait_time($Transition/slice/AnimationPlayer.current_animation_length)
 		$Timer.start()
 		gameState = 4.5
-		if(round_count >= total_round):
-			gameState = 6
 	elif(gameState == 5):
 		if(next_round):
 			#等待轉場結束才會進入 state6-切換遊戲

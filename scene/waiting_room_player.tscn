@@ -121,6 +121,8 @@ __meta__ = {
 
 [node name="items" type="Node2D" parent="." index="2"]
 
+visible = false
+
 [node name="ui" type="Sprite" parent="items" index="0"]
 
 position = Vector2( 60, 135 )
