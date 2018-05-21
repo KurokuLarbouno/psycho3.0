@@ -21,10 +21,10 @@ func _physics_process(delta):
 #	if whirl_flag:whirl(delta)
 	if mirage_flag:mirage(delta)
 	pass
-func set_master(id):	#傳入pid(為name)
-	player_name = id
-	player = get_node("/root/Game/Roof/Player/"+player_name)
-	pass
+#func set_master(id):	#傳入pid(為name)
+#	player_name = id
+#	player = get_node("/root/Game/Roof/Player/"+player_name)
+#	pass
 func shake():
 	get_node("Anim_Effect").play("shake")
 

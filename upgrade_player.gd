@@ -21,6 +21,7 @@ var fire_upgrade = -0.01
 var bullet_upgrade = 10
 func _ready():
 	button_connect()
+	$menu/player.text = "player" + str(player_num + 1)
 	$AnimationPlayer.play("hologram")
 	main_button_focus()
 	body_button_focus()
