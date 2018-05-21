@@ -15,7 +15,7 @@ var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 120
+var rTime_total = 3
 var round_count = 0
 var total_round = 3
 
@@ -23,7 +23,7 @@ var loadingState = 0 #check state for timer 0:Init 1:loaded
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 var player_stats = [[25, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
-var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
+var player_score = [[5,5],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
 #陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量

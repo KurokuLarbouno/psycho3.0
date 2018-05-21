@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/upgrade_UI2.png-ee3d3f10b4c4d47db9d86898c5ec519b.stex"
+path="res://.import/upgrade1.png-74eb5be268d0241c10e1bdaabde34b60.stex"
 
 [deps]
 
-source_file="res://image/StartEnd/upgrade_UI2.png"
-source_md5="638b470aae6309389eeb196704cfcb13"
+source_file="res://image/StartEnd/upgrade1.png"
+source_md5="a3be79b3009e687e907d1165aa58f77a"
 
-dest_files=[ "res://.import/upgrade_UI2.png-ee3d3f10b4c4d47db9d86898c5ec519b.stex" ]
-dest_md5="f01bee0794f0af7fbbc64a8637673ce8"
+dest_files=[ "res://.import/upgrade1.png-74eb5be268d0241c10e1bdaabde34b60.stex" ]
+dest_md5="73ead9564da7ccebacff4e002197ff07"
 
 [params]
 
