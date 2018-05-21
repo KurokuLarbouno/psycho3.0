@@ -30,7 +30,7 @@ func _ready():
 #	elif(get_node("../Init_data").kind=="c3"): bullet_tex = "bullet_c3.png"
 #	elif(get_node("../Init_data").kind=="c4"): bullet_tex = "bullet_c4.png"
 #	else: bullet_tex = "bullet.png"
-	var player_type = get_node("../../player").player_type 
+	var player_type = get_node("../").player_type 
 	if(player_type == 0): bullet_tex = "bullet_c1.png" 
 	elif(player_type == 1): bullet_tex = "bullet_c2.png"
 	elif(player_type == 2): bullet_tex = "bullet_c3.png"
