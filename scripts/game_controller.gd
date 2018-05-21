@@ -11,25 +11,22 @@ var count4 = load("res://image/GameScene/countdown4.png")
 
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game1.tscn"
-var end_scene ="res://scene/end_scene.tscn"
 var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 3
-var total_round = 3
-var round_count = 0
+var rTime_total = 120
 
 var loadingState = 0 #check state for timer 0:Init 1:loaded 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
-var player_stats = [[10, 5000, 1, 0.2, 200],[10, 5000, 1, 0.2, 200],[10, 5000, 1, 0.2, 200],[10, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
+var player_stats = [[25, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
 var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
 #陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量
 const Trap_type = 6# 擺上去的陷阱種類數
-#var generate_points_num = []# 陷阱生成點編號
+var generate_points_num = []# 陷阱生成點編號
 
 func _ready():
 	game = game1
@@ -87,8 +84,6 @@ func _process(delta):
 			change_scene()
 			next_round = false
 			gameState = 5.5
-	elif(gameState == 6):
-		_load_game(end_scene)
 	pass
 	
 var cur_game = ""
@@ -110,7 +105,6 @@ func is_level():
 	pass
 
 func spawn_player():
-	print("in spawn player")
 	var trap_scene
 	for i in range(4):
 		if(player_data[i][0] == 1):#確認是否有玩家
@@ -137,7 +131,6 @@ func spawn_player():
 		print("spawn trap")
 	pass
 func spawn_trap(cur_scene):
-	var generate_points_num = []
 	var random_num_flag = false
 	var random_num = 0
 	generate_points_num = []
@@ -159,7 +152,6 @@ func spawn_trap(cur_scene):
 				print("random生成trap ERROR")
 				break
 		generate_points_num.append( random_num )
-	print(generate_points_num)
 	cur_scene.get_node("Roof/Trap").generate_points_num = generate_points_num
 	cur_scene.get_node("Roof/Trap").Trap_spwan_num = Trap_spwan_num
 		#陷阱隨機參數設定 END
