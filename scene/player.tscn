@@ -1,32 +1,21 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://image/Character/shadow.png" type="Texture" id=2]
 [ext_resource path="res://image/Character/ctest1_walk.png" type="Texture" id=3]
 [ext_resource path="res://image/Character/ctest1_gun.png" type="Texture" id=4]
 [ext_resource path="res://image/arrow.png" type="Texture" id=5]
-[ext_resource path="res://image/Character/bullet_ui.png" type="Texture" id=6]
-[ext_resource path="res://image/light.png" type="Texture" id=7]
-[ext_resource path="res://scene/fire.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=10]
-[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=12]
-[ext_resource path="res://scripts/TrapEffect.gd" type="Script" id=13]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
+[ext_resource path="res://image/light.png" type="Texture" id=6]
+[ext_resource path="res://scene/fire.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=11]
+[ext_resource path="res://scripts/TrapEffect.gd" type="Script" id=12]
 
 [node name="player" type="KinematicBody2D" index="0" groups=[
-"sprite",
 "player_group",
+"sprite",
 ]]
 
 input_pickable = false
@@ -49,11 +38,7 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
-<<<<<<< HEAD
-=======
-editor/display_folded = true
 visible = false
->>>>>>> bd1917c727a9dc202aed6b2b8ca1b1897b60431e
 texture = ExtResource( 4 )
 
 [node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]
@@ -61,37 +46,12 @@ texture = ExtResource( 4 )
 visible = false
 position = Vector2( 21.3451, 2.89872 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="sword" type="Area2D" parent="hand/gun/shotfrom" index="0"]
-
-modulate = Color( 0.925781, 0.104874, 0.104874, 1 )
-self_modulate = Color( 0.945312, 0.0664673, 0.0664673, 1 )
-position = Vector2( 4.80204, -2.57519 )
-z_index = 3
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hand/gun/shotfrom/sword" index="0"]
-
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="hand/gun/shotfrom/sword" index="1"]
-
-texture = ExtResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="hand" index="1"]
 
 enabled = true
 editor_only = false
-texture = ExtResource( 7 )
+texture = ExtResource( 6 )
 offset = Vector2( 20, 0 )
 texture_scale = 0.5
 color = Color( 1, 0.654902, 0.168627, 1 )
@@ -111,11 +71,11 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 
-[node name="Particles2D" parent="hand" index="2" instance=ExtResource( 8 )]
+[node name="Particles2D" parent="hand" index="2" instance=ExtResource( 7 )]
 
-[node name="Weapon" parent="." index="3" instance=ExtResource( 9 )]
+[node name="Weapon" parent="." index="3" instance=ExtResource( 8 )]
 
-[node name="hurt" parent="." index="4" instance=ExtResource( 10 )]
+[node name="hurt" parent="." index="4" instance=ExtResource( 9 )]
 
 [node name="collision" type="CollisionPolygon2D" parent="." index="5"]
 
@@ -123,11 +83,11 @@ visible = false
 build_mode = 0
 polygon = PoolVector2Array( 0.0865936, -5.228, -7.14623, 0.00425434, -6.91539, 7.46791, -0.139608, 9.72163, 7.4733, 7.92958, 7.4733, 0.158144 )
 
-[node name="animation" parent="." index="6" instance=ExtResource( 11 )]
+[node name="animation" parent="." index="6" instance=ExtResource( 10 )]
 
 [node name="sound" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 11 )
 volume_db = -8.0
 autoplay = false
 mix_target = 0
@@ -135,23 +95,6 @@ bus = "Master"
 
 [node name="TrapEffect" type="Node2D" parent="." index="8"]
 
-script = ExtResource( 13 )
-
-[node name="swordcollision" type="Area2D" parent="." index="9"]
-
-editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="swordcollision" index="0"]
-
-shape = SubResource( 2 )
-
-[connection signal="area_entered" from="hand/gun/shotfrom/sword" to="Weapon" method="_on_sword_area_entered"]
+script = ExtResource( 12 )
 
 
