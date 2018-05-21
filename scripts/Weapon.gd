@@ -14,6 +14,7 @@ var OWNER_NAME = " "	#擁有者
 #---------------------------------FLAG
 var state = 0		# 0待機狀態 1射擊狀態 2裝彈狀態
 var b_clicked = false	#單次輸入限制
+var atk = false			#發動攻擊
 #---------------------------------計數器
 var bullet_count = 0	#已發彈數
 var charge_count = 0	#已過填充時間
@@ -24,6 +25,9 @@ var angle
 #---------------------------------signal
 signal bullet_shot()
 signal bullet_reload()
+
+#---------------------------------sword
+var is_sword = false
 func _ready():
 #	if(get_node("../Init_data").kind=="c1"): bullet_tex = "bullet_c1.png"
 #	elif(get_node("../Init_data").kind=="c2"): bullet_tex = "bullet_c2.png"
@@ -37,17 +41,24 @@ func _ready():
 	elif(player_type == 3): bullet_tex = "bullet_c4.png"
 	shot_count = PRESS_SHOT_TIME
 	OWNER_NAME = get_owner().get_name()
-	
+	get_node("../hand/gun/shotfrom/sword").set_scale(Vector2(0.001, 0.001))
+	get_node("../hand/gun/shotfrom/sword").set_position(get_node("../../player").position)
 	pass
 func _process(delta):
 	#----------------------------------------狀態機
 	if(state == 0):
 		if(shot_count < SHOT_TIME):
 			shot_count += delta
+			atk = false
+			get_node("../hand/gun/shotfrom/sword").set_scale(Vector2(0.001, 0.001))
+			get_node("../hand/gun/shotfrom/sword").set_position(get_node("../../player").position)
 		else:
 			shot_count = PRESS_SHOT_TIME
+			atk = false
+			get_node("../hand/gun/shotfrom/sword").set_scale(Vector2(0.001, 0.001))
+			get_node("../hand/gun/shotfrom/sword").set_position(get_node("../../player").position)
 		pass
-	if(state == 1):
+	elif(state == 1):
 		if(shot_count >= PRESS_SHOT_TIME):#shot action
 			shot_count = 0
 			if(bullet_count <= BULLET_AMOUNT):
@@ -66,9 +77,12 @@ func _process(delta):
 				state = 0
 			if(bullet_count >= BULLET_AMOUNT):
 				charge()#重新填裝
+			if is_sword:
+				state = 0
+				pass
 		else:
 			shot_count += delta
-	if(state == 2):
+	elif(state == 2):
 		if(charge_count >= CHARGE_TIME):
 			shot_count = PRESS_SHOT_TIME
 			bullet_count = 0
@@ -77,7 +91,19 @@ func _process(delta):
 			emit_signal("bullet_reload")
 		else:
 			charge_count += delta
-	if(state != 0 && state != 1 && state != 2):
+	elif(state == 3):
+		if(shot_count >= PRESS_SHOT_TIME):#shot action
+			shot_count = 0
+			atk = true
+			get_node("../hand/gun/shotfrom/sword").set_position(get_node("../../player/hand/gun/shotfrom").position*0.8)
+			get_node("../hand/gun/shotfrom/sword").set_scale(Vector2(3, 3))
+			state = 0
+		else:
+			#atk = false
+			#get_node("../hand/gun/shotfrom/sword").set_scale(Vector2(0.001, 0.001))
+			shot_count += delta
+		pass
+	else:
 		charge_count = 0
 		state = 0
 		print("Weapon State Error! Back to Idle")
@@ -86,11 +112,33 @@ sync func fire(fire_angle, pos):#擊發，需要同時執行
 	if(state == 0): 
 		state = 1
 		angle = fire_angle
+		if is_sword:
+			state = 3
+			angle = fire_angle
+		pass
 	pass
 sync func release():
 	if(state == 1):
 		state = 0
 	pass
 sync func charge():
-	state = 2#重新填裝
+	if not is_sword:
+		state = 2#重新填裝
 	pass
+func change_weapon(var_is_sword):
+	is_sword = var_is_sword
+	pass
+
+func _on_sword_area_entered(area):
+	if atk :
+		print(area.get_name())
+		if area.get_name() == "swordcollision":
+			if get_node(str(area.get_path())+"/../").get_name() != OWNER_NAME:
+				get_node(str(area.get_path())+"/../").hurt(BULLET_DMG*2,get_node("../../player").player_num)
+			pass
+		elif area.get_name() == "bullet":
+			get_node(str(area.get_path())).a += 180
+			#get_node(str(area.get_path())).t =1000
+			pass
+
+	pass # replace with function body
