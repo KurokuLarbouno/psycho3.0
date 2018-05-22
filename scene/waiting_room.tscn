@@ -84,7 +84,7 @@ frame = 1
 
 [node name="Laser" parent="CanvasLayer/slice" index="1"]
 
-frame = 11
+frame = 0
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
@@ -92,8 +92,6 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 
 [editable path="CanvasLayer/slice"]

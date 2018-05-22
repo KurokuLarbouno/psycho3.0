@@ -17,7 +17,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 5.43563, 17.0168 )
+extents = Vector2( 10, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -25,8 +25,8 @@ custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
 [node name="player" type="KinematicBody2D" groups=[
-"player_group",
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -47,30 +47,19 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
-_sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_lock_": true
-}
-
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
 
 [node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 21.3451, 2.89872 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Transform" ]
 
 [node name="sword" type="Area2D" parent="hand/gun/shotfrom" index="0"]
 
-visible = false
 modulate = Color( 0.925781, 0.104874, 0.104874, 1 )
 self_modulate = Color( 0.945312, 0.0664673, 0.0664673, 1 )
 position = Vector2( 4.80204, -2.57519 )
@@ -87,7 +76,6 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hand/gun/shotfrom/sword" index="0"]
 
 shape = SubResource( 1 )
-disabled = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="hand/gun/shotfrom/sword" index="1"]
@@ -117,9 +105,6 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Particles2D" parent="hand" index="2" instance=ExtResource( 8 )]
 
@@ -146,9 +131,6 @@ bus = "Master"
 [node name="TrapEffect" type="Node2D" parent="." index="8"]
 
 script = ExtResource( 13 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="swordcollision" type="Area2D" parent="." index="9"]
 
@@ -160,9 +142,6 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="swordcollision" index="0"]
 
