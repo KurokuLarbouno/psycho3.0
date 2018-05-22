@@ -24,9 +24,9 @@ extents = Vector2( 5.43563, 17.0168 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="player" type="KinematicBody2D" groups=[
-"player_group",
+[node name="player" type="KinematicBody2D" index="0" groups=[
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -59,7 +59,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 21.3451, 2.89872 )
 texture = ExtResource( 5 )
@@ -87,7 +86,6 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hand/gun/shotfrom/sword" index="0"]
 
 shape = SubResource( 1 )
-disabled = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="hand/gun/shotfrom/sword" index="1"]
