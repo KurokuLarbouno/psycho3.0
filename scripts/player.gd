@@ -351,7 +351,7 @@ func dont_hurt(delta):
 	if hurt_state == 1 :
 		hurttime += delta
 		invincible_effect(delta)
-		if hurttime > 0.5:
+		if hurttime > 0.3:
 			Invincible = false
 			hurttime = 0
 			hurt_state = 0
