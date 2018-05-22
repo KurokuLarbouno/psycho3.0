@@ -25,10 +25,7 @@ custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
 [node name="player" type="KinematicBody2D" index="0" groups=[
-<<<<<<< HEAD
-=======
 "sprite",
->>>>>>> 2935416123ea5a2328151a304c5d3dfd018e4199
 "player_group",
 "sprite",
 ]]
