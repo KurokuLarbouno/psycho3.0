@@ -137,7 +137,7 @@ func _on_sword_area_entered(area):
 				get_node(str(area.get_path())+"/../").hurt(BULLET_DMG*2,get_node("../../player").player_num)
 			pass
 		elif area.get_name() == "bullet":
-			get_node(str(area.get_path())).a += 180
+			get_node(str(area.get_path())).sp *= -1
 			#get_node(str(area.get_path())).t =1000
 			pass
 

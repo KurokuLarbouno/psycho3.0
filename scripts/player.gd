@@ -351,7 +351,7 @@ func dont_hurt(delta):
 	if hurt_state == 1 :
 		hurttime += delta
 		invincible_effect(delta)
-		if hurttime > 0.5:
+		if hurttime > 0.3:
 			Invincible = false
 			hurttime = 0
 			hurt_state = 0
@@ -374,7 +374,7 @@ func player_switch_weapon():
 		if Input.is_action_pressed("switch_weapon") and switch_weapon_flag:
 			switch_weapon_flag = false
 			is_sword = !is_sword
-			print("change Weapon")
+			#print("change Weapon")
 			if not is_sword:
 				if(player_type == 0):
 					$hand/gun.texture = c1_gun

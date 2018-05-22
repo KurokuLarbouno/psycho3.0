@@ -110,6 +110,10 @@ func spawn_player():
 	var trap_scene
 	for i in range(4):
 		if(player_data[i][0] == 1):#確認是否有玩家
+			#釋放舊的UI
+			var UI_children = get_node("UI/playerUI/player" + str(i+1)).get_children()
+			for j in range(UI_children.size()):
+				UI_children[j].queue_free()
 			var player =  load("res://scene/player.tscn").instance()
 			var player_ui = load("res://scene/player_UI.tscn").instance()
 			#設定玩家資訊(從main給)
@@ -123,6 +127,7 @@ func spawn_player():
 			player.position = get_node("game_scene/Game/Roof/Player_Point/Position" + str(i+1)).position
 			player.player_stats = player_stats
 			player.player_score = player_score
+			ctrl_connect_player(player)
 			cur_scene.get_node("Roof/Player").add_child(player)
 			get_node("UI/playerUI/player" + str(i+1)).add_child(player_ui)
 			player_ui.connect_player(player)
@@ -228,6 +233,7 @@ func _on_Timer_timeout():
 func _update_score(killer,die):
 	player_score[killer][0] += 1
 	player_score[die][1] += 1
+	print(player_score)
 	pass
 func ctrl_connect_player(obj):
 	obj.connect("update_score", self,"_update_score")
