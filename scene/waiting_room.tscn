@@ -4,7 +4,7 @@
 [ext_resource path="res://image/StartEnd/back.png" type="Texture" id=2]
 [ext_resource path="res://scene/slice.tscn" type="PackedScene" id=3]
 
-[node name="waiting_room" type="Node2D"]
+[node name="waiting_room" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -84,7 +84,7 @@ frame = 1
 
 [node name="Laser" parent="CanvasLayer/slice" index="1"]
 
-frame = 0
+frame = 12
 
 [node name="Timer" type="Timer" parent="." index="4"]
 
