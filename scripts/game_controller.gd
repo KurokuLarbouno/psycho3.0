@@ -15,7 +15,7 @@ var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 120
+var rTime_total = 3
 var round_count = 0
 var total_round = 3
 
@@ -23,7 +23,7 @@ var loadingState = 0 #check state for timer 0:Init 1:loaded
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 var player_stats = [[25, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
-var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
+var player_score = [[5,5],[0,0],[0,0],[0,0]] # killpoints / deadpoints
 
 #陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量
@@ -116,7 +116,7 @@ func spawn_player():
 			var cur_scene = $game_scene.get_children()
 			cur_scene = cur_scene[0]
 			player.player_num = i
-			player_ui.player_num = 1
+			player_ui.player_num = i + 1
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]

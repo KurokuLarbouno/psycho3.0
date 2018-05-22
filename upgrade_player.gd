@@ -92,6 +92,7 @@ func main_button_pressed():
 					$menu/main.hide()
 					$menu/UI.hide()
 					$menu/body.show()
+					$menu/bodyUI.show()
 					state = 1
 				elif(buttons[i] == $menu/main/gunUpgrade):
 					$menu/main.hide()
@@ -151,12 +152,14 @@ func body_stats_update():
 func body_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):
 		$menu/body.hide()
+		$menu/bodyUI.hide()
 		$menu/main.show()
 		$menu/UI.show()
 		state = 0
 	elif(device_num == 4): #鍵盤
 		if (Input.is_action_pressed("ui_accept")):
 			$menu/body.hide()
+			$menu/bodyUI.hide()
 			$menu/main.show()
 			$menu/UI.show()
 			state = 0
@@ -249,6 +252,7 @@ func _mouse_click(name):
 		$menu/main.hide()
 		$menu/UI.hide()
 		$menu/body.show()
+		$menu/bodyUI.show
 		state = 1
 	elif(name == "gunUpgrade"):
 		$menu/main.hide()

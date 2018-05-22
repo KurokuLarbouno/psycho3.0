@@ -190,7 +190,7 @@ func hurt(dmg,ower = ''):
 		#	get_node("/root/Game/Camera/Camera2D").shake()
 			hurt_state = 1
 			Invincible = true
-			if health <=0:
+			if health <= 0:
 				hurt_state = 2
 				player_die(ower)
 				pass

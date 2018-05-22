@@ -24,9 +24,9 @@ extents = Vector2( 5.43563, 17.0168 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="player" type="KinematicBody2D" index="0" groups=[
-"player_group",
+[node name="player" type="KinematicBody2D" groups=[
 "sprite",
+"player_group",
 ]]
 
 input_pickable = false
@@ -70,7 +70,6 @@ __meta__ = {
 
 [node name="sword" type="Area2D" parent="hand/gun/shotfrom" index="0"]
 
-visible = false
 modulate = Color( 0.925781, 0.104874, 0.104874, 1 )
 self_modulate = Color( 0.945312, 0.0664673, 0.0664673, 1 )
 position = Vector2( 4.80204, -2.57519 )

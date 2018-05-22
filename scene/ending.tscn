@@ -89,7 +89,7 @@ shader = SubResource( 3 )
 shader_param/AMT = null
 shader_param/SPEED = null
 
-[node name="players_old" type="Panel" index="0"]
+[node name="players_old" type="Panel"]
 
 anchor_left = 0.0
 anchor_top = 0.0

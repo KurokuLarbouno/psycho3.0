@@ -7,10 +7,10 @@ path="res://.import/upgrade_UI1.png-634b438992585bda52c04c6e6c1ca210.stex"
 [deps]
 
 source_file="res://image/StartEnd/upgrade_UI1.png"
-source_md5="79bc615a6a7c2bbb601b737869336450"
+source_md5="9a3dc4f57e78fccfdd667f6375143ee2"
 
 dest_files=[ "res://.import/upgrade_UI1.png-634b438992585bda52c04c6e6c1ca210.stex" ]
-dest_md5="641122f55c4992e196902ee7ae6b4da1"
+dest_md5="641018757d0995d99f61b011997d2273"
 
 [params]
 
