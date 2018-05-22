@@ -399,7 +399,7 @@ func player_switch_weapon():
 		if Input.is_joy_button_pressed(input_device, 1) and switch_weapon_flag:
 			switch_weapon_flag = false
 			is_sword = !is_sword
-			print("change Weapon")
+			#print("change Weapon")
 			if not is_sword:
 				if(player_type == 0):
 					$hand/gun.texture = c1_gun

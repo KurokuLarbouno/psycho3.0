@@ -108,9 +108,6 @@ func ui_control():
 func is_menu():
 	pass
 func check_all_player_ready():
-	$CanvasLayer/slice/AnimationPlayer.play( "ready" )
-	$Timer.set_wait_time($CanvasLayer/slice/AnimationPlayer.current_animation_length + 1)
-	$Timer.start()
 	if(is_ready == player_num ):
 		$CanvasLayer/slice/AnimationPlayer.play( "ready" )
 		$Timer.set_wait_time($CanvasLayer/slice/AnimationPlayer.current_animation_length + 1)

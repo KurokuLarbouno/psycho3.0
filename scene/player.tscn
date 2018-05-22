@@ -58,6 +58,10 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]
 
+<<<<<<< HEAD
+visible = false
+=======
+>>>>>>> c493fe00893e840014d700f79e7ccafdfa23deff
 position = Vector2( 21.3451, 2.89872 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 __meta__ = {
