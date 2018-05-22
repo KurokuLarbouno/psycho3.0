@@ -72,7 +72,6 @@ func _process(delta):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
-		
 		#等待轉場結束才會進入 state5-升級
 		$Transition/slice/AnimationPlayer.play( "ready" )
 		$Timer.set_wait_time($Transition/slice/AnimationPlayer.current_animation_length)
@@ -169,7 +168,6 @@ func spawn_trap(cur_scene):
 		#print("離開connect陷阱設置階段")
 	pass
 func countDown(t):
-	
 	if(t <= 1):
 		$UI/countdown.show()
 		$UI/filter.show()

@@ -108,10 +108,14 @@ func ui_control():
 func is_menu():
 	pass
 func check_all_player_ready():
+	$CanvasLayer/slice/AnimationPlayer.play( "ready" )
+	$Timer.set_wait_time($CanvasLayer/slice/AnimationPlayer.current_animation_length + 1)
+	$Timer.start()
 	if(is_ready == player_num ):
-		print("game started")
-		emit_signal("start_game")
-	pass
+		$CanvasLayer/slice/AnimationPlayer.play( "ready" )
+		$Timer.set_wait_time($CanvasLayer/slice/AnimationPlayer.current_animation_length + 1)
+		$Timer.start()
+		pass
 func check_character_repeat():
 	pass
 func player_connect(obj):
@@ -138,3 +142,8 @@ func _player_delete(child):
 	print("player delete")
 	pass
 	
+
+func _on_Timer_timeout():
+	print("game started")
+	emit_signal("start_game")
+	pass 
