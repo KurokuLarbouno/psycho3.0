@@ -350,17 +350,23 @@ func int_stats():
 func dont_hurt(delta):
 	if hurt_state == 1 :
 		hurttime += delta
+		invincible_effect(delta)
 		if hurttime > 0.5:
 			Invincible = false
 			hurttime = 0
 			hurt_state = 0
+			$main.show()
+			$hand.show()
 			pass
 	elif hurt_state == 2 :
 		hurttime += delta
+		invincible_effect(delta)
 		if hurttime > 1:
 			Invincible = false
 			hurttime = 0
 			hurt_state = 0
+			$main.show()
+			$hand.show()
 			pass
 	pass
 func player_switch_weapon():
@@ -416,4 +422,14 @@ func player_switch_weapon():
 			pass
 	if not Input.is_action_pressed("switch_weapon"):
 		switch_weapon_flag = true
+	pass
+var invincible_count = 0
+func invincible_effect(delta):
+	invincible_count += 1
+	if((invincible_count%5) == 0):
+		$main.show()
+		$hand.show()
+	else:
+		$main.hide()
+		$hand.hide()
 	pass
