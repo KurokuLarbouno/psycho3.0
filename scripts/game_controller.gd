@@ -116,7 +116,7 @@ func spawn_player():
 			var cur_scene = $game_scene.get_children()
 			cur_scene = cur_scene[0]
 			player.player_num = i
-			player_ui.player_num = 1
+			player_ui.player_num = i + 1
 			player.input_device = player_data[i][1]
 			player.player_type = player_data[i][2]
 			player_ui.player_type = player_data[i][2]

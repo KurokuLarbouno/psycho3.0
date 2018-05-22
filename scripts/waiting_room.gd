@@ -59,18 +59,21 @@ func register_player(num):
 			player2_device = num
 			player.pname = "Player 2"
 			player.device_num = num
+			player.player_num = 2
 			$player/player2.add_child(player)
 			emit_signal("player_register", 1, num)
 		elif ($player/player3.get_children().size() == 0):
 			player3_device = num
 			player.pname = "Player 3"
 			player.device_num = num
+			player.player_num = 3
 			$player/player3.add_child(player)
 			emit_signal("player_register", 2, num)
 		elif ($player/player4.get_children().size() == 0):
 			player.pname = "Player 4"
 			player4_device = num
 			player.device_num = num
+			player.player_num = 4
 			$player/player4.add_child(player)
 			emit_signal("player_register", 3, num)
 		player_connect(player)
