@@ -233,6 +233,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -240,18 +242,14 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 2
 size_flags_vertical = 2
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="start_scene" parent="." index="0" instance=ExtResource( 2 )]
 
 [node name="local2" parent="." index="1" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-margin_left = 564.0
+margin_left = 560.0
 margin_top = 198.0
-margin_right = 576.0
+margin_right = 572.0
 margin_bottom = 218.0
 
 [node name="Label" parent="local2" index="1"]
@@ -262,10 +260,9 @@ text = "loacal"
 
 [node name="online2" parent="." index="2" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-margin_left = 565.0
+margin_left = 560.0
 margin_top = 223.0
-margin_right = 577.0
+margin_right = 572.0
 margin_bottom = 243.0
 
 [node name="Label" parent="online2" index="1"]
@@ -1331,10 +1328,8 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="slice" parent="CanvasLayer" index="0" instance=ExtResource( 28 )]
 
 position = Vector2( 1, 0 )
-
-[node name="Slice" parent="CanvasLayer/slice" index="0"]
-
-frame = 1
+scale = Vector2( 1.05, 1.05 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Laser" parent="CanvasLayer/slice" index="1"]
 

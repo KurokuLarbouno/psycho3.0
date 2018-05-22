@@ -11,6 +11,7 @@ var count4 = load("res://image/GameScene/countdown4.png")
 
 var game1 = "res://scene/Game2.tscn"
 var game2 = "res://scene/Game1.tscn"
+var ending = "res://scene/end_scene.tscn"
 var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
@@ -218,7 +219,9 @@ func _on_Timer_timeout():
 	elif(loadingState == 1):
 		$Transition/slice/AnimationPlayer.play( "opening2" )
 		loadingState = 2
-		upgrade()
+		if(round_count >= total_round):
+			end_scene()
+		else : upgrade()
 		gameState = 5
 	elif(loadingState == 2):
 		loadingState = 0
@@ -230,4 +233,8 @@ func _update_score(killer,die):
 	pass
 func ctrl_connect_player(obj):
 	obj.connect("update_score", self,"_update_score")
+	pass
+func end_scene():
+	$UI/playerUI.hide()
+	_load_game(ending)
 	pass

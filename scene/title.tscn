@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6 ]
 }
 
-[node name="start_scene" type="Node2D" index="0"]
+[node name="start_scene" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -103,7 +103,7 @@ _sections_unfolded = [ "Pause", "Playback", "playback" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
 
-position = Vector2( 344, 0 )
+position = Vector2( 342, 0 )
 anchor_mode = 0
 rotating = false
 current = true

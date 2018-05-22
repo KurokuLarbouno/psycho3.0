@@ -74,9 +74,17 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="slice" parent="CanvasLayer" index="0" instance=ExtResource( 3 )]
 
+position = Vector2( 1, 0 )
+scale = Vector2( 1.05, 1.05 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Slice" parent="CanvasLayer/slice" index="0"]
+
+frame = 1
+
 [node name="Laser" parent="CanvasLayer/slice" index="1"]
 
-frame = 8
+frame = 0
 
 [node name="Timer" type="Timer" parent="." index="4"]
 

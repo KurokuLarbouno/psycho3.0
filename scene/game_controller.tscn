@@ -7,7 +7,7 @@
 [ext_resource path="res://image/b.png" type="Texture" id=5]
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=6]
 
-[node name="game_controller" type="Node2D"]
+[node name="game_controller" type="Node2D" index="0"]
 
 position = Vector2( 0, 8 )
 script = ExtResource( 1 )
@@ -19,6 +19,7 @@ _sections_unfolded = [ "Z Index" ]
 
 [node name="UI" type="CanvasLayer" parent="." index="1"]
 
+editor/display_folded = true
 layer = 2
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -100,7 +101,8 @@ __meta__ = {
 
 [node name="slice" parent="UI" index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 0, -1 )
+visible = false
+position = Vector2( 4, -1 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
@@ -155,13 +157,17 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="slice" parent="Transition" index="0" instance=ExtResource( 4 )]
 
-position = Vector2( 0, 8 )
+position = Vector2( 1, 8 )
+
+[node name="Slice" parent="Transition/slice" index="0"]
+
+frame = 2
 
 [node name="Laser" parent="Transition/slice" index="1"]
 
 position = Vector2( 639.121, 357.713 )
 scale = Vector2( 2.7061, 2.7061 )
-frame = 9
+frame = 0
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

@@ -15,7 +15,7 @@ func _physics_process(delta):
 	motion = Vector2(cos(a)*sp*delta, sin(a)*sp*delta)
 	translate(motion)
 	t +=1
-	if(t>300):
+	if(t > 300):
 		self.free()
 func _on_bullet_body_entered( body ):
 	for i in range(body.get_groups().size()):
@@ -30,4 +30,5 @@ func _on_bullet_body_entered( body ):
 func set_owner(var owname):
 	owner_name = owname
 	pass
+
 
