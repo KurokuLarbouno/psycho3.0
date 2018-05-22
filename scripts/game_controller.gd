@@ -16,7 +16,7 @@ var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 3
+var rTime_total = 60
 var round_count = 0
 var total_round = 3
 
