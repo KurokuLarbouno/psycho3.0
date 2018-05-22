@@ -161,6 +161,7 @@ position = Vector2( 1, 8 )
 
 [node name="Slice" parent="Transition/slice" index="0"]
 
+visible = true
 frame = 2
 
 [node name="Laser" parent="Transition/slice" index="1"]
