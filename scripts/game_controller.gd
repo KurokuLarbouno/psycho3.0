@@ -25,7 +25,7 @@ var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 var player_stats = [[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
 var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
-
+var final_score = [[0,0],[0,0],[0,0],[0,0]]
 #陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量
 const Trap_type = 6# 擺上去的陷阱種類數
@@ -233,6 +233,8 @@ func _on_Timer_timeout():
 func _update_score(killer,die):
 	player_score[killer][0] += 1
 	player_score[die][1] += 1
+	final_score[killer][0] += 1
+	final_score[die][1] += 1
 	print(player_score)
 	pass
 func ctrl_connect_player(obj):
@@ -242,6 +244,12 @@ func ctrl_connect_player(obj):
 func end_scene():
 	$UI/playerUI.hide()
 	_load_game(ending)
+<<<<<<< HEAD
 	pass
 func _hurt():
 	$Camera2D/Anim_Effect.play("shake")
+=======
+	$game_scene/end_scene.final_score = final_score
+	$game_scene/end_scene.player_score = player_score
+	pass
+>>>>>>> 714117a797e4d544529c2bbc69d71d5df13605f5
