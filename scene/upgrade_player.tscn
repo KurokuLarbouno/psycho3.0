@@ -255,7 +255,6 @@ _sections_unfolded = [ "Animation" ]
 
 [node name="guns" type="Node2D" parent="menu" index="6"]
 
-editor/display_folded = true
 visible = false
 
 [node name="fireSpeed" parent="menu/guns" index="0" instance=ExtResource( 7 )]

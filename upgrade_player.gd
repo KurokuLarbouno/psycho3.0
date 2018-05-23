@@ -263,7 +263,7 @@ func _mouse_click(name):
 		$menu/main.hide()
 		$menu/UI.hide()
 		$menu/body.show()
-		$menu/bodyUI.show
+		$menu/bodyUI.show()
 		state = 1
 	elif(name == "gunUpgrade"):
 		$menu/main.hide()

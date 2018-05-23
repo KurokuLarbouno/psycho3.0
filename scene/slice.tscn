@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://image/slice.png" type="Texture" id=1]
 [ext_resource path="res://image/change_scene.png" type="Texture" id=2]
+[ext_resource path="res://image/StartEnd/timesup.png" type="Texture" id=3]
 
 [sub_resource type="Animation" id=1]
 
@@ -186,8 +187,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [ 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("timesup:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, false ]
+}
 
-[node name="slice" type="Node2D"]
+[node name="slice" type="Node2D" index="0"]
 
 [node name="Slice" type="Sprite" parent="." index="0"]
 
@@ -206,7 +219,6 @@ scale = Vector2( 2.65503, 2.65503 )
 z_index = 4096
 texture = ExtResource( 2 )
 hframes = 26
-frame = 25
 _sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
@@ -223,5 +235,12 @@ anims/opening2 = SubResource( 4 )
 anims/opening3 = SubResource( 5 )
 anims/ready = SubResource( 6 )
 blend_times = [  ]
+
+[node name="timesup" type="Sprite" parent="." index="3"]
+
+visible = false
+position = Vector2( 674, 337 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Visibility" ]
 
 
