@@ -133,7 +133,6 @@ stretch_mode = 0
 
 position = Vector2( 243, 181 )
 scale = Vector2( 1, 1 )
-offset = Vector2( 2, 3 )
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="mirage" parent="Camera2D" index="1"]
