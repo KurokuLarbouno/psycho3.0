@@ -133,6 +133,7 @@ stretch_mode = 0
 
 position = Vector2( 243, 181 )
 scale = Vector2( 1, 1 )
+offset = Vector2( 2, 3 )
 zoom = Vector2( 0.5, 0.5 )
 
 [node name="mirage" parent="Camera2D" index="1"]
@@ -187,7 +188,6 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="slice" parent="Transition" index="0" instance=ExtResource( 6 )]
 
-visible = false
 position = Vector2( 1, 8 )
 
 [node name="Slice" parent="Transition/slice" index="0"]
