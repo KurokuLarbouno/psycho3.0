@@ -24,7 +24,7 @@ extents = Vector2( 5.43563, 17.0168 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="player" type="KinematicBody2D" groups=[
+[node name="player" type="KinematicBody2D" index="0" groups=[
 "sprite",
 "player_group",
 ]]
@@ -48,6 +48,7 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -153,7 +154,6 @@ __meta__ = {
 
 [node name="swordcollision" type="Area2D" parent="." index="9"]
 
-editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0

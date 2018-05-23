@@ -18,7 +18,6 @@ func _ready():
 
 func _process(delta):
 	check_player_join_leave()
-	print(is_ready , player_num)
 	#print(inputList)
 	pass
 	
