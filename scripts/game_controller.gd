@@ -244,12 +244,9 @@ func ctrl_connect_player(obj):
 func end_scene():
 	$UI/playerUI.hide()
 	_load_game(ending)
-<<<<<<< HEAD
 	pass
 func _hurt():
 	$Camera2D/Anim_Effect.play("shake")
-=======
 	$game_scene/end_scene.final_score = final_score
 	$game_scene/end_scene.player_score = player_score
 	pass
->>>>>>> 714117a797e4d544529c2bbc69d71d5df13605f5
