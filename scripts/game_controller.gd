@@ -239,7 +239,7 @@ func _update_score(killer,die):
 	pass
 func ctrl_connect_player(obj):
 	obj.connect("update_score", self,"_update_score")
-	obj.get_node("Weapon").connect("hurt", self, "_hurt")
+	obj.connect("hurt", self, "_hurt")
 	pass
 func end_scene():
 	$UI/playerUI.hide()
@@ -247,6 +247,6 @@ func end_scene():
 	pass
 func _hurt():
 	$Camera2D/Anim_Effect.play("shake")
-	$game_scene/end_scene.final_score = final_score
-	$game_scene/end_scene.player_score = player_score
+	#$game_scene/end_scene.final_score = final_score
+	#$game_scene/end_scene.player_score = player_score
 	pass

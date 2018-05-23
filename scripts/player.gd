@@ -41,6 +41,7 @@ var hurttime = 0
 
 var is_sword = false
 var switch_weapon_flag = true
+var joy_switch_weapon_flag = true
 #---------------------------陷阱部分
 var bag_trap = []
 var e_change_trap_flag = true
@@ -170,7 +171,7 @@ func player_fire():
 	if(input_device < 4): #搖桿
 		if (Input.is_joy_button_pressed(input_device, 7)):#RT
 			$Weapon.fire((angle*PI/180 + PI/2),$hand/gun/shotfrom.get_global_transform().get_origin()-self.position)
-		elif($Weapon.state == 1):
+		if(not Input.is_joy_button_pressed(input_device, 7)):
 			$Weapon.release()
 		if (Input.is_joy_button_pressed(input_device, 6)):#LT
 			$Weapon.charge()
@@ -397,8 +398,8 @@ func player_switch_weapon():
 			$Weapon.change_weapon(is_sword)
 			pass
 	if(input_device < 4): #搖桿
-		if Input.is_joy_button_pressed(input_device, 1) and switch_weapon_flag:
-			switch_weapon_flag = false
+		if Input.is_joy_button_pressed(input_device, 1) and joy_switch_weapon_flag:
+			joy_switch_weapon_flag = false
 			is_sword = !is_sword
 			#print("change Weapon")
 			if not is_sword:
@@ -423,6 +424,8 @@ func player_switch_weapon():
 			pass
 	if not Input.is_action_pressed("switch_weapon"):
 		switch_weapon_flag = true
+	if not Input.is_joy_button_pressed(input_device, 1):
+		joy_switch_weapon_flag = true
 	pass
 var invincible_count = 0
 func invincible_effect(delta):
