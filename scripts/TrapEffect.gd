@@ -1,5 +1,7 @@
 extends Node2D
 
+signal mirage
+
 var color_time = 0#顏色改變時間計數器
 var color_red_flag = false
 var color_blue_flag = false
@@ -15,6 +17,8 @@ var speed_time = 0
 
 var hide_flag = false
 var hide_time = 0
+
+var mirage_flag = false
 func _ready():
 
 	pass
@@ -26,6 +30,7 @@ func _process(delta):
 	atk_trap(delta)
 	speed_trap(delta)
 	hide_trap(delta)
+	mirage()
 	pass
 
 func color_blue(delta):
@@ -73,6 +78,7 @@ func atk_trap(delta):
 			atk_flag = false
 			atk_time = 0
 		elif atk_time == 0 :
+			
 			get_node("../Weapon").BULLET_DMG *=2
 			atk_time += delta
 		else:
@@ -104,4 +110,9 @@ func hide_trap(delta):
 			get_node("../").set_modulate(Color(1.0,1.0,1.0,1.0))
 		else:
 			get_node("../").set_modulate(Color(1.0,1.0,1.0,0.05))
+	pass
+func mirage():
+	if mirage_flag:
+		emit_signal("mirage")
+		mirage_flag = false
 	pass

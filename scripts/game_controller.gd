@@ -128,6 +128,7 @@ func spawn_player():
 			player.player_stats = player_stats
 			player.player_score = player_score
 			ctrl_connect_player(player)
+			ctrl_connect_trap_effect(player.get_node("TrapEffect"))
 			cur_scene.get_node("Roof/Player").add_child(player)
 			get_node("UI/playerUI/player" + str(i+1)).add_child(player_ui)
 			player_ui.connect_player(player)
@@ -240,6 +241,10 @@ func _update_score(killer,die):
 func ctrl_connect_player(obj):
 	obj.connect("update_score", self,"_update_score")
 	obj.connect("hurt", self, "_hurt")
+	#obj.connect("hurt", self, "_hurt")
+	pass
+func ctrl_connect_trap_effect(obj):
+	obj.connect("mirage", self, "_mirage")
 	pass
 func end_scene():
 	$UI/playerUI.hide()
@@ -249,4 +254,9 @@ func _hurt():
 	$Camera2D/Anim_Effect.play("shake")
 	#$game_scene/end_scene.final_score = final_score
 	#$game_scene/end_scene.player_score = player_score
+	pass
+func _mirage():
+	$Camera2D.mirage_flag = true
+	$Camera2D.mirage_time = 0
+	$Camera2D.mirage_time_control=30
 	pass

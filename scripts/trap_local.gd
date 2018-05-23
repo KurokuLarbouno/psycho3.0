@@ -120,6 +120,8 @@ func trap_use(body):
 		
 		get_node(str(body.get_path())+"/TrapEffect").speed_time = 0
 		get_node(str(body.get_path())+"/TrapEffect").speed_flag = true
+		
+		get_node(str(body.get_path())+"/TrapEffect").mirage_flag = true
 		pass
 	if trap_type == 3:#超級雞尾酒
 		get_node(str(body.get_path())+"/TrapEffect").color_blue_flag=true
