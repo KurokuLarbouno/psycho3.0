@@ -16,9 +16,9 @@ var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 30
+var rTime_total = 60
 var round_count = 0
-var total_round = 1
+var total_round = 3
 
 var loadingState = 0 #check state for timer 0:Init 1:loaded 
 var gameState = 0
@@ -68,7 +68,7 @@ func _process(delta):
 			var players = $game_scene/Game/Roof/Player.get_children()
 			for i in range(players.size()):
 				players[i].setFreeze(true)
-		if(rTime >= (rTime_total+0.5)):
+		if(rTime >= (rTime_total+2)):
 			gameState = 4
 			rTime = 0
 	elif(gameState == 4):
@@ -244,9 +244,9 @@ func ctrl_connect_player(obj):
 func end_scene():
 	$UI/playerUI.hide()
 	_load_game(ending)
-	$game_scene/end_scene.final_score = final_score
-	$game_scene/end_scene.player_data = player_data
 	pass
 func _hurt():
 	$Camera2D/Anim_Effect.play("shake")
+	#$game_scene/end_scene.final_score = final_score
+	#$game_scene/end_scene.player_score = player_score
 	pass
