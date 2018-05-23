@@ -237,8 +237,11 @@ func _update_score(killer,die):
 	pass
 func ctrl_connect_player(obj):
 	obj.connect("update_score", self,"_update_score")
+	obj.get_node("Weapon").connect("hurt", self, "_hurt")
 	pass
 func end_scene():
 	$UI/playerUI.hide()
 	_load_game(ending)
 	pass
+func _hurt():
+	$Camera2D/Anim_Effect.play("shake")

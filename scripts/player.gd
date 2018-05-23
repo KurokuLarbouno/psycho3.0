@@ -5,6 +5,7 @@ signal set_bullet
 signal update_health
 signal update_bullet
 signal update_score
+signal hurt
 #--------------------------------多重輸入判斷
 var jflag = 0
 
@@ -187,7 +188,7 @@ func hurt(dmg,ower = ''):
 			health -= dmg
 			emit_signal("update_health", health)
 			get_node("hurt").emitting = true
-		#	get_node("/root/Game/Camera/Camera2D").shake()
+			emit_signal("hurt")
 			hurt_state = 1
 			Invincible = true
 			if health <= 0:
