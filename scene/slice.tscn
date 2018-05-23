@@ -187,7 +187,7 @@ tracks/1/keys = {
 "values": [ 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
 }
 
-[node name="slice" type="Node2D" index="0"]
+[node name="slice" type="Node2D"]
 
 [node name="Slice" type="Sprite" parent="." index="0"]
 
@@ -206,6 +206,7 @@ scale = Vector2( 2.65503, 2.65503 )
 z_index = 4096
 texture = ExtResource( 2 )
 hframes = 26
+frame = 9
 _sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
