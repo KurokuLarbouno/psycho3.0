@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/upgrade_bar1.png-e19ef3b9306b3748e6e58352b38f1a55.stex"
+path="res://.import/upgrade_bar1.png-1ffc17a72c7fb4fddfba563f4333a98a.stex"
 
 [deps]
 
-source_file="res://image/Character/upgrade_bar1.png"
+source_file="res://upgrade_bar1.png"
 source_md5="bcb7e0d88beb1590ec768a032d72e35c"
 
-dest_files=[ "res://.import/upgrade_bar1.png-e19ef3b9306b3748e6e58352b38f1a55.stex" ]
+dest_files=[ "res://.import/upgrade_bar1.png-1ffc17a72c7fb4fddfba563f4333a98a.stex" ]
 dest_md5="03733f4a52476deef3e5f634376ddaa9"
 
 [params]

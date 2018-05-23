@@ -56,11 +56,13 @@ __meta__ = {
 
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
+editor/display_folded = true
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="shotfrom" type="Sprite" parent="hand/gun" index="0"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 21.3451, 2.89872 )
 texture = ExtResource( 5 )

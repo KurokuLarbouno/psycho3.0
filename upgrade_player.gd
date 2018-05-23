@@ -11,6 +11,7 @@ var t = 0
 var button_delay = 0.2
 var stats = [] #0 = health; 1 = speed
 var score = [] #killpoints; deadpoints
+var upgrade_total = [0,0,0,0,0]
 var player_num
 var pressdelay
 #升級數值
@@ -98,6 +99,7 @@ func main_button_pressed():
 					$menu/main.hide()
 					$menu/UI.hide()
 					$menu/guns.show()
+					$menu/gunUI.show()
 					state = 2
 				elif(buttons[i] == $menu/main/ready):
 					$menu/main.hide()
@@ -136,18 +138,21 @@ func body_button_pressed():
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
 				buttons[i].button_pressed()
-				if(buttons[i] == $menu/body/health):
+				if((buttons[i] == $menu/body/health) and (upgrade_total[0] < 5)):
 					score[player_num][0] -= 1
 					stats[player_num][0] += health_upgrade
+					upgrade_total[0] += 1
 					body_stats_update()
-				elif(buttons[i] == $menu/body/speed):
+				elif((buttons[i] == $menu/body/speed) and (upgrade_total[1] < 5)):
 					score[player_num][0] -= 1
 					stats[player_num][1] += speed_upgrade
+					upgrade_total[1] += 1
 					body_stats_update()
 	pass
 func body_stats_update():
 	$menu/body/health/Label.text = str(stats[player_num][0])
 	$menu/body/speed/Label.text = str(stats[player_num][1])
+	upgrade_points_update()
 	pass
 func body_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):
@@ -187,9 +192,9 @@ func gun_button_focus():
 	var buttons = $menu/guns.get_children()
 	for i in range(buttons.size()):
 		buttons[i].deselect_button()
-	if(gun_button == 0):
+	if(gun_button == 1):
 		$menu/guns/reloadSpeed.select_button()
-	elif(gun_button == 1):
+	elif(gun_button == 0):
 		$menu/guns/fireSpeed.select_button()
 	elif(gun_button == 2):
 		$menu/guns/bulletSpeed.select_button()
@@ -200,17 +205,20 @@ func gun_button_pressed():
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
 				buttons[i].button_pressed()
-				if(buttons[i] == $menu/guns/reloadSpeed):
+				if((buttons[i] == $menu/guns/reloadSpeed) and (upgrade_total[2] < 5)):
 					score[player_num][1] -= 1
 					stats[player_num][2] += reload_upgrade
+					upgrade_total[2] += 1
 					gun_stats_update()
-				elif(buttons[i] == $menu/guns/fireSpeed):
+				elif((buttons[i] == $menu/guns/fireSpeed) and (upgrade_total[3] < 5)):
 					score[player_num][1] -= 1
 					stats[player_num][3] += fire_upgrade
+					upgrade_total[3] += 1
 					gun_stats_update()
-				elif(buttons[i] == $menu/guns/bulletSpeed):
+				elif((buttons[i] == $menu/guns/bulletSpeed) and (upgrade_total[4] < 5)):
 					score[player_num][1] -= 1
 					stats[player_num][4] += bullet_upgrade
+					upgrade_total[4] += 1
 					gun_stats_update()
 	pass
 func gun_stats_update():
@@ -218,16 +226,19 @@ func gun_stats_update():
 	$menu/guns/fireSpeed/Label.text = str(stats[player_num][3])
 	$menu/guns/bulletSpeed/Label.text = str(stats[player_num][4])
 	$menu/guns/bulletSpeed/Label2.text = str(score[player_num][1])
+	upgrade_points_update()
 	pass
 func gun_exit():
 	if(Input.is_joy_button_pressed(device_num, 1)):
 		$menu/guns.hide()
+		$menu/gunUI.hide()
 		$menu/main.show()
 		$menu/UI.show()
 		state = 0
 	elif(device_num == 4): #鍵盤
 		if (Input.is_action_pressed("ui_accept")):
 			$menu/guns.hide()
+			$menu/gunUI.hide()
 			$menu/main.show()
 			$menu/UI.show()
 			state = 0
@@ -258,6 +269,7 @@ func _mouse_click(name):
 		$menu/main.hide()
 		$menu/UI.hide()
 		$menu/guns.show()
+		$menu/gunUI.show()
 		state = 2
 	elif(name == "ready"):
 		$menu/main.hide()
@@ -294,4 +306,11 @@ func button_connect():
 	$menu/guns/reloadSpeed.connect("mouse_click", self, "_mouse_click")
 	$menu/guns/fireSpeed.connect("mouse_click", self, "_mouse_click")
 	$menu/guns/bulletSpeed.connect("mouse_click", self, "_mouse_click")
+	pass
+func upgrade_points_update():
+	$menu/body/health/points.frame = upgrade_total[0]
+	$menu/body/speed/points.frame = upgrade_total[1]
+	$menu/guns/reloadSpeed/points.frame = upgrade_total[2]
+	$menu/guns/fireSpeed/points.frame = upgrade_total[3]
+	$menu/guns/bulletSpeed/points.frame = upgrade_total[4]
 	pass
