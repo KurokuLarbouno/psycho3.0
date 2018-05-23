@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/end_scene.gd" type="Script" id=1]
 
-[node name="end_scene" type="Node2D"]
+[node name="end_scene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -54,6 +54,11 @@ editor_draw_drag_margin = false
 
 [node name="1" type="Node2D" parent="." index="2"]
 
+position = Vector2( 109, 276 )
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="total kills" type="Label" parent="1" index="0"]
 
 anchor_left = 0.0
@@ -78,8 +83,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 21.0
 margin_right = 40.0
-margin_bottom = 14.0
+margin_bottom = 35.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -92,7 +98,10 @@ max_lines_visible = -1
 
 [node name="2" type="Node2D" parent="." index="3"]
 
-editor/display_folded = true
+position = Vector2( 253, 276 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total kills" type="Label" parent="2" index="0"]
 
@@ -132,7 +141,10 @@ max_lines_visible = -1
 
 [node name="3" type="Node2D" parent="." index="4"]
 
-editor/display_folded = true
+position = Vector2( 397, 276 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total kills" type="Label" parent="3" index="0"]
 
@@ -172,7 +184,10 @@ max_lines_visible = -1
 
 [node name="4" type="Node2D" parent="." index="5"]
 
-editor/display_folded = true
+position = Vector2( 550, 278 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total kills" type="Label" parent="4" index="0"]
 

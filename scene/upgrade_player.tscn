@@ -20,7 +20,7 @@
 [ext_resource path="res://image/StartEnd/upgrade3.png" type="Texture" id=18]
 [ext_resource path="res://image/StartEnd/upgrade2.png" type="Texture" id=19]
 [ext_resource path="res://upgrade_bar-sheet.png" type="Texture" id=20]
-[ext_resource path="res://image/StartEnd/ready_hover.png" type="Texture" id=21]
+[ext_resource path="res://image/StartEnd/upgrade_UI4.png" type="Texture" id=21]
 
 [sub_resource type="Animation" id=1]
 
@@ -255,6 +255,7 @@ _sections_unfolded = [ "Animation" ]
 
 [node name="guns" type="Node2D" parent="menu" index="6"]
 
+editor/display_folded = true
 visible = false
 
 [node name="fireSpeed" parent="menu/guns" index="0" instance=ExtResource( 7 )]
@@ -381,12 +382,11 @@ max_lines_visible = -1
 
 [node name="ready" type="Node2D" parent="menu" index="7"]
 
-editor/display_folded = true
 visible = false
 
 [node name="Sprite" type="Sprite" parent="menu/ready" index="0"]
 
-position = Vector2( 60, 119 )
+position = Vector2( 60, 138 )
 texture = ExtResource( 21 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
