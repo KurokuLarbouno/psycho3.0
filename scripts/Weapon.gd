@@ -88,18 +88,19 @@ func _process(delta):
 		else:
 			charge_count += delta
 	elif(state == 3):
-		if(!atk):#shot action
-		#if(shot_count >= PRESS_SHOT_TIME):#shot action
+		#if(!atk):#shot action
+		if(shot_count >= PRESS_SHOT_TIME):#shot action
 			shot_count = 0
 			atk = true
+
 			get_node("../hand/gun/shotfrom/sword").set_position(get_node("../../player/hand/gun/shotfrom").position*0.05)
 			get_node("../hand/gun/shotfrom/sword").set_scale(Vector2(3, 3))
 			state = 0
 			get_node("../animation").play("sword_attack")
 			$Timer.set_wait_time(0.1)
 			$Timer.start()
-#		else:
-#			shot_count += delta
+		else:
+			shot_count += delta
 		pass
 	else:
 		charge_count = 0

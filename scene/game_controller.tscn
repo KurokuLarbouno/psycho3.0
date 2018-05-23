@@ -135,6 +135,41 @@ position = Vector2( 243, 181 )
 scale = Vector2( 1, 1 )
 zoom = Vector2( 0.5, 0.5 )
 
+[node name="mirage" parent="Camera2D" index="1"]
+
+margin_left = -352.0
+margin_top = -208.0
+margin_right = 279.0
+margin_bottom = 135.0
+
+[node name="whirl" parent="Camera2D" index="2"]
+
+margin_left = -415.0
+margin_top = -272.0
+margin_right = 297.0
+margin_bottom = 132.0
+
+[node name="old_mirage" parent="Camera2D" index="4"]
+
+margin_left = -340.0
+margin_top = -196.0
+margin_right = 340.0
+margin_bottom = 204.0
+
+[node name="hahamirro" parent="Camera2D" index="5"]
+
+margin_left = -347.0
+margin_top = -311.0
+margin_right = 355.0
+margin_bottom = 197.0
+
+[node name="glitch" parent="Camera2D" index="6"]
+
+margin_left = -353.0
+margin_top = -285.0
+margin_right = 347.0
+margin_bottom = 289.0
+
 [node name="Timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
@@ -152,6 +187,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="slice" parent="Transition" index="0" instance=ExtResource( 6 )]
 
+visible = false
 position = Vector2( 1, 8 )
 
 [node name="Slice" parent="Transition/slice" index="0"]
