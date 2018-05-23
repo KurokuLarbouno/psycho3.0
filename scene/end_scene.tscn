@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/end_scene.gd" type="Script" id=1]
 
-[node name="end_scene" type="Node2D"]
+[node name="end_scene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -54,6 +54,8 @@ editor_draw_drag_margin = false
 
 [node name="1" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( 109, 276 )
 __meta__ = {
 "_edit_group_": true
@@ -99,6 +101,8 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="2" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( 253, 276 )
 __meta__ = {
 "_edit_group_": true
@@ -143,6 +147,8 @@ max_lines_visible = -1
 
 [node name="3" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( 397, 276 )
 __meta__ = {
 "_edit_group_": true
@@ -186,6 +192,8 @@ max_lines_visible = -1
 
 [node name="4" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( 550, 278 )
 __meta__ = {
 "_edit_group_": true

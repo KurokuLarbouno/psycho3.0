@@ -245,6 +245,7 @@ func end_scene():
 	$UI/playerUI.hide()
 	_load_game(ending)
 	$game_scene/end_scene.final_score = final_score
+	$game_scene/end_scene.player_data = player_data
 	pass
 func _hurt():
 	$Camera2D/Anim_Effect.play("shake")
