@@ -18,6 +18,7 @@ func _ready():
 
 func _process(delta):
 	check_player_join_leave()
+	print(is_ready , player_num)
 	#print(inputList)
 	pass
 	
@@ -83,7 +84,6 @@ func register_player(num):
 #Ｂ鍵取消玩家
 func delete_player(num):
 	#print("dd")
-	player_num -= 1
 	var children
 	if(num == player1_device):
 		children = get_node("player/player1").get_children()
@@ -100,6 +100,7 @@ func delete_player(num):
 	if children.size() > 0:
 		if(children[0].player_state == 0):
 			children[0].exit()
+			player_num -= 1
 			#playerList[num] = -1
 			#inputList[num] = num
 	pass

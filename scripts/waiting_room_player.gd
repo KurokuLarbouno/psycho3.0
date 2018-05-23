@@ -104,7 +104,7 @@ func _button_cancel():
 				buttons[i].deselect_button()
 				buttons[i].select_button()
 				player_state = 2
-				emit_signal("player_ready", -1, -1, -1)
+				emit_signal("player_ready", -1, player_num, character_order)
 func change_character():
 	if(character_order == 0):
 		$items/cName.text = character_name[1]
