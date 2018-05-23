@@ -135,6 +135,24 @@ position = Vector2( 243, 181 )
 scale = Vector2( 1, 1 )
 zoom = Vector2( 0.5, 0.5 )
 
+<<<<<<< HEAD
+=======
+[node name="mirage" parent="Camera2D" index="1"]
+
+visible = true
+margin_left = -390.0
+margin_top = -286.0
+margin_right = 1291.0
+margin_bottom = 626.0
+
+[node name="glitch" parent="Camera2D" index="6"]
+
+margin_left = -378.0
+margin_top = -230.0
+margin_right = 1153.0
+margin_bottom = 667.0
+
+>>>>>>> 4544e3a2e8fda0fe1d02a220d4f8cb7b8352339c
 [node name="Timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
