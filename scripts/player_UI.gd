@@ -41,7 +41,7 @@ func _set_bullet(bullet_amount):
 	for i in range(bullet_amount):
 		var bullet_sprite = Sprite.new()
 		bullet_sprite.texture = bullet_texture
-		bullet_sprite.position = Vector2(i*18, 69)
+		bullet_sprite.position = Vector2(i*18, 51)
 		$bullet.add_child(bullet_sprite)
 	pass
 #玩家傳入當前血量

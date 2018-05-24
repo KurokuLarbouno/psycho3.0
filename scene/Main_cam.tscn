@@ -106,8 +106,8 @@ shader_param/depth = null
 
 code = "shader_type canvas_item;
 //inputs
-uniform float AMT = 0.2; //0 - 1 glitch amount
-uniform float SPEED = 0.3; //0 - 1 speed
+uniform float AMT = 0.7; //0 - 1 glitch amount
+uniform float SPEED = 0.6; //0 - 1 speed
 
 //2D (returns 0 - 1)
 float random2d(vec2 n) { 
@@ -143,7 +143,7 @@ void fragment()
         vec2 uvOff = uv;
         uvOff.x += hOffset;
         if (insideRange(uv.y, sliceY, fract(sliceY+sliceH)) == 1.0 ){
-        	outCol = texture(SCREEN_TEXTURE, uvOff).rgb*vec3(10,10,10);
+        	outCol = texture(SCREEN_TEXTURE, uvOff).rgb;
         }
     }
     
@@ -153,17 +153,18 @@ void fragment()
     vec2 colOffset = vec2(randomRange(vec2(time , 9545.0),-maxColOffset,maxColOffset), 
                        randomRange(vec2(time , 7205.0),-maxColOffset,maxColOffset));
     if (rnd < 0.33){
-        outCol.r = texture(SCREEN_TEXTURE, uv + colOffset).r;
-
+        outCol.r = texture(SCREEN_TEXTURE, uv + colOffset).r*5.0;
+        
     }else if (rnd < 0.66){
-        outCol.g = texture(SCREEN_TEXTURE, uv + colOffset).g;
-
+        outCol.g = texture(SCREEN_TEXTURE, uv + colOffset).g*5.0;
+        
     } else{
-        outCol.b = texture(SCREEN_TEXTURE, uv + colOffset).b;  
+        outCol.b = texture(SCREEN_TEXTURE, uv + colOffset).b*5.0;  
     }
        
 	COLOR = vec4(outCol,1.0);
-}"
+}
+"
 
 [sub_resource type="ShaderMaterial" id=7]
 

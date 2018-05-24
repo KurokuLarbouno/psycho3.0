@@ -17,11 +17,11 @@ var pressdelay
 
 var upgrade_stats = [0,0,0,0,0]
 #升級數值
-var health_upgrade = 1
-var speed_upgrade = 300
-var reload_upgrade = -0.05
-var fire_upgrade = -0.01
-var bullet_upgrade = 10
+var health_upgrade = 2
+var speed_upgrade = 600
+var reload_upgrade = -0.10
+var fire_upgrade = -0.08
+var bullet_upgrade = 20
 func _ready():
 	button_connect()
 	$menu/player.text = "player" + str(player_num + 1)

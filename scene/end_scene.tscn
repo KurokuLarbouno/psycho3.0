@@ -1,21 +1,62 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/end_scene.gd" type="Script" id=1]
+[ext_resource path="res://image/StartEnd/local_end.png" type="Texture" id=2]
+[ext_resource path="res://font/FFFFORWA.TTF" type="DynamicFontData" id=3]
 
-[node name="end_scene" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="end_scene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
-[node name="Label" type="Label" parent="." index="0"]
+[node name="back" type="Sprite" parent="." index="0"]
 
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Label" type="Label" parent="." index="1"]
+
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 283.0
-margin_top = 164.0
-margin_right = 326.0
-margin_bottom = 178.0
+margin_left = 282.0
+margin_top = 163.0
+margin_right = 325.0
+margin_bottom = 177.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -27,12 +68,12 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Camera2D" type="Camera2D" parent="." index="1"]
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
 
 anchor_mode = 0
 rotating = false
 current = false
-zoom = Vector2( 0.5, 0.5 )
+zoom = Vector2( 0.375, 0.375 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -52,15 +93,41 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 
-[node name="1" type="Node2D" parent="." index="2"]
+[node name="1" type="Node2D" parent="." index="3"]
 
-position = Vector2( 109, 276 )
+position = Vector2( 168, 36 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="ID" type="Label" parent="1" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -17.0
+margin_top = -9.0
+margin_right = 63.0
+margin_bottom = 13.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
+text = "Player 1"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="kills" type="Node2D" parent="1" index="1"]
+
+position = Vector2( 100, -9 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="kills" type="Node2D" parent="1" index="0"]
 
 [node name="total kills" type="Label" parent="1/kills" index="0"]
 
@@ -68,20 +135,27 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
+text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Size Flags" ]
+_sections_unfolded = [ "Focus", "Margin", "Size Flags", "custom_colors", "custom_fonts" ]
 
-[node name="deaths" type="Node2D" parent="1" index="1"]
+[node name="deaths" type="Node2D" parent="1" index="2"]
+
+position = Vector2( 153, -9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total deaths" type="Label" parent="1/deaths" index="0"]
 
@@ -89,29 +163,88 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 21.0
-margin_right = 40.0
-margin_bottom = 35.0
+margin_right = 12.0
+margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
+text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
-[node name="2" type="Node2D" parent="." index="3"]
+[node name="final" type="Node2D" parent="1" index="3"]
 
 visible = false
-position = Vector2( 253, 276 )
+position = Vector2( 212, -9 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="kills" type="Node2D" parent="2" index="0"]
+[node name="score" type="Label" parent="1/final" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.714722, 0.109375, 1 )
+text = "0"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
+
+[node name="2" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 168, 102 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ID" type="Label" parent="2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -13.0
+margin_top = -5.0
+margin_right = 38.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Player 2"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="kills" type="Node2D" parent="2" index="1"]
+
+editor/display_folded = true
+position = Vector2( 91, 0 )
 
 [node name="total kills" type="Label" parent="2/kills" index="0"]
 
@@ -119,19 +252,24 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = -5.0
 margin_right = 40.0
-margin_bottom = 14.0
+margin_bottom = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Size Flags" ]
 
-[node name="deaths" type="Node2D" parent="2" index="1"]
+[node name="deaths" type="Node2D" parent="2" index="2"]
+
+editor/display_folded = true
 
 [node name="total deaths" type="Label" parent="2/deaths" index="0"]
 
@@ -139,9 +277,34 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 20.0
+margin_left = 142.0
+margin_top = -5.0
+margin_right = 182.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="final" type="Node2D" parent="2" index="3"]
+
+editor/display_folded = true
+
+[node name="score" type="Label" parent="2/final" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 40.0
-margin_bottom = 34.0
+margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -152,15 +315,41 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="3" type="Node2D" parent="." index="4"]
+[node name="3" type="Node2D" parent="." index="5"]
 
+editor/display_folded = true
 visible = false
-position = Vector2( 397, 276 )
+position = Vector2( 168, 168 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="kills" type="Node2D" parent="3" index="0"]
+[node name="ID" type="Label" parent="3" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -13.0
+margin_top = -5.0
+margin_right = 38.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Player 3"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="kills" type="Node2D" parent="3" index="1"]
+
+editor/display_folded = true
+position = Vector2( 91, 0 )
 
 [node name="total kills" type="Label" parent="3/kills" index="0"]
 
@@ -168,19 +357,24 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = -5.0
 margin_right = 40.0
-margin_bottom = 14.0
+margin_bottom = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Size Flags" ]
 
-[node name="deaths" type="Node2D" parent="3" index="1"]
+[node name="deaths" type="Node2D" parent="3" index="2"]
+
+editor/display_folded = true
 
 [node name="total deaths" type="Label" parent="3/deaths" index="0"]
 
@@ -188,29 +382,27 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 142.0
+margin_top = -5.0
+margin_right = 182.0
+margin_bottom = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+text = "0"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
 
-[node name="4" type="Node2D" parent="." index="5"]
+[node name="final" type="Node2D" parent="3" index="3"]
 
-visible = false
-position = Vector2( 550, 278 )
-__meta__ = {
-"_edit_group_": true
-}
+editor/display_folded = true
 
-[node name="kills" type="Node2D" parent="4" index="0"]
-
-[node name="total kills" type="Label" parent="4/kills" index="0"]
+[node name="score" type="Label" parent="3/final" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -228,9 +420,94 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="deaths" type="Node2D" parent="4" index="1"]
+[node name="4" type="Node2D" parent="." index="6"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 168, 234 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ID" type="Label" parent="4" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -13.0
+margin_top = -5.0
+margin_right = 38.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Player 4"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="kills" type="Node2D" parent="4" index="1"]
+
+editor/display_folded = true
+position = Vector2( 91, 0 )
+
+[node name="total kills" type="Label" parent="4/kills" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = -5.0
+margin_right = 40.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Size Flags" ]
+
+[node name="deaths" type="Node2D" parent="4" index="2"]
+
+editor/display_folded = true
 
 [node name="total deaths" type="Label" parent="4/deaths" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 142.0
+margin_top = -5.0
+margin_right = 182.0
+margin_bottom = 9.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin" ]
+
+[node name="final" type="Node2D" parent="4" index="3"]
+
+editor/display_folded = true
+
+[node name="score" type="Label" parent="4/final" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

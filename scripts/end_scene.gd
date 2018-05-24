@@ -1,13 +1,21 @@
 extends Node2D
 
 var p1_kills = 0
+var p1_k_flag = false
 var p1_deaths = 0
+var p1_d_flag = false
+var p1_total = 0
+var p1_total_flag = false
+
 var p2_kills = 0
 var p2_deaths = 0
+var p2_total = 0
 var p3_kills = 0
 var p3_deaths = 0
+var p3_total = 0
 var p4_kills = 0
 var p4_deaths = 0
+var p4_total = 0
 
 var no_kills = 0
 var no_deaths = 0
@@ -37,12 +45,19 @@ func update_score(delta):
 		if(p1_kills < final_score[0][0]):
 			p1_kills += 1
 			get_node("1/kills").scale = Vector2(2,2)
+		else: p1_k_flag = true
 		if(p1_deaths < final_score[0][1]):
 			p1_deaths += 1
 			get_node("1/deaths").scale = Vector2(2,2)
+		else: p1_d_flag = true
+		if(p1_k_flag and p1_d_flag and !p1_total_flag):
+			p1_total = final_score[0][0] - final_score[0][1]
+			get_node("1/final").scale = Vector2(5,5)
+			get_node("1/final").show()
+			p1_total_flag = true
 		get_node("1/kills/total kills").text = str(p1_kills)
 		get_node("1/deaths/total deaths").text = str(p1_deaths)
-		
+		get_node("1/final/score").text = str(p1_total)
 		if(p2_kills < final_score[1][0]):
 			p2_kills += 1
 			get_node("2/kills").scale = Vector2(2,2)
@@ -72,9 +87,11 @@ func update_score(delta):
 		t = 0
 	for i in range(4):
 		if(get_node(str(i+1) + "/kills").scale.x > 1):
-			get_node(str(i+1) + "/kills").scale -= Vector2(0.1,0.1)
+			get_node(str(i+1) + "/kills").scale -= Vector2(0.1, 0.1)
 		if(get_node(str(i+1) + "/deaths").scale.x > 1):
-			get_node(str(i+1) + "/deaths").scale -= Vector2(0.1,0.1)
+			get_node(str(i+1) + "/deaths").scale -= Vector2(0.1, 0.1)
+		if(get_node(str(i+1) + "/final").scale.x > 1):
+			get_node(str(i+1) + "/final").scale -= Vector2(0.1, 0.1)
 	pass
 var show = false
 func show_player():
