@@ -150,6 +150,8 @@ func play_anim():
 	else: 
 		get_node("hand/gun").flip_v = 0
 	#get_node("hand").set_rotation_in_degrees(angle+90)
+	if not is_sword:
+		get_node("hand/gun").flip_h = false
 	get_node("hand").rotation = (angle+90)*PI/180
 	get_node("hand/gun").z_index = z_index + 1#----------------------------------------------------18/3/5
 	if(motion.length()<=0):
@@ -382,6 +384,7 @@ func player_switch_weapon():
 			#print("change Weapon")
 			if not is_sword:
 				$animation.stop()
+				get_node("hand/gun").flip_h = false
 				if(player_type == 0):
 					$hand/gun.texture = c1_gun
 				elif(player_type == 1):

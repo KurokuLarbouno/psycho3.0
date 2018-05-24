@@ -6,6 +6,8 @@ signal update_bullet
 var CHARGE_TIME = 1		#填充時間
 var PRESS_SHOT_TIME = 0.2	#長按發射時間間隔
 var SHOT_TIME = 0.2		#短按發射時間間隔
+var SWORD_PRESS_SHOT_TIME = 0.6	#刀子長按發射時間間隔
+var SWORD_SHOT_TIME = 0.6		#短按發射時間間隔
 var BULLET_AMOUNT = 6	#彈匣數
 var BULLET_DMG = 1		#子彈傷害
 var BULLET_SPEED = 200	#子彈速度
@@ -47,10 +49,16 @@ func _ready():
 func _process(delta):
 	#----------------------------------------狀態機
 	if(state == 0):
-		if(shot_count < SHOT_TIME):
-			shot_count += delta
+		if not is_sword:
+			if(shot_count < SHOT_TIME):
+				shot_count += delta
+			else:
+				shot_count = PRESS_SHOT_TIME
 		else:
-			shot_count = PRESS_SHOT_TIME
+			if(shot_count < SWORD_SHOT_TIME):
+				shot_count += delta
+			else:
+				shot_count = SWORD_PRESS_SHOT_TIME
 		pass
 	elif(state == 1):
 		if(shot_count >= PRESS_SHOT_TIME):#shot action
@@ -89,7 +97,7 @@ func _process(delta):
 			charge_count += delta
 	elif(state == 3):
 		#if(!atk):#shot action
-		if(shot_count >= PRESS_SHOT_TIME):#shot action
+		if(shot_count >= SWORD_PRESS_SHOT_TIME):#shot action
 			shot_count = 0
 			atk = true
 
@@ -137,7 +145,7 @@ func _on_sword_area_entered(area):
 		#print(area.get_name())
 		if area.get_name() == "swordcollision":
 			if get_node(str(area.get_path())+"/../").get_name() != OWNER_NAME:
-				get_node(str(area.get_path())+"/../").hurt(BULLET_DMG*2, get_node("../").player_num)
+				get_node(str(area.get_path())+"/../").hurt(BULLET_DMG*2,get_node("../../player").player_num)
 			pass
 		elif area.get_name() == "bullet":
 			get_node(str(area.get_path())).sp *= -1
