@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/main.gd" type="Script" id=1]
 [ext_resource path="res://image/change_scene.png" type="Texture" id=2]
 
-[node name="main" type="Node2D" index="0"]
+[node name="main" type="Node2D"]
 
 position = Vector2( 0, 0.302887 )
 scale = Vector2( 1, 1.00947 )

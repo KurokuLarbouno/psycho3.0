@@ -146,7 +146,7 @@ func _on_sword_area_entered(area):
 		#print(area.get_name())
 		if area.get_name() == "swordcollision":
 			if get_node(str(area.get_path())+"/../").get_name() != OWNER_NAME:
-				get_node(str(area.get_path())+"/../").hurt(BULLET_DMG*2,get_node("../../player").player_num)
+				get_node(str(area.get_path())+"/../").hurt(BULLET_DMG*2,get_node("../").player_num)
 			pass
 		elif area.get_name() == "bullet":
 			get_node(str(area.get_path())).sp *= -1
