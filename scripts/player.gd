@@ -200,7 +200,10 @@ func hurt(dmg,ower = ''):
 		#----------------------------------------道具效果受擊中斷 Start
 			if $TrapEffect.hide_flag:$TrapEffect.hide_time = $TrapEffect.hide_time+20
 			#----------------------------------------道具效果受擊中斷 End
-			#color_red_flag = true#因為兩邊都要看到受擊變色，所以不放入is_network_master中				
+			#color_red_flag = true#因為兩邊都要看到受擊變色，所以不放入is_network_master中	
+			
+			#Input.start_joy_vibration(cur_joy, weak, strong, duration)
+			Input.start_joy_vibration(input_device, 1, 1, 0.1)			
 	pass
 func player_trap_switch():
 	#-----------------------------------------------切換與放置陷阱
