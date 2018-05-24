@@ -31,7 +31,8 @@ func _process(delta):
 		button_selet()
 		_button_pressed()
 	elif(player_state == 1):#ready
-		_button_cancel()
+		#_button_cancel()
+		print("ready")
 	elif(player_state == 2):
 		t += 1
 		if(t > 20):

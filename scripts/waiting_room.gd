@@ -31,9 +31,9 @@ func check_player_join_leave():
 			inputList[num] = -1
 			playerList[num] = num
 			register_player(num)
-	for num in playerList:
-		if(Input.is_joy_button_pressed(num, 1)):
-			delete_player(num)
+#	for num in playerList:
+#		if(Input.is_joy_button_pressed(num, 1)):
+#			delete_player(num)
 	#鍵盤
 	if(Input.is_action_just_pressed("ui_select") and inputList[4] == 4):
 		register_player(4)
