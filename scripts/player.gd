@@ -381,6 +381,7 @@ func player_switch_weapon():
 			is_sword = !is_sword
 			#print("change Weapon")
 			if not is_sword:
+				$animation.stop()
 				if(player_type == 0):
 					$hand/gun.texture = c1_gun
 				elif(player_type == 1):

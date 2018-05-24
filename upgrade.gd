@@ -10,6 +10,7 @@ var ready_player = 0
 var upgrade_stats = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
 
 func _ready():
+	get_node("../../Camera2D/mirage").hide()
 	pass
 
 func _process(delta):
