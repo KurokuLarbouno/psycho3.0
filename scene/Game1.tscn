@@ -6,7 +6,7 @@
 [ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -100,8 +100,8 @@ _sections_unfolded = [ "Z Index" ]
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 4 )
-volume_db = 0.0
-autoplay = false
+volume_db = -10.0
+autoplay = true
 mix_target = 0
 bus = "Master"
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://image/Character/shadow.png" type="Texture" id=2]
@@ -8,11 +8,12 @@
 [ext_resource path="res://image/light.png" type="Texture" id=6]
 [ext_resource path="res://scene/fire.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scene/Weapon.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=10]
-[ext_resource path="res://player.tres" type="Animation" id=11]
-[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=12]
-[ext_resource path="res://scripts/TrapEffect.gd" type="Script" id=13]
+[ext_resource path="res://sound/reload.wav" type="AudioStream" id=9]
+[ext_resource path="res://scene/hurt.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scene/AP2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://player.tres" type="Animation" id=12]
+[ext_resource path="res://sound/射擊聲.wav" type="AudioStream" id=13]
+[ext_resource path="res://scripts/TrapEffect.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,7 +25,7 @@ extents = Vector2( 5.43563, 17.0168 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="player" type="KinematicBody2D" groups=[
+[node name="player" type="KinematicBody2D" index="0" groups=[
 "sprite",
 "player_group",
 ]]
@@ -122,7 +123,15 @@ __meta__ = {
 
 [node name="Weapon" parent="." index="3" instance=ExtResource( 8 )]
 
-[node name="hurt" parent="." index="4" instance=ExtResource( 9 )]
+[node name="sound" type="AudioStreamPlayer" parent="Weapon" index="1"]
+
+stream = ExtResource( 9 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="hurt" parent="." index="4" instance=ExtResource( 10 )]
 
 [node name="collision" type="CollisionPolygon2D" parent="." index="5"]
 
@@ -133,13 +142,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="animation" parent="." index="6" instance=ExtResource( 10 )]
+[node name="animation" parent="." index="6" instance=ExtResource( 11 )]
 
-anims/sword_attack = ExtResource( 11 )
+anims/sword_attack = ExtResource( 12 )
 
 [node name="sound" type="AudioStreamPlayer" parent="." index="7"]
 
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 volume_db = -8.0
 autoplay = false
 mix_target = 0
@@ -147,7 +156,7 @@ bus = "Master"
 
 [node name="TrapEffect" type="Node2D" parent="." index="8"]
 
-script = ExtResource( 13 )
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
 }

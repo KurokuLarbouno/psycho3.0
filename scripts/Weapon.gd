@@ -135,6 +135,7 @@ sync func release():
 sync func charge():
 	if not is_sword:
 		state = 2#重新填裝
+		$sound.play()
 	pass
 func change_weapon(var_is_sword):
 	is_sword = var_is_sword
