@@ -76,7 +76,7 @@ use_filter = false
 font_data = ExtResource( 7 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="upgrade_player" type="Node2D" index="0"]
+[node name="upgrade_player" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -104,8 +104,6 @@ blend_times = [  ]
 
 [node name="menu" type="Control" parent="." index="2"]
 
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -130,9 +128,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -37.0
+margin_left = -35.0
 margin_top = -42.0
-margin_right = 3.0
+margin_right = 5.0
 margin_bottom = -16.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -153,9 +151,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -37.0
+margin_left = -35.0
 margin_top = -4.0
-margin_right = 3.0
+margin_right = 5.0
 margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false

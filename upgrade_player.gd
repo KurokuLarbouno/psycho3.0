@@ -110,6 +110,7 @@ func main_button_pressed():
 					$menu/UI.hide()
 					$menu/ready.show()
 					player_ready()
+					state = 3
 	pass
 	#body button
 func body_button_select(delta):

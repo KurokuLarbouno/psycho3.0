@@ -54,9 +54,9 @@ editor_draw_drag_margin = false
 
 [node name="1" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 109, 276 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -78,6 +78,7 @@ size_flags_vertical = 4
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Focus", "Size Flags" ]
 
 [node name="total deaths" type="Label" parent="1" index="1"]
 

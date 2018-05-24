@@ -27,36 +27,47 @@ func _process(delta):
 
 func update_score(delta):
 	t += delta
-	if(t > 1):
+	if(t > 0.3):
 		#player 1
 		if(p1_kills < final_score[0][0]):
 			p1_kills += 1
+			get_node("1").scale = Vector2(2,2)
 		if(p1_deaths < final_score[0][1]):
 			p1_deaths += 1
+			get_node("1").scale = Vector2(2,2)
 		$"1/total kills".text = str(p1_kills)
 		$"1/total deaths".text = str(p1_deaths)
 		#player 2
 		if(p2_kills < final_score[1][0]):
 			p2_kills += 1
+			get_node("2").scale = Vector2(2,2)
 		if(p2_deaths < final_score[1][1]):
 			p2_deaths += 1
+			get_node("2").scale = Vector2(2,2)
 		$"2/total kills".text = str(p2_kills)
 		$"2/total deaths".text = str(p2_deaths)
 		#player 3
 		if(p3_kills < final_score[2][0]):
 			p3_kills += 1
+			get_node("3").scale = Vector2(2,2)
 		if(p3_deaths < final_score[2][1]):
 			p3_deaths += 1
+			get_node("3").scale = Vector2(2,2)
 		$"3/total kills".text = str(p3_kills)
 		$"3/total deaths".text = str(p3_deaths)
 		#player 4
 		if(p4_kills < final_score[3][0]):
 			p4_kills += 1
+			get_node("4").scale = Vector2(2,2)
 		if(p4_deaths < final_score[3][1]):
 			p4_deaths += 1
+			get_node("4").scale = Vector2(2,2)
 		$"4/total kills".text = str(p4_kills)
 		$"4/total deaths".text = str(p4_deaths)
 		t = 0
+	if(get_node("1").scale.x > 1):
+		for i in range(4):
+			get_node(str(i+1)).scale -= Vector2(0.1,0.1)
 	pass
 var show = false
 func show_player():
