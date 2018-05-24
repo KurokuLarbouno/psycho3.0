@@ -142,8 +142,13 @@ editor/display_folded = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 5 )
+<<<<<<< HEAD
 volume_db = -10.0
 autoplay = true
+=======
+volume_db = 0.0
+autoplay = false
+>>>>>>> 4af38278183a100821ad05d36d76ec0adeb41313
 mix_target = 0
 bus = "Master"
 
