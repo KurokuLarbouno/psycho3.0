@@ -227,7 +227,7 @@ tracks/1/keys = {
 "values": [ 4, 5, 6, 7, 19, 20, 19, 22, 23, 24, 25 ]
 }
 
-[node name="Lobby" type="Control"]
+[node name="Lobby" type="Control" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -1295,7 +1295,7 @@ stretch_mode = 0
 
 stream = ExtResource( 25 )
 volume_db = 0.0
-autoplay = false
+autoplay = true
 mix_target = 0
 bus = "Master"
 
