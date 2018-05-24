@@ -36,7 +36,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="end_scene" type="Node2D" index="0"]
+[node name="end_scene" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -95,6 +95,8 @@ editor_draw_drag_margin = false
 
 [node name="1" type="Node2D" parent="." index="3"]
 
+editor/display_folded = true
+visible = false
 position = Vector2( 168, 36 )
 _sections_unfolded = [ "Transform" ]
 
@@ -124,6 +126,7 @@ _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="kills" type="Node2D" parent="1" index="1"]
 
+editor/display_folded = true
 position = Vector2( 100, -9 )
 __meta__ = {
 "_edit_group_": true
@@ -152,6 +155,7 @@ _sections_unfolded = [ "Focus", "Margin", "Size Flags", "custom_colors", "custom
 
 [node name="deaths" type="Node2D" parent="1" index="2"]
 
+editor/display_folded = true
 position = Vector2( 153, -9 )
 __meta__ = {
 "_edit_group_": true
@@ -182,6 +186,7 @@ _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="final" type="Node2D" parent="1" index="3"]
 
+editor/display_folded = true
 visible = false
 position = Vector2( 212, -9 )
 _sections_unfolded = [ "Transform" ]
@@ -214,11 +219,8 @@ _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 editor/display_folded = true
 visible = false
-position = Vector2( 168, 102 )
+position = Vector2( 168, 104 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="ID" type="Label" parent="2" index="0"]
 
@@ -226,25 +228,31 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -13.0
-margin_top = -5.0
-margin_right = 38.0
-margin_bottom = 9.0
+margin_left = -17.0
+margin_top = -9.0
+margin_right = 63.0
+margin_bottom = 13.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "Player 2"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="kills" type="Node2D" parent="2" index="1"]
 
 editor/display_folded = true
-position = Vector2( 91, 0 )
+position = Vector2( 100, -9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total kills" type="Label" parent="2/kills" index="0"]
 
@@ -252,24 +260,28 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -5.0
-margin_right = 40.0
-margin_bottom = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Size Flags" ]
+_sections_unfolded = [ "Focus", "Margin", "Size Flags", "custom_colors", "custom_fonts" ]
 
 [node name="deaths" type="Node2D" parent="2" index="2"]
 
 editor/display_folded = true
+position = Vector2( 153, -9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total deaths" type="Label" parent="2/deaths" index="0"]
 
@@ -277,25 +289,32 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 142.0
-margin_top = -5.0
-margin_right = 182.0
-margin_bottom = 9.0
+margin_right = 12.0
+margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="final" type="Node2D" parent="2" index="3"]
 
 editor/display_folded = true
+visible = false
+position = Vector2( 212, -9 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="score" type="Label" parent="2/final" index="0"]
 
@@ -303,27 +322,27 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.714722, 0.109375, 1 )
+text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="3" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 visible = false
-position = Vector2( 168, 168 )
+position = Vector2( 168, 169 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="ID" type="Label" parent="3" index="0"]
 
@@ -331,25 +350,31 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -13.0
-margin_top = -5.0
-margin_right = 38.0
-margin_bottom = 9.0
+margin_left = -17.0
+margin_top = -9.0
+margin_right = 63.0
+margin_bottom = 13.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "Player 3"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="kills" type="Node2D" parent="3" index="1"]
 
 editor/display_folded = true
-position = Vector2( 91, 0 )
+position = Vector2( 100, -9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total kills" type="Label" parent="3/kills" index="0"]
 
@@ -357,24 +382,28 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -5.0
-margin_right = 40.0
-margin_bottom = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Size Flags" ]
+_sections_unfolded = [ "Focus", "Margin", "Size Flags", "custom_colors", "custom_fonts" ]
 
 [node name="deaths" type="Node2D" parent="3" index="2"]
 
 editor/display_folded = true
+position = Vector2( 153, -9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total deaths" type="Label" parent="3/deaths" index="0"]
 
@@ -382,25 +411,32 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 142.0
-margin_top = -5.0
-margin_right = 182.0
-margin_bottom = 9.0
+margin_right = 12.0
+margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="final" type="Node2D" parent="3" index="3"]
 
 editor/display_folded = true
+visible = false
+position = Vector2( 212, -9 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="score" type="Label" parent="3/final" index="0"]
 
@@ -408,27 +444,27 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.714722, 0.109375, 1 )
+text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="4" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
 visible = false
-position = Vector2( 168, 234 )
+position = Vector2( 168, 235 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="ID" type="Label" parent="4" index="0"]
 
@@ -436,25 +472,31 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = -13.0
-margin_top = -5.0
-margin_right = 38.0
-margin_bottom = 9.0
+margin_left = -17.0
+margin_top = -9.0
+margin_right = 63.0
+margin_bottom = 13.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "Player 4"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
 [node name="kills" type="Node2D" parent="4" index="1"]
 
 editor/display_folded = true
-position = Vector2( 91, 0 )
+position = Vector2( 100, -9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total kills" type="Label" parent="4/kills" index="0"]
 
@@ -462,24 +504,28 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -5.0
-margin_right = 40.0
-margin_bottom = 9.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Focus", "Size Flags" ]
+_sections_unfolded = [ "Focus", "Margin", "Size Flags", "custom_colors", "custom_fonts" ]
 
 [node name="deaths" type="Node2D" parent="4" index="2"]
 
 editor/display_folded = true
+position = Vector2( 153, -9 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="total deaths" type="Label" parent="4/deaths" index="0"]
 
@@ -487,25 +533,32 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 142.0
-margin_top = -5.0
-margin_right = 182.0
-margin_bottom = 9.0
+margin_right = 12.0
+margin_bottom = 22.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.792157, 1, 1, 1 )
 text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Margin" ]
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="final" type="Node2D" parent="4" index="3"]
 
 editor/display_folded = true
+visible = false
+position = Vector2( 212, -9 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="score" type="Label" parent="4/final" index="0"]
 
@@ -513,16 +566,19 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 14.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.714722, 0.109375, 1 )
+text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 
