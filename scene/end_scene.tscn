@@ -36,7 +36,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="end_scene" type="Node2D"]
+[node name="end_scene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -461,7 +461,6 @@ _sections_unfolded = [ "Margin", "custom_colors", "custom_fonts" ]
 
 [node name="4" type="Node2D" parent="." index="6"]
 
-editor/display_folded = true
 visible = false
 position = Vector2( 168, 235 )
 _sections_unfolded = [ "Transform" ]
