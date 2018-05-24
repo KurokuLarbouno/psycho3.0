@@ -38,6 +38,7 @@ func _process(delta):
 	if(state == 0): #main menu
 		main_button_select(delta)
 		main_button_pressed()
+		main_ui_update()
 		pressdelay = 0
 	elif(state == 1): #body menu
 		pressdelay += 1
@@ -322,4 +323,8 @@ func upgrade_points_update():
 	$menu/guns/reloadSpeed/points.frame = upgrade_stats[2]
 	$menu/guns/fireSpeed/points.frame = upgrade_stats[3]
 	$menu/guns/bulletSpeed/points.frame = upgrade_stats[4]
+	pass
+func main_ui_update():
+	$menu/UI/kills.text = str(score[player_num][0])
+	$menu/UI/deaths.text = str(score[player_num][1])
 	pass
