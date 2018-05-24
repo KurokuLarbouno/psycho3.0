@@ -9,9 +9,13 @@ var p3_deaths = 0
 var p4_kills = 0
 var p4_deaths = 0
 
+var no_kills = 0
+var no_deaths = 0
+
 var player_data = []
 var final_score = []
 var t = 0
+var backt = 0
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
@@ -23,11 +27,13 @@ func _process(delta):
 	# Update game logic here.
 	show_player()
 	update_score(delta)
+	back_to_main(delta)
 	pass
 
 func update_score(delta):
+	
 	t += delta
-	if(t > 1):
+	if(t > 0.3):
 		if(p1_kills < final_score[0][0]):
 			p1_kills += 1
 			get_node("1/kills").scale = Vector2(2,2)
@@ -83,5 +89,9 @@ func show_player():
 			$"4".show()
 		show = true
 	pass
-func back_to_main():
+func back_to_main(delta):
+	backt += delta
+	if(backt > 10):
+		if(Input.is_joy_button_pressed(0, 0)):
+			get_node("../../../..")._load_scene("res://scene/lobby.tscn")
 	pass

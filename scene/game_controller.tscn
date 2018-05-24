@@ -131,6 +131,7 @@ stretch_mode = 0
 
 [node name="Camera2D" parent="." index="3" instance=ExtResource( 5 )]
 
+editor/display_folded = true
 position = Vector2( 243, 181 )
 scale = Vector2( 1, 1 )
 zoom = Vector2( 0.5, 0.5 )
