@@ -14,6 +14,8 @@ var score = [] #killpoints; deadpoints
 var upgrade_total = [0,0,0,0,0]
 var player_num
 var pressdelay
+
+var upgrade_stats = [0,0,0,0,0]
 #升級數值
 var health_upgrade = 1
 var speed_upgrade = 300
@@ -32,9 +34,11 @@ func _ready():
 	pass
 
 func _process(delta):
+	upgrade_points_update()
 	if(state == 0): #main menu
 		main_button_select(delta)
 		main_button_pressed()
+		main_ui_update()
 		pressdelay = 0
 	elif(state == 1): #body menu
 		pressdelay += 1
@@ -106,6 +110,7 @@ func main_button_pressed():
 					$menu/UI.hide()
 					$menu/ready.show()
 					player_ready()
+					state = 3
 	pass
 	#body button
 func body_button_select(delta):
@@ -138,15 +143,17 @@ func body_button_pressed():
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
 				buttons[i].button_pressed()
-				if((buttons[i] == $menu/body/health) and (upgrade_total[0] < 5)):
+				if((buttons[i] == $menu/body/health) and (upgrade_stats[0] < 5)):
 					score[player_num][0] -= 1
 					stats[player_num][0] += health_upgrade
 					upgrade_total[0] += 1
+					upgrade_stats[0] += 1
 					body_stats_update()
-				elif((buttons[i] == $menu/body/speed) and (upgrade_total[1] < 5)):
+				elif((buttons[i] == $menu/body/speed) and (upgrade_stats[1] < 5)):
 					score[player_num][0] -= 1
 					stats[player_num][1] += speed_upgrade
 					upgrade_total[1] += 1
+					upgrade_stats[1] += 1
 					body_stats_update()
 	pass
 func body_stats_update():
@@ -205,20 +212,23 @@ func gun_button_pressed():
 		for i in range(buttons.size()):
 			if(buttons[i].button_mode == 1):
 				buttons[i].button_pressed()
-				if((buttons[i] == $menu/guns/reloadSpeed) and (upgrade_total[2] < 5)):
+				if((buttons[i] == $menu/guns/reloadSpeed) and (upgrade_stats[2] < 5)):
 					score[player_num][1] -= 1
 					stats[player_num][2] += reload_upgrade
 					upgrade_total[2] += 1
+					upgrade_stats[2] += 1
 					gun_stats_update()
-				elif((buttons[i] == $menu/guns/fireSpeed) and (upgrade_total[3] < 5)):
+				elif((buttons[i] == $menu/guns/fireSpeed) and (upgrade_stats[3] < 5)):
 					score[player_num][1] -= 1
 					stats[player_num][3] += fire_upgrade
 					upgrade_total[3] += 1
+					upgrade_stats[3] += 1
 					gun_stats_update()
-				elif((buttons[i] == $menu/guns/bulletSpeed) and (upgrade_total[4] < 5)):
+				elif((buttons[i] == $menu/guns/bulletSpeed) and (upgrade_stats[4] < 5)):
 					score[player_num][1] -= 1
 					stats[player_num][4] += bullet_upgrade
 					upgrade_total[4] += 1
+					upgrade_stats[4] += 1
 					gun_stats_update()
 	pass
 func gun_stats_update():
@@ -252,6 +262,7 @@ func player_ready():
 	emit_signal("upgrade_ready")
 	get_node("../../..").player_stats[player_num] = stats[player_num]
 	get_node("../../..").player_score[player_num] = score[player_num] 
+	get_node("../../../../..").upgrade_stats[player_num] = upgrade_stats
 	pass
 	
 func menu_exit():
@@ -308,9 +319,13 @@ func button_connect():
 	$menu/guns/bulletSpeed.connect("mouse_click", self, "_mouse_click")
 	pass
 func upgrade_points_update():
-	$menu/body/health/points.frame = upgrade_total[0]
-	$menu/body/speed/points.frame = upgrade_total[1]
-	$menu/guns/reloadSpeed/points.frame = upgrade_total[2]
-	$menu/guns/fireSpeed/points.frame = upgrade_total[3]
-	$menu/guns/bulletSpeed/points.frame = upgrade_total[4]
+	$menu/body/health/points.frame = upgrade_stats[0]
+	$menu/body/speed/points.frame = upgrade_stats[1]
+	$menu/guns/reloadSpeed/points.frame = upgrade_stats[2]
+	$menu/guns/fireSpeed/points.frame = upgrade_stats[3]
+	$menu/guns/bulletSpeed/points.frame = upgrade_stats[4]
+	pass
+func main_ui_update():
+	$menu/UI/kills.text = str(score[player_num][0])
+	$menu/UI/deaths.text = str(score[player_num][1])
 	pass

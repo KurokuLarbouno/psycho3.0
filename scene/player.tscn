@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://image/Character/shadow.png" type="Texture" id=2]
 [ext_resource path="res://image/Character/ctest1_walk.png" type="Texture" id=3]
-[ext_resource path="res://image/Character/character_gun.png" type="Texture" id=4]
+[ext_resource path="res://image/Character/ctest1_sword.png" type="Texture" id=4]
 [ext_resource path="res://image/arrow.png" type="Texture" id=5]
 [ext_resource path="res://image/light.png" type="Texture" id=6]
 [ext_resource path="res://scene/fire.tscn" type="PackedScene" id=7]
@@ -24,7 +24,7 @@ extents = Vector2( 5.43563, 17.0168 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="player" type="KinematicBody2D" index="0" groups=[
+[node name="player" type="KinematicBody2D" groups=[
 "sprite",
 "player_group",
 ]]
@@ -48,7 +48,6 @@ _sections_unfolded = [ "Animation", "Z Index" ]
 
 [node name="hand" type="Node2D" parent="." index="2"]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
@@ -56,6 +55,7 @@ __meta__ = {
 
 [node name="gun" type="Sprite" parent="hand" index="0"]
 
+rotation = -0.261799
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 

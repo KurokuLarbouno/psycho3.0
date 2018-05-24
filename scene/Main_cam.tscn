@@ -172,7 +172,7 @@ shader = SubResource( 6 )
 shader_param/AMT = null
 shader_param/SPEED = null
 
-[node name="Camera2D" type="Camera2D" index="0"]
+[node name="Camera2D" type="Camera2D"]
 
 position = Vector2( 100.042, -16.0621 )
 scale = Vector2( 9.02508, 6.3282 )

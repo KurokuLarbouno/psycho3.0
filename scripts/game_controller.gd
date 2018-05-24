@@ -16,16 +16,17 @@ var game
 var upgrade = "res://scene/upgrade.tscn"
 var cTime = 0 #開始遊戲前倒數
 var rTime = 0 #回合時間
-var rTime_total = 30
+var rTime_total = 3
 var round_count = 0
-var total_round = 3
+var total_round = 1
 
 var loadingState = 0 #check state for timer 0:Init 1:loaded 
 var gameState = 0
 var player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
-var player_stats = [[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200],[20, 5000, 1, 0.2, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
+var player_stats = [[10, 5000, 1, 0.5, 200],[10, 5000, 1, 0.5, 200],[10, 5000, 1, 0.5, 200],[10, 5000, 1, 0.5, 200]] #血量、移動、充彈速度、攻擊速度、子彈速度
 var player_score = [[0,0],[0,0],[0,0],[0,0]] # killpoints / deadpoints
-var final_score = [[0,0],[0,0],[0,0],[0,0]]
+var final_score = [[10,5],[0,0],[0,0],[0,0]]
+var upgrade_stats = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
 #陷阱隨機參數設定
 const Trap_spwan_num = 6# 陷阱生成點數量
 const Trap_type = 6# 擺上去的陷阱種類數
@@ -202,6 +203,8 @@ func upgrade():
 	if($game_scene.get_children().size() > 0):
 		$game_scene/upgrade.player_stats = player_stats
 		$game_scene/upgrade.player_score = player_score
+	print("set upgrade stats")
+	$game_scene/upgrade.upgrade_stats = upgrade_stats
 	$game_scene/upgrade.connect("next_round", self, "_next_round")
 	pass
 var next_round = false
@@ -249,6 +252,8 @@ func ctrl_connect_trap_effect(obj):
 func end_scene():
 	$UI/playerUI.hide()
 	_load_game(ending)
+	$game_scene/end_scene.player_data = player_data
+	$game_scene/end_scene.final_score = final_score
 	pass
 func _hurt():
 	$Camera2D/Anim_Effect.play("shake")
