@@ -1295,7 +1295,7 @@ stretch_mode = 0
 
 stream = ExtResource( 25 )
 volume_db = 0.0
-autoplay = false
+autoplay = true
 mix_target = 0
 bus = "Master"
 

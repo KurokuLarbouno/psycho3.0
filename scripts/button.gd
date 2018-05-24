@@ -36,6 +36,7 @@ func deselect_button():
 func button_pressed():
 	$image2.set_texture(pressed)
 	$image.set_texture(pressed)
+	$sound.play()
 	$AnimationPlayer.play("fade_out")
 	button_mode = 2
 	pass
