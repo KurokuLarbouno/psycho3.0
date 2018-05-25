@@ -137,10 +137,10 @@ func play_anim():
 		angle = -atan2(Input.get_joy_axis(input_device, JOY_AXIS_2), Input.get_joy_axis(input_device,JOY_AXIS_3))*180/PI
 	if (new_anim != anim):
 		anim = new_anim
-		$animation.play(anim)
+		$animation2.play(anim)
 	if (new_shot_anim != shot_anim):
 		shot_anim = new_anim
-		$animation.play(shot_anim)
+		$animation2.play(shot_anim)
 	if(fire_anim):
 		$animation.play("gun_attack")
 		$sound.playing = true
@@ -351,7 +351,7 @@ func int_stats():
 	health = player_stats[player_num][0]
 	MOTION_SPEED = player_stats[player_num][1]
 	$Weapon.CHARGE_TIME = player_stats[player_num][2]
-	$Weapon.SHOT_TIME = player_stats[player_num][3]
+	$Weapon.PRESS_SHOT_TIME = player_stats[player_num][3]
 	$Weapon.BULLET_SPEED = player_stats[player_num][4]
 	pass
 func dont_hurt(delta):

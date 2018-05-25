@@ -41,15 +41,15 @@ func _process(delta):
 		main_ui_update()
 		pressdelay = 0
 	elif(state == 1): #body menu
-		pressdelay += 1
+		pressdelay += delta
 		body_button_select(delta)
-		if(pressdelay > 20):
+		if(pressdelay > 1):
 			body_button_pressed()
 		body_exit()
 	elif(state == 2): #gun menu
-		pressdelay += 1
+		pressdelay += delta
 		gun_button_select(delta)
-		if(pressdelay > 20):
+		if(pressdelay > 1):
 			gun_button_pressed()
 		gun_exit()
 	elif(state == 3):#ready

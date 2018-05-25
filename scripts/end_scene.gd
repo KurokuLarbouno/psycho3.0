@@ -147,5 +147,6 @@ func back_to_main(delta):
 	backt += delta
 	if(backt > 10):
 		if(Input.is_joy_button_pressed(0, 0)):
+			get_node("../../../..").player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 			get_node("../../../..")._load_scene("res://scene/lobby.tscn")
 	pass
