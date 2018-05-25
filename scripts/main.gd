@@ -11,6 +11,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	quick_break()
 	pass
 
 #載入Scene
@@ -100,8 +101,8 @@ func _set_player_character(player_num, player_character):
 	pass
 func quick_break():
 	if(Input.is_action_just_pressed("break")):
+		player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 		_load_scene("res://scene/lobby.tscn")
-	player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 	pass
 
 	
