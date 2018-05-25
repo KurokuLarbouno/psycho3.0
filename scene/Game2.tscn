@@ -94,8 +94,6 @@ position = Vector2( -975.205, -71.9591 )
 
 [node name="Player_Point" type="Node" parent="Roof" index="4"]
 
-editor/display_folded = true
-
 [node name="Position1" type="Position2D" parent="Roof/Player_Point" index="0"]
 
 self_modulate = Color( 1, 0, 0, 1 )
@@ -114,7 +112,7 @@ self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 44.0737, 230.014 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Position0" type="Position2D" parent="Roof/Player_Point" index="3"]
+[node name="Position4" type="Position2D" parent="Roof/Player_Point" index="3"]
 
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 31.0776, 64.3434 )

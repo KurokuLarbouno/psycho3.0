@@ -6,7 +6,7 @@
 [ext_resource path="res://sound/Sad_Past.ogg" type="AudioStream" id=4]
 [ext_resource path="res://scene/Main_cam.tscn" type="PackedScene" id=5]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -58,8 +58,6 @@ position = Vector2( -975.205, -71.9591 )
 
 [node name="Player_Point" type="Node" parent="Roof" index="5"]
 
-editor/display_folded = true
-
 [node name="Position1" type="Position2D" parent="Roof/Player_Point" index="0"]
 
 self_modulate = Color( 1, 0, 0, 1 )
@@ -78,7 +76,7 @@ self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 79.912, 225.941 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Position0" type="Position2D" parent="Roof/Player_Point" index="3"]
+[node name="Position4" type="Position2D" parent="Roof/Player_Point" index="3"]
 
 self_modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 86.3258, 60.6602 )

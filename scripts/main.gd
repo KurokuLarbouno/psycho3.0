@@ -98,6 +98,11 @@ func _int_game():
 func _set_player_character(player_num, player_character):
 	player_data[player_num][2] = player_character
 	pass
-	
+func quick_break():
+	if(Input.is_action_just_pressed("break")):
+		_load_scene("res://scene/lobby.tscn")
+	player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
+	pass
+
 	
 
