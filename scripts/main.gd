@@ -103,10 +103,6 @@ func quick_break():
 	if(Input.is_action_just_pressed("break")):
 		player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
 		_load_scene("res://scene/lobby.tscn")
-<<<<<<< HEAD
-=======
-		player_data = [[0, 0, 0],[0, 0, 0],[0, 0, 0],[0, 0, 0]]
->>>>>>> d30dc47fa4c5261be03bf4131ec552a66569d281
 	pass
 
 	
