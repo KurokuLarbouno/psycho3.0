@@ -8,7 +8,7 @@ export(Texture)  var focus = load("res://image/StartEnd/host.png")
 export var is_ready = false
 var button_mode = 0 # 0 = normal; 2 = pressed; 1 = focus
 var t = 0
-var delay = 0.5
+var delay = 0.3
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
